@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1807649965495104302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767647709606753379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!1001 &2768320593882038167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_Name
+      value: PopEffectBIG Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4255828
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 63.363537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 25351569104407985, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 25351569104407985, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787366768776532639, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299018302602923904, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: ShakeMagnitude
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299018302602923904, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: ShakeFadeOut
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+--- !u!1 &2767647709606753379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387,
+    type: 3}
+  m_PrefabInstance: {fileID: 2768320593882038167}
+  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: a2cc13037dedc59e4aace9e4a894629c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: explosion-5_0
+  - first:
+      213: 21300002
+    second: explosion-5_1
+  - first:
+      213: 21300004
+    second: explosion-5_2
+  - first:
+      213: 21300006
+    second: explosion-5_3
+  - first:
+      213: 21300008
+    second: explosion-5_4
+  - first:
+      213: 21300010
+    second: explosion-5_5
+  - first:
+      213: 21300012
+    second: explosion-5_6
+  - first:
+      213: 21300014
+    second: explosion-5_7
+  - first:
+      213: 21300016
+    second: explosion-5_8
+  - first:
+      213: 21300018
+    second: explosion-5_9
+  - first:
+      213: 21300020
+    second: explosion-5_10
+  - first:
+      213: 21300022
+    second: explosion-5_11
+  - first:
+      213: 21300024
+    second: explosion-5_12
+  - first:
+      213: 21300026
+    second: explosion-5_13
+  - first:
+      213: 21300028
+    second: explosion-5_14
+  - first:
+      213: 21300030
+    second: explosion-5_15
+  - first:
+      213: 21300032
+    second: explosion-5_16
+  - first:
+      213: 21300034
+    second: explosion-5_17
+  - first:
+      213: 21300036
+    second: explosion-5_18
+  - first:
+      213: 21300038
+    second: explosion-5_19
+  - first:
+      213: 21300040
+    second: explosion-5_20
+  - first:
+      213: 21300042
+    second: explosion-5_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 4
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 31
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: explosion-5_0
+      rect:
+        serializedVersion: 2
+        x: 33.07612
+        y: 32.07612
+        width: 11.84776
+        height: 23.84776
+      alignment: 9
+      pivot: {x: 1.133031, y: 0.6048317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.000002, y: 6.000001}
+        - {x: -6.000002, y: 8.000001}
+        - {x: -6.000002, y: 10}
+        - {x: -4.000002, y: 12}
+        - {x: -1.000002, y: 12}
+        - {x: 0.9999981, y: 10}
+        - {x: 0.9999981, y: 8.000001}
+        - {x: -1.000002, y: 6.000001}
+      - - {x: 0.9999981, y: -12}
+        - {x: -1.000002, y: -9.999999}
+        - {x: -1.000002, y: -7.999999}
+        - {x: 1.999998, y: -4.999999}
+        - {x: 3.999998, y: -4.999999}
+        - {x: 5.999998, y: -6.999999}
+        - {x: 5.999998, y: -9.999999}
+        - {x: 3.999998, y: -12}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa53df9eb78a74438cdaddeb694c10e
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_1
+      rect:
+        serializedVersion: 2
+        x: 111.0761
+        y: 31.07612
+        width: 28.84776
+        height: 22.84776
+      alignment: 9
+      pivot: {x: 0.9853065, y: 0.675072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: -7.499998}
+        - {x: 7.500005, y: -4.499998}
+        - {x: 7.500005, y: -2.499998}
+        - {x: 10.5, y: 0.5000019}
+        - {x: 12.5, y: 0.5000019}
+        - {x: 14.5, y: -1.499998}
+        - {x: 14.5, y: -5.499998}
+        - {x: 12.5, y: -7.499998}
+      - - {x: -12.5, y: -11.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -14.5, y: -5.499998}
+        - {x: -7.499995, y: -5.499998}
+        - {x: -7.499995, y: -9.499998}
+        - {x: -9.499995, y: -11.5}
+      - - {x: 5.500005, y: 5.500002}
+        - {x: 3.500005, y: 7.500002}
+        - {x: 3.500005, y: 9.500002}
+        - {x: 5.500005, y: 11.5}
+        - {x: 7.500005, y: 11.5}
+        - {x: 9.500005, y: 9.500002}
+        - {x: 9.500005, y: 7.500002}
+        - {x: 7.500005, y: 5.500002}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b845dea85db4b4bbeb02374e487f27
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_2
+      rect:
+        serializedVersion: 2
+        x: 208.0761
+        y: 33.07612
+        width: 26.84776
+        height: 19.84776
+      alignment: 9
+      pivot: {x: 0.9097176, y: 0.6763424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.499997, y: -3}
+        - {x: 6.499997, y: -1}
+        - {x: 6.499997, y: 1}
+        - {x: 8.499997, y: 3}
+        - {x: 11.5, y: 3}
+        - {x: 13.5, y: 1}
+        - {x: 13.5, y: -1}
+        - {x: 11.5, y: -3}
+      - - {x: -11.5, y: -10}
+        - {x: -13.5, y: -9}
+        - {x: -13.5, y: -4}
+        - {x: -8.500003, y: -4}
+        - {x: -7.500003, y: -5}
+        - {x: -7.500003, y: -8}
+        - {x: -8.500003, y: -10}
+      - - {x: 4.499997, y: 4}
+        - {x: 2.499997, y: 6}
+        - {x: 2.499997, y: 8}
+        - {x: 4.499997, y: 10}
+        - {x: 6.499997, y: 10}
+        - {x: 8.499997, y: 8}
+        - {x: 8.499997, y: 6}
+        - {x: 6.499997, y: 4}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a25d15efd138f4bb2148a41ba44715
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_3
+      rect:
+        serializedVersion: 2
+        x: 304.0761
+        y: 34.07612
+        width: 24.84776
+        height: 17.84776
+      alignment: 9
+      pivot: {x: 0.8622062, y: 0.696103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.499988, y: 0.9999981}
+        - {x: -9.499988, y: 0.9999981}
+        - {x: -9.499988, y: 6.999998}
+        - {x: -7.499988, y: 7.999998}
+        - {x: -3.499988, y: 7.999998}
+        - {x: -2.499988, y: 5.999998}
+        - {x: -2.499988, y: 2.999998}
+      - - {x: -5.499988, y: -9.000002}
+        - {x: -12.49999, y: -9.000002}
+        - {x: -12.49999, y: -3.000002}
+        - {x: -6.499988, y: -3.000002}
+        - {x: -5.499988, y: -5.000002}
+      - - {x: 6.500012, y: -1.000002}
+        - {x: 2.500012, y: 2.999998}
+        - {x: 2.500012, y: 7.999998}
+        - {x: 4.500012, y: 8.999998}
+        - {x: 9.500012, y: 8.999998}
+        - {x: 12.50001, y: 5.999998}
+        - {x: 12.50001, y: 0.9999981}
+        - {x: 11.50001, y: -1.000002}
+      physicsShape:
+      - - {x: -6.499988, y: 1.999998}
+        - {x: -3.499987, y: 2.999998}
+        - {x: -3.499987, y: 5.999998}
+        - {x: -6.499988, y: 6.999998}
+        - {x: -8.499988, y: 4.999998}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23a9c5e7a1578a4db03e73d04bf2c85
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_4
+      rect:
+        serializedVersion: 2
+        x: 402.0761
+        y: 36.07612
+        width: 30.84776
+        height: 16.84776
+      alignment: 9
+      pivot: {x: 0.5324177, y: 0.6187103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.50001, y: 0.5000019}
+        - {x: 9.500014, y: 2.500002}
+        - {x: 9.500014, y: 4.500002}
+        - {x: 11.50001, y: 6.500002}
+        - {x: 13.50001, y: 6.500002}
+        - {x: 15.50001, y: 4.500002}
+        - {x: 15.50001, y: 2.500002}
+        - {x: 13.50001, y: 0.5000019}
+      - - {x: -11.49999, y: -1.499998}
+        - {x: -13.49999, y: 0.5000019}
+        - {x: -13.49999, y: 3.500002}
+        - {x: -11.49999, y: 5.500002}
+        - {x: -8.499986, y: 5.500002}
+        - {x: -6.499986, y: 3.500002}
+        - {x: -6.499986, y: 0.5000019}
+        - {x: -8.499986, y: -1.499998}
+        - {x: -9.499986, y: -1.499998}
+        - {x: -8.499986, y: -3.499998}
+        - {x: -8.499986, y: -8.499998}
+        - {x: -15.49999, y: -8.499998}
+        - {x: -15.49999, y: -2.499998}
+        - {x: -12.49999, y: -1.499998}
+      - - {x: -0.4999857, y: -3.499998}
+        - {x: -4.499986, y: 0.5000019}
+        - {x: -4.499986, y: 4.500002}
+        - {x: -0.4999857, y: 8.500002}
+        - {x: 3.500014, y: 8.500002}
+        - {x: 7.500014, y: 4.500002}
+        - {x: 7.500014, y: 0.5000019}
+        - {x: 3.500014, y: -3.499998}
+      physicsShape:
+      - - {x: -0.4999857, y: 7.500002}
+        - {x: -3.499986, y: 4.500002}
+        - {x: -3.499986, y: 0.5000019}
+        - {x: -0.4999857, y: -2.499998}
+        - {x: 3.500014, y: -2.499998}
+        - {x: 6.500014, y: 0.5000019}
+        - {x: 6.500014, y: 4.500002}
+        - {x: 3.500014, y: 7.500002}
+      - - {x: -10.49999, y: -0.4999981}
+        - {x: -7.499985, y: 0.5000019}
+        - {x: -7.499985, y: 3.500002}
+        - {x: -10.49999, y: 4.500002}
+        - {x: -12.49999, y: 2.500002}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47488ee6552865458585c7b872d4962
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_5
+      rect:
+        serializedVersion: 2
+        x: 498.0761
+        y: 34.07612
+        width: 25.84776
+        height: 19.84776
+      alignment: 9
+      pivot: {x: 0.5193444, y: 0.6259589}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.00001, y: -0.9999981}
+        - {x: 0.00001049042, y: -5.999998}
+        - {x: 0.00001049042, y: -7.999998}
+        - {x: -1.99999, y: -9.999998}
+        - {x: -3.99999, y: -9.999998}
+        - {x: -5.99999, y: -7.999998}
+        - {x: -5.99999, y: -6.999998}
+        - {x: -12.99999, y: -6.999998}
+        - {x: -12.99999, y: -0.9999981}
+        - {x: -10.99999, y: 4.000002}
+        - {x: -1.99999, y: 10}
+        - {x: 7.00001, y: 10}
+        - {x: 13.00001, y: 6.000002}
+        - {x: 13.00001, y: 3.000002}
+      physicsShape:
+      - - {x: -0.9999895, y: 9.000002}
+        - {x: -4.99999, y: 5.000002}
+        - {x: -4.99999, y: 1.000002}
+        - {x: -0.9999895, y: -2.999998}
+        - {x: 3.00001, y: -2.999998}
+        - {x: 7.00001, y: 1.000002}
+        - {x: 7.00001, y: 5.000002}
+        - {x: 3.00001, y: 9.000002}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176744b2707ca0d419914b8e8d7c83e2
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_6
+      rect:
+        serializedVersion: 2
+        x: 593.0761
+        y: 36.07612
+        width: 20.91791
+        height: 23.84776
+      alignment: 9
+      pivot: {x: 0.5461297, y: 0.437101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.464937, y: -12}
+        - {x: -10.53506, y: -12}
+        - {x: -10.53506, y: 0}
+        - {x: -0.5350628, y: 12}
+        - {x: 8.464937, y: 12}
+        - {x: 10.46494, y: 11}
+        - {x: 10.46494, y: -5}
+      physicsShape:
+      - - {x: -3.535063, y: 6}
+        - {x: -5.535063, y: 2}
+        - {x: -5.535063, y: -7}
+        - {x: -4.535063, y: -8}
+        - {x: 3.464937, y: -8}
+        - {x: 8.464937, y: -6}
+        - {x: 8.464937, y: 3}
+        - {x: 4.464937, y: 6}
+      - - {x: 5.464937, y: 6}
+        - {x: 8.464937, y: 6.999999}
+        - {x: 8.464937, y: 10}
+        - {x: 5.464937, y: 11}
+        - {x: 3.464937, y: 8.999999}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab8b41a8c1ac0645a56fcf5649b9614
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_7
+      rect:
+        serializedVersion: 2
+        x: 683.0761
+        y: 38.02675
+        width: 23.89713
+        height: 19.89713
+      alignment: 9
+      pivot: {x: 0.6035826, y: 0.4258528}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.02467, y: 3.024683}
+        - {x: -12.02467, y: 5.024683}
+        - {x: -12.02467, y: 8.024683}
+        - {x: -10.02467, y: 10.02468}
+        - {x: -7.024673, y: 10.02468}
+        - {x: -5.024673, y: 8.024683}
+        - {x: -5.024673, y: 5.024683}
+        - {x: -6.024673, y: 4.024683}
+        - {x: 3.975327, y: 9.024683}
+        - {x: 8.975327, y: 9.024683}
+        - {x: 9.975327, y: 8.024683}
+        - {x: 11.97533, y: 1.024683}
+        - {x: 11.97533, y: -5.975317}
+        - {x: 9.975327, y: -9.975317}
+        - {x: -6.024673, y: -9.975317}
+        - {x: -7.024673, y: -6.975317}
+        - {x: -7.024673, y: -4.975317}
+        - {x: -6.024673, y: 4.024683}
+        - {x: -7.024673, y: 3.024683}
+      physicsShape:
+      - - {x: -2.024673, y: 6.024683}
+        - {x: -4.024673, y: 2.024683}
+        - {x: -4.024673, y: -6.975317}
+        - {x: -1.024673, y: -8.975317}
+        - {x: 4.975327, y: -8.975317}
+        - {x: 9.975327, y: -4.975317}
+        - {x: 10.97533, y: -2.975317}
+        - {x: 10.97533, y: 1.024683}
+        - {x: 6.975327, y: 6.024683}
+      - - {x: -9.024673, y: 4.024683}
+        - {x: -6.024673, y: 5.024683}
+        - {x: -6.024673, y: 8.024683}
+        - {x: -9.024673, y: 9.024682}
+        - {x: -11.02467, y: 7.024682}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be388954ac25944aaa07b0bc9ce08aa
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_8
+      rect:
+        serializedVersion: 2
+        x: 779.0761
+        y: 38.05132
+        width: 20.89713
+        height: 17.92193
+      alignment: 9
+      pivot: {x: 0.5466728, y: 0.4714158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.524673, y: -3.012285}
+        - {x: -10.52467, y: 3.987715}
+        - {x: -10.52467, y: 8.987715}
+        - {x: 7.475327, y: 8.987715}
+        - {x: 10.47533, y: 6.987715}
+        - {x: 10.47533, y: -7.012285}
+        - {x: 4.475327, y: -9.012285}
+        - {x: -4.524673, y: -9.012285}
+      physicsShape:
+      - - {x: 6.475327, y: 7.987714}
+        - {x: -4.524673, y: 7.987714}
+        - {x: -6.524673, y: 3.987715}
+        - {x: -6.524673, y: -6.012285}
+        - {x: -3.524673, y: -8.012285}
+        - {x: 5.475327, y: -8.012285}
+        - {x: 9.475327, y: -3.012285}
+        - {x: 9.475327, y: 5.987715}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6c8cfd40a764845b9abb56f8b726f2
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_9
+      rect:
+        serializedVersion: 2
+        x: 874.0761
+        y: 37.02675
+        width: 19.89713
+        height: 19.9465
+      alignment: 9
+      pivot: {x: 0.4736307, y: 0.4749329}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.024673, y: -10}
+        - {x: -10.02467, y: -7.000001}
+        - {x: -10.02467, y: 9.999999}
+        - {x: 4.975327, y: 9.999999}
+        - {x: 9.975327, y: 4.999999}
+        - {x: 9.975327, y: -8.000001}
+        - {x: 3.975327, y: -10}
+      physicsShape:
+      - - {x: 4.975327, y: 7.999998}
+        - {x: -3.024673, y: 7.999998}
+        - {x: -8.024673, y: 5.999999}
+        - {x: -8.024673, y: -5.000001}
+        - {x: -6.024673, y: -8.000001}
+        - {x: 5.975327, y: -8.000001}
+        - {x: 8.975327, y: -3.000001}
+        - {x: 8.975327, y: 2.999999}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557e86eda1a1cfa409409121d24daeb3
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_10
+      rect:
+        serializedVersion: 2
+        x: 967.0267
+        y: 37.05132
+        width: 20.9465
+        height: 19.89737
+      alignment: 9
+      pivot: {x: 0.4522603, y: 0.474871}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.49998, y: -10}
+        - {x: -10.49998, y: -5}
+        - {x: -10.49998, y: 8}
+        - {x: -3.49998, y: 10}
+        - {x: 6.50002, y: 10}
+        - {x: 10.50002, y: 5}
+        - {x: 10.50002, y: -3}
+        - {x: 9.50002, y: -7}
+        - {x: 3.50002, y: -10}
+      physicsShape:
+      - - {x: -7.49998, y: 9}
+        - {x: -8.49998, y: 4}
+        - {x: -8.49998, y: -7}
+        - {x: -5.49998, y: -8.999999}
+        - {x: 2.50002, y: -8.999999}
+        - {x: 8.50002, y: -7}
+        - {x: 8.50002, y: 5}
+        - {x: 3.50002, y: 9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6a77417c018ac4a8096359b903fb40
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_11
+      rect:
+        serializedVersion: 2
+        x: 1060.027
+        y: 37.05132
+        width: 20.9465
+        height: 19.89737
+      alignment: 9
+      pivot: {x: 0.4522603, y: 0.474871}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.49998, y: -10}
+        - {x: -10.49998, y: -5}
+        - {x: -10.49998, y: 8}
+        - {x: -3.49998, y: 10}
+        - {x: 6.50002, y: 10}
+        - {x: 10.50002, y: 5}
+        - {x: 10.50002, y: -3}
+        - {x: 9.50002, y: -7}
+        - {x: 3.50002, y: -10}
+      physicsShape:
+      - - {x: -2.49998, y: 9}
+        - {x: -8.49998, y: 7}
+        - {x: -8.49998, y: -5}
+        - {x: -3.49998, y: -8.999999}
+        - {x: 7.500019, y: -8.999999}
+        - {x: 8.50002, y: -4}
+        - {x: 8.50002, y: 7}
+        - {x: 5.50002, y: 9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d090b7f47d29c4ea4418c78b90c551
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_12
+      rect:
+        serializedVersion: 2
+        x: 1137.076
+        y: 22.07612
+        width: 52.84776
+        height: 51.84776
+      alignment: 9
+      pivot: {x: 0.4810767, y: 0.4710691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.50005, y: -23}
+        - {x: -26.50005, y: -13}
+        - {x: -26.50005, y: 9.999998}
+        - {x: -24.50005, y: 19}
+        - {x: -18.50005, y: 26}
+        - {x: 12.49995, y: 26}
+        - {x: 26.49995, y: 22}
+        - {x: 26.49995, y: -13}
+        - {x: 14.49995, y: -26}
+        - {x: -9.500053, y: -26}
+      physicsShape:
+      - - {x: 10.49995, y: 25}
+        - {x: -13.50005, y: 25}
+        - {x: -17.50005, y: 24}
+        - {x: -25.50005, y: 8.999997}
+        - {x: -25.50005, y: -13}
+        - {x: -12.50005, y: -25}
+        - {x: 10.49995, y: -25}
+        - {x: 25.49994, y: -11}
+        - {x: 25.49994, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2afc277e6ca76a4fa99ff76179445e5
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_13
+      rect:
+        serializedVersion: 2
+        x: 1228.027
+        y: 20.07612
+        width: 56.89713
+        height: 57.84776
+      alignment: 9
+      pivot: {x: 0.4828585, y: 0.4567831}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.4753, y: -29}
+        - {x: -28.4753, y: -25}
+        - {x: -28.4753, y: 15}
+        - {x: -18.4753, y: 29}
+        - {x: 25.5247, y: 29}
+        - {x: 28.5247, y: 18}
+        - {x: 28.5247, y: -27}
+        - {x: 25.5247, y: -29}
+      physicsShape:
+      - - {x: 25.5247, y: 17}
+        - {x: 12.5247, y: 28}
+        - {x: -11.4753, y: 28}
+        - {x: -27.4753, y: 22}
+        - {x: -27.4753, y: -26}
+        - {x: -15.4753, y: -27}
+        - {x: 13.5247, y: -27}
+        - {x: 17.5247, y: -23}
+        - {x: 27.5247, y: -11}
+        - {x: 27.5247, y: 8.999998}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1657ebbb18f54e498d870069a3a0a37
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_14
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 0
+        width: 93
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: -46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: -46.5, y: 46.5}
+        - {x: 46.5, y: 46.5}
+      physicsShape:
+      - - {x: -46.5, y: 46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: 46.5, y: -46.5}
+        - {x: 46.5, y: 46.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebdb7858fac090458d7eabb6f43fd04
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_15
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 0
+        width: 93
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: -46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: -46.5, y: 46.5}
+        - {x: 46.5, y: 46.5}
+      physicsShape:
+      - - {x: -46.5, y: 46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: 46.5, y: -46.5}
+        - {x: 46.5, y: 46.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45b83305bf4f5d479ca1821a3f8a093
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_16
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 0
+        width: 93
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: -46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: -46.5, y: 46.5}
+        - {x: 46.5, y: 46.5}
+      physicsShape:
+      - - {x: -46.5, y: 46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: 46.5, y: -46.5}
+        - {x: 46.5, y: 46.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009e103a39fb8624a9d3ea21bc2fb052
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_17
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 0
+        width: 93
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.5, y: -7.5}
+        - {x: -6.5, y: -2.5}
+        - {x: -6.5, y: 3.5}
+        - {x: -1.5, y: 8.5}
+        - {x: 4.5, y: 8.5}
+        - {x: 9.5, y: 3.5}
+        - {x: 9.5, y: -2.5}
+        - {x: 4.5, y: -7.5}
+      - - {x: -46.5, y: -46.5}
+        - {x: -46.5, y: 46.5}
+        - {x: 46.5, y: 46.5}
+        - {x: 46.5, y: -46.5}
+      physicsShape:
+      - - {x: -46.5, y: 46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: 46.5, y: -46.5}
+        - {x: 46.5, y: 46.5}
+      - - {x: -6.5, y: -18.5}
+        - {x: -19.5, y: -2.5}
+        - {x: -15.5, y: 13.5}
+        - {x: -2.5, y: 22.5}
+        - {x: 17.5, y: 15.5}
+        - {x: 15.5, y: -14.5}
+      - - {x: -3.5, y: 7.5}
+        - {x: -5.5, y: 3.5}
+        - {x: -5.5, y: -5.5}
+        - {x: -4.5, y: -6.5}
+        - {x: 3.5, y: -6.5}
+        - {x: 8.499999, y: -4.5}
+        - {x: 8.499999, y: 4.5}
+        - {x: 4.5, y: 7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9120e838a7d744cb42eafdde711bd5
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_18
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 0
+        width: 93
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.5, y: -14.5}
+        - {x: 25.5, y: -0.5}
+        - {x: 25.5, y: -7.5}
+        - {x: -20.5, y: -7.5}
+        - {x: -21.5, y: -5.5}
+        - {x: -21.5, y: 2.5}
+        - {x: -19.5, y: 8.5}
+        - {x: 17.5, y: 8.5}
+        - {x: -6.5, y: 36.5}
+        - {x: -36.5, y: 6.5}
+        - {x: -19.5, y: -32.5}
+      physicsShape:
+      - - {x: -46.5, y: 46.5}
+        - {x: -46.5, y: -46.5}
+        - {x: 46.5, y: -46.5}
+        - {x: 46.5, y: 46.5}
+      - - {x: -12.5, y: -38.5}
+        - {x: -29.5, y: -26.5}
+        - {x: -37.5, y: -7.5}
+        - {x: -36.5, y: 13.5}
+        - {x: -21.5, y: 31.5}
+        - {x: -11.5, y: 35.5}
+        - {x: 25.5, y: 30.5}
+        - {x: 39.5, y: 7.5}
+        - {x: 39.5, y: -7.5}
+        - {x: 33.5, y: -23.5}
+        - {x: 6.5, y: -39.5}
+      - - {x: 5.5, y: 7.5}
+        - {x: -5.5, y: 7.5}
+        - {x: -15.5, y: 0.5}
+        - {x: -15.5, y: -1.5}
+        - {x: -14.5, y: -4.5}
+        - {x: -3.5, y: -5.5}
+        - {x: -0.5, y: -6.5}
+        - {x: 7.5, y: -6.5}
+        - {x: 18.5, y: -3.5}
+        - {x: 20.5, y: -1.5}
+        - {x: 19.5, y: 2.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3dac49dddafb7243b75fbf55470673c
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_19
+      rect:
+        serializedVersion: 2
+        x: 1767
+        y: 0
+        width: 76.92388
+        height: 93
+      alignment: 9
+      pivot: {x: 0.6044937, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.461941, y: -7.5}
+        - {x: -19.46194, y: -4.5}
+        - {x: -19.46194, y: 8.5}
+        - {x: 35.53806, y: 8.5}
+        - {x: 38.53806, y: 4.5}
+        - {x: 38.53806, y: -1.5}
+        - {x: 36.53806, y: -4.5}
+        - {x: 28.53806, y: -7.5}
+      - - {x: -33.46194, y: -46.5}
+        - {x: -38.46194, y: -46.5}
+        - {x: -38.46194, y: 46.5}
+        - {x: -33.46194, y: 46.5}
+      physicsShape:
+      - - {x: -35.46194, y: -46.5}
+        - {x: -35.46194, y: 46.5}
+        - {x: -38.46194, y: 46.5}
+        - {x: -38.46194, y: -46.5}
+      - - {x: 6.538059, y: 7.5}
+        - {x: 4.538059, y: 5.5}
+        - {x: 3.538059, y: 2.5}
+        - {x: 3.538059, y: -4.5}
+        - {x: 6.538059, y: -6.5}
+        - {x: 10.53806, y: -6.5}
+        - {x: 16.53806, y: -4.5}
+        - {x: 16.53806, y: 3.5}
+        - {x: 11.53806, y: 7.5}
+      - - {x: -16.46194, y: -1.5}
+        - {x: -13.46194, y: -0.5}
+        - {x: -13.46194, y: 2.5}
+        - {x: -16.46194, y: 3.5}
+        - {x: -18.46194, y: 1.5}
+      - - {x: 34.53806, y: -1.5}
+        - {x: 37.53806, y: -0.5}
+        - {x: 37.53806, y: 2.5}
+        - {x: 34.53806, y: 3.5}
+        - {x: 32.53806, y: 1.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb96e9d709e07848a6c0f18dc6244c8
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_20
+      rect:
+        serializedVersion: 2
+        x: 1874.076
+        y: 40.07612
+        width: 66.84776
+        height: 13.89541
+      alignment: 9
+      pivot: {x: 0.4850398, y: 0.462302}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.50005, y: -6.023829}
+        - {x: -33.50005, y: -2.023829}
+        - {x: -33.50005, y: 1.976171}
+        - {x: -29.50005, y: 5.976171}
+        - {x: -14.50005, y: 6.976171}
+        - {x: 23.49995, y: 6.976171}
+        - {x: 32.49995, y: 4.976171}
+        - {x: 33.49995, y: 3.976171}
+        - {x: 33.49995, y: -4.023829}
+        - {x: 22.49995, y: -7.023829}
+        - {x: -21.50005, y: -7.023829}
+      physicsShape:
+      - - {x: 0.4999466, y: 5.976171}
+        - {x: -4.500053, y: 1.976171}
+        - {x: -4.500053, y: -4.023829}
+        - {x: -1.500053, y: -6.023829}
+        - {x: 1.499947, y: -6.023829}
+        - {x: 6.499947, y: -2.023829}
+        - {x: 6.499947, y: 1.976171}
+        - {x: 4.499947, y: 4.976171}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb4dc10e37a12345a8edfabe03c02c4
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion-5_21
+      rect:
+        serializedVersion: 2
+        x: 1969.076
+        y: 41.07612
+        width: 64.84776
+        height: 12.84776
+      alignment: 9
+      pivot: {x: 0.4691577, y: 0.4221654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.49995, y: -4.5}
+        - {x: 16.49995, y: -0.5}
+        - {x: 16.49995, y: 3.5}
+        - {x: 17.49995, y: 5.5}
+        - {x: 26.49995, y: 5.5}
+        - {x: 32.49995, y: 2.5}
+        - {x: 32.49995, y: -1.5}
+        - {x: 30.49995, y: -4.5}
+      - - {x: -31.50005, y: -4.5}
+        - {x: -32.50005, y: -1.5}
+        - {x: -32.50005, y: 1.5}
+        - {x: -31.50005, y: 4.5}
+        - {x: -24.50005, y: 4.5}
+        - {x: -24.50005, y: -3.5}
+        - {x: -26.50005, y: -4.5}
+      - - {x: -20.50005, y: -5.5}
+        - {x: -21.50005, y: -3.5}
+        - {x: -21.50005, y: 0.5}
+        - {x: -14.50005, y: 0.5}
+        - {x: -14.50005, y: -5.5}
+      - - {x: -1.500053, y: -6.5}
+        - {x: -5.500053, y: -4.5}
+        - {x: -5.500053, y: 1.5}
+        - {x: -4.500053, y: 6.5}
+        - {x: 9.499947, y: 6.5}
+        - {x: 10.49995, y: 3.5}
+        - {x: 10.49995, y: 1.5}
+        - {x: 1.499947, y: -6.5}
+      physicsShape:
+      - - {x: -4.500053, y: 2.5}
+        - {x: -4.500053, y: -5.5}
+        - {x: 1.499947, y: -5.5}
+        - {x: 4.499947, y: -1.5}
+        - {x: 4.499947, y: 0.5}
+        - {x: 0.4999466, y: 4.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b020f97e933f264bb896c1415f69482
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
