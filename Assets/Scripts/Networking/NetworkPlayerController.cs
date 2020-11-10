@@ -54,7 +54,7 @@ public class NetworkPlayerController : NetworkBehaviour
     public float coolDownPeriod;//cooldown val for weapons
 
     public int weapon;//weapon number
-
+    
     public GameObject attack;//actual weapon prefab
 
     private float attackVelo;//velocity of weapon
@@ -194,7 +194,8 @@ public class NetworkPlayerController : NetworkBehaviour
 
         if (weapon >= 1 && weapon <= 14)
         {
-            attack = weaponsList[weapon - 1];
+            //attack = weaponsList[weapon - 1];
+            CmdSetAttack(weapon);
 
             attackVelo = weaponsList[weapon - 1].GetComponent<projectileController>().attackVelo;
             ManaCost = weaponsList[weapon - 1].GetComponent<projectileController>().ManaCost;
@@ -249,8 +250,10 @@ public class NetworkPlayerController : NetworkBehaviour
             {
                 WeaponUI.ScaleDown(coolDownPeriod);
 
-                clone = Instantiate(attack, transform.position, transform.rotation);
-                NetworkServer.Spawn(clone);
+                //clone = Instantiate(attack, transform.position, transform.rotation);
+                //NetworkServer.Spawn(clone, connectionToClient);
+                CmdServerSpawnProjectile(transform.position, transform.rotation);
+
                 NGPL.CmdSetMana(NGPL.currentMana - ManaCost);
                 //NGPL.CmdSetHealth(NGPL.currentHealth - ManaCost);
                 charges = 0;
@@ -331,8 +334,8 @@ public class NetworkPlayerController : NetworkBehaviour
         {
             redFlash.SetActive(true);
         }
-        clone2 = Instantiate(bloodPuff, transform.position, transform.rotation);
-        NetworkServer.Spawn(bloodPuff);
+        //clone2 = Instantiate(bloodPuff, transform.position, transform.rotation);
+        CmdServerSpawnBloodPuff(transform.position);
         NGPL.CmdSetHealth(NGPL.currentHealth - amount);
         if (NGPL.currentHealth <= 0f && !NetworkPlayerController.isDead)
         {
@@ -482,9 +485,10 @@ public class NetworkPlayerController : NetworkBehaviour
                 anim.SetTrigger("JumpTrigger");
                 StartCoroutine(JumpStretch());
                 Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
-                clone2 = Instantiate(gasPuff, GasPos, transform.rotation);
+                //clone2 = Instantiate(gasPuff, GasPos, transform.rotation);
+                
+                CmdServerSpawnGasPuff(GasPos);
 
-                NetworkServer.Spawn(clone2);
                 inAir = true;
             }
             else if (inAir)
@@ -493,9 +497,10 @@ public class NetworkPlayerController : NetworkBehaviour
                 anim.SetTrigger("JumpTrigger");
                 StartCoroutine(JumpStretch());
                 Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
-                clone2 = Instantiate(gasPuff, GasPos, transform.rotation);
+                //clone2 = Instantiate(gasPuff, GasPos, transform.rotation);
+                
+                CmdServerSpawnGasPuff(GasPos);
 
-                NetworkServer.Spawn(clone2);
                 inAir = false;
             }
         }
@@ -611,9 +616,26 @@ public class NetworkPlayerController : NetworkBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     [Command]
-    public void CmdServerSpawnObj(GameObject obj)
+    public void CmdServerSpawnGasPuff(Vector3 pos)
     {
-        NetworkServer.Spawn(obj);
+        clone2 = Instantiate(gasPuff, pos, transform.rotation);
+        NetworkServer.Spawn(clone2);
     }
-
+    [Command]
+    public void CmdServerSpawnBloodPuff(Vector3 pos)
+    {
+        clone2 = Instantiate(bloodPuff, pos, transform.rotation);
+        NetworkServer.Spawn(clone2);
+    }
+    [Command]
+    public void CmdServerSpawnProjectile(Vector3 pos, Quaternion rot)
+    {
+        clone = Instantiate(attack, pos, rot);
+        NetworkServer.Spawn(clone, connectionToClient);
+    }
+    [Command]
+    public void CmdSetAttack(int weapnum)
+    {
+        attack = weaponsList[weapnum - 1];
+    }
 }

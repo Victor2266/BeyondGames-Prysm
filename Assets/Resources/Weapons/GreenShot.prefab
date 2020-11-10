@@ -30,8 +30,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346022673198726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.343, y: 22.528, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.8380732, w: 0.5455578}
+  m_LocalPosition: {x: -7.5441523, y: 4.6923466, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087553041609837}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DMG: 10
-  Primed: 0
+  Primed: 1
   Bouncy: 0
   pop: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437,
