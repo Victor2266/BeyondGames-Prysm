@@ -270,8 +270,11 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, new Vector3(transform.position.x, transform.position.y, 0f), base.transform.rotation);
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
+
+        clone = Instantiate<GameObject>(HealOrb, new Vector3(0f,0f,0f), base.transform.rotation);
+        clone.transform.parent = gameObject.transform;
+        clone.transform.localPosition = new Vector3(0,- 0.4f, 0f);
         anim.SetTrigger("dead");
         if (spear != null)
         {

@@ -26,16 +26,11 @@ public class Level1BossRoomSequence : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Researcher.GetComponent<Level1MiniBossModifiedGoblin>().isDead == true)
+        if (Researcher.GetComponent<Level1MiniBossModifiedGoblin>().isDead == true && !FinishedSequence)
         {
             FinishedSequence = true;
             ShowText("What have you done . . .", 2f, Color.red, 3f, 0.05f);
-        }
-        if (FinishedSequence)
-        {
-            Boss1.SetActive(true);
-            BossRoomRange.SetActive(true);
-            gameObject.SetActive(false);
+            StartCoroutine(EndingSequence());
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -87,5 +82,13 @@ public class Level1BossRoomSequence : MonoBehaviour
         Researcher.GetComponent<Level1MiniBossModifiedGoblin>().aggression = true;
 
         Researcher.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+    }
+    IEnumerator EndingSequence()
+    {
+        yield return new WaitForSeconds(10f);
+
+        Boss1.SetActive(true);
+        BossRoomRange.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

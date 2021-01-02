@@ -1272,7 +1272,7 @@ ParticleSystem:
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 8
+        scalar: 12
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -1328,7 +1328,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 16
+      scalar: 24
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4498,7 +4498,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.9473572
           value: 1
           inSlope: 0
           outSlope: 0
