@@ -591,7 +591,7 @@ public class PlayerController : MonoBehaviour
 
                 anim.SetBool("Sliding", true);
                 cape.SetActive(false);
-                if (weapon <= 7 && weapon > 0)
+                if (weapon <= 7)
                 {
                     speedTrail.SetActive(true);
                 }

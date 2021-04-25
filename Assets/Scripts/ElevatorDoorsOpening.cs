@@ -52,6 +52,7 @@ public class ElevatorDoorsOpening : MonoBehaviour
                 rb2d.gravityScale = -1f;
                 GetComponents<BoxCollider2D>()[0].enabled = false;
                 GetComponents<BoxCollider2D>()[1].enabled = false;
+                GetComponent<DeathTimer>().enabled = true;
             }
 
         }
