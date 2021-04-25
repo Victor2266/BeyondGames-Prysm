@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
     public GameObject redFlash;
 
     public GameObject cape;
+    public GameObject speedTrail;
     public static bool isClimbing;
 
     public static int HealthBarScalingLength;
@@ -590,6 +591,10 @@ public class PlayerController : MonoBehaviour
 
                 anim.SetBool("Sliding", true);
                 cape.SetActive(false);
+                if (weapon <= 7 && weapon > 0)
+                {
+                    speedTrail.SetActive(true);
+                }
                 Flinch = true;
                 rb2d.velocity = new Vector2(rb2d.velocity.x * 3f, rb2d.velocity.y);
                 GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);
@@ -601,6 +606,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Sliding", false);
             cape.SetActive(true);
+            speedTrail.SetActive(false);
             Flinch = false;
             GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.65f);
             GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.16f);
