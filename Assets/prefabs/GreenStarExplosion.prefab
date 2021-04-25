@@ -43,7 +43,7 @@ ParticleSystem:
   m_GameObject: {fileID: 4814160854226814571}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 3
+  simulationSpeed: 2
   stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
@@ -608,7 +608,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -977,7 +977,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 100
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1043,15 +1043,15 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0.7636241
-          outSlope: 0.7636241
+          inSlope: 6.2310705
+          outSlope: 6.2310705
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.6185956
-          value: 0.4723745
+          time: 0.16038942
+          value: 0.9993978
           inSlope: -0.99999994
           outSlope: -0.99999994
           tangentMode: 0
@@ -1061,8 +1061,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -1.2385135
-          outSlope: -1.2385135
+          inSlope: -1.1903111
+          outSlope: -1.1903111
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -2695,7 +2695,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2861,7 +2861,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4990,6 +4990,11 @@ PrefabInstance:
     - target: {fileID: 4914737635596408, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
       propertyPath: m_LocalScale.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 25692368985864062, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1787366768776532639, guid: d2346535ff44b4a247a3450fb8a5c387,
         type: 3}
