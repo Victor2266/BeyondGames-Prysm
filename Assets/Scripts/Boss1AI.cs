@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Boss1AI : MonoBehaviour
 {
-    public Sprite redBOSS;
+    public GameObject redEye;
+    public Color Middle_colour;
+    public Color Final_colour;
+
     public GameObject explosion;
 
     private bool ChangedToRed = false;
+    public bool openingJaws = false;
+    private float jaw_angle;
+
+    public GameObject leftJaw;
+    public GameObject rightJaw;
+    private float jaw_speed = 0;
+
 
     private void Start()
     {
@@ -41,17 +51,34 @@ public class Boss1AI : MonoBehaviour
         else if (healthObj.health <= 60f)
         {
             speed = 6f;
-            GetComponent<SpriteRenderer>().sprite = redBOSS;
+            GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Final_colour, 0.005f);
             if (ChangedToRed == false)
             {
                 GetComponent<AudioSource>().Play();
+                redEye.SetActive(true);
                 ChangedToRed = true;
             }
         }
         else if (healthObj.health <= 120f)
         {
+            GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Middle_colour, 0.005f);
             speed = 4f;
         }
+
+        if (openingJaws)
+        {
+            jaw_angle = Mathf.SmoothDamp(leftJaw.GetComponent<Transform>().localEulerAngles.z, 15, ref jaw_speed, 0.5f);
+        }
+        else
+        {
+            jaw_angle = Mathf.SmoothDamp(leftJaw.GetComponent<Transform>().localEulerAngles.z, 75, ref jaw_speed, 0.05f);
+            if (leftJaw.GetComponent<Transform>().localEulerAngles.z > 74)
+            {
+                openingJaws = true;
+            }
+        }
+        leftJaw.GetComponent<Transform>().localEulerAngles = new Vector3(0f, 0f, jaw_angle);
+        rightJaw.GetComponent<Transform>().localEulerAngles = new Vector3(0f, 0f, -jaw_angle);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +87,7 @@ public class Boss1AI : MonoBehaviour
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f, rb2d.velocity.y * 4f);
             player.SendMessage("TakeDamage", 20);
+            openingJaws = false;
         }
         if (collision.gameObject.tag == "platform")
         {
@@ -70,6 +98,7 @@ public class Boss1AI : MonoBehaviour
     public void TakeDamage(float amount)
     {
         mobTimer++;
+        openingJaws = false;
         if (mobTimer > 10)
         {
             mobTimer -= 10;
