@@ -280,6 +280,7 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
         {
             spear.SetActive(false);
         }
+        cape.SetActive(false);
     }
     public float speed;
 
@@ -292,6 +293,8 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public GameObject spear = null;
+
+    public GameObject cape;
 
     private Animator anim;
 
