@@ -498,7 +498,6 @@ public class PlayerController : MonoBehaviour
             Upgrade(3, amount4);
         }
     }
-    
     private IEnumerator DeathDelay(float interval)
     {
         transition.SetActive(true);

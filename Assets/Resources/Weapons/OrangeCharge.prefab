@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4147611398335849960}
   - component: {fileID: -3379672762545271190}
   - component: {fileID: 6125251188877504401}
+  - component: {fileID: 6236547027484912519}
   m_Layer: 0
   m_Name: OrangeCharge
   m_TagString: Untagged
@@ -4963,6 +4964,20 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+--- !u!114 &6236547027484912519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346022673198726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f7341a2c915744b8af9b4438808414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnedObject: {fileID: 6600708287910430481, guid: c17e6234196662f4fb0e57c03a7e9518,
+    type: 3}
 --- !u!1 &1393016964297500
 GameObject:
   m_ObjectHideFlags: 0

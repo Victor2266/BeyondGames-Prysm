@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4942398385155209410}
   - component: {fileID: -6197356628176143592}
   - component: {fileID: 8270032801979872387}
+  - component: {fileID: 2723084096673714126}
   m_Layer: 0
   m_Name: Orangeshot
   m_TagString: Untagged
@@ -4941,6 +4942,20 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+--- !u!114 &2723084096673714126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346022673198726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f7341a2c915744b8af9b4438808414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnedObject: {fileID: 6600708287910430481, guid: 19ac11964c4081341b7793d29a611805,
+    type: 3}
 --- !u!1 &1393016964297500
 GameObject:
   m_ObjectHideFlags: 0
