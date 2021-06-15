@@ -5,89 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour
 {
-    private void Start()
-    {
-        pos = player.GetComponent<Transform>();
-        //this is for testing out of level ourder
-        StartingHealth = PlayerController.MaxHealth;
-        StartingMana = PlayerController.MaxMana;
-        StartingSpeed = PlayerController.speed;
-        StartingSize = PlayerController.cameraSize;
-        StartingChargeable = new int[14];
-        StartingJump = PlayerController.jumpForce;
-    }
-
-    private void Update()
-    {
-        pos = player.transform;
-        if (Input.anyKeyDown && !Input.GetMouseButton(0) && Level == 1)
-        {
-            
-        }
-        if (pos.position.y < -53f && Level == 2)
-        {
-            base.StartCoroutine(Trans());
-        }
-        if (PlayerController.isDead)
-        {
-            if (PlayerController.Lives > 0)
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + Level, LoadSceneMode.Single);
-                PlayerController.isDead = false;
-                PlayerController.Lives--;
-                PlayerController.MaxHealth = StartingHealth;
-                PlayerController.MaxMana = StartingMana;
-                PlayerController.cameraSize = StartingSize;
-                PlayerController.speed = StartingSpeed;
-                PlayerController.jumpForce = StartingJump;
-                PlayerController.Chargeable = StartingChargeable;
-                PlayerController.isClimbing = false;
-            }
-            else
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + 1, LoadSceneMode.Single);
-                PlayerController.isDead = false;
-                Level = 1;
-            }
-        }
-    }
-    public void StartSingleplayerGame()
-    {
-        base.StartCoroutine(Trans());
-        PlayerController.MaxHealth = 100;
-        PlayerController.MaxMana = 100;
-        PlayerController.cameraSize = 3f;
-        PlayerController.speed = 3f;
-        PlayerController.jumpForce = 3.8f;
-        PlayerController.Chargeable = new int[14];
-        PlayerController.isClimbing = false;
-    }
-    private IEnumerator Trans()
-    {
-        transition.SetActive(true);
-        yield return new WaitForSeconds(4f);//temp lowered
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + (Level + 1), LoadSceneMode.Single);
-        PlayerController.Lives++;
-        Level++;
-        StartingHealth = PlayerController.MaxHealth;
-        StartingMana = PlayerController.MaxMana;
-        StartingSize = PlayerController.cameraSize;
-        StartingSpeed = PlayerController.speed;
-        StartingJump = PlayerController.jumpForce;
-        StartingChargeable = PlayerController.Chargeable;
-        StartingHealth = PlayerController.MaxHealth;
-        PlayerController.isClimbing = false;
-        yield break;
-    }
-    
+    private static PlayerEntity playerEntity;
 
     public GameObject player;
 
     private Transform pos;
 
     public GameObject transition;
-
-    public static int Level = 1;
 
     public static int StartingHealth;
 
@@ -100,4 +24,148 @@ public class MySceneManager : MonoBehaviour
     public static float StartingJump;
 
     private static int[] StartingChargeable = new int[14];
+
+    public static int CheckpointHealth;
+
+    public static int CheckpointMana;
+
+    private static float CheckpointSpeed;
+
+    private static float CheckpointSize;
+
+    public static float CheckpointJump;
+
+    private static int[] CheckpointChargeable = new int[14];
+
+
+    private void Start()
+    {
+        pos = player.GetComponent<Transform>();
+        playerEntity = player.GetComponent<PlayerEntity>();
+        LoadPlayerEntity();
+
+        //this is for testing out of level ourder
+        StartingHealth = playerEntity.MaxHealth;
+        StartingMana = playerEntity.MaxMana;
+        StartingSpeed = playerEntity.speed;
+        StartingSize = playerEntity.cameraSize;
+        StartingChargeable = new int[14];
+        StartingJump = playerEntity.jumpForce;
+    }
+
+    private void Update()
+    {
+        pos = player.transform;
+        if (playerEntity.Level == 1)
+        {
+            //main menu
+        }
+        if (pos.position.y < -53f && playerEntity.Level == 2) //complete first level
+        {
+            base.StartCoroutine(TransitionNextLevel());
+        }
+
+
+
+        if (playerEntity.isDead) //Player death 
+        {
+            if (playerEntity.Lives > 0)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + playerEntity.Level, LoadSceneMode.Single);
+                playerEntity.isDead = false;
+                playerEntity.Lives--;
+                playerEntity.MaxHealth = CheckpointHealth;
+                playerEntity.MaxMana = CheckpointMana;
+                playerEntity.cameraSize = CheckpointSize;
+                playerEntity.speed = CheckpointSpeed;
+                playerEntity.jumpForce = CheckpointJump;
+                playerEntity.Chargeable = CheckpointChargeable;
+                playerEntity.isClimbing = false;
+
+                playerEntity.transform.position = playerEntity.CheckpointPos;
+                SavePlayerEntity();
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + playerEntity.Level, LoadSceneMode.Single);
+                playerEntity.isDead = false;
+                playerEntity.Lives = 3;
+                playerEntity.MaxHealth = StartingHealth;
+                playerEntity.MaxMana = StartingMana;
+                playerEntity.cameraSize = StartingSize;
+                playerEntity.speed = StartingSpeed;
+                playerEntity.jumpForce = StartingJump;
+                playerEntity.Chargeable = StartingChargeable;
+                playerEntity.isClimbing = false;
+                SavePlayerEntity();
+            }
+        }
+    }
+
+    public void StartNewSingleplayerGame()
+    {
+        playerEntity.Level = 1;
+        base.StartCoroutine(TransitionNextLevel());
+        playerEntity.MaxHealth = 100;
+        playerEntity.MaxMana = 100;
+        playerEntity.cameraSize = 3f;
+        playerEntity.speed = 3f;
+        playerEntity.jumpForce = 3.8f;
+        playerEntity.Chargeable = new int[14];
+        playerEntity.isClimbing = false;
+        SavePlayerEntity();
+    }
+    public void ContinueSingleplayerGame()
+    {
+        playerEntity = LoadPlayerEntity();
+        playerEntity.Level--;
+        base.StartCoroutine(TransitionNextLevel());
+    }
+
+    private IEnumerator TransitionNextLevel(bool checkpoint)
+    {
+        transition.SetActive(true);
+        SavePlayerEntity();
+
+        yield return new WaitForSeconds(4f);//temp lowered
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + (playerEntity.Level + 1), LoadSceneMode.Single);
+        playerEntity = LoadPlayerEntity();
+
+        playerEntity.Lives++;
+        playerEntity.Level++;
+        StartingHealth = playerEntity.MaxHealth;
+        StartingMana = playerEntity.MaxMana;
+        StartingSize = playerEntity.cameraSize;
+        StartingSpeed = playerEntity.speed;
+        StartingJump = playerEntity.jumpForce;
+        StartingChargeable = playerEntity.Chargeable;
+        StartingHealth = playerEntity.MaxHealth;
+
+        CheckpointHealth = playerEntity.MaxHealth;
+        CheckpointMana = playerEntity.MaxMana;
+        CheckpointSize = playerEntity.cameraSize;
+        CheckpointSpeed = playerEntity.speed;
+        CheckpointJump = playerEntity.jumpForce;
+        CheckpointChargeable = playerEntity.Chargeable;
+        CheckpointHealth = playerEntity.MaxHealth;
+
+        playerEntity.isClimbing = false;
+
+        if (checkpoint)
+        {
+            playerEntity.transform.position = playerEntity.CheckpointPos;
+        }
+        yield break;
+    }
+    
+    public void SaveCheckPointValues()
+    {
+        CheckpointHealth = playerEntity.MaxHealth;
+        CheckpointMana = playerEntity.MaxMana;
+        CheckpointSize = playerEntity.cameraSize;
+        CheckpointSpeed = playerEntity.speed;
+        CheckpointJump = playerEntity.jumpForce;
+        CheckpointChargeable = playerEntity.Chargeable;
+        CheckpointHealth = playerEntity.MaxHealth;
+    }
 }

@@ -120,7 +120,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void Singleplayer_startgame()
     {
-        ObjectWithSceneManager.GetComponent<MySceneManager>().StartSingleplayerGame();
+        ObjectWithSceneManager.GetComponent<MySceneManager>().StartNewSingleplayerGame();
     }
     public void Back()
     {
