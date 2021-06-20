@@ -73,8 +73,8 @@ public class PauseMenuScript : MonoBehaviour
         }
         else if (MainMenuWarning.activeSelf == true)
         {
-            PlayerController.Lives = 0;
-            PlayerController.isDead = true;
+            player.GetComponent<PlayerEntity>().Lives = 0;
+            player.GetComponent<PlayerEntity>().isDead = true;
             Resume();
 
             Cursor.visible = true;

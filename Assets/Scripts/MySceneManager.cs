@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour
 {
-    private static PlayerEntity playerEntity;
+    public PlayerEntity playerEntity;
 
     public GameObject player;
 
@@ -42,7 +42,6 @@ public class MySceneManager : MonoBehaviour
     {
         pos = player.GetComponent<Transform>();
         playerEntity = player.GetComponent<PlayerEntity>();
-        LoadPlayerEntity();
 
         //this is for testing out of level ourder
         StartingHealth = playerEntity.MaxHealth;
@@ -59,10 +58,11 @@ public class MySceneManager : MonoBehaviour
         if (playerEntity.Level == 1)
         {
             //main menu
+            return;
         }
         if (pos.position.y < -53f && playerEntity.Level == 2) //complete first level
         {
-            base.StartCoroutine(TransitionNextLevel());
+            base.StartCoroutine(TransitionNextLevel(false));
         }
 
 
@@ -83,7 +83,8 @@ public class MySceneManager : MonoBehaviour
                 playerEntity.isClimbing = false;
 
                 playerEntity.transform.position = playerEntity.CheckpointPos;
-                SavePlayerEntity();
+                SaveSystem.SavePlayerEntity(playerEntity);
+                
             }
             else
             {
@@ -97,7 +98,7 @@ public class MySceneManager : MonoBehaviour
                 playerEntity.jumpForce = StartingJump;
                 playerEntity.Chargeable = StartingChargeable;
                 playerEntity.isClimbing = false;
-                SavePlayerEntity();
+                SaveSystem.SavePlayerEntity(playerEntity);
             }
         }
     }
@@ -105,31 +106,37 @@ public class MySceneManager : MonoBehaviour
     public void StartNewSingleplayerGame()
     {
         playerEntity.Level = 1;
-        base.StartCoroutine(TransitionNextLevel());
         playerEntity.MaxHealth = 100;
         playerEntity.MaxMana = 100;
-        playerEntity.cameraSize = 3f;
+        playerEntity.cameraSize = 30f;
         playerEntity.speed = 3f;
         playerEntity.jumpForce = 3.8f;
         playerEntity.Chargeable = new int[14];
         playerEntity.isClimbing = false;
-        SavePlayerEntity();
+        SaveSystem.SavePlayerEntity(playerEntity);
+
+        base.StartCoroutine(TransitionNextLevel(false));
     }
     public void ContinueSingleplayerGame()
     {
-        playerEntity = LoadPlayerEntity();
+        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
         playerEntity.Level--;
-        base.StartCoroutine(TransitionNextLevel());
+        base.StartCoroutine(TransitionNextLevel(true));
     }
 
     private IEnumerator TransitionNextLevel(bool checkpoint)
     {
         transition.SetActive(true);
-        SavePlayerEntity();
 
-        yield return new WaitForSeconds(4f);//temp lowered
+        yield return new WaitForSeconds(2f);//temp lowered
+
+        SaveSystem.SavePlayerEntity(playerEntity);
+
+        yield return new WaitForSeconds(2f);//temp lowered
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + (playerEntity.Level + 1), LoadSceneMode.Single);
-        playerEntity = LoadPlayerEntity();
+
+        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
 
         playerEntity.Lives++;
         playerEntity.Level++;

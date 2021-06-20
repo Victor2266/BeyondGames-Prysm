@@ -63,7 +63,7 @@ public class redFlash : MonoBehaviour
         if (localPlayer != null)
         {
             player = localPlayer.gameObject;
-            player.GetComponent<PlayerController>().redFlash = gameObject;
+            player.GetComponent<PlayerEntity>().redFlash = gameObject;
         }
         //this.enabled = (localPlayer != null);
     }

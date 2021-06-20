@@ -15,9 +15,9 @@ public class HealItem : MonoBehaviour
             ShowText("+" + HealAmount, 2, Color.red);
             for (int i = HealAmount; i > 0; i--)
             {
-                if (collision.gameObject.GetComponent<PlayerController>().currentHealth < (float)PlayerController.MaxHealth)
+                if (collision.gameObject.GetComponent<PlayerEntity>().currentHealth < (float)collision.gameObject.GetComponent<PlayerEntity>().MaxHealth)
                 {
-                    collision.gameObject.GetComponent<PlayerController>().currentHealth += 1f;
+                    collision.gameObject.GetComponent<PlayerEntity>().currentHealth += 1f;
                 }
             }
         }

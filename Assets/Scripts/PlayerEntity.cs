@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System;
 public class PlayerEntity : MonoBehaviour
 {
     public int MaxMana = 100; //the mana cap for your mana, upgrades change it
@@ -106,5 +106,40 @@ public class PlayerEntity : MonoBehaviour
 
     public WeaponUI WeaponUI;
 
-    public Vector3 CheckpointPos;
+    public Vector3 CheckpointPos = Vector3.zero;
+
+    public void PlayerEntityUpdate(PlayerSaveData player)
+    {
+        MaxMana = player.MaxMana;
+        MaxHealth = player.MaxHealth;
+        cameraSize = player.cameraSize;
+
+        Level = player.Level;
+        Lives = player.Lives;
+        speed = player.speed;
+        jumpForce = player.jumpForce;
+        fallMultiplier = player.fallMultiplier;
+        lowJumpMultiplier = player.lowJumpMultiplier;
+        currentHealth = player.currentHealth;
+        currentMana = player.currentMana;
+        ManaCost = player.ManaCost;
+        isDead = player.isDead;
+        isDying = player.isDying;
+        charges = player.charges;
+        timeStamp = player.timeStamp;
+        SlideCooldown = player.SlideCooldown;
+        coolDownPeriod = player.coolDownPeriod;
+        weapon = player.weapon;
+        attackVelo = player.attackVelo;
+        rapid_fire = player.rapid_fire;
+        power_control = player.power_control;
+        inaccuracy = player.inaccuracy;
+        Chargeable = player.Chargeable;
+        isClimbing = player.isClimbing;
+        HealthBarScalingLength = player.HealthBarScalingLength;
+        customLocalPlayerCheck = player.customLocalPlayerCheck;
+        lookingLeft = player.lookingLeft;
+
+        CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
+    }
 }

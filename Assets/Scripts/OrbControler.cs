@@ -20,7 +20,7 @@ public class OrbControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Horizontal Shooting") || Input.GetButtonDown("Vertical Shooting") && playerScript.weapon < 8)
+        if (Input.GetButtonDown("Horizontal Shooting") || Input.GetButtonDown("Vertical Shooting") && Player.GetComponent<PlayerEntity>().weapon < 8)
         {
             clone = Instantiate<GameObject>(pop, transform.position, transform.rotation);
         }

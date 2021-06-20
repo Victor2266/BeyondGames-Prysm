@@ -13,10 +13,10 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetAxisRaw("Vertical") > 0f || Input.GetAxisRaw("Vertical") < 0f)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, Input.GetAxisRaw("Vertical") * PlayerController.speed);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, Input.GetAxisRaw("Vertical") * collision.gameObject.GetComponent<PlayerEntity>().speed);
                 if (!inMultiplayer)
                 {
-                    PlayerController.isClimbing = true;
+                    collision.gameObject.GetComponent<PlayerEntity>().isClimbing = true;
                 }
                 else
                 {
@@ -30,9 +30,9 @@ public class LadderScript : MonoBehaviour
             {
                 if (!inMultiplayer)
                 {
-                    if (PlayerController.isClimbing == true)
+                    if (collision.gameObject.GetComponent<PlayerEntity>().isClimbing == true)
                     {
-                        collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * PlayerController.speed, Input.GetAxisRaw("Vertical") * PlayerController.speed);
+                        collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * collision.gameObject.GetComponent<PlayerEntity>().speed, Input.GetAxisRaw("Vertical") * collision.gameObject.GetComponent<PlayerEntity>().speed);
                         collision.gameObject.GetComponent<Animator>().speed = 0;
                     }
                 }
@@ -40,7 +40,7 @@ public class LadderScript : MonoBehaviour
                 {
                     if (collision.gameObject.GetComponent<NetworkPlayerController>().isClimbing == true)
                     {
-                        collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * PlayerController.speed, Input.GetAxisRaw("Vertical") * PlayerController.speed);
+                        collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * collision.gameObject.GetComponent<PlayerEntity>().speed, Input.GetAxisRaw("Vertical") * collision.gameObject.GetComponent<PlayerEntity>().speed);
                         collision.gameObject.GetComponent<Animator>().speed = 0;
                     }
                 }
@@ -55,7 +55,7 @@ public class LadderScript : MonoBehaviour
             collision.attachedRigidbody.gravityScale = 1f;
             if (!inMultiplayer)
             {
-                PlayerController.isClimbing = false;
+                collision.gameObject.GetComponent<PlayerEntity>().isClimbing = false;
             }
             else
             {

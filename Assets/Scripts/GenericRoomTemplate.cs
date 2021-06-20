@@ -19,8 +19,8 @@ public class GenericRoomTemplate : MonoBehaviour
         {
             if (Input.GetButtonDown("Use/Interact"))
             {
-                if(PlayerController.Lives >= cost){
-                    PlayerController.Lives -= cost;
+                if(collision.gameObject.GetComponent<PlayerEntity>().Lives >= cost){
+                    collision.gameObject.GetComponent<PlayerEntity>().Lives -= cost;
                     GameObject gameObject = Instantiate(ITEM1, transform.position, transform.rotation);
                 }
                 else

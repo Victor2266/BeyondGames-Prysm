@@ -37,11 +37,11 @@ public class CameraController : MonoBehaviour
         {
             if (player.GetComponent<Rigidbody2D>().velocity.x > 0.5f)
             {
-                offsetX = PlayerController.speed / 2f;
+                offsetX = player.GetComponent<PlayerEntity>().speed / 2f;
             }
             if (player.GetComponent<Rigidbody2D>().velocity.x < -0.5f)
             {
-                offsetX = -PlayerController.speed / 2f;
+                offsetX = -player.GetComponent<PlayerEntity>().speed / 2f;
             }
         }
     }

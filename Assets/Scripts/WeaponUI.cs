@@ -23,7 +23,8 @@ public class WeaponUI : MonoBehaviour
     private float posX;
     public GameObject Player;
     
-    private PlayerController playerScript;
+    private PlayerEntity playerScript;
+    private PlayerManager playerManager;
 
     public GameObject FillObj;
     private Image manaFillColor;
@@ -48,8 +49,9 @@ public class WeaponUI : MonoBehaviour
         SliderUI = Slider.GetComponent<RectTransform>();
         SliderColour = Slider.GetComponent<RawImage>();
 
-        playerScript = Player.GetComponent<PlayerController>();
-        
+        playerScript = Player.GetComponent<PlayerEntity>();
+        playerManager = Player.GetComponent<PlayerManager>();
+
         //OrbObject = GameObject.FindWithTag("OrbControler");
         TruePosition = 0;
         CurrentColor = new Color(1f, 1f, 0f, 0f);
@@ -75,7 +77,7 @@ public class WeaponUI : MonoBehaviour
             foreach (GameObject weapo in weaponList){
                 weapo.SetActive(true);
             }
-            PlayerController.Chargeable = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+            playerScript.Chargeable = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         }
 
         if (Input.GetKey(KeyCode.Alpha1) || playerScript.weapon == 1)
@@ -84,7 +86,7 @@ public class WeaponUI : MonoBehaviour
             CurrentColor = new Color(1f, 0f, 0f, 1f);
 
 
-            playerScript.SetWeap();
+            playerManager.SetWeap();
         }
         if ((Input.GetKey(KeyCode.Alpha2) || playerScript.weapon == 2) && WeaponOrangeUI.activeSelf == true)
         {
@@ -113,7 +115,7 @@ public class WeaponUI : MonoBehaviour
 
 
 
-            playerScript.SetWeap();
+            playerManager.SetWeap();
         }
 
 
@@ -143,9 +145,9 @@ public class WeaponUI : MonoBehaviour
                     }
                 }
             }
-            
 
-            playerScript.SetWeap();
+
+            playerManager.SetWeap();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < -0.09f) // backwards
         {
@@ -172,9 +174,9 @@ public class WeaponUI : MonoBehaviour
                     }
                 }
             }
-            
 
-            playerScript.SetWeap();
+
+            playerManager.SetWeap();
         }
 
 
@@ -205,7 +207,7 @@ public class WeaponUI : MonoBehaviour
         CurrentColor = new Vector4(col.r, col.g, col.b, 1f);
         OrbObject.GetComponent<SpriteRenderer>().color = col;
         playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
-        playerScript.SetWeap();
+        playerManager.SetWeap();
     }
 
     /// <summary>

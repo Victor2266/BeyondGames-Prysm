@@ -13,19 +13,28 @@ public class PlayerManager : MonoBehaviour
     {
         if (!playerEntity.customLocalPlayerCheck)
             return;
-
         playerEntity.Camera = GameObject.FindGameObjectWithTag("MainCamera");
         playerEntity.CameraOrbObj = GameObject.FindGameObjectWithTag("Mouse");
-        playerEntity.LivesUI = GameObject.FindGameObjectWithTag("LivesUI").GetComponent<Text>();
-        playerEntity.HealthUIText = GameObject.FindGameObjectWithTag("Health_Text").GetComponent<Text>();
-        playerEntity.ManaUIText = GameObject.FindGameObjectWithTag("Mana_Text").GetComponent<Text>();
-        playerEntity.health = GameObject.FindGameObjectWithTag("Health_slider").GetComponent<Slider>();
-        playerEntity.mana = GameObject.FindGameObjectWithTag("Mana_slider").GetComponent<Slider>();
+        try
+        {
+            playerEntity.LivesUI = GameObject.FindGameObjectWithTag("LivesUI").GetComponent<Text>();
+            playerEntity.HealthUIText = GameObject.FindGameObjectWithTag("Health_Text").GetComponent<Text>();
+            playerEntity.ManaUIText = GameObject.FindGameObjectWithTag("Mana_Text").GetComponent<Text>();
+            playerEntity.health = GameObject.FindGameObjectWithTag("Health_slider").GetComponent<Slider>();
+            playerEntity.mana = GameObject.FindGameObjectWithTag("Mana_slider").GetComponent<Slider>();
 
-        playerEntity.WeaponUI = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
+            playerEntity.WeaponUI = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
+
+            playerEntity.healthRect = playerEntity.health.GetComponent<RectTransform>();
+            playerEntity.manaRect = playerEntity.mana.GetComponent<RectTransform>();
+        }
+        catch
+        {
+            print("missing something here");
+        }
         if (playerEntity.mousePointer == null)
         {
-            playerEntity.mousePointer = GameObject.FindGameObjectWithTag("Cursor");
+            playerEntity.mousePointer = GameObject.FindGameObjectWithTag("Mouse");
         }
 
         playerEntity.OrbPosition = playerEntity.Orb.GetComponent<CameraController>();
@@ -36,8 +45,6 @@ public class PlayerManager : MonoBehaviour
         playerEntity.anim = GetComponent<Animator>();
         playerEntity.SprtRnderer = GetComponent<SpriteRenderer>();
 
-        playerEntity.healthRect = playerEntity.health.GetComponent<RectTransform>();
-        playerEntity.manaRect = playerEntity.mana.GetComponent<RectTransform>();
 
         playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
 
@@ -46,32 +53,37 @@ public class PlayerManager : MonoBehaviour
 
         playerEntity.HealthBarScalingLength = Screen.width / 2;
 
-        if (playerEntity.health.maxValue < playerEntity.MaxHealth)
+        if(playerEntity.health != null)
         {
-            if (playerEntity.MaxHealth < playerEntity.HealthBarScalingLength)
+            if (playerEntity.health.maxValue < playerEntity.MaxHealth)
             {
-                playerEntity.healthRect.sizeDelta = new Vector2((float)playerEntity.MaxHealth, playerEntity.healthRect.sizeDelta.y);
-            }
-            else
-            {
-                playerEntity.healthRect.sizeDelta = new Vector2((float)playerEntity.HealthBarScalingLength, playerEntity.healthRect.sizeDelta.y);
-            }
-            playerEntity.health.maxValue = (float)playerEntity.MaxHealth;
-        }
-
-        if (playerEntity.mana.maxValue < playerEntity.MaxMana)
-        {
-            if (playerEntity.MaxMana < playerEntity.HealthBarScalingLength)
-            {
-                playerEntity.manaRect.sizeDelta = new Vector2((float)playerEntity.MaxMana, playerEntity.manaRect.sizeDelta.y);
-            }
-            else
-            {
-                playerEntity.manaRect.sizeDelta = new Vector2((float)playerEntity.HealthBarScalingLength, playerEntity.manaRect.sizeDelta.y);
+                if (playerEntity.MaxHealth < playerEntity.HealthBarScalingLength)
+                {
+                    playerEntity.healthRect.sizeDelta = new Vector2((float)playerEntity.MaxHealth, playerEntity.healthRect.sizeDelta.y);
+                }
+                else
+                {
+                    playerEntity.healthRect.sizeDelta = new Vector2((float)playerEntity.HealthBarScalingLength, playerEntity.healthRect.sizeDelta.y);
+                }
+                playerEntity.health.maxValue = (float)playerEntity.MaxHealth;
             }
 
-            playerEntity.mana.maxValue = (int)playerEntity.MaxMana;
+            if (playerEntity.mana.maxValue < playerEntity.MaxMana)
+            {
+                if (playerEntity.MaxMana < playerEntity.HealthBarScalingLength)
+                {
+                    playerEntity.manaRect.sizeDelta = new Vector2((float)playerEntity.MaxMana, playerEntity.manaRect.sizeDelta.y);
+                }
+                else
+                {
+                    playerEntity.manaRect.sizeDelta = new Vector2((float)playerEntity.HealthBarScalingLength, playerEntity.manaRect.sizeDelta.y);
+                }
+
+                playerEntity.mana.maxValue = (int)playerEntity.MaxMana;
+            }
         }
+
+        
     }
 
     public void SetWeap()//optimize this later to only run when pressed

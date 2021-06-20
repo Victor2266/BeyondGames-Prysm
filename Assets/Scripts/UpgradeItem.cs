@@ -15,8 +15,8 @@ public class UpgradeItem : MonoBehaviour
         {
             if (UnlocksCharging)
             {
-                PlayerController.Chargeable[UnlockingWeapon - 1] = UnlockingWeapon;
-                PlayerController.Chargeable[UnlockingWeapon + 7 - 1] = UnlockingWeapon + 7;
+                player.GetComponent<PlayerEntity>().Chargeable[UnlockingWeapon - 1] = UnlockingWeapon;
+                player.GetComponent<PlayerEntity>().Chargeable[UnlockingWeapon + 7 - 1] = UnlockingWeapon + 7;
             }
             if (UnlockWeapon)
             {
@@ -49,7 +49,7 @@ public class UpgradeItem : MonoBehaviour
                     Weapons.GetComponent<WeaponUI>().WeaponVioletUI.SetActive(true);
                 }
 
-                player.GetComponent<PlayerController>().weapon = UnlockingWeapon;
+                player.GetComponent<PlayerEntity>().weapon = UnlockingWeapon;
             }
             gameObject.SetActive(false);
 
