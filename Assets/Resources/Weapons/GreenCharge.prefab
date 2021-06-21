@@ -259,7 +259,7 @@ MonoBehaviour:
   DMG: 50
   Primed: 1
   Bouncy: 0
-  pop: {fileID: 2767647709606753379, guid: 57a4a13353c62764e808c32e5c413f33, type: 3}
+  pop: {fileID: 4243457265752490857, guid: 057b865550c716947b1320bc62089efb, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437,
     type: 3}
   DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
@@ -557,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3248708686797905813}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4582055433169713}

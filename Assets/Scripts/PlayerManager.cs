@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
             playerEntity.ManaUIText = GameObject.FindGameObjectWithTag("Mana_Text").GetComponent<Text>();
             playerEntity.health = GameObject.FindGameObjectWithTag("Health_slider").GetComponent<Slider>();
             playerEntity.mana = GameObject.FindGameObjectWithTag("Mana_slider").GetComponent<Slider>();
+            playerEntity.redFlash = GameObject.FindGameObjectWithTag("redFlash");
+            playerEntity.redFlash.SetActive(false);
 
             playerEntity.WeaponUI = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
 

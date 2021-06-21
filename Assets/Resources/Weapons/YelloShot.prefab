@@ -167,12 +167,12 @@ MonoBehaviour:
   DMG: 20
   Primed: 1
   Bouncy: 0
-  pop: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+  pop: {fileID: 4243457265752490857, guid: 0292dc767a03fc748afcc19f4939394a, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 6a054bdc82d465847aa2f93df16c285b,
     type: 3}
   DMGText: {fileID: 5225875635266693844, guid: b9570889261c0f74cb9969d52fedd7dd, type: 3}
   DMGTextSize: 2
-  attackVelo: 14
+  attackVelo: 16
   ManaCost: 10
   coolDownPeriod: 0.5
   rapid_fire: 0
@@ -5454,7 +5454,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.16
+      scalar: 0.24
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5507,7 +5507,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6204,7 +6204,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2

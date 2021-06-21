@@ -5302,7 +5302,8 @@ MonoBehaviour:
   speedTrail: {fileID: 347743380}
   isClimbing: 0
   HealthBarScalingLength: 0
-  TextPopUp: {fileID: 0}
+  TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
+    type: 3}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
   customLocalPlayerCheck: 1

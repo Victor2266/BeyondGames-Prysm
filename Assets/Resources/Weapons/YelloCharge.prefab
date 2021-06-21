@@ -153,7 +153,7 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 1
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
@@ -328,7 +328,7 @@ MonoBehaviour:
   DMG: 60
   Primed: 1
   Bouncy: 0
-  pop: {fileID: 2767647709606753379, guid: 57a4a13353c62764e808c32e5c413f33, type: 3}
+  pop: {fileID: 4243457265752490857, guid: 02a476acd895c0e459f7e41ba01c1fd0, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 6a054bdc82d465847aa2f93df16c285b,
     type: 3}
   DMGText: {fileID: 5225875635266693844, guid: b9570889261c0f74cb9969d52fedd7dd, type: 3}
@@ -10966,8 +10966,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -12100,11 +12100,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   ForceModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -13984,7 +13984,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -13992,21 +13992,30 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
+          value: 0
+          inSlope: 10.440092
+          outSlope: 10.440092
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23642923
+        - serializedVersion: 3
+          time: 0.42155427
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: 1.3740398
+          outSlope: 1.3740398
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0
+          inSlope: -11.815278
+          outSlope: -11.815278
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.12061227
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2

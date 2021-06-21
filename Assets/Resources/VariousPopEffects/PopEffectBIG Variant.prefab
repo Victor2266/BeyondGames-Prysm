@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1807649965495104302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767647709606753379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1001 &2768320593882038167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,6 +73,11 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 25692368985864062, guid: d2346535ff44b4a247a3450fb8a5c387,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1787366768776532639, guid: d2346535ff44b4a247a3450fb8a5c387,
         type: 3}
       propertyPath: m_ForceMagnitude
@@ -106,9 +95,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
---- !u!1 &2767647709606753379 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387,
-    type: 3}
-  m_PrefabInstance: {fileID: 2768320593882038167}
-  m_PrefabAsset: {fileID: 0}

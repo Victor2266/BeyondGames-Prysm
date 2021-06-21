@@ -30,7 +30,7 @@ public class redFlash : MonoBehaviour
     }
     IEnumerator Flash()
     {
-        defaultColor = RedImage.color;
+        defaultColor = new Color(0,0,0,0);
 
         for (int i = 0; i < numFlashes; i++)
         {
