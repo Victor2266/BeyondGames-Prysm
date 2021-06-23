@@ -7,10 +7,14 @@ public class PlayerManager : MonoBehaviour
 {
     public PlayerEntity playerEntity;
 
-
+    public void ReStart()
+    {
+        Start();
+    }
     // Start is called before the first frame update
     private void Start()
     {
+        SaveSystem.LoadPlayerEntity(playerEntity);
         if (!playerEntity.customLocalPlayerCheck)
             return;
         playerEntity.Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -22,15 +26,19 @@ public class PlayerManager : MonoBehaviour
             playerEntity.ManaUIText = GameObject.FindGameObjectWithTag("Mana_Text").GetComponent<Text>();
             playerEntity.health = GameObject.FindGameObjectWithTag("Health_slider").GetComponent<Slider>();
             playerEntity.mana = GameObject.FindGameObjectWithTag("Mana_slider").GetComponent<Slider>();
+
             playerEntity.redFlash = GameObject.FindGameObjectWithTag("redFlash");
-            playerEntity.redFlash.SetActive(false);
+            if (playerEntity.redFlash.activeSelf)
+            {
+                playerEntity.redFlash.SetActive(false);
+            }
 
             playerEntity.WeaponUI = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
 
             playerEntity.healthRect = playerEntity.health.GetComponent<RectTransform>();
             playerEntity.manaRect = playerEntity.mana.GetComponent<RectTransform>();
         }
-        catch
+        catch (System.Exception e)
         {
             print("missing something here");
         }
@@ -46,8 +54,7 @@ public class PlayerManager : MonoBehaviour
         playerEntity.rb2d = GetComponent<Rigidbody2D>();
         playerEntity.anim = GetComponent<Animator>();
         playerEntity.SprtRnderer = GetComponent<SpriteRenderer>();
-
-
+        
         playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
 
         playerEntity.currentHealth = MySceneManager.StartingHealth;

@@ -7,6 +7,8 @@ public class MySceneManager : MonoBehaviour
 {
     public PlayerEntity playerEntity;
 
+    public PlayerManager playerManager;
+
     public GameObject player;
 
     private Transform pos;
@@ -42,6 +44,7 @@ public class MySceneManager : MonoBehaviour
     {
         pos = player.GetComponent<Transform>();
         playerEntity = player.GetComponent<PlayerEntity>();
+        playerManager = player.GetComponent<PlayerManager>();
 
         //this is for testing out of level ourder
         StartingHealth = playerEntity.MaxHealth;
@@ -108,7 +111,7 @@ public class MySceneManager : MonoBehaviour
         playerEntity.Level = 1;
         playerEntity.MaxHealth = 100;
         playerEntity.MaxMana = 100;
-        playerEntity.cameraSize = 30f;
+        playerEntity.cameraSize = 3.5f;
         playerEntity.speed = 3f;
         playerEntity.jumpForce = 3.8f;
         playerEntity.Chargeable = new int[14];
@@ -136,7 +139,7 @@ public class MySceneManager : MonoBehaviour
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + (playerEntity.Level + 1), LoadSceneMode.Single);
 
-        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
+        //this happens before new scene is loaded
 
         playerEntity.Lives++;
         playerEntity.Level++;
@@ -162,6 +165,7 @@ public class MySceneManager : MonoBehaviour
         {
             playerEntity.transform.position = playerEntity.CheckpointPos;
         }
+
         yield break;
     }
     
@@ -175,4 +179,5 @@ public class MySceneManager : MonoBehaviour
         CheckpointChargeable = playerEntity.Chargeable;
         CheckpointHealth = playerEntity.MaxHealth;
     }
+    
 }

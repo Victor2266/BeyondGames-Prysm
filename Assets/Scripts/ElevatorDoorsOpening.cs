@@ -38,7 +38,7 @@ public class ElevatorDoorsOpening : MonoBehaviour
             if (!shaking)
             {
                 shaking = true;
-                CameraShaker.Instance.ShakeOnce(8, 3, .1f, 1f);
+                CameraShaker.Instance.ShakeOnce(8, 3, .1f, 1.2f);
             }
         }
     }

@@ -18,6 +18,8 @@ public static class SaveSystem
         try
         {
             formatter.Serialize(stream, data);
+            Debug.Log("Saved Player");
+            Debug.Log(data.cameraSize);
         }
         finally
         {
@@ -38,6 +40,11 @@ public static class SaveSystem
             try
             {
                 data = formatter.Deserialize(stream) as PlayerSaveData;
+                Debug.Log("Loaded Player");
+            }
+            catch
+            {
+                Debug.LogError("Failed to load player data");
             }
             finally
             {
