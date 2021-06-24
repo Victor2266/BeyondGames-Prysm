@@ -56,7 +56,7 @@ public class PointerScript : MonoBehaviour
         
         
         
-        if (!this.boss.activeSelf)
+        if (!this.boss.activeSelf || boss == null)
         {
             this.boss.transform.position = new Vector2(this.xDest, this.yDest);
         }
