@@ -18,6 +18,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
     private Transform door;
     public bool shaking = false;
 
+    public GameObject sparkExplosion;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -30,6 +32,9 @@ public class ElevatorDoorsOpening : MonoBehaviour
         {
             if (Mathf.Abs(door.localPosition.x) - closedPos < 0.01f)
             {
+                if (opening == false) {
+                    Instantiate(sparkExplosion, transform);
+                }
                 opening = true;
             }
         }
