@@ -33,7 +33,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
             if (Mathf.Abs(door.localPosition.x) - closedPos < 0.01f)
             {
                 if (opening == false) {
-                    Instantiate(sparkExplosion, transform);
+                    GameObject clone;
+                    clone = Instantiate(sparkExplosion, new Vector3(transform.position.x, transform.position.y - 6.5f, transform.position.z) , transform.rotation);
                 }
                 opening = true;
             }
