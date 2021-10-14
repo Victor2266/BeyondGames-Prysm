@@ -36,7 +36,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
                     GameObject clone;
                     clone = Instantiate(sparkExplosion, new Vector3(transform.position.x, transform.position.y - 6.5f, transform.position.z) , transform.rotation);
                 }
-                opening = true;
+                
+                //opening = true;
             }
         }
         if (collision.tag == "Finish")
@@ -44,7 +45,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
             if (!shaking)
             {
                 shaking = true;
-                CameraShaker.Instance.ShakeOnce(8, 3, .1f, 1.2f);
+                CameraShaker.Instance.ShakeOnce(10, 3, .1f, 2.2f);
+                StartCoroutine(waitThenOpen());
             }
         }
     }
@@ -75,5 +77,11 @@ public class ElevatorDoorsOpening : MonoBehaviour
         }
         leftDoor.GetComponent<Transform>().localPosition = new Vector3(-posX, -0.2581787f, 0f);
         rightDoor.GetComponent<Transform>().localPosition = new Vector3(posX, -0.2581787f, 0f);
+    }
+
+    IEnumerator waitThenOpen()
+    {
+        yield return new WaitForSeconds(1);
+        opening = true;
     }
 }

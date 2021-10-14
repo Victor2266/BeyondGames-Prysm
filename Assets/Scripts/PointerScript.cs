@@ -6,6 +6,27 @@ using Mirror;
 public class PointerScript : MonoBehaviour
 {
 
+    [SerializeField] private bool IsLookingAtPlayer = false;
+
+    public float xDest;
+    public float yDest;
+    public bool noFlip;
+
+    private float xDiff;
+    private float yDiff;
+
+
+    private float zDiff;
+
+    private float XAngle;
+    private float YAngle;
+    private float ZAngle;
+
+    public float offset;
+    public GameObject boss;
+    public bool isEyeBall;
+
+
     private void Awake() //NETWORKING AWAKE
     {
         PlayerUpdated(ClientScene.localPlayer);
@@ -17,41 +38,44 @@ public class PointerScript : MonoBehaviour
     {
         this.xDiff = this.boss.transform.position.x - base.transform.position.x;
         this.yDiff = this.boss.transform.position.y - base.transform.position.y;
-        this.XAngle = 57.29578f * Mathf.Atan(this.yDiff / this.xDiff);
-        if (isEyeBall)
+
+        this.ZAngle = 57.29578f * Mathf.Atan(this.yDiff / this.xDiff);
+
+        if (isEyeBall)//im pretty sure this just uses z values
         {
             if (noFlip == false)
             {
                 if (this.xDiff > 0f)
                 {
-                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + XAngle);
+                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + ZAngle);
                 }
                 else if (this.xDiff < 0f)
                 {
-                    base.transform.eulerAngles = new Vector3(0f, 0f, -offset + XAngle);
+                    base.transform.eulerAngles = new Vector3(0f, 0f, -offset + ZAngle);
                 }
             }
             else
             {
                 if (this.xDiff > 0f)
                 {
-                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + Mathf.Abs(XAngle));
+                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + Mathf.Abs(ZAngle));
                 }
                 else if (this.xDiff < 0f)
                 {
-                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + 180f - Mathf.Abs(XAngle));
+                    base.transform.eulerAngles = new Vector3(0f, 0f, offset + 180f - Mathf.Abs(ZAngle));
                 }
             }
-            
+
 
         }
+        //default pointing uses X rotations
         else if (this.xDiff > 0f)
         {
-            base.transform.eulerAngles = new Vector3(360f - this.XAngle, 90f, 0f);
+            base.transform.eulerAngles = new Vector3(360f - this.ZAngle, 90f, 0f);
         }
         else if (this.xDiff < 0f)
         {
-            base.transform.eulerAngles = new Vector3(180f - this.XAngle, 90f, 0f);
+            base.transform.eulerAngles = new Vector3(180f - this.ZAngle, 90f, 0f);
         }
         
         
@@ -79,18 +103,4 @@ public class PointerScript : MonoBehaviour
         //this.enabled = (localPlayer != null);
     }
 
-    [SerializeField] private bool IsLookingAtPlayer = false;
-
-    public float xDest;
-    public float yDest;
-    public bool noFlip;
-
-    private float xDiff;
-
-    private float yDiff;
-
-    private float XAngle;
-    public float offset;
-    public GameObject boss;
-    public bool isEyeBall;
 }
