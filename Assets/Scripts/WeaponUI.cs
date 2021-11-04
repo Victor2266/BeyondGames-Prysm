@@ -16,6 +16,8 @@ public class WeaponUI : MonoBehaviour
     public GameObject WeaponVioletUI;
     public GameObject[] weaponList;
     public GameObject Slider;
+    public GameObject SliderParent;
+    private RectTransform SliderParentUI;
     private RectTransform SliderUI;
     private RawImage SliderColour;
     public Vector2 velocity;
@@ -30,7 +32,9 @@ public class WeaponUI : MonoBehaviour
     private Image manaFillColor;
     public Color CurrentColor;
     private float sizeRefVelo;
+    private float ParentsizeRefVelo;
     private float sliderYSize;
+    private float sliderParentYSize;
 
     public GameObject OrbObject;
     public bool DoneScaling;
@@ -47,6 +51,7 @@ public class WeaponUI : MonoBehaviour
     {
         manaFillColor = FillObj.GetComponent<Image>();
         SliderUI = Slider.GetComponent<RectTransform>();
+        SliderParentUI = SliderParent.GetComponent<RectTransform>();
         SliderColour = Slider.GetComponent<RawImage>();
 
         playerScript = Player.GetComponent<PlayerEntity>();
@@ -66,6 +71,7 @@ public class WeaponUI : MonoBehaviour
             posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.2f);
             SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
+            SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
             //playerScript.ChargeIndicator.SetActive(false);
 
             manaFillColor.color = SliderColour.color;
@@ -183,14 +189,18 @@ public class WeaponUI : MonoBehaviour
         if (playerScript.weapon > 7)
         {
             sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 90, ref sizeRefVelo, cooldowntime);
+            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 90, ref ParentsizeRefVelo, cooldowntime / 10f);
 
             SliderUI.sizeDelta = new Vector2(30, sliderYSize);
+            SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
         }
         else if (playerScript.weapon < 8)
         {
             sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 60, ref sizeRefVelo, cooldowntime);
+            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 60, ref ParentsizeRefVelo, cooldowntime /10f);
 
             SliderUI.sizeDelta = new Vector2(30, sliderYSize);
+            SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
         }
     }
 

@@ -19,6 +19,7 @@ public class ElevatorDoorsOpening : MonoBehaviour
     public bool shaking = false;
 
     public GameObject sparkExplosion;
+    int spawned = 0;
 
     private void Start()
     {
@@ -28,13 +29,17 @@ public class ElevatorDoorsOpening : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.tag == "destroyoncontact")
         {
             if (Mathf.Abs(door.localPosition.x) - closedPos < 0.01f)
             {
                 if (opening == false) {
                     GameObject clone;
-                    clone = Instantiate(sparkExplosion, new Vector3(transform.position.x, transform.position.y - 6.5f, transform.position.z) , transform.rotation);
+                    if (spawned == 0) {
+                        spawned++;
+                        clone = Instantiate(sparkExplosion, new Vector3(transform.position.x, transform.position.y - sparkExplosion.transform.position.y, transform.position.z), transform.rotation);
+                    }
                 }
                 
                 //opening = true;
@@ -75,8 +80,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
         {
             posX = Mathf.SmoothDamp(door.localPosition.x, closedPos, ref speed, 0.5f);
         }
-        leftDoor.GetComponent<Transform>().localPosition = new Vector3(-posX, -0.2581787f, 0f);
-        rightDoor.GetComponent<Transform>().localPosition = new Vector3(posX, -0.2581787f, 0f);
+        leftDoor.GetComponent<Transform>().localPosition = new Vector3(-posX, -0.2581787f, leftDoor.GetComponent<Transform>().localPosition.z);
+        rightDoor.GetComponent<Transform>().localPosition = new Vector3(posX, -0.2581787f, rightDoor.GetComponent<Transform>().localPosition.z);
     }
 
     IEnumerator waitThenOpen()

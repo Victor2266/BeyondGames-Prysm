@@ -239,10 +239,10 @@ public class PlayerManager : MonoBehaviour
         playerEntity.LivesUI.text = "Lives: " + playerEntity.Lives.ToString();
 
         playerEntity.HealthUIText.text = playerEntity.currentHealth.ToString() + "/" + playerEntity.MaxHealth.ToString();
-        playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
+        //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
 
         playerEntity.ManaUIText.text = playerEntity.currentMana.ToString() + "/" + playerEntity.MaxMana.ToString();
-        playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
+        //playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
 
         playerEntity.health.value = Mathf.SmoothStep(playerEntity.health.value, playerEntity.currentHealth, 0.25f);
         playerEntity.mana.value = Mathf.SmoothStep(playerEntity.mana.value, playerEntity.currentMana, 0.25f);
