@@ -38,7 +38,11 @@ public class EnemyProjectileController : MonoBehaviour
             player.SendMessage("TakeDamage", DMG);
             Burst();
         }
-
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<MobGeneric>().SendMessage("TakeDamage", DMG);
+            Burst();
+        }
         if (Bouncy == false && collision.gameObject.tag == "Untagged")
         {
             Burst();

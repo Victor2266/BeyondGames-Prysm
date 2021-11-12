@@ -4811,6 +4811,7 @@ GameObject:
   - component: {fileID: 360132941130072968}
   - component: {fileID: 7956524107189972275}
   - component: {fileID: 8365736257200651484}
+  - component: {fileID: 3454484833849804100}
   m_Layer: 0
   m_Name: Spear Projection
   m_TagString: Mouse
@@ -5068,6 +5069,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3454484833849804100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953202150918435326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e693ba48bdf7115429bbbe72cb7c3356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8119935330523656752
 GameObject:
   m_ObjectHideFlags: 0
