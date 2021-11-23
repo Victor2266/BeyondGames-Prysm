@@ -40,6 +40,8 @@ public class WeaponUI : MonoBehaviour
     public bool DoneScaling;
     public float cooldowntime;
 
+    [SerializeField]
+    private int xAdjustment;
     /*
     private void Awake() //NETWORKING AWAKE
     {
@@ -88,7 +90,7 @@ public class WeaponUI : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1) || playerScript.weapon == 1)
         {   
-            TruePosition = -180;
+            TruePosition = -180 + xAdjustment;
             CurrentColor = new Color(1f, 0f, 0f, 1f);
 
 
@@ -116,7 +118,7 @@ public class WeaponUI : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Alpha7) || playerScript.weapon == 7)
         {
-            TruePosition = 0;
+            TruePosition = xAdjustment;
             CurrentColor = new Color(1f, 0.2f, 1f, 255f);
 
 
@@ -188,16 +190,16 @@ public class WeaponUI : MonoBehaviour
 
         if (playerScript.weapon > 7)
         {
-            sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 90, ref sizeRefVelo, cooldowntime);
-            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 90, ref ParentsizeRefVelo, cooldowntime / 10f);
+            sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 96, ref sizeRefVelo, cooldowntime / 2f);
+            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 96, ref ParentsizeRefVelo, cooldowntime / 16f);
 
             SliderUI.sizeDelta = new Vector2(30, sliderYSize);
             SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
         }
         else if (playerScript.weapon < 8)
         {
-            sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 60, ref sizeRefVelo, cooldowntime);
-            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 60, ref ParentsizeRefVelo, cooldowntime /10f);
+            sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 64, ref sizeRefVelo, cooldowntime / 2f);
+            sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 64, ref ParentsizeRefVelo, cooldowntime /16f);
 
             SliderUI.sizeDelta = new Vector2(30, sliderYSize);
             SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
@@ -213,7 +215,7 @@ public class WeaponUI : MonoBehaviour
     void ChangeWeapons(int weap, int pos, Color col)
     {
         playerScript.weapon = weap;
-        TruePosition = pos;
+        TruePosition = pos + xAdjustment;
         CurrentColor = new Vector4(col.r, col.g, col.b, 1f);
         OrbObject.GetComponent<SpriteRenderer>().color = col;
         playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
