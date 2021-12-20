@@ -20,7 +20,10 @@ public class MainMenuScript : MonoBehaviour
     public GameObject MainMenuWarning;
 
     private int depth;
-    
+
+    private Vector2 velocity;
+    private float cameraTargetSize = 22.23f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +70,10 @@ public class MainMenuScript : MonoBehaviour
             MainMenu.SetActive(true);
             SingleplayerMenu.SetActive(false);
             MultiplayerMenu.SetActive(false);
+
         }
+        float num = Mathf.SmoothDamp(ObjectWithSceneManager.GetComponent<Camera>().orthographicSize, cameraTargetSize, ref velocity.y, 1f);
+        ObjectWithSceneManager.GetComponent<Camera>().orthographicSize = num;
     }
     public void Multiplayer()
     {
@@ -86,6 +92,8 @@ public class MainMenuScript : MonoBehaviour
         MainMenu.SetActive(false);
         SingleplayerMenu.SetActive(true);
         depth = 1;
+
+        cameraTargetSize = 4.2f;
     }
     public void Options()
     {
@@ -125,6 +133,7 @@ public class MainMenuScript : MonoBehaviour
     public void Back()
     {
         depth = 0;
+        cameraTargetSize = 22.23f;
     }
     public void QuitGame()
     {
