@@ -27,8 +27,7 @@ public class PlayerEntity : MonoBehaviour
     public float lowJumpMultiplier = 2f;//lower gravity for low jump
 
     public Rigidbody2D rb2d;// ridgidbody for physics
-    public SpriteRenderer SprtRnderer;
-    public Animator anim;//animation controller
+    //public SpriteRenderer SprtRnderer;
 
     public GameObject Camera;//camera reference 
     public GameObject CameraOrbObj;
@@ -90,7 +89,6 @@ public class PlayerEntity : MonoBehaviour
     public GameObject spawnedEffect;
     public GameObject redFlash;
 
-    public GameObject cape;
     public GameObject speedTrail;
     public bool isClimbing;
 
@@ -107,6 +105,8 @@ public class PlayerEntity : MonoBehaviour
     public WeaponUI WeaponUI;
 
     public Vector3 CheckpointPos = Vector3.zero;
+
+    public GameObject FloorContact;
 
     public void PlayerEntityUpdate(PlayerSaveData player)
     {

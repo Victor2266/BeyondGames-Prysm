@@ -52,8 +52,7 @@ public class PlayerManager : MonoBehaviour
         SetWeap();
         playerEntity.ManaCost = 0;
         playerEntity.rb2d = GetComponent<Rigidbody2D>();
-        playerEntity.anim = GetComponent<Animator>();
-        playerEntity.SprtRnderer = GetComponent<SpriteRenderer>();
+        //playerEntity.SprtRnderer = GetComponent<SpriteRenderer>();
         
         playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
 
@@ -93,6 +92,19 @@ public class PlayerManager : MonoBehaviour
         }
 
         
+    }
+
+    private void Update()
+    {
+        bool grounded = IsGrounded();
+        if (grounded && playerEntity.FloorContact.activeSelf == false)
+        {
+            playerEntity.FloorContact.SetActive(true);
+        }
+        else if (!grounded && playerEntity.FloorContact.activeSelf == true)
+        {
+            playerEntity.FloorContact.SetActive(false);
+        }
     }
 
     public void SetWeap()//optimize this later to only run when pressed
@@ -140,10 +152,8 @@ public class PlayerManager : MonoBehaviour
         playerEntity.transition.SetActive(true);
         if (!playerEntity.isDying)
         {
-            playerEntity.anim.SetTrigger("Die");
             playerEntity.isDying = true;
 
-            playerEntity.cape.SetActive(false);
         }
         yield return new WaitForSeconds(interval);
         playerEntity.MaxHealth = 100;
@@ -248,6 +258,7 @@ public class PlayerManager : MonoBehaviour
         playerEntity.mana.value = Mathf.SmoothStep(playerEntity.mana.value, playerEntity.currentMana, 0.25f);
     }
 
+    /*
     public IEnumerator JumpStretch()
     {
         for (int i = 0; i < 10; i++)
@@ -262,7 +273,7 @@ public class PlayerManager : MonoBehaviour
         }
         yield break;
     }
-
+    */
 
     public void Flinching()
     {

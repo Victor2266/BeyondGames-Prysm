@@ -28,7 +28,7 @@ public class SkullMaskPointer : MonoBehaviour
         PointerPos = new Vector2(xDiff, yDiff).normalized;
 
         zDiff = Mathf.Sqrt(SphereRadius - Mathf.Pow(MagnitudeSubject.transform.localPosition.x, 2) - Mathf.Pow(MagnitudeSubject.transform.localPosition.y, 2));
-        Debug.Log(zDiff);
+        //Debug.Log(zDiff);
 
         this.XAngle = 57.29578f * Mathf.Atan(PointerPos.y / this.zDiff);
         this.YAngle = 57.29578f * Mathf.Atan(PointerPos.x / this.zDiff);

@@ -30,6 +30,7 @@ TagManager:
   - WeaponUI
   - LocalPlayer
   - EnemyPlayer
+  - GlobalLight
   layers:
   - Default
   - TransparentFX

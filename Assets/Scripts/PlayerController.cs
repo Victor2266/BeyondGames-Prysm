@@ -45,23 +45,21 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetAxisRaw("Horizontal") > 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
-            playerEntity.SprtRnderer.flipX = false;
+            //playerEntity.SprtRnderer.flipX = false;
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = false;
-            playerEntity.anim.SetBool("Running", true);
             playerEntity.rb2d.velocity = new Vector2(playerEntity.speed, playerEntity.rb2d.velocity.y);
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
-            playerEntity.SprtRnderer.flipX = true;
+            //playerEntity.SprtRnderer.flipX = true;
             //transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = true;
-            playerEntity.anim.SetBool("Running", true);
             playerEntity.rb2d.velocity = new Vector2(-playerEntity.speed, playerEntity.rb2d.velocity.y);
         }
         else if (Mathf.Abs(playerEntity.rb2d.velocity.x) < 0.05f)
         {
-            playerEntity.anim.SetBool("Running", false);
+            //playerEntity.anim.SetBool("Running", false);
         }
 
         if (playerEntity.rb2d.velocity.y < 0f && !playerEntity.isClimbing)
@@ -75,8 +73,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && playerManager.IsGrounded())
         {
             playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x, playerEntity.jumpForce);
-            playerEntity.anim.SetTrigger("JumpTrigger");
-            StartCoroutine(playerManager.JumpStretch());
+            //StartCoroutine(playerManager.JumpStretch());
             Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
             playerEntity.spawnedEffect = Instantiate(playerEntity.gasPuff, GasPos, transform.rotation);
         }
@@ -92,8 +89,6 @@ public class PlayerController : MonoBehaviour
             {
                 playerEntity.SlideCooldown = Time.time + 0.5f;
 
-                playerEntity.anim.SetBool("Sliding", true);
-                playerEntity.cape.SetActive(false);
                 if (playerEntity.weapon <= 7)
                 {
                     playerEntity.speedTrail.SetActive(true);
@@ -107,8 +102,6 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Slide"))
         {
-            playerEntity.anim.SetBool("Sliding", false);
-            playerEntity.cape.SetActive(true);
             playerEntity.speedTrail.SetActive(false);
             playerEntity.Flinch = false;
             GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.65f);
