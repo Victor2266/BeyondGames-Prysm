@@ -23,8 +23,8 @@ public class LadderScript : MonoBehaviour
                     collision.gameObject.GetComponent<NetworkPlayerController>().isClimbing = true;
                 }
                 collision.attachedRigidbody.gravityScale = 0f;
-                collision.gameObject.GetComponent<Animator>().SetBool("Climbing", true);
-                collision.gameObject.GetComponent<Animator>().speed = Mathf.Abs(Input.GetAxis("Vertical"));
+                //collision.gameObject.GetComponent<Animator>().SetBool("Climbing", true);
+                //collision.gameObject.GetComponent<Animator>().speed = Mathf.Abs(Input.GetAxis("Vertical"));
             }
             else if (Input.GetAxisRaw("Vertical") == 0f)
             {
@@ -33,7 +33,7 @@ public class LadderScript : MonoBehaviour
                     if (collision.gameObject.GetComponent<PlayerEntity>().isClimbing == true)
                     {
                         collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * collision.gameObject.GetComponent<PlayerEntity>().speed, Input.GetAxisRaw("Vertical") * collision.gameObject.GetComponent<PlayerEntity>().speed);
-                        collision.gameObject.GetComponent<Animator>().speed = 0;
+                        //collision.gameObject.GetComponent<Animator>().speed = 0;
                     }
                 }
                 else
@@ -41,7 +41,7 @@ public class LadderScript : MonoBehaviour
                     if (collision.gameObject.GetComponent<NetworkPlayerController>().isClimbing == true)
                     {
                         collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal") * collision.gameObject.GetComponent<PlayerEntity>().speed, Input.GetAxisRaw("Vertical") * collision.gameObject.GetComponent<PlayerEntity>().speed);
-                        collision.gameObject.GetComponent<Animator>().speed = 0;
+                        //collision.gameObject.GetComponent<Animator>().speed = 0;
                     }
                 }
                 
@@ -61,8 +61,8 @@ public class LadderScript : MonoBehaviour
             {
                 collision.gameObject.GetComponent<NetworkPlayerController>().isClimbing = false;
             }
-            collision.gameObject.GetComponent<Animator>().speed = 1;
-            collision.gameObject.GetComponent<Animator>().SetBool("Climbing", false);
+            //collision.gameObject.GetComponent<Animator>().speed = 1;
+            //collision.gameObject.GetComponent<Animator>().SetBool("Climbing", false);
         }
     }
 }
