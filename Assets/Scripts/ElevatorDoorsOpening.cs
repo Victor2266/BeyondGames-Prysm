@@ -19,6 +19,8 @@ public class ElevatorDoorsOpening : MonoBehaviour
     public bool shaking = false;
 
     public GameObject sparkExplosion;
+    public GameObject gasExplosion;
+
     int spawned = 0;
 
     private void Start()
@@ -87,6 +89,9 @@ public class ElevatorDoorsOpening : MonoBehaviour
     IEnumerator waitThenOpen()
     {
         yield return new WaitForSeconds(1);
+
+        GameObject clone2;
+        clone2 = Instantiate(gasExplosion, new Vector3(transform.position.x, transform.position.y - gasExplosion.transform.position.y, transform.position.z), transform.rotation);
         opening = true;
     }
 }
