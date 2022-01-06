@@ -82,7 +82,7 @@ public class PlayerEntity : MonoBehaviour
     public GameObject Orb;
     public GameObject mousePointer = null;
 
-    public CameraController OrbPosition;
+    public OldCameraController OrbPosition;
 
     public GameObject gasPuff;
     public GameObject bloodPuff;

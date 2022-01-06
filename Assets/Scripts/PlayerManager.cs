@@ -47,7 +47,7 @@ public class PlayerManager : MonoBehaviour
             playerEntity.mousePointer = GameObject.FindGameObjectWithTag("Mouse");
         }
 
-        playerEntity.OrbPosition = playerEntity.Orb.GetComponent<CameraController>();
+        playerEntity.OrbPosition = playerEntity.Orb.GetComponent<OldCameraController>();
 
         SetWeap();
         playerEntity.ManaCost = 0;

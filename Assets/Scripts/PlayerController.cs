@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
                                 Random.Range(velo * v.y - playerEntity.inaccuracy, velo * v.y + playerEntity.inaccuracy));
                         }
                         playerEntity.OrbPosition.offsetX = v.x;
-                        playerEntity.OrbPosition.offsetY = v.y - 1.5f;
+                        playerEntity.OrbPosition.offsetY = v.y;
 
                     }
 
@@ -288,8 +288,8 @@ public class PlayerController : MonoBehaviour
 
             else if (playerEntity.timeStamp + 2f <= Time.time)
             {
-                playerEntity.OrbPosition.offsetX = 0.5f;
-                playerEntity.OrbPosition.offsetY = -1f;
+                playerEntity.OrbPosition.offsetX = 0f;
+                playerEntity.OrbPosition.offsetY = 0f;
             }
         }
     }

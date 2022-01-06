@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: 6a75d574a7dc0bf418c3636ddc4263fc, type: 3}
   DMG: 5
   Primed: 1
   Bouncy: 0

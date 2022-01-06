@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
   DMG: 10
   Primed: 1
   Bouncy: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
     type: 3}
   DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
   DMGTextSize: 2
-  attackVelo: 6
+  attackVelo: 7
   ManaCost: 5
   coolDownPeriod: 0.2
   rapid_fire: 0

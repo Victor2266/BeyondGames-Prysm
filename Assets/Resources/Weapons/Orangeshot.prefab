@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28, type: 3}
   DMG: 15
   Primed: 0
   Bouncy: 1
@@ -148,7 +149,7 @@ MonoBehaviour:
   InitialPop: {fileID: 1109919489364486, guid: 1fa4ea182beda58b404dd74890de480d, type: 3}
   DMGText: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28, type: 3}
   DMGTextSize: 2
-  attackVelo: 8
+  attackVelo: 10
   ManaCost: 3
   coolDownPeriod: 0.22
   rapid_fire: 1
