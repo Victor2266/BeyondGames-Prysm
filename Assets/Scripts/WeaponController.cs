@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponController : damageController
 {
@@ -13,7 +14,9 @@ public class WeaponController : damageController
     public float ReachLength;
     private int DMG;
     public float DMG_Scaling;
+    public int MaxDamage;
     public float DMGTextSize;
+
 
     private Vector3 lastPosition;
     private float totalDistance;
@@ -25,6 +28,9 @@ public class WeaponController : damageController
 
     private bool WeaponEnabled;
 
+    public Slider StaminaBar;
+    private RectTransform rectTrans;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,7 @@ public class WeaponController : damageController
         timeStamp = 0f;
         startTime = 0f;
         WeaponEnabled = false;
+        rectTrans = StaminaBar.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -43,6 +50,13 @@ public class WeaponController : damageController
         if (transform.localPosition.magnitude > ReachLength)
         {
             transform.localPosition = transform.localPosition.normalized * ReachLength;
+        }
+        rectTrans.sizeDelta = new Vector2(activeTimeLimit * 100f, 4f);
+        StaminaBar.maxValue = activeTimeLimit * 100f;
+
+        if (timeStamp <= Time.time && !WeaponEnabled)
+        {
+            StaminaBar.value = StaminaBar.maxValue;
         }
 
         if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)
@@ -61,6 +75,8 @@ public class WeaponController : damageController
             totalDistance += distance;
             lastPosition = transform.position;
             DMG = (int)(totalDistance * DMG_Scaling);
+            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
+     
         }
         if ( (Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled) )
         {
@@ -70,6 +86,7 @@ public class WeaponController : damageController
             totalDistance = 0f;
             timeStamp = Time.time + cooldownTime;
 
+            StaminaBar.value = 0f;
             WeaponEnabled = false;
         }
 

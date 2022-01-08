@@ -83,29 +83,29 @@ public class PlayerController : MonoBehaviour
             playerEntity.currentHealth -= 0.5f;
             playerEntity.currentMana += 2;
         }
-        if (Input.GetButtonDown("Slide") && playerManager.IsGrounded())
+        if (Input.GetButtonDown("Slide") && playerManager.IsGrounded() && playerEntity.rb2d.velocity.x != 0)
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {
                 playerEntity.SlideCooldown = Time.time + 0.5f;
 
-                if (playerEntity.weapon <= 7)
+                GameObject dash = Instantiate(playerEntity.speedTrail, transform);
+                dash.transform.position = transform.position;
+                //playerEntity.speedTrail.SetActive(true);
+                
+                //playerEntity.Flinch = true;
+                playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
+                if (playerEntity.rb2d.velocity.x > 0)
                 {
-                    playerEntity.speedTrail.SetActive(true);
+                    dash.transform.eulerAngles = new Vector3(0f, 0f, 90f);
                 }
-                playerEntity.Flinch = true;
-                playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 3f, playerEntity.rb2d.velocity.y);
-                GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);
-                GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.36f);
+                else
+                {
+                    dash.transform.eulerAngles = new Vector3(0f, 0f, -90f);
+                }
+                //GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);
+                //GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.36f);
             }
-
-        }
-        if (Input.GetButtonUp("Slide"))
-        {
-            playerEntity.speedTrail.SetActive(false);
-            playerEntity.Flinch = false;
-            GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.65f);
-            GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.16f);
         }
     }
 
