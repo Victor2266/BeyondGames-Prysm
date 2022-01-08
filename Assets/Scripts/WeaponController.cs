@@ -31,6 +31,8 @@ public class WeaponController : damageController
     public Slider StaminaBar;
     private RectTransform rectTrans;
 
+    public GameObject Trail;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +69,7 @@ public class WeaponController : damageController
             lastPosition = transform.position;
             startTime = Time.time;
             WeaponEnabled = true;
-
+            Trail.SetActive(true);
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)
         {
@@ -88,6 +90,7 @@ public class WeaponController : damageController
 
             StaminaBar.value = 0f;
             WeaponEnabled = false;
+            Trail.SetActive(false);
         }
 
 
