@@ -63,13 +63,9 @@ public class WeaponController : damageController
 
         if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)
         {
-            GetComponent<CapsuleCollider2D>().enabled = true;
-            sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
-
             lastPosition = transform.position;
-            startTime = Time.time;
-            WeaponEnabled = true;
-            Trail.SetActive(true);
+
+            enableWeapon();
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)
         {
@@ -77,6 +73,7 @@ public class WeaponController : damageController
             totalDistance += distance;
             lastPosition = transform.position;
             DMG = (int)(totalDistance * DMG_Scaling);
+
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
      
         }
@@ -125,5 +122,14 @@ public class WeaponController : damageController
         ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         totalDistance = 0f;
+    }
+
+    private void enableWeapon()
+    {
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
+        startTime = Time.time;
+        WeaponEnabled = true;
+        Trail.SetActive(true);
     }
 }
