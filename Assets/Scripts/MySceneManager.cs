@@ -113,7 +113,7 @@ public class MySceneManager : MonoBehaviour
         playerEntity.MaxMana = 100;
         playerEntity.cameraSize = 3.5f;
         playerEntity.speed = 3f;
-        playerEntity.jumpForce = 3.8f;
+        playerEntity.jumpForce = 5.3f;//3.8
         playerEntity.Chargeable = new int[14];
         playerEntity.isClimbing = false;
         SaveSystem.SavePlayerEntity(playerEntity);

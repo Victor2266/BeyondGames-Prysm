@@ -27,9 +27,9 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectWithSceneManager.GetComponent<CameraController>().smoothTimeY = 2;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().smoothTimeY = 2;
 
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetY = 1;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetY = 50.5f;
         depth = -1;
 
 
@@ -65,8 +65,8 @@ public class MainMenuScript : MonoBehaviour
     {
         if (depth == 0)
         {
-            ObjectWithSceneManager.GetComponent<CameraController>().offsetX = 0;
-            ObjectWithSceneManager.GetComponent<CameraController>().offsetY = 39;
+            ObjectWithSceneManager.GetComponent<OldCameraController>().offsetX = 0;
+            ObjectWithSceneManager.GetComponent<OldCameraController>().offsetY = 50.5f;
             MainMenu.SetActive(true);
             SingleplayerMenu.SetActive(false);
             MultiplayerMenu.SetActive(false);
@@ -77,18 +77,18 @@ public class MainMenuScript : MonoBehaviour
     }
     public void Multiplayer()
     {
-        ObjectWithSceneManager.GetComponent<CameraController>().smoothTimeY = 0.5f;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetX = -490;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetY = 9;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().smoothTimeY = 0.5f;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetX = -490;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetY = 24f;
         MainMenu.SetActive(false);
         MultiplayerMenu.SetActive(true);
         depth = 1;
     }
     public void Singleplayer()
     {
-        ObjectWithSceneManager.GetComponent<CameraController>().smoothTimeY = 0.5f;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetX = 490;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetY = 9;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().smoothTimeY = 0.5f;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetX = 490;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetY = 21.5f;
         MainMenu.SetActive(false);
         SingleplayerMenu.SetActive(true);
         depth = 1;
@@ -97,9 +97,9 @@ public class MainMenuScript : MonoBehaviour
     }
     public void Options()
     {
-        ObjectWithSceneManager.GetComponent<CameraController>().smoothTimeY = 0.5f;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetX = 0;
-        ObjectWithSceneManager.GetComponent<CameraController>().offsetY = -430;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().smoothTimeY = 0.5f;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetX = 0;
+        ObjectWithSceneManager.GetComponent<OldCameraController>().offsetY = -430;
         //The options button activates the options menu
         //and the back button within the options menu deactivates the options menu
         MainMenu.SetActive(false);

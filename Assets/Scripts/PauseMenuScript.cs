@@ -11,6 +11,8 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject player;
     public GameObject mousePointer;
     public GameObject MainMenuWarning;
+
+    public float testint;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class PauseMenuScript : MonoBehaviour
         mousePointer.SetActive(true);
         player.GetComponent<PlayerController>().enabled = true;
         PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = testint;
         isPaused = false;
 
     }

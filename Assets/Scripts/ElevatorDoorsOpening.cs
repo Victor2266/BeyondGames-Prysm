@@ -27,6 +27,7 @@ public class ElevatorDoorsOpening : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         door = rightDoor.GetComponent<Transform>();
+        Time.timeScale = 1.25f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +42,7 @@ public class ElevatorDoorsOpening : MonoBehaviour
                     if (spawned == 0) {
                         spawned++;
                         clone = Instantiate(sparkExplosion, new Vector3(transform.position.x, transform.position.y - sparkExplosion.transform.position.y, transform.position.z), transform.rotation);
+                        Time.timeScale = 1f;
                     }
                 }
                 
