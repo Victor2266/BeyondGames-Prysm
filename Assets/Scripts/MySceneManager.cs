@@ -39,9 +39,17 @@ public class MySceneManager : MonoBehaviour
 
     private static int[] CheckpointChargeable = new int[14];
 
-
-    private void Start()
+    // called first
+    void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        DontDestroyOnLoad(this.gameObject);
+        player = GameObject.FindGameObjectWithTag("Player");
+        transition = GameObject.FindGameObjectWithTag("Transition");
+        transition.SetActive(false);
         pos = player.GetComponent<Transform>();
         playerEntity = player.GetComponent<PlayerEntity>();
         playerManager = player.GetComponent<PlayerManager>();

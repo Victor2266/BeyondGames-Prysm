@@ -31,6 +31,7 @@ TagManager:
   - LocalPlayer
   - EnemyPlayer
   - GlobalLight
+  - Transition
   layers:
   - Default
   - TransparentFX
