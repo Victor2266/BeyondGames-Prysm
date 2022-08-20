@@ -13,4 +13,8 @@ public class OppositeToggleGameobject : MonoBehaviour
             obj.SetActive(!active);
         }
     }
+    void Update()
+    {
+        Debug.Log("OppositeToggleGameobject" + transform.name);
+    }
 }
