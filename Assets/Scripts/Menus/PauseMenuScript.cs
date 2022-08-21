@@ -48,7 +48,7 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = false;
 
     }
-    void Pause()
+    public void Pause()
     {
         MainMenuWarning.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
