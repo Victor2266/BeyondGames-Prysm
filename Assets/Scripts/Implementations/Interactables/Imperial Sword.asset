@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8a1504a36c71f4b9e973f357024a18, type: 3}
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
   m_Name: Imperial Sword
   m_EditorClassIdentifier: 
   name: Imperial Sword
   icon: {fileID: 21300000, guid: 469ce6828a9245545b04e535ee8b2bf3, type: 3}
   isDefaultItem: 0
+  ReachLength: 0
+  DMG_Scaling: 0
+  MaxDamage: 0
+  DMGTextSize: 0
+  activeTimeLimit: 0
+  cooldownTime: 0

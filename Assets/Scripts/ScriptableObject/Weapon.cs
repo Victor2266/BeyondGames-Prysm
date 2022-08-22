@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Item
+[CreateAssetMenu(fileName = "New Equipment", menuName= "Inventory/Weapon")]
+public class Weapon : Equipment
 {
+
     public float ReachLength;
     private int DMG;
     public float DMG_Scaling;
@@ -11,4 +13,11 @@ public class Weapon : Item
     public float DMGTextSize;
     public float activeTimeLimit;
     public float cooldownTime;
+
+    public override void Use()
+    {
+        base.Use();
+        
+        //Swap out previous handheld item
+    }
 }
