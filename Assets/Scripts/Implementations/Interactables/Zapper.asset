@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3940ce4615ac23e448549628e8db5999, type: 3}
+  m_Name: Zapper
+  m_EditorClassIdentifier: 
+  name: Zapper
+  icon: {fileID: 21300032, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
+  iconRotation: 0
+  iconSize: 0.7
+  isDefaultItem: 0
+  equipSlot: 4
+  SpellPrefab: {fileID: 1346022673198726, guid: 68e18870fc4151a446e6738563237644,
+    type: 3}
+  ChargedSpellPrefab: {fileID: 1726419301950544, guid: aac48c9d6a59d995474acae3321a486d,
+    type: 3}

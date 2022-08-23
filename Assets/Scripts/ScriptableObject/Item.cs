@@ -8,6 +8,8 @@ public class Item : ScriptableObject
 
 	new public string name = "New Item";    // Name of the item
 	public Sprite icon = null;              // Item icon
+	public float iconRotation = 90f;
+	public float iconSize = 1f;
 	public bool isDefaultItem = false;      // Is the item default wear?
 
 	// Called when the item is pressed in the inventory
@@ -22,6 +24,7 @@ public class Item : ScriptableObject
 	public void RemoveFromInventory()
 	{
 		Inventory.instance.Remove(this);
+
 	}
 
 }

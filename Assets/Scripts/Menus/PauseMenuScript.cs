@@ -11,6 +11,7 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject player;
     public GameObject mousePointer;
     public GameObject MainMenuWarning;
+    public GameObject inventoryUI;
 
     public float testint;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == false)
         {
             OptionsMenuUI.SetActive(false);
             if (isPaused)

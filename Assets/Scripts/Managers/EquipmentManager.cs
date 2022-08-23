@@ -15,6 +15,8 @@ public class EquipmentManager : MonoBehaviour
 
     Equipment[] currentEquipment;
 
+    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
+    public OnEquipmentChanged onEquipmentChanged;
     Inventory inventory;
     private void Start()
     {
@@ -28,11 +30,17 @@ public class EquipmentManager : MonoBehaviour
     public void Equip (Equipment newItem)
     {
         int slotIndex = (int)newItem.equipSlot;
+
+        Equipment oldItem = null;
         if (currentEquipment[slotIndex] != null)
         {
-            inventory.Add(currentEquipment[slotIndex]);
+            oldItem = currentEquipment[slotIndex];
+            inventory.Add(oldItem);
         }
-            
+        if (onEquipmentChanged != null)
+        {
+            onEquipmentChanged.Invoke(newItem, oldItem);
+        }
         currentEquipment[slotIndex] = newItem;
     }
 
@@ -40,9 +48,29 @@ public class EquipmentManager : MonoBehaviour
     {
         if (currentEquipment[slotIndex] != null)
         {
-            inventory.Add(currentEquipment[slotIndex]);
+            Equipment oldItem = currentEquipment[slotIndex];
+            inventory.Add(oldItem);
 
             currentEquipment[slotIndex] = null;
+
+            if (onEquipmentChanged != null)
+            {
+                onEquipmentChanged.Invoke(null, oldItem);
+            }
         }
+        
+    }
+    public bool isEquipped(int slotIndex)
+    {
+        return !(currentEquipment[slotIndex +1] == null);
+    }
+    public GameObject[] getSpells(int spellNumber)
+    {
+        GameObject[] ret = new GameObject[2];
+        Spell basicVer = (Spell)currentEquipment[spellNumber +1];
+        ret[0] = basicVer.SpellPrefab;
+        Spell bigVer = (Spell)currentEquipment[spellNumber +1];
+        ret[1] = bigVer.ChargedSpellPrefab;
+        return ret;
     }
 }

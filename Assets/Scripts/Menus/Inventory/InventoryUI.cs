@@ -83,6 +83,7 @@ public class InventoryUI : MonoBehaviour
 			{
 				// Otherwise clear the slot
 				slots[i].ClearSlot();
+				Destroy(slots[i].gameObject);
 			}
 		}
 	}
