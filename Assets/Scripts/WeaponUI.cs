@@ -6,7 +6,7 @@ using Mirror;
 
 public class WeaponUI : MonoBehaviour
 {
-
+    public Sprite emptySprite;
     public GameObject WeaponRedUI;
     public GameObject WeaponOrangeUI;
     public GameObject WeaponYellowUI;
@@ -81,31 +81,31 @@ public class WeaponUI : MonoBehaviour
             }
             else if (oldItem.equipSlot == EquipmentSlot.red)
             {
-                WeaponRedUI.GetComponent<Image>().sprite = null;
+                WeaponRedUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.orange)
             {
-                WeaponOrangeUI.GetComponent<Image>().sprite = null;
+                WeaponOrangeUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.yellow)
             {
-                WeaponYellowUI.GetComponent<Image>().sprite = null;
+                WeaponYellowUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.green)
             {
-                WeaponGreenUI.GetComponent<Image>().sprite = null;
+                WeaponGreenUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.blue)
             {
-                WeaponBlueUI.GetComponent<Image>().sprite = null;
+                WeaponBlueUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.indigo)
             {
-                WeaponIndigoUI.GetComponent<Image>().sprite = null;
+                WeaponIndigoUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.violet)
             {
-                WeaponVioletUI.GetComponent<Image>().sprite = null;
+                WeaponVioletUI.GetComponent<Image>().sprite = emptySprite;
             }
         }
         else if(newItem.equipSlot == EquipmentSlot.melee)

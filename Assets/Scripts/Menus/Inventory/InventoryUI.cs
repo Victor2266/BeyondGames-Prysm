@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 /* This object updates the inventory UI. */
 
@@ -13,14 +14,21 @@ public class InventoryUI : MonoBehaviour
 	Inventory inventory;    // Our current inventory
 
 	InventorySlot[] slots;  // List of all the slots
-
+	public Image[] Tabs = new Image[3];
 	PlayerEntity player;
+	public GameObject pauseMenu;
+
+	public enum WeaponTypes { All, Weapons, Spells };
+	public WeaponTypes CurrentTab;
+
+	private Color GreyedColor = new Color(1f, 1f, 1f, 0.5f);
+	private Color SelectedColor = new Color(1f, 1f, 1f, 1f);
+
 	void Start()
 	{
 		inventory = Inventory.instance;
 		inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
-
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
@@ -28,7 +36,7 @@ public class InventoryUI : MonoBehaviour
 	void Update()
 	{
 		// Check to see if we should open/close the inventory
-		if (Input.GetButtonDown("Inventory"))
+		if (Input.GetButtonDown("Inventory") && pauseMenu.activeSelf == false)
 		{
 				if (PauseMenuScript.isPaused)
 				{
@@ -41,8 +49,16 @@ public class InventoryUI : MonoBehaviour
 			
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
+		else if (Input.GetButtonDown("Pause"))
+        {
+			CloseInventory();
+        }
 	}
-
+	public void CloseInventory()
+    {
+		Resume();
+		inventoryUI.SetActive(false);
+	}
     private void Pause()
     {
 		Cursor.lockState = CursorLockMode.None;
@@ -70,13 +86,19 @@ public class InventoryUI : MonoBehaviour
     void UpdateUI()
 	{
 		// Loop through all the slots
-		var newSlot = Instantiate(emptySlot, itemsParent);//new slot for adding item to UI
+		
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+		while (slots.Length < inventory.items.Count)
+		{
+			var newSlot = Instantiate(emptySlot, itemsParent);//new slot for adding item to UI
+			slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+		}
 		for (int i = 0; i < slots.Length; i++)
 		{
+			
+
 			if (i < inventory.items.Count)  // If there is an item to add
 			{
-				
 				slots[i].AddItem(inventory.items[i]);   // Add it
 			}
 			else
@@ -85,6 +107,54 @@ public class InventoryUI : MonoBehaviour
 				slots[i].ClearSlot();
 				Destroy(slots[i].gameObject);
 			}
+
+			if (CurrentTab == WeaponTypes.Weapons)
+			{
+				if (inventory.items[i].WeaponType != WeaponTypes.Weapons)
+				{
+					// Otherwise clear the slot
+					slots[i].ClearSlot();
+					Destroy(slots[i].gameObject);
+				}
+			}
+			else if (CurrentTab == WeaponTypes.Spells)
+			{
+				if (inventory.items[i].WeaponType != WeaponTypes.Spells)
+				{
+					// Otherwise clear the slot
+					slots[i].ClearSlot();
+					Destroy(slots[i].gameObject);
+				}
+			}
 		}
+	}
+
+	public void SetCurrentTab(int WeapType)
+    {
+        switch (WeapType)
+        {
+			case 1:
+				CurrentTab = WeaponTypes.Weapons;
+				Tabs[0].color = GreyedColor;
+				Tabs[2].color = GreyedColor;
+				Tabs[1].color = SelectedColor;
+				break;
+			case 2:
+				CurrentTab = WeaponTypes.Spells;
+				Tabs[0].color = GreyedColor;
+				Tabs[1].color = GreyedColor;
+				Tabs[2].color = SelectedColor;
+				break;
+			default:
+				CurrentTab = WeaponTypes.All;
+				Tabs[1].color = GreyedColor;
+				Tabs[2].color = GreyedColor;
+				Tabs[0].color = SelectedColor;
+				break;
+		}
+		Debug.Log("Current tab: " + CurrentTab);
+		UpdateUI();
+		
+	
 	}
 }

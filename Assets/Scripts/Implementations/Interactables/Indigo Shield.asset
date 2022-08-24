@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Indigo Shield
   icon: {fileID: 21300272, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
+  iconRotation: 90
+  iconSize: 1
   isDefaultItem: 0
+  WeaponType: 2
   equipSlot: 7
   SpellPrefab: {fileID: 1346022673198726, guid: cfa1310ed9a67b242aa0c6bf71c1569d,
     type: 3}

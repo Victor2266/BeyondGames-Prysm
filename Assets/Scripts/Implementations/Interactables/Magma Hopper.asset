@@ -17,6 +17,7 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 0.6
   isDefaultItem: 0
+  WeaponType: 2
   equipSlot: 3
   SpellPrefab: {fileID: 1346022673198726, guid: 74e49598e315b7a458efa81fed0984bb,
     type: 3}

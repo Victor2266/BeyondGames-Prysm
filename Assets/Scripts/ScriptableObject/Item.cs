@@ -10,7 +10,9 @@ public class Item : ScriptableObject
 	public Sprite icon = null;              // Item icon
 	public float iconRotation = 90f;
 	public float iconSize = 1f;
-	public bool isDefaultItem = false;      // Is the item default wear?
+	public bool isDefaultItem = false;
+
+	public InventoryUI.WeaponTypes WeaponType = InventoryUI.WeaponTypes.Weapons;
 
 	// Called when the item is pressed in the inventory
 	public virtual void Use()

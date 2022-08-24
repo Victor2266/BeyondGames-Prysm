@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hashCode: -1600944754
   material: {fileID: 21290951584543668}
-  materialHashCode: -1970403003
+  materialHashCode: -936792978
   m_Version: 1.1.0
   m_SourceFontFileGUID: 06a4641478d84c98ac621a978fa51eeb
   m_SourceFontFile_EditorRef: {fileID: 0}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
+    m_FaceIndex: 0
     m_FamilyName: 8-bit pusab
     m_StyleName: 
     m_PointSize: 41
@@ -28,7 +29,7 @@ MonoBehaviour:
     m_LineHeight: 68.3125
     m_AscentLine: 54.6875
     m_CapLine: 47.8125
-    m_MeanLine: 0
+    m_MeanLine: 41
     m_Baseline: 0
     m_DescentLine: -13.6875
     m_SuperscriptOffset: 54.6875
@@ -1755,6 +1756,8 @@ MonoBehaviour:
   m_AtlasTextures:
   - {fileID: 28195317083840162}
   m_AtlasTextureIndex: 0
+  m_IsMultiAtlasTexturesEnabled: 0
+  m_ClearDynamicDataOnBuild: 0
   m_UsedGlyphRects: []
   m_FreeGlyphRects: []
   m_fontInfo:
@@ -2890,6 +2893,7 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 0
   m_IgnoreMasterTextureLimit: 0
+  m_IsPreProcessed: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0

@@ -50,7 +50,7 @@ public class EquipmentManager : MonoBehaviour
         {
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
-
+            Debug.Log("UNEQUIPPING " + oldItem.name);
             currentEquipment[slotIndex] = null;
 
             if (onEquipmentChanged != null)
