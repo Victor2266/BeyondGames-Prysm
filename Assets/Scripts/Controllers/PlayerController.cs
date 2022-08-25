@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     public void Shooting()
     {
-        if ((Input.GetButtonDown("Charge") || Input.GetMouseButtonDown(1)) && playerEntity.Chargeable[Mathf.Abs(playerEntity.weapon - 1)] == playerEntity.weapon)
+        if ((Input.GetButtonDown("Charge") || Input.GetMouseButtonDown(1)))
         {
             if (playerEntity.weapon <= 7 && playerEntity.weapon > 0)
             {
@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerEntity.ChargeIndicator.SetActive(false);
                 playerEntity.weapon -= 7;
+                playerManager.SetWeap();
             }
         }
 
@@ -185,8 +186,8 @@ public class PlayerController : MonoBehaviour
                             playerEntity.bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(velo * v.x - playerEntity.inaccuracy, velo * v.x + playerEntity.inaccuracy),
                                 Random.Range(velo * v.y - playerEntity.inaccuracy, velo * v.y + playerEntity.inaccuracy));
                         }
-                        playerEntity.OrbPosition.offsetX = v.x;
-                        playerEntity.OrbPosition.offsetY = v.y;
+                        playerEntity.OrbPosition.offsetX = v.x * 0.65f;
+                        playerEntity.OrbPosition.offsetY = v.y * 0.65f;
 
                     }
 
@@ -289,7 +290,7 @@ public class PlayerController : MonoBehaviour
             else if (playerEntity.timeStamp + 2f <= Time.time)
             {
                 playerEntity.OrbPosition.offsetX = 0f;
-                playerEntity.OrbPosition.offsetY = 0f;
+                playerEntity.OrbPosition.offsetY = 0.03f;
             }
         }
     }

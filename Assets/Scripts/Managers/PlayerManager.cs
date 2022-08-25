@@ -123,7 +123,12 @@ public class PlayerManager : MonoBehaviour
         }
 
 
-        if (playerEntity.weapon == -1)//beginning light weapon
+        if (playerEntity.weapon == 0)//bow
+        {
+            playerEntity.attackVelo = 2f;
+            playerEntity.coolDownPeriod = 0.3f;
+        }
+        if (playerEntity.weapon == -1)//sword
         {
             playerEntity.attackVelo = 2f;
             playerEntity.coolDownPeriod = 0.3f;

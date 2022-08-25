@@ -73,4 +73,17 @@ public class EquipmentManager : MonoBehaviour
         ret[1] = bigVer.ChargedSpellPrefab;
         return ret;
     }
+
+    public Color getColor(int index)
+    {
+        return currentEquipment[index + 1].color;
+    }
+
+    public InventoryUI.WeaponTypes getWeaponType(int index)
+    {
+        if (currentEquipment[index + 1] != null)
+            return currentEquipment[index + 1].WeaponType;
+        else
+            return InventoryUI.WeaponTypes.All;
+    }
 }

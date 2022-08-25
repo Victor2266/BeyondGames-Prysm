@@ -25,8 +25,6 @@ public class MySceneManager : MonoBehaviour
 
     public static float StartingJump;
 
-    private static int[] StartingChargeable = new int[14];
-
     public static int CheckpointHealth;
 
     public static int CheckpointMana;
@@ -36,8 +34,6 @@ public class MySceneManager : MonoBehaviour
     private static float CheckpointSize;
 
     public static float CheckpointJump;
-
-    private static int[] CheckpointChargeable = new int[14];
 
     // called first
     void OnEnable()
@@ -59,7 +55,6 @@ public class MySceneManager : MonoBehaviour
         StartingMana = playerEntity.MaxMana;
         StartingSpeed = playerEntity.speed;
         StartingSize = playerEntity.cameraSize;
-        StartingChargeable = new int[14];
         StartingJump = playerEntity.jumpForce;
     }
 
@@ -90,7 +85,6 @@ public class MySceneManager : MonoBehaviour
                 playerEntity.cameraSize = CheckpointSize;
                 playerEntity.speed = CheckpointSpeed;
                 playerEntity.jumpForce = CheckpointJump;
-                playerEntity.Chargeable = CheckpointChargeable;
                 playerEntity.isClimbing = false;
 
                 playerEntity.transform.position = playerEntity.CheckpointPos;
@@ -107,7 +101,6 @@ public class MySceneManager : MonoBehaviour
                 playerEntity.cameraSize = StartingSize;
                 playerEntity.speed = StartingSpeed;
                 playerEntity.jumpForce = StartingJump;
-                playerEntity.Chargeable = StartingChargeable;
                 playerEntity.isClimbing = false;
                 SaveSystem.SavePlayerEntity(playerEntity);
             }
@@ -122,7 +115,6 @@ public class MySceneManager : MonoBehaviour
         playerEntity.cameraSize = 3.5f;
         playerEntity.speed = 3f;
         playerEntity.jumpForce = 5.3f;//3.8
-        playerEntity.Chargeable = new int[14];
         playerEntity.isClimbing = false;
         SaveSystem.SavePlayerEntity(playerEntity);
 
@@ -156,7 +148,6 @@ public class MySceneManager : MonoBehaviour
         StartingSize = playerEntity.cameraSize;
         StartingSpeed = playerEntity.speed;
         StartingJump = playerEntity.jumpForce;
-        StartingChargeable = playerEntity.Chargeable;
         StartingHealth = playerEntity.MaxHealth;
 
         CheckpointHealth = playerEntity.MaxHealth;
@@ -164,7 +155,6 @@ public class MySceneManager : MonoBehaviour
         CheckpointSize = playerEntity.cameraSize;
         CheckpointSpeed = playerEntity.speed;
         CheckpointJump = playerEntity.jumpForce;
-        CheckpointChargeable = playerEntity.Chargeable;
         CheckpointHealth = playerEntity.MaxHealth;
 
         playerEntity.isClimbing = false;
@@ -184,7 +174,6 @@ public class MySceneManager : MonoBehaviour
         CheckpointSize = playerEntity.cameraSize;
         CheckpointSpeed = playerEntity.speed;
         CheckpointJump = playerEntity.jumpForce;
-        CheckpointChargeable = playerEntity.Chargeable;
         CheckpointHealth = playerEntity.MaxHealth;
     }
     

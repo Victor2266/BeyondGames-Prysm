@@ -27,11 +27,15 @@ public class WeaponController : damageController
     public float cooldownTime;
 
     private bool WeaponEnabled;
+    public bool isInHand;
 
     public Slider StaminaBar;
     private RectTransform rectTrans;
 
     public GameObject Trail;
+
+    public delegate void OnHeldInHand(bool isHeld);
+    public OnHeldInHand onHeldInHand;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +46,30 @@ public class WeaponController : damageController
         startTime = 0f;
         WeaponEnabled = false;
         rectTrans = StaminaBar.GetComponent<RectTransform>();
+        isInHand = false;
+        onHeldInHand += HeldInHandStatus;
     }
-
+    void HeldInHandStatus(bool status)
+    {
+        if (status == false)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            sprtrend.color = new Vector4(1f, 1f, 1f, 0f);
+            isInHand = false;
+        }
+        else
+        {
+            sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
+            isInHand = true;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        if (!isInHand)
+        {
+            return;
+        }
         //transform.localPosition = whiteArrow.transform.localPosition;
         //transform.localRotation = whiteArrow.transform.localRotation;
         if (transform.localPosition.magnitude > ReachLength)

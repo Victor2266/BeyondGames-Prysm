@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Imperial Sword
   icon: {fileID: 21300000, guid: 469ce6828a9245545b04e535ee8b2bf3, type: 3}
+  iconRotation: 90
+  iconSize: 1
   isDefaultItem: 0
+  WeaponType: 1
+  equipSlot: 0
+  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.7490196}
   ReachLength: 0
   DMG_Scaling: 0
   MaxDamage: 0

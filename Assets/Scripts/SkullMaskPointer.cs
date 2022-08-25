@@ -14,9 +14,10 @@ public class SkullMaskPointer : MonoBehaviour
 
     public GameObject subject;
     public GameObject MagnitudeSubject;
+    public float DefaultZRotation = 0f;
 
     private Vector2 PointerPos;
-    public Camera CameraScript = new Camera();
+    //public Camera CameraScript = new Camera();
 
     public float SphereRadius = 10f;
     private float magnitude;
@@ -38,7 +39,7 @@ public class SkullMaskPointer : MonoBehaviour
         //base.transform.eulerAngles = new Vector3(0.5f*XAngle, Mathf.Abs(0), 0);
         //base.transform.eulerAngles = new Vector3(0,-0.35f*YAngle, 0);
         magnitude = MagnitudeSubject.transform.localPosition.magnitude;
-        base.transform.eulerAngles = new Vector3(XAngle * magnitude, -YAngle * magnitude, 0f);
+        base.transform.eulerAngles = new Vector3(XAngle * magnitude, -YAngle * magnitude, DefaultZRotation);
     }
 
 }

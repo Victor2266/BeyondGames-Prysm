@@ -49,7 +49,7 @@ public class InventoryUI : MonoBehaviour
 			
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
-		else if (Input.GetButtonDown("Pause"))
+		else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
         {
 			CloseInventory();
         }

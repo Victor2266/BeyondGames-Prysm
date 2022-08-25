@@ -13,11 +13,6 @@ public class UpgradeItem : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (UnlocksCharging)
-            {
-                player.GetComponent<PlayerEntity>().Chargeable[UnlockingWeapon - 1] = UnlockingWeapon;
-                player.GetComponent<PlayerEntity>().Chargeable[UnlockingWeapon + 7 - 1] = UnlockingWeapon + 7;
-            }
             if (UnlockWeapon)
             {
                 if (UnlockingWeapon == 1)
@@ -94,8 +89,6 @@ public class UpgradeItem : MonoBehaviour
     public int UnlockingWeapon;
 
     public GameObject Weapons;
-
-    public bool UnlocksCharging;
 
     public bool UnlockWeapon;
 

@@ -26,6 +26,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == false)
         {
+            Debug.Log("Pausing Game");
             OptionsMenuUI.SetActive(false);
             if (isPaused)
             {

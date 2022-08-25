@@ -6,6 +6,7 @@ public class Equipment : Item
 {
 
     public EquipmentSlot equipSlot;
+    public Color color;
 
     public override void Use()
     {

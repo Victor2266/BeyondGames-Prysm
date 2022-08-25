@@ -7,6 +7,11 @@ using Mirror;
 public class WeaponUI : MonoBehaviour
 {
     public Sprite emptySprite;
+    public Sprite meleeSprite;
+    public Sprite rangedSprite;
+
+    public GameObject MeleeUI;
+    public GameObject RangedUI;
     public GameObject WeaponRedUI;
     public GameObject WeaponOrangeUI;
     public GameObject WeaponYellowUI;
@@ -14,7 +19,6 @@ public class WeaponUI : MonoBehaviour
     public GameObject WeaponBlueUI;
     public GameObject WeaponIndigoUI;
     public GameObject WeaponVioletUI;
-    public GameObject[] weaponList;
     public GameObject Slider;
     public GameObject SliderParent;
     private RectTransform SliderParentUI;
@@ -27,6 +31,7 @@ public class WeaponUI : MonoBehaviour
     
     private PlayerEntity playerScript;
     private PlayerManager playerManager;
+    public WeaponController handheld_weapon;
 
     public GameObject FillObj;
     private Image manaFillColor;
@@ -63,7 +68,6 @@ public class WeaponUI : MonoBehaviour
         TruePosition = 0;
         CurrentColor = new Color(1f, 1f, 0f, 0f);
 
-        weaponList = new GameObject[] { WeaponRedUI, WeaponOrangeUI, WeaponYellowUI, WeaponGreenUI, WeaponBlueUI, WeaponIndigoUI, WeaponVioletUI };
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
 
@@ -73,11 +77,11 @@ public class WeaponUI : MonoBehaviour
         {
             if (oldItem.equipSlot == EquipmentSlot.melee)
             {
-
+                MeleeUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.ranged)
             {
-
+                RangedUI.GetComponent<Image>().sprite = emptySprite;
             }
             else if (oldItem.equipSlot == EquipmentSlot.red)
             {
@@ -110,11 +114,11 @@ public class WeaponUI : MonoBehaviour
         }
         else if(newItem.equipSlot == EquipmentSlot.melee)
         {
-
+            MeleeUI.GetComponent<Image>().sprite = meleeSprite;
         }
         else if (newItem.equipSlot == EquipmentSlot.ranged)
         {
-
+            RangedUI.GetComponent<Image>().sprite = rangedSprite;
         }
         else if (newItem.equipSlot == EquipmentSlot.red)
         {
@@ -152,7 +156,7 @@ public class WeaponUI : MonoBehaviour
     {
         if (Mathf.Abs(SliderUI.anchoredPosition.x - (float)TruePosition) > 0.01f)
         {
-            posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.2f);
+            posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.1f);
             SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
             SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
@@ -162,101 +166,101 @@ public class WeaponUI : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if ((Input.GetKey(KeyCode.Alpha1) ) && EquipmentManager.instance.isEquipped(-1))
         {
-           
-            playerScript.Chargeable = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+            autoChangeWeapons(-1);
         }
-
-        if ((Input.GetKey(KeyCode.Alpha1) || playerScript.weapon == 1) && EquipmentManager.instance.isEquipped(1))
-        {   
-            ChangeWeapons(1, -180, new Color(1f, 0f, 0f, 1f));
-        }
-        if ((Input.GetKey(KeyCode.Alpha2) || playerScript.weapon == 2) && EquipmentManager.instance.isEquipped(2))
+        if ((Input.GetKey(KeyCode.Alpha2) ) && EquipmentManager.instance.isEquipped(0))
         {
-            ChangeWeapons(2, -150, new Color(1f, 0.5f, 0f, 0.75f));
+            autoChangeWeapons(0);
         }
-        if ((Input.GetKey(KeyCode.Alpha3) || playerScript.weapon == 3) && EquipmentManager.instance.isEquipped(3))
+        if ((Input.GetKey(KeyCode.Alpha3) ) && EquipmentManager.instance.isEquipped(1))
         {
-            ChangeWeapons(3, -120, new Color(1f, 1f, 0f, 0.75f));
+            autoChangeWeapons(1);
         }
-        if ((Input.GetKey(KeyCode.Alpha4) || playerScript.weapon == 4) && EquipmentManager.instance.isEquipped(4))
+        if ((Input.GetKey(KeyCode.Alpha4) ) && EquipmentManager.instance.isEquipped(2))
         {
-            ChangeWeapons(4, -90, new Color(0f, 1f, 0f, 0.75f));
+            autoChangeWeapons(2);
         }
-        if ((Input.GetKey(KeyCode.Alpha5) || playerScript.weapon == 5) && EquipmentManager.instance.isEquipped(5))
+        if ((Input.GetKey(KeyCode.Alpha5)) && EquipmentManager.instance.isEquipped(3))
         {
-            ChangeWeapons(5, -60, new Color(0.15f, 0.3f, 1f, 1f));
+            autoChangeWeapons(3);
         }
-        if ((Input.GetKey(KeyCode.Alpha6) || playerScript.weapon == 6) && EquipmentManager.instance.isEquipped(6))
+        if ((Input.GetKey(KeyCode.Alpha6)) && EquipmentManager.instance.isEquipped(4))
         {
-            ChangeWeapons(6, -30, new Color(0.5f, 0.25f, 1f, 1f));
+            autoChangeWeapons(4);
         }
-        if ((Input.GetKey(KeyCode.Alpha7) || playerScript.weapon == 7) && EquipmentManager.instance.isEquipped(7))
+        if ((Input.GetKey(KeyCode.Alpha7)) && EquipmentManager.instance.isEquipped(5))
         {
-            ChangeWeapons(7, 0, new Color(1f, 0.2f, 1f, 1f));
-        
+            autoChangeWeapons(5);
+        }
+        if ((Input.GetKey(KeyCode.Alpha8)) && EquipmentManager.instance.isEquipped(6))
+        {
+            autoChangeWeapons(6);
+        }
+        if ((Input.GetKey(KeyCode.Alpha9)) && EquipmentManager.instance.isEquipped(7))
+        {
+            autoChangeWeapons(7);
         }
 
 
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0.09f) // forward
         {
-            if (playerScript.weapon > 1 && playerScript.weapon < 8)
+            if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
             {
                 playerScript.weapon--;
             }
             
 
-            if (playerScript.weapon > 0 && playerScript.weapon <= 7)
+            if (playerScript.weapon > -2 && playerScript.weapon <= 7)
             {
-                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > 1)
+                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
                 {
                     playerScript.weapon--;
                     
                 }
-                if (playerScript.weapon == 1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))
+                if (playerScript.weapon == -1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[-1]
                 {
                     playerScript.weapon = 7;
-                    while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > 1)
+                    while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
                     {
                         playerScript.weapon--;
 
                     }
                 }
+
+                autoChangeWeapons(playerScript.weapon);
+                playerManager.SetWeap();
             }
-
-
-            playerManager.SetWeap();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < -0.09f) // backwards
         {
-            if (playerScript.weapon > 0 && playerScript.weapon < 7)
+            if (playerScript.weapon > -2 && playerScript.weapon < 7)//from weapons [-1 0 123456]7
             {
                 playerScript.weapon++;
             }
             
 
-            if (playerScript.weapon > 0 && playerScript.weapon <= 7)
+            if (playerScript.weapon > -2 && playerScript.weapon <= 7)
             {
                 while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
                 {
                     playerScript.weapon++;
                     
                 }
-                if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))
+                if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
                 {
-                    playerScript.weapon = 1;
+                    playerScript.weapon = -1;
                     while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
                     {
                         playerScript.weapon++;
 
                     }
                 }
+                autoChangeWeapons(playerScript.weapon);
+                playerManager.SetWeap();
             }
-
-
-            playerManager.SetWeap();
         }
 
 
@@ -284,16 +288,42 @@ public class WeaponUI : MonoBehaviour
         cooldowntime = r_cooldowntime;
     }
 
-    void ChangeWeapons(int weap, int pos, Color col)
+
+    void autoChangeWeapons(int weaponNumber)
     {
-        playerScript.weapon = weap;
-        playerScript.weaponsList[weap - 1] = EquipmentManager.instance.getSpells(weap)[0];
-        playerScript.weaponsList[weap + 6] = EquipmentManager.instance.getSpells(weap)[1];
-        TruePosition = pos + xAdjustment;
-        CurrentColor = new Vector4(col.r, col.g, col.b, 1f);
-        OrbObject.GetComponent<SpriteRenderer>().color = col;
-        playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
-        playerManager.SetWeap();
+        if (EquipmentManager.instance.getWeaponType(weaponNumber) == InventoryUI.WeaponTypes.Weapons)//change weapons
+        {
+            ChangeWeapons(weaponNumber, Mathf.Abs(7 - weaponNumber) * -30, EquipmentManager.instance.getColor(weaponNumber), true);
+        }
+        else if (EquipmentManager.instance.getWeaponType(weaponNumber) == InventoryUI.WeaponTypes.Spells)
+        {
+            ChangeWeapons(weaponNumber, Mathf.Abs(7 - weaponNumber) * -30, EquipmentManager.instance.getColor(weaponNumber), false);
+        }
+    }
+    void ChangeWeapons(int weap, int pos, Color col, bool inHand)
+    {
+        if(weap >= 1)
+        {
+            playerScript.weapon = weap;
+            playerScript.weaponsList[weap - 1] = EquipmentManager.instance.getSpells(weap)[0];
+            playerScript.weaponsList[weap + 6] = EquipmentManager.instance.getSpells(weap)[1];
+            TruePosition = pos + xAdjustment;
+            CurrentColor = col;
+            playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
+            playerManager.SetWeap();
+
+            handheld_weapon.onHeldInHand.Invoke(false);
+        }
+        else
+        {
+            playerScript.weapon = weap;
+            TruePosition = pos + xAdjustment;
+            CurrentColor = col;
+            playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
+            playerManager.SetWeap();
+
+            handheld_weapon.onHeldInHand.Invoke(true);
+        }
     }
 
     /// <summary>

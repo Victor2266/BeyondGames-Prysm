@@ -87,7 +87,6 @@ public class PlayerSaveData
         rapid_fire = player.rapid_fire;
         power_control = player.power_control;
         inaccuracy = player.inaccuracy;
-        Chargeable = player.Chargeable;
         isClimbing = player.isClimbing;
         HealthBarScalingLength = player.HealthBarScalingLength;
         customLocalPlayerCheck = player.customLocalPlayerCheck;

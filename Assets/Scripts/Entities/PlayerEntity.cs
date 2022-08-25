@@ -78,7 +78,6 @@ public class PlayerEntity : MonoBehaviour
 
     public GameObject ChargeIndicator;//the particle system when you use a charged shot
 
-    public int[] Chargeable = new int[14];//array keeps track of which charged shots you've unlocked
     public GameObject Orb;
     public GameObject mousePointer = null;
 
@@ -134,7 +133,6 @@ public class PlayerEntity : MonoBehaviour
         rapid_fire = player.rapid_fire;
         power_control = player.power_control;
         inaccuracy = player.inaccuracy;
-        Chargeable = player.Chargeable;
         isClimbing = player.isClimbing;
         HealthBarScalingLength = player.HealthBarScalingLength;
         customLocalPlayerCheck = player.customLocalPlayerCheck;

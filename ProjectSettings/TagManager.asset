@@ -32,6 +32,7 @@ TagManager:
   - EnemyPlayer
   - GlobalLight
   - Transition
+  - Handheld_Weapon
   layers:
   - Default
   - TransparentFX

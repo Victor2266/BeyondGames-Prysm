@@ -19,7 +19,8 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 2
   equipSlot: 4
-  SpellPrefab: {fileID: 4243457265752490857, guid: 0292dc767a03fc748afcc19f4939394a,
+  color: {r: 1, g: 1, b: 0, a: 0.9098039}
+  SpellPrefab: {fileID: 1077325737881707, guid: ff018489407f588e418de0cbdcfc7cbf,
     type: 3}
-  ChargedSpellPrefab: {fileID: 4243457265752490857, guid: 02a476acd895c0e459f7e41ba01c1fd0,
+  ChargedSpellPrefab: {fileID: 1310705855610197, guid: 56efcb44303f688f4ce3070b118cbe56,
     type: 3}
