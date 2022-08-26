@@ -19,6 +19,7 @@ public class Weapon : Equipment
     public Vector2 CapsuleColliderSize;
 
     public float handReachMultiplier;
+    public GameObject projectileAttack;
     public override void Use()
     {
         base.Use();

@@ -41,6 +41,9 @@ public class WeaponController : damageController
     public OldCameraController OrbPosition;
     private PointerScript pointerScript;
     private CapsuleCollider2D capsuleColider;
+    public WeaponUI weaponUI;
+
+    private GameObject attack = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +90,7 @@ public class WeaponController : damageController
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
             sprtrend.sprite = equippedWeapon.icon;
             handReachMultiplier = equippedWeapon.handReachMultiplier;
+            attack = equippedWeapon.projectileAttack;
 
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
@@ -117,34 +121,8 @@ public class WeaponController : damageController
             StaminaBar.value = StaminaBar.maxValue;
         }
 
-        if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)
-        {
-            lastPosition = transform.position;
-
-            enableWeapon();
-        }
-        if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)
-        {
-            float distance = Vector3.Distance(lastPosition, transform.position);
-            totalDistance += distance;
-            lastPosition = transform.position;
-            DMG = (int)(totalDistance * DMG_Scaling);
-
-            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
-     
-        }
-        if ( (Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled) )
-        {
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
-
-            totalDistance = 0f;
-            timeStamp = Time.time + cooldownTime;
-
-            StaminaBar.value = 0f;
-            WeaponEnabled = false;
-            Trail.SetActive(false);
-        }
+        leftClicking();
+        rightClicking();
 
 
     }
@@ -187,5 +165,43 @@ public class WeaponController : damageController
         startTime = Time.time;
         WeaponEnabled = true;
         Trail.SetActive(true);
+    }
+
+    private void leftClicking()
+    {
+        if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
+        {
+            lastPosition = transform.position;
+            weaponUI.flashWhite();
+            enableWeapon();
+        }
+        if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
+        {
+            float distance = Vector3.Distance(lastPosition, transform.position);
+            totalDistance += distance;
+            lastPosition = transform.position;
+            DMG = (int)(totalDistance * DMG_Scaling);
+
+            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
+        }
+        if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
+
+            totalDistance = 0f;
+            timeStamp = Time.time + cooldownTime;
+            weaponUI.ScaleDown(cooldownTime);
+            StaminaBar.value = 0f;
+            WeaponEnabled = false;
+            Trail.SetActive(false);
+        }
+    } 
+    private void rightClicking()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameObject projectile = Instantiate(attack, transform.position, transform.rotation);
+        }
     }
 }

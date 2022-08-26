@@ -157,7 +157,6 @@ public class WeaponUI : MonoBehaviour
         if (Mathf.Abs(SliderUI.anchoredPosition.x - (float)TruePosition) > 0.01f)
         {
             posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.1f);
-            SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
             SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
             //playerScript.ChargeIndicator.SetActive(false);
@@ -280,6 +279,7 @@ public class WeaponUI : MonoBehaviour
             SliderUI.sizeDelta = new Vector2(30, sliderYSize);
             SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
         }
+        SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
     }
 
     public void ScaleDown(float r_cooldowntime)
@@ -287,7 +287,10 @@ public class WeaponUI : MonoBehaviour
         SliderUI.sizeDelta = new Vector2(30, 0);
         cooldowntime = r_cooldowntime;
     }
-
+    public void flashWhite()
+    {
+        SliderColour.color = Color.white;
+    }
 
     void autoChangeWeapons(int weaponNumber)
     {

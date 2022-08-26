@@ -20,9 +20,14 @@ MonoBehaviour:
   WeaponType: 1
   equipSlot: 0
   color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.7490196}
-  ReachLength: 0
-  DMG_Scaling: 0
+  ReachLength: 2
+  DMG_Scaling: 4
   MaxDamage: 0
-  DMGTextSize: 0
-  activeTimeLimit: 0
-  cooldownTime: 0
+  DMGTextSize: 2
+  activeTimeLimit: 1
+  cooldownTime: 1
+  XYSize: 0.8
+  angle_offset: 90
+  CapsuleColliderOffset: {x: 0, y: 0.5}
+  CapsuleColliderSize: {x: 0.3, y: 2.1}
+  handReachMultiplier: 0.33
