@@ -86,4 +86,9 @@ public class EquipmentManager : MonoBehaviour
         else
             return InventoryUI.WeaponTypes.All;
     }
+
+    public Weapon getMeleeWeapon()
+    {
+        return (Weapon)currentEquipment[0];
+    }
 }

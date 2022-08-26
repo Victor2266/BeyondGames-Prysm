@@ -7,13 +7,18 @@ public class Weapon : Equipment
 {
 
     public float ReachLength;
-    private int DMG;
     public float DMG_Scaling;
     public int MaxDamage;
     public float DMGTextSize;
     public float activeTimeLimit;
     public float cooldownTime;
+    public float XYSize;
+    public float angle_offset;
 
+    public Vector2 CapsuleColliderOffset;
+    public Vector2 CapsuleColliderSize;
+
+    public float handReachMultiplier;
     public override void Use()
     {
         base.Use();

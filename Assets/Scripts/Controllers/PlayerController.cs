@@ -111,6 +111,10 @@ public class PlayerController : MonoBehaviour
 
     public void Shooting()
     {
+        if (playerEntity.weapon < 1)
+        {
+            return;
+        }
         if ((Input.GetButtonDown("Charge") || Input.GetMouseButtonDown(1)))
         {
             if (playerEntity.weapon <= 7 && playerEntity.weapon > 0)
@@ -302,7 +306,7 @@ public class PlayerController : MonoBehaviour
             playerEntity.currentMana += 2;
             if (playerEntity.currentMana % 5 == 0 && playerEntity.currentMana != playerEntity.MaxMana)
             {
-                ShowText("+", 2, playerEntity.Orb.GetComponent<SpriteRenderer>().color);
+                ShowText("+", 2, Color.cyan);
             }
         }
         if (collision.tag == "healthItem" && playerEntity.currentHealth < (float)playerEntity.MaxHealth)

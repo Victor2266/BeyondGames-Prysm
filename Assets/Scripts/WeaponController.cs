@@ -10,9 +10,10 @@ public class WeaponController : damageController
     public GameObject pop;
 
     private SpriteRenderer sprtrend;
+    private float handReachMultiplier;
 
     public float ReachLength;
-    private int DMG;
+    private int DMG;// this is just the running total accumulated while dam_scalign is adding up
     public float DMG_Scaling;
     public int MaxDamage;
     public float DMGTextSize;
@@ -37,10 +38,15 @@ public class WeaponController : damageController
     public delegate void OnHeldInHand(bool isHeld);
     public OnHeldInHand onHeldInHand;
 
+    public OldCameraController OrbPosition;
+    private PointerScript pointerScript;
+    private CapsuleCollider2D capsuleColider;
     // Start is called before the first frame update
     void Start()
     {
+        pointerScript = GetComponent<PointerScript>();
         sprtrend = GetComponent<SpriteRenderer>();
+        capsuleColider = GetComponent<CapsuleCollider2D>();
         lastPosition = transform.position;
         timeStamp = 0f;
         startTime = 0f;
@@ -56,11 +62,35 @@ public class WeaponController : damageController
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0f);
             isInHand = false;
+
+            whiteArrow.SetActive(true);
+            OrbPosition.smoothTimeX = 0.05f;
+            OrbPosition.smoothTimeX = 0.05f;
         }
         else
         {
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             isInHand = true;
+
+            Weapon equippedWeapon = EquipmentManager.instance.getMeleeWeapon();
+            ReachLength = equippedWeapon.ReachLength;
+            DMG_Scaling = equippedWeapon.DMG_Scaling;
+            MaxDamage = equippedWeapon.MaxDamage;
+            DMGTextSize = equippedWeapon.DMGTextSize;
+            activeTimeLimit = equippedWeapon.activeTimeLimit;
+            cooldownTime = equippedWeapon.cooldownTime;
+
+            transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
+            pointerScript.offset = equippedWeapon.angle_offset;
+
+            capsuleColider.offset = equippedWeapon.CapsuleColliderOffset;
+            capsuleColider.size = equippedWeapon.CapsuleColliderSize;
+            sprtrend.sprite = equippedWeapon.icon;
+            handReachMultiplier = equippedWeapon.handReachMultiplier;
+
+            whiteArrow.SetActive(false);
+            OrbPosition.smoothTimeX = 0.01f;
+            OrbPosition.smoothTimeX = 0.01f;
         }
     }
     // Update is called once per frame
@@ -72,10 +102,13 @@ public class WeaponController : damageController
         }
         //transform.localPosition = whiteArrow.transform.localPosition;
         //transform.localRotation = whiteArrow.transform.localRotation;
+
         if (transform.localPosition.magnitude > ReachLength)
         {
             transform.localPosition = transform.localPosition.normalized * ReachLength;
         }
+        OrbPosition.offsetX = transform.localPosition.x * handReachMultiplier;
+        OrbPosition.offsetY = transform.localPosition.y * handReachMultiplier;
         rectTrans.sizeDelta = new Vector2(activeTimeLimit * 100f, 4f);
         StaminaBar.maxValue = activeTimeLimit * 100f;
 
