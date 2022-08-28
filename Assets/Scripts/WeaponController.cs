@@ -260,8 +260,10 @@ public class WeaponController : damageController
                 {
                     playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;
-                    playerEntity.bullet.GetComponent<projectileController>().Primed = true;
-
+                    if (playerEntity.bullet != null)
+                    {
+                        playerEntity.bullet.GetComponent<projectileController>().Primed = true;
+                    }
 
                 }
                 else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
