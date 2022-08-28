@@ -130,8 +130,16 @@ public class PlayerManager : MonoBehaviour
         }
         if (playerEntity.weapon == -1)//sword
         {
-            playerEntity.attackVelo = 2f;
-            playerEntity.coolDownPeriod = 0.3f;
+            if (playerEntity.attack == null)
+            {
+                return;
+            }
+            playerEntity.attackVelo = playerEntity.attack.GetComponent<projectileController>().attackVelo;
+            playerEntity.ManaCost = playerEntity.attack.GetComponent<projectileController>().ManaCost;
+            playerEntity.coolDownPeriod = playerEntity.attack.GetComponent<projectileController>().coolDownPeriod;
+            playerEntity.rapid_fire = playerEntity.attack.GetComponent<projectileController>().rapid_fire;
+            playerEntity.power_control = playerEntity.attack.GetComponent<projectileController>().power_control;
+            playerEntity.inaccuracy = playerEntity.attack.GetComponent<projectileController>().inaccuracy;
         }
     }
     public bool IsGrounded()

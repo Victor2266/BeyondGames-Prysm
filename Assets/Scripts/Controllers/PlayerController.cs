@@ -200,8 +200,10 @@ public class PlayerController : MonoBehaviour
                 {
                     playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;
-                    playerEntity.bullet.GetComponent<projectileController>().Primed = true;
-
+                    if (playerEntity.bullet != null)
+                    {
+                        playerEntity.bullet.GetComponent<projectileController>().Primed = true;
+                    }
 
                 }
                 else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
@@ -210,7 +212,6 @@ public class PlayerController : MonoBehaviour
                     playerEntity.charges = 1;
                     if (playerEntity.bullet != null)
                     {
-
                         playerEntity.bullet.GetComponent<projectileController>().Primed = true;
                     }
 
@@ -291,7 +292,7 @@ public class PlayerController : MonoBehaviour
             }*/
 
 
-            else if (playerEntity.timeStamp + 2f <= Time.time)
+            else if (playerEntity.timeStamp + 2f <= Time.time)//RETURNS HAND ORB TO MIDDLE POSITION
             {
                 playerEntity.OrbPosition.offsetX = 0f;
                 playerEntity.OrbPosition.offsetY = 0.03f;

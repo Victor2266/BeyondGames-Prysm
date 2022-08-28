@@ -154,6 +154,11 @@ public class WeaponUI : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         if (Mathf.Abs(SliderUI.anchoredPosition.x - (float)TruePosition) > 0.01f)
         {
             posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.1f);
@@ -292,7 +297,7 @@ public class WeaponUI : MonoBehaviour
         SliderColour.color = Color.white;
     }
 
-    void autoChangeWeapons(int weaponNumber)
+    public void autoChangeWeapons(int weaponNumber)
     {
         if (EquipmentManager.instance.getWeaponType(weaponNumber) == InventoryUI.WeaponTypes.Weapons)//change weapons
         {

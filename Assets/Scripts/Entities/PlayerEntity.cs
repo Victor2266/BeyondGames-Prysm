@@ -140,4 +140,6 @@ public class PlayerEntity : MonoBehaviour
 
         CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
+
+
 }

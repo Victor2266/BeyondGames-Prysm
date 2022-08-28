@@ -28,6 +28,10 @@ public class mouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
         if (isChildOfPlayer)
         {

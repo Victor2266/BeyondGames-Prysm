@@ -30,6 +30,10 @@ public class OldCameraController : MonoBehaviour
 
     private void Update()
     {
+        if (float.IsNaN(velocity.x) || float.IsNaN(velocity.y))
+        {
+            velocity = Vector2.zero;
+        }
         float x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x + offsetX, ref velocity.x, smoothTimeX);
         float num = Mathf.SmoothDamp(transform.position.y, player.transform.position.y + offsetY, ref velocity.y, smoothTimeY);
         transform.position = new Vector3(x, num, transform.position.z);

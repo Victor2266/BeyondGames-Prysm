@@ -31,3 +31,5 @@ MonoBehaviour:
   CapsuleColliderOffset: {x: 0, y: 0.5}
   CapsuleColliderSize: {x: 0.3, y: 2.1}
   handReachMultiplier: 0.33
+  projectileAttack: {fileID: 1310705855610197, guid: 0ae3da987f1794e4083d0c21705a11a0,
+    type: 3}

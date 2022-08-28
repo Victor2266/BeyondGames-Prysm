@@ -18,7 +18,6 @@ public class WeaponController : damageController
     public int MaxDamage;
     public float DMGTextSize;
 
-
     private Vector3 lastPosition;
     private float totalDistance;
 
@@ -42,8 +41,8 @@ public class WeaponController : damageController
     private PointerScript pointerScript;
     private CapsuleCollider2D capsuleColider;
     public WeaponUI weaponUI;
+    public PlayerEntity playerEntity;
 
-    private GameObject attack = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +89,8 @@ public class WeaponController : damageController
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
             sprtrend.sprite = equippedWeapon.icon;
             handReachMultiplier = equippedWeapon.handReachMultiplier;
-            attack = equippedWeapon.projectileAttack;
+
+            playerEntity.attack = equippedWeapon.projectileAttack;
 
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
@@ -100,6 +100,10 @@ public class WeaponController : damageController
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         if (!isInHand)
         {
             return;
@@ -181,7 +185,6 @@ public class WeaponController : damageController
             totalDistance += distance;
             lastPosition = transform.position;
             DMG = (int)(totalDistance * DMG_Scaling);
-
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
         }
         if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
@@ -199,9 +202,82 @@ public class WeaponController : damageController
     } 
     private void rightClicking()
     {
-        if (Input.GetMouseButtonDown(1))
+        shootSpecialAttack();
+    }
+    private void shootSpecialAttack()
+    {
+        if (playerEntity.timeStamp <= Time.time)
         {
-            GameObject projectile = Instantiate(attack, transform.position, transform.rotation);
+            if ((Input.GetMouseButtonDown(1) || (playerEntity.rapid_fire && Input.GetMouseButton(1))) && playerEntity.charges == 1 && playerEntity.currentMana - playerEntity.ManaCost >= 0)
+            {
+                playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
+                weaponUI.flashWhite();
+                sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
+
+                playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
+                playerEntity.currentMana -= playerEntity.ManaCost;
+                playerEntity.charges = 0;
+                if (playerEntity.weapon < 8)
+                {
+                    playerEntity.bullet.GetComponent<projectileController>().Primed = false;
+                }
+            }
+            if (playerEntity.charges == 0)
+            {
+                if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+                {
+                    if (playerEntity.bullet != null)
+                    {
+                        Vector3 TransNorm = transform.localPosition.normalized;
+                        playerEntity.bullet.transform.position = transform.position;
+                        playerEntity.bullet.transform.eulerAngles = transform.localEulerAngles;
+
+                        if (playerEntity.power_control == false && playerEntity.inaccuracy == 0)
+                        {
+                            playerEntity.bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(playerEntity.attackVelo * TransNorm.x, playerEntity.attackVelo * TransNorm.y);
+                        }
+                        else if (playerEntity.power_control && playerEntity.inaccuracy == 0)
+                        {
+                            float scaled_pow = Vector2.Distance(transform.position, playerEntity.CameraOrbObj.transform.position);
+                            playerEntity.bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(playerEntity.attackVelo * TransNorm.x * scaled_pow, playerEntity.attackVelo * TransNorm.y * scaled_pow);
+                        }
+                        else if (playerEntity.power_control == false && playerEntity.inaccuracy > 0)
+                        {
+                            playerEntity.bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(playerEntity.attackVelo * TransNorm.x - playerEntity.inaccuracy, playerEntity.attackVelo * TransNorm.x + playerEntity.inaccuracy),
+                                Random.Range(playerEntity.attackVelo * TransNorm.y - playerEntity.inaccuracy, playerEntity.attackVelo * TransNorm.y + playerEntity.inaccuracy));
+                        }
+                        if (playerEntity.power_control && playerEntity.inaccuracy > 0)
+                        {
+                            float scaled_pow = Vector2.Distance(transform.position, playerEntity.CameraOrbObj.transform.position);
+                            float velo = playerEntity.attackVelo * 2 * scaled_pow;
+                            playerEntity.bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(velo * TransNorm.x - playerEntity.inaccuracy, velo * TransNorm.x + playerEntity.inaccuracy),
+                                Random.Range(velo * TransNorm.y - playerEntity.inaccuracy, velo * TransNorm.y + playerEntity.inaccuracy));
+                        }
+                    }
+
+                }
+                if (playerEntity.rapid_fire == true)
+                {
+                    playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
+                    playerEntity.charges = 1;
+                    playerEntity.bullet.GetComponent<projectileController>().Primed = true;
+
+
+                }
+                else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+                {
+                    playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
+                    playerEntity.charges = 1;
+                    if (playerEntity.bullet != null)
+                    {
+
+                        playerEntity.bullet.GetComponent<projectileController>().Primed = true;
+                    }
+
+
+                }
+                sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
+            }
         }
     }
 }

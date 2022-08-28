@@ -43,7 +43,10 @@ public class PauseMenuScript : MonoBehaviour
         MainMenuWarning.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
-        mousePointer.SetActive(true);
+        if(player.GetComponent<PlayerEntity>().weapon > 0)
+        {
+            mousePointer.SetActive(true);
+        }
         player.GetComponent<PlayerController>().enabled = true;
         PauseMenuUI.SetActive(false);
         Time.timeScale = testint;
