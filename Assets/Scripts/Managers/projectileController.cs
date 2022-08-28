@@ -14,7 +14,6 @@ public class projectileController : damageController
     public bool Bouncy;
     public GameObject pop;
     public GameObject InitialPop = null;
-    public GameObject DMGText;
     public float DMGTextSize;
 
     public float attackVelo;
