@@ -42,7 +42,13 @@ public class WeaponController : damageController
     private CapsuleCollider2D capsuleColider;
     public WeaponUI weaponUI;
     public PlayerEntity playerEntity;
+    public float projectileOffset;
+    private float ItemReachLength;
+    private float itemVelo;
 
+    private float thrustResetTime;
+    private float thrustDashDist;
+    private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     // Start is called before the first frame update
     void Start()
     {
@@ -76,11 +82,16 @@ public class WeaponController : damageController
 
             Weapon equippedWeapon = EquipmentManager.instance.getMeleeWeapon();
             ReachLength = equippedWeapon.ReachLength;
+            ItemReachLength = equippedWeapon.ReachLength;
             DMG_Scaling = equippedWeapon.DMG_Scaling;
             MaxDamage = equippedWeapon.MaxDamage;
             DMGTextSize = equippedWeapon.DMGTextSize;
             activeTimeLimit = equippedWeapon.activeTimeLimit;
             cooldownTime = equippedWeapon.cooldownTime;
+
+            thrustResetTime = equippedWeapon.thrustResetTime;
+            thrustDashDist = equippedWeapon.thrustDashDist;
+            thrustShortReach = equippedWeapon.thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
 
             transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
             pointerScript.offset = equippedWeapon.angle_offset;
@@ -89,9 +100,10 @@ public class WeaponController : damageController
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
             sprtrend.sprite = equippedWeapon.icon;
             handReachMultiplier = equippedWeapon.handReachMultiplier;
+            projectileOffset = equippedWeapon.projectileOffset;
 
             playerEntity.attack = equippedWeapon.projectileAttack;
-
+            
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
             OrbPosition.smoothTimeX = 0.01f;
@@ -123,6 +135,10 @@ public class WeaponController : damageController
         if (timeStamp <= Time.time && !WeaponEnabled)
         {
             StaminaBar.value = StaminaBar.maxValue;
+        }
+        if (ReachLength < ItemReachLength)
+        {
+            ReachLength = Mathf.SmoothDamp(ReachLength, ItemReachLength, ref itemVelo, thrustResetTime);
         }
 
         leftClicking();
@@ -193,8 +209,8 @@ public class WeaponController : damageController
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
 
             totalDistance = 0f;
-            timeStamp = Time.time + cooldownTime;
-            weaponUI.ScaleDown(cooldownTime);
+            timeStamp = Time.time + cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit)*cooldownTime;
+            weaponUI.ScaleDown(cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit) * cooldownTime);
             StaminaBar.value = 0f;
             WeaponEnabled = false;
             Trail.SetActive(false);
@@ -206,17 +222,19 @@ public class WeaponController : damageController
     }
     private void shootSpecialAttack()
     {
-        if (playerEntity.timeStamp <= Time.time)
+        if (timeStamp <= Time.time)
         {
             if ((Input.GetMouseButtonDown(1) || (playerEntity.rapid_fire && Input.GetMouseButton(1))) && playerEntity.charges == 1 && playerEntity.currentMana - playerEntity.ManaCost >= 0)
             {
                 playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
                 weaponUI.flashWhite();
                 sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
-
+                StaminaBar.value = 0f;
                 playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
                 playerEntity.currentMana -= playerEntity.ManaCost;
                 playerEntity.charges = 0;
+                ReachLength = thrustShortReach;
+                Dash();
                 if (playerEntity.weapon < 8)
                 {
                     playerEntity.bullet.GetComponent<projectileController>().Primed = false;
@@ -229,7 +247,7 @@ public class WeaponController : damageController
                     if (playerEntity.bullet != null)
                     {
                         Vector3 TransNorm = transform.localPosition.normalized;
-                        playerEntity.bullet.transform.position = transform.position;
+                        playerEntity.bullet.transform.position = transform.position - TransNorm*projectileOffset;
                         playerEntity.bullet.transform.eulerAngles = transform.localEulerAngles;
 
                         if (playerEntity.power_control == false && playerEntity.inaccuracy == 0)
@@ -258,7 +276,7 @@ public class WeaponController : damageController
                 }
                 if (playerEntity.rapid_fire == true)
                 {
-                    playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
+                    timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;
                     if (playerEntity.bullet != null)
                     {
@@ -268,11 +286,10 @@ public class WeaponController : damageController
                 }
                 else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
                 {
-                    playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
+                    timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;
                     if (playerEntity.bullet != null)
                     {
-
                         playerEntity.bullet.GetComponent<projectileController>().Primed = true;
                     }
 
@@ -281,5 +298,16 @@ public class WeaponController : damageController
                 sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             }
         }
+    }
+    private void Dash()
+    {
+        GameObject dash = Instantiate(playerEntity.speedTrail, transform);
+        dash.transform.position = transform.position;
+        //playerEntity.speedTrail.SetActive(true);
+
+        //playerEntity.Flinch = true;
+        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.x, thrustDashDist * transform.localPosition.y);
+        dash.transform.eulerAngles = transform.eulerAngles;
+        
     }
 }

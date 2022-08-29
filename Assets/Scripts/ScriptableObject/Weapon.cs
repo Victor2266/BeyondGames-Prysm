@@ -20,6 +20,11 @@ public class Weapon : Equipment
 
     public float handReachMultiplier;
     public GameObject projectileAttack;
+    public float projectileOffset;
+
+    public float thrustResetTime;
+    public float thrustDashDist;
+    public float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     public override void Use()
     {
         base.Use();

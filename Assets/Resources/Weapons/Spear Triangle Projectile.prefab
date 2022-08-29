@@ -317,11 +317,10 @@ MonoBehaviour:
   pop: {fileID: 6708209246093052786, guid: 8ff9ff1db0b06ee44a6ecb45c2343e63, type: 3}
   InitialPop: {fileID: 6708209246093052786, guid: a28695d413786e64ea9f8ebf4fc755c1,
     type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: b9570889261c0f74cb9969d52fedd7dd, type: 3}
   DMGTextSize: 4
   attackVelo: 30
-  ManaCost: 5
-  coolDownPeriod: 1
+  ManaCost: 0
+  coolDownPeriod: 2
   rapid_fire: 1
   power_control: 0
   inaccuracy: 0
