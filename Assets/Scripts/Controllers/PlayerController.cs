@@ -132,16 +132,6 @@ public class PlayerController : MonoBehaviour
             playerManager.SetWeap();
         }
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            if (playerEntity.weapon >= 8)
-            {
-                playerEntity.ChargeIndicator.SetActive(false);
-                playerEntity.weapon -= 7;
-                playerManager.SetWeap();
-            }
-        }
-
         if (playerEntity.timeStamp <= Time.time)
         {
 
@@ -296,6 +286,15 @@ public class PlayerController : MonoBehaviour
             {
                 playerEntity.OrbPosition.offsetX = 0f;
                 playerEntity.OrbPosition.offsetY = 0.03f;
+            }
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (playerEntity.weapon >= 8)
+            {
+                playerEntity.ChargeIndicator.SetActive(false);
+                playerEntity.weapon -= 7;
+                playerManager.SetWeap();
             }
         }
     }

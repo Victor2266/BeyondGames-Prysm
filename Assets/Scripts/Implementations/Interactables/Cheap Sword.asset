@@ -19,13 +19,13 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 1
   equipSlot: 0
-  color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0.54509807}
+  color: {r: 0.4056604, g: 0.18043432, b: 0, a: 0.54509807}
   ReachLength: 1.5
   DMG_Scaling: 5
   MaxDamage: 0
   DMGTextSize: 1
-  activeTimeLimit: 0.5
-  cooldownTime: 1
+  activeTimeLimit: 0.6
+  cooldownTime: 0.5
   XYSize: 1
   angle_offset: -90
   CapsuleColliderOffset: {x: 0, y: -0.12}

@@ -19,7 +19,7 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 1
   equipSlot: 0
-  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.7490196}
+  color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 2
   DMG_Scaling: 3
   MaxDamage: 0
