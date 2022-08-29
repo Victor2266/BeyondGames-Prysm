@@ -21,15 +21,19 @@ MonoBehaviour:
   equipSlot: 0
   color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.7490196}
   ReachLength: 2
-  DMG_Scaling: 4
+  DMG_Scaling: 3
   MaxDamage: 0
   DMGTextSize: 2
   activeTimeLimit: 1
-  cooldownTime: 1
-  XYSize: 0.8
+  cooldownTime: 1.8
+  XYSize: 0.9
   angle_offset: 90
   CapsuleColliderOffset: {x: 0, y: 0.5}
   CapsuleColliderSize: {x: 0.3, y: 2.1}
-  handReachMultiplier: 0.33
+  handReachMultiplier: 0.28
   projectileAttack: {fileID: 1310705855610197, guid: 0ae3da987f1794e4083d0c21705a11a0,
     type: 3}
+  projectileOffset: 0.1
+  thrustResetTime: 0.1
+  thrustDashDist: 6
+  thrustShortReach: 1

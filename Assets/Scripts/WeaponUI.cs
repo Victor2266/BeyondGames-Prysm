@@ -111,42 +111,65 @@ public class WeaponUI : MonoBehaviour
             {
                 WeaponVioletUI.GetComponent<Image>().sprite = emptySprite;
             }
+            while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+            {
+                playerScript.weapon++;
+
+            }
+            if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
+            {
+                playerScript.weapon = -1;
+                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+                {
+                    playerScript.weapon++;
+
+                }
+            }
         }
         else if(newItem.equipSlot == EquipmentSlot.melee)
         {
             MeleeUI.GetComponent<Image>().sprite = meleeSprite;
+            autoChangeWeapons(-1);
         }
         else if (newItem.equipSlot == EquipmentSlot.ranged)
         {
             RangedUI.GetComponent<Image>().sprite = rangedSprite;
+            autoChangeWeapons(0);
         }
         else if (newItem.equipSlot == EquipmentSlot.red)
         {
             WeaponRedUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(1);
         }
         else if (newItem.equipSlot == EquipmentSlot.orange)
         {
             WeaponOrangeUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(2);
         }
         else if (newItem.equipSlot == EquipmentSlot.yellow)
         {
             WeaponYellowUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(3);
         }
         else if (newItem.equipSlot == EquipmentSlot.green)
         {
             WeaponGreenUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(4);
         }
         else if (newItem.equipSlot == EquipmentSlot.blue)
         {
             WeaponBlueUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(5);
         }
         else if (newItem.equipSlot == EquipmentSlot.indigo)
         {
             WeaponIndigoUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(6);
         }
         else if (newItem.equipSlot == EquipmentSlot.violet)
         {
             WeaponVioletUI.GetComponent<Image>().sprite = newItem.icon;
+            autoChangeWeapons(7);
         }
 
 
@@ -318,9 +341,9 @@ public class WeaponUI : MonoBehaviour
             TruePosition = pos + xAdjustment;
             CurrentColor = col;
             playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
-            playerManager.SetWeap();
-
+            
             handheld_weapon.onHeldInHand.Invoke(false);
+            playerManager.SetWeap();
         }
         else
         {
@@ -328,9 +351,9 @@ public class WeaponUI : MonoBehaviour
             TruePosition = pos + xAdjustment;
             CurrentColor = col;
             playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
-            playerManager.SetWeap();
-
+      
             handheld_weapon.onHeldInHand.Invoke(true);
+            playerManager.SetWeap();
         }
     }
 

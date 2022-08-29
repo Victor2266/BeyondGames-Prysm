@@ -62,7 +62,9 @@ public class WeaponController : damageController
         rectTrans = StaminaBar.GetComponent<RectTransform>();
         isInHand = false;
         onHeldInHand += HeldInHandStatus;
+
     }
+
     void HeldInHandStatus(bool status)
     {
         if (status == false)
@@ -301,13 +303,13 @@ public class WeaponController : damageController
     }
     private void Dash()
     {
-        GameObject dash = Instantiate(playerEntity.speedTrail, transform);
-        dash.transform.position = transform.position;
+        //GameObject dash = Instantiate(playerEntity.speedTrail, transform);
+        //dash.transform.position = transform.position;
         //playerEntity.speedTrail.SetActive(true);
 
         //playerEntity.Flinch = true;
-        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.x, thrustDashDist * transform.localPosition.y);
-        dash.transform.eulerAngles = transform.eulerAngles;
+        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.x, 0.6f * thrustDashDist * transform.localPosition.y);
+        //dash.transform.eulerAngles = transform.eulerAngles;
         
     }
 }
