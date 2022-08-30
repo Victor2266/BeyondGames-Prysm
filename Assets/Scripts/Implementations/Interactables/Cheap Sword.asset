@@ -22,8 +22,8 @@ MonoBehaviour:
   color: {r: 0.4056604, g: 0.18043432, b: 0, a: 0.54509807}
   ReachLength: 1.5
   DMG_Scaling: 5
-  MaxDamage: 0
-  DMGTextSize: 1
+  MaxDamage: 50
+  DMGTextSize: 2
   activeTimeLimit: 0.6
   cooldownTime: 0.5
   XYSize: 1
@@ -37,3 +37,5 @@ MonoBehaviour:
   thrustResetTime: 0.2
   thrustDashDist: 7
   thrustShortReach: 0.4
+  projAsChild: 1
+  trail: {fileID: 1491279371004310850, guid: 0d93af16bb261f24dbd278dc13073571, type: 3}
