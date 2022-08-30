@@ -267,7 +267,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310705855610197}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 0}
-  tickLimit: 0.6
+  tickLimit: 0.1
   shrinks: 0
   trail: 0
   startSize: 1
@@ -324,7 +324,7 @@ MonoBehaviour:
   InitialPop: {fileID: 6708209246093052786, guid: d0005a0fef30ef24aadf43c80b558389,
     type: 3}
   DMGTextSize: 4
-  attackVelo: 18
+  attackVelo: 10
   ManaCost: 2
   coolDownPeriod: 1
   rapid_fire: 1

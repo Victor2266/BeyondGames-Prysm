@@ -111,20 +111,26 @@ public class WeaponUI : MonoBehaviour
             {
                 WeaponVioletUI.GetComponent<Image>().sprite = emptySprite;
             }
-            while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+
+            while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)//[-1 0 1 2 3 4 5 6] 7
             {
                 playerScript.weapon++;
-
             }
-            if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
+            if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon)) //[7]
             {
                 playerScript.weapon = -1;
-                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+                Debug.Log("go to weapon -1");
+                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)//[-1 0 1 2 3 4 5 6] 7
                 {
                     playerScript.weapon++;
-
+                }
+                if (playerScript.weapon == 7)
+                {
+                    TruePosition = 50;
                 }
             }
+            autoChangeWeapons(playerScript.weapon);
+            playerManager.SetWeap();
         }
         else if(newItem.equipSlot == EquipmentSlot.melee)
         {

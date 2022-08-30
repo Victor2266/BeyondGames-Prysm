@@ -49,6 +49,7 @@ public class WeaponController : damageController
     private float thrustResetTime;
     private float thrustDashDist;
     private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
+    private bool projAsChild;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +91,7 @@ public class WeaponController : damageController
             DMGTextSize = equippedWeapon.DMGTextSize;
             activeTimeLimit = equippedWeapon.activeTimeLimit;
             cooldownTime = equippedWeapon.cooldownTime;
+            projAsChild = equippedWeapon.projAsChild;
 
             thrustResetTime = equippedWeapon.thrustResetTime;
             thrustDashDist = equippedWeapon.thrustDashDist;
@@ -232,7 +234,14 @@ public class WeaponController : damageController
                 weaponUI.flashWhite();
                 sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
                 StaminaBar.value = 0f;
-                playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
+                if (projAsChild == true)
+                {
+                    playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation, transform);
+                }
+                else
+                {
+                    playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
+                }
                 playerEntity.currentMana -= playerEntity.ManaCost;
                 playerEntity.charges = 0;
                 ReachLength = thrustShortReach;
