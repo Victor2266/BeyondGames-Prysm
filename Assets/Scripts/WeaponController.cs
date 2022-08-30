@@ -32,7 +32,7 @@ public class WeaponController : damageController
     public Slider StaminaBar;
     private RectTransform rectTrans;
 
-    public GameObject Trail;
+    private GameObject Trail;
 
     public delegate void OnHeldInHand(bool isHeld);
     public OnHeldInHand onHeldInHand;
@@ -62,8 +62,7 @@ public class WeaponController : damageController
         WeaponEnabled = false;
         rectTrans = StaminaBar.GetComponent<RectTransform>();
         isInHand = false;
-        onHeldInHand += HeldInHandStatus;
-
+        onHeldInHand += HeldInHandStatus; 
     }
 
     void HeldInHandStatus(bool status)
@@ -77,6 +76,7 @@ public class WeaponController : damageController
             whiteArrow.SetActive(true);
             OrbPosition.smoothTimeX = 0.05f;
             OrbPosition.smoothTimeX = 0.05f;
+            Destroy(Trail);
         }
         else
         {
@@ -111,6 +111,13 @@ public class WeaponController : damageController
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
             OrbPosition.smoothTimeX = 0.01f;
+
+            if (Trail == null)
+            {
+                Destroy(Trail);
+            }
+            Trail = Instantiate(equippedWeapon.trail, transform);
+            Trail.SetActive(false);
         }
     }
     // Update is called once per frame
