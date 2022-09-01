@@ -13,6 +13,8 @@ public class OpeningScene : DialogTrigger
     public GameObject FadeToBlack;
     public GameObject DESKTOP;
     public Button NextButton;
+    public ParticleSystem SoulAtomDeath;
+    public GameObject SkullMask;
 
     public float smoothTime = 2F;
     private Vector3 velocity = Vector3.zero;
@@ -98,7 +100,16 @@ public class OpeningScene : DialogTrigger
             fallingParticles.SetActive(false);
             DialogManager.instance.nameText.text = "<color=#5888FF>Renka</color>";
             NextButton.interactable = true;
-
+            velo = 0f;
+        }
+        if (DialogManager.instance.index == 24)
+        {
+            SoulAtomDeath.startLifetime = Mathf.SmoothDamp(SoulAtomDeath.startLifetime, 0f, ref velo, 1.5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
+            SkullMask.SetActive(true);
+        }
+        if (DialogManager.instance.index > 24)
+        {
+            SoulAtomDeath.startLifetime = Mathf.SmoothDamp(SoulAtomDeath.startLifetime, 0f, ref velo, 1.5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
         }
         if (DialogManager.instance.index == 28)
         {

@@ -26,15 +26,24 @@ public class GrowthTimer : MonoBehaviour
             ticks = Time.time;
         }
 
+        float currentSize = EndSize * ((ticks - startValue) / (tickLimit));
         if (grows)
         {
             if (EndSize > 0)
             {
-                gameObject.transform.localScale = new Vector3(EndSize * ((ticks - startValue) / (tickLimit)), EndSize * ((ticks - startValue) / (tickLimit)), 1f);
+                if (affectZ)
+                {
+                    gameObject.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
+                }
+                else
+                {
+
+                    gameObject.transform.localScale = new Vector3(currentSize, currentSize, 1f);
+                }
             }
             else
             {
-                gameObject.transform.localScale = new Vector3(-EndSize * ((ticks - startValue) / (tickLimit)), EndSize * ((ticks - startValue) / (tickLimit)), 1f);
+                gameObject.transform.localScale = new Vector3(-currentSize, currentSize, 1f);
             }
         }
     }
@@ -55,6 +64,7 @@ public class GrowthTimer : MonoBehaviour
     private float endValue;
 
     public bool diesRightAfter;
-    
+
+    public bool affectZ;
 }
 
