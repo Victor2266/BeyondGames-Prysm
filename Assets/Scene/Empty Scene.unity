@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &28982968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -236,10 +236,10 @@ RectTransform:
   m_Father: {fileID: 90601555}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1280, y: -30}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &28982969
 MonoBehaviour:
@@ -353,6 +353,7 @@ MonoBehaviour:
   nameText: {fileID: 1474007441}
   dialogText: {fileID: 732470828}
   animator: {fileID: 367570660}
+  maxSentences: 0
   index: 0
 --- !u!4 &39013087
 Transform:
@@ -7271,6 +7272,7 @@ MonoBehaviour:
   FadeToBlack: {fileID: 609579868}
   DESKTOP: {fileID: 1740926246}
   NextButton: {fileID: 367570659}
+  SkipButton: {fileID: 2002024036}
   SoulAtomDeath: {fileID: 1844755101}
   SkullMask: {fileID: 1261250193}
   smoothTime: 2
@@ -28770,7 +28772,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2509804}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -28792,7 +28794,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2002024037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 39013086}
+        m_MethodName: SkipDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2002024037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28806,7 +28819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
