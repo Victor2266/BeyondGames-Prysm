@@ -13,6 +13,7 @@ public class OpeningScene : DialogTrigger
     public GameObject FadeToBlack;
     public GameObject DESKTOP;
     public Button NextButton;
+    public Button SkipButton;
     public ParticleSystem SoulAtomDeath;
     public GameObject SkullMask;
 
@@ -64,6 +65,7 @@ public class OpeningScene : DialogTrigger
         {
             FadeToBlack.SetActive(true);
             NextButton.interactable = false;
+            SkipButton.interactable = false;
             StartCoroutine(DelaySentence(5f));
             notTriggeredYet = false;
         }
@@ -71,6 +73,7 @@ public class OpeningScene : DialogTrigger
         {
             notTriggeredYet = true;
             NextButton.interactable = true;
+            SkipButton.interactable = true;
             targetPosition = new Vector3(0, 0, -10);
             FadeToBlack.SetActive(false);
             DESKTOP.SetActive(false);
@@ -84,6 +87,7 @@ public class OpeningScene : DialogTrigger
             SoulAtom.SetActive(true);
 
             NextButton.interactable = false;
+            SkipButton.interactable = false;
 
             StartCoroutine(DelaySentence(15f));
             //shrink flying particles
@@ -100,6 +104,7 @@ public class OpeningScene : DialogTrigger
             fallingParticles.SetActive(false);
             DialogManager.instance.nameText.text = "<color=#5888FF>Renka</color>";
             NextButton.interactable = true;
+            SkipButton.interactable = true;
             velo = 0f;
         }
         if (DialogManager.instance.index == 24)

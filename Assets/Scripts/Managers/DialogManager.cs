@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
 
     public Animator animator;
+    public int maxSentences;
     private void Awake()
     {
         instance = this;
@@ -68,6 +69,13 @@ public class DialogManager : MonoBehaviour
     public void EndDialog()
     {
         animator.SetBool("IsOpen", false);
+    }
+    public void SkipDialog()
+    {
+        for (int i = index; i < maxSentences; i++)
+        {
+            DisplayNextSentence();
+        }
     }
 }
 
