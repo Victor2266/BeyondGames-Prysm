@@ -20,11 +20,21 @@ public class Inventory : MonoBehaviour
 		instance = this;
 	}
 
-	#endregion
+    #endregion
 
-	// Callback which is triggered when
-	// an item gets added/removed.
-	public delegate void OnItemChanged();
+    private void Start()
+    {
+		items = SaveSystem.LoadInventory();
+		if (items == null)
+        {
+			items = new List<Item>();
+		}
+		if (onItemChangedCallback != null)
+			onItemChangedCallback.Invoke();
+	}
+    // Callback which is triggered when
+    // an item gets added/removed.
+    public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
 	public int space = 99;  // Amount of slots in inventory
@@ -45,7 +55,25 @@ public class Inventory : MonoBehaviour
 				Debug.Log("Not enough room.");
 				return false;
 			}
-
+			foreach(Item currentItem in items)
+            {
+				if (currentItem.name == item.name)
+                {
+					return false;
+                }
+            }
+			foreach (Equipment currentEquips in EquipmentManager.instance.getCurrentEquipment())
+			{
+				if(currentEquips != null)
+                {
+					if (currentEquips.name == item.name)
+					{
+						return false;
+					}
+				}
+			}
+			
+			
 			items.Add(item);    // Add item to list
 
 			// Trigger callback

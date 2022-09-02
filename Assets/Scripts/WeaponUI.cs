@@ -54,7 +54,11 @@ public class WeaponUI : MonoBehaviour
         LocalPlayerAnnouncer.OnLocalPlayerUpdated += PlayerUpdated;
     }*/
 
-    private void Start()
+    private void Awake()
+    {
+        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+    }
+    private void OnEnable()
     {
         manaFillColor = FillObj.GetComponent<Image>();
         SliderUI = Slider.GetComponent<RectTransform>();
@@ -67,8 +71,6 @@ public class WeaponUI : MonoBehaviour
         //OrbObject = GameObject.FindWithTag("OrbControler");
         TruePosition = 0;
         CurrentColor = new Color(1f, 1f, 0f, 0f);
-
-        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
@@ -180,6 +182,7 @@ public class WeaponUI : MonoBehaviour
 
 
     }
+
 
     private void Update()
     {

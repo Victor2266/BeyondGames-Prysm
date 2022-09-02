@@ -9,7 +9,7 @@ public class EquippedItemSlot : InventorySlot
     {
 		EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
 	}
-	private void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
+	void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
 	{
 		if(newItem != null)
         {

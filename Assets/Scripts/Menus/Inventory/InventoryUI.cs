@@ -24,10 +24,13 @@ public class InventoryUI : MonoBehaviour
 	private Color GreyedColor = new Color(1f, 1f, 1f, 0.5f);
 	private Color SelectedColor = new Color(1f, 1f, 1f, 1f);
 
-	void Start()
-	{
+    private void OnEnable()
+    {
 		inventory = Inventory.instance;
 		inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
+	}
+    void Start()
+	{
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -86,7 +89,8 @@ public class InventoryUI : MonoBehaviour
     void UpdateUI()
 	{
 		// Loop through all the slots
-		
+		if (itemsParent == null)
+			return;
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 		while (slots.Length < inventory.items.Count)
 		{

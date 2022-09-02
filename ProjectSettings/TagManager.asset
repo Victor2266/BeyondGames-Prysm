@@ -33,6 +33,7 @@ TagManager:
   - GlobalLight
   - Transition
   - Handheld_Weapon
+  - GameManager
   layers:
   - Default
   - TransparentFX

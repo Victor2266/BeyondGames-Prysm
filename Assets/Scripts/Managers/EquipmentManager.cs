@@ -1,19 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EquipmentManager : MonoBehaviour
 {
     #region Singleton
     public static EquipmentManager instance;
-
+    public GameObject inventoryPanel; //needs to be active and then turned off after equipment is populated
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of EquipmentManager found!");
+            Destroy(this);
+            return;
+        }
         instance = this;
+
     }
+
     #endregion
 
-    Equipment[] currentEquipment;
+    Equipment[] currentEquipment; // actually wearing these items
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
@@ -22,10 +32,14 @@ public class EquipmentManager : MonoBehaviour
     {
         inventory = Inventory.instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
-        currentEquipment = new Equipment[numSlots];
 
+        currentEquipment = SaveSystem.LoadEquipment();
+        if (currentEquipment == null)
+            currentEquipment = new Equipment[numSlots];
 
+        StartCoroutine(waitAndRefresh());
     }
+
 
     public void Equip (Equipment newItem)
     {
@@ -43,6 +57,15 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
+    }
+
+    public void LoadEquipment(Equipment newItem)
+    {
+        int slotIndex = (int)newItem.equipSlot;
+
+        currentEquipment[slotIndex] = newItem;
+        
+
     }
 
     public void Unequip(int slotIndex)
@@ -92,4 +115,33 @@ public class EquipmentManager : MonoBehaviour
     {
         return (Weapon)currentEquipment[0];
     }
+    public void resetInventory()
+    {
+        currentEquipment = new Equipment[System.Enum.GetNames(typeof(EquipmentSlot)).Length];
+        Inventory.instance.items = new List<Item>();
+    }
+    public Equipment[] getCurrentEquipment()
+    {
+        return currentEquipment;
+    }
+    public void setCurrentEquipment(Equipment[] loadedEquipment)
+    {
+        currentEquipment = loadedEquipment;
+    }
+
+    IEnumerator waitAndRefresh()
+    {
+        yield return new WaitForSeconds(0.01f);
+        foreach (Equipment newItem in currentEquipment)
+        {
+            if (newItem != null)
+            {
+                if (onEquipmentChanged != null)
+                {
+                    onEquipmentChanged.Invoke(newItem, null);
+                }
+            }
+        }
+        inventoryPanel.SetActive(false);
+    } 
 }

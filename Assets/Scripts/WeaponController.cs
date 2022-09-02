@@ -51,8 +51,11 @@ public class WeaponController : damageController
     private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     private bool projAsChild;
     // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
+        onHeldInHand += HeldInHandStatus;
+  
         pointerScript = GetComponent<PointerScript>();
         sprtrend = GetComponent<SpriteRenderer>();
         capsuleColider = GetComponent<CapsuleCollider2D>();
@@ -62,7 +65,6 @@ public class WeaponController : damageController
         WeaponEnabled = false;
         rectTrans = StaminaBar.GetComponent<RectTransform>();
         isInHand = false;
-        onHeldInHand += HeldInHandStatus; 
     }
 
     void HeldInHandStatus(bool status)

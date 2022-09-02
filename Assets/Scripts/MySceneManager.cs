@@ -7,33 +7,32 @@ public class MySceneManager : MonoBehaviour
 {
     public PlayerEntity playerEntity;
 
+    public GameObject GameManager;
+
+    public EquipmentManager equipmentManager;
+
     public PlayerManager playerManager;
+
+    public Transform pos;
 
     public GameObject player;
 
-    private Transform pos;
-
     public GameObject transition;
 
-    public static int StartingHealth;
+    #region Singleton
+    public static MySceneManager instance;
 
-    public static int StartingMana;
-
-    private static float StartingSpeed;
-
-    private static float StartingSize;
-
-    public static float StartingJump;
-
-    public static int CheckpointHealth;
-
-    public static int CheckpointMana;
-
-    private static float CheckpointSpeed;
-
-    private static float CheckpointSize;
-
-    public static float CheckpointJump;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of EquipmentManager found!");
+            Destroy(this);
+            return;
+        }
+        instance = this;
+    }
+    #endregion
 
     // called first
     void OnEnable()
@@ -45,71 +44,102 @@ public class MySceneManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
         transition = GameObject.FindGameObjectWithTag("Transition");
+        GameManager = GameObject.FindGameObjectWithTag("GameManager");
         transition.SetActive(false);
-        pos = player.GetComponent<Transform>();
-        playerEntity = player.GetComponent<PlayerEntity>();
-        playerManager = player.GetComponent<PlayerManager>();
+        if (player != null)
+        {
+            pos = player.GetComponent<Transform>();
+            playerEntity = player.GetComponent<PlayerEntity>();
+            playerManager = player.GetComponent<PlayerManager>();
+        }
+        if  (GameManager != null)
+        {
+            equipmentManager = GameManager.GetComponent<EquipmentManager>();
+        }
 
-        //this is for testing out of level ourder
-        StartingHealth = playerEntity.MaxHealth;
-        StartingMana = playerEntity.MaxMana;
-        StartingSpeed = playerEntity.speed;
-        StartingSize = playerEntity.cameraSize;
-        StartingJump = playerEntity.jumpForce;
     }
 
     private void Update()
     {
-        pos = player.transform;
-        if (playerEntity.Level == 1)
-        {
-            //main menu
-            return;
-        }
-        if (pos.position.y < -53f && playerEntity.Level == 2) //complete first level
-        {
-            base.StartCoroutine(TransitionNextLevel(false));
-        }
-
-
-
         if (playerEntity.isDead) //Player death 
         {
-            if (playerEntity.Lives > 0)
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + playerEntity.Level, LoadSceneMode.Single);
-                playerEntity.isDead = false;
-                playerEntity.Lives--;
-                playerEntity.MaxHealth = CheckpointHealth;
-                playerEntity.MaxMana = CheckpointMana;
-                playerEntity.cameraSize = CheckpointSize;
-                playerEntity.speed = CheckpointSpeed;
-                playerEntity.jumpForce = CheckpointJump;
-                playerEntity.isClimbing = false;
-
-                playerEntity.transform.position = playerEntity.CheckpointPos;
-                SaveSystem.SavePlayerEntity(playerEntity);
-                
-            }
-            else
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + playerEntity.Level, LoadSceneMode.Single);
-                playerEntity.isDead = false;
-                playerEntity.Lives = 3;
-                playerEntity.MaxHealth = StartingHealth;
-                playerEntity.MaxMana = StartingMana;
-                playerEntity.cameraSize = StartingSize;
-                playerEntity.speed = StartingSpeed;
-                playerEntity.jumpForce = StartingJump;
-                playerEntity.isClimbing = false;
-                SaveSystem.SavePlayerEntity(playerEntity);
-            }
+            StartCoroutine(SelectLevelScreen());
+            playerEntity.isDead = false;
+                //SaveSystem.SavePlayerEntity(playerEntity);
         }
     }
 
     public void StartNewSingleplayerGame()
     {
-        playerEntity.Level = 1;
+        //CLEAR EVERYTHING
+        ClearData();
+       
+        base.StartCoroutine(SelectLevelScreen());
+    }
+    public void ContinueSingleplayerGame()
+    {
+        //LOAD EVERYTHING
+        LoadData();
+        
+        base.StartCoroutine(SelectLevelScreen());
+    }
+
+    private IEnumerator SelectLevelScreen()
+    {
+        transition.SetActive(true);
+
+        yield return new WaitForSeconds(2f);//temp lowered
+
+        //SAVE EVERYTHING
+        SaveData();
+        
+        yield return new WaitForSeconds(2f);//temp lowered
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Select", LoadSceneMode.Single);
+
+        playerEntity.isDead = false;
+        yield break;
+    }
+    
+    public IEnumerator SelectLevel(string levelname)
+    {
+        transition.SetActive(true);
+
+        yield return new WaitForSeconds(0.2f);//temp lowered
+
+        //LOAD EVERYTHING
+        LoadData();
+
+        yield return new WaitForSeconds(0.2f);//temp lowered
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelname, LoadSceneMode.Single);
+
+        yield break;
+    }
+    public IEnumerator CompleteLevel(string UnlockNextLevel)
+    {
+        StartCoroutine(SelectLevelScreen());
+
+        yield break;
+    }
+
+    public void SaveData()
+    {
+        SaveSystem.SavePlayerEntity(playerEntity);
+        SaveSystem.SaveEquipment();
+        SaveSystem.SaveInventory();
+        //SAVE LEVEL PROGRESS NOT DONE
+    }
+    public void LoadData()
+    {
+        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
+        //SaveSystem.LoadEquipment();
+        //Inventory.instance.items = SaveSystem.LoadInventory();
+        //LOAD LEVEL PROGRESS [NOT DONE]
+    }
+
+    public void ClearData()
+    {
         playerEntity.MaxHealth = 100;
         playerEntity.MaxMana = 100;
         playerEntity.cameraSize = 3.5f;
@@ -118,63 +148,9 @@ public class MySceneManager : MonoBehaviour
         playerEntity.isClimbing = false;
         SaveSystem.SavePlayerEntity(playerEntity);
 
-        base.StartCoroutine(TransitionNextLevel(false));
+        //Clears equipments and inventory below
+        SaveSystem.deleteInventoryAndEquipment();
+
+        //clear level progress [NOT DONE]
     }
-    public void ContinueSingleplayerGame()
-    {
-        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
-        playerEntity.Level--;
-        base.StartCoroutine(TransitionNextLevel(true));
-    }
-
-    private IEnumerator TransitionNextLevel(bool checkpoint)
-    {
-        transition.SetActive(true);
-
-        yield return new WaitForSeconds(2f);//temp lowered
-
-        SaveSystem.SavePlayerEntity(playerEntity);
-
-        yield return new WaitForSeconds(2f);//temp lowered
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scene " + (playerEntity.Level + 1), LoadSceneMode.Single);
-
-        //this happens before new scene is loaded
-
-        playerEntity.Lives++;
-        playerEntity.Level++;
-        StartingHealth = playerEntity.MaxHealth;
-        StartingMana = playerEntity.MaxMana;
-        StartingSize = playerEntity.cameraSize;
-        StartingSpeed = playerEntity.speed;
-        StartingJump = playerEntity.jumpForce;
-        StartingHealth = playerEntity.MaxHealth;
-
-        CheckpointHealth = playerEntity.MaxHealth;
-        CheckpointMana = playerEntity.MaxMana;
-        CheckpointSize = playerEntity.cameraSize;
-        CheckpointSpeed = playerEntity.speed;
-        CheckpointJump = playerEntity.jumpForce;
-        CheckpointHealth = playerEntity.MaxHealth;
-
-        playerEntity.isClimbing = false;
-
-        if (checkpoint)
-        {
-            playerEntity.transform.position = playerEntity.CheckpointPos;
-        }
-
-        yield break;
-    }
-    
-    public void SaveCheckPointValues()
-    {
-        CheckpointHealth = playerEntity.MaxHealth;
-        CheckpointMana = playerEntity.MaxMana;
-        CheckpointSize = playerEntity.cameraSize;
-        CheckpointSpeed = playerEntity.speed;
-        CheckpointJump = playerEntity.jumpForce;
-        CheckpointHealth = playerEntity.MaxHealth;
-    }
-    
 }

@@ -11,9 +11,9 @@ public class PlayerSaveData
 
     public float cameraSize = 3f;//camera size, these are public static because they change
 
-    public int Level = 1;
+    //public int Level = 1;
 
-    public int Lives = 1;//number of lives, changes
+    public int Souls = 0;//number of lives, changes
 
     public float speed = 3.8f;//max speed, changes (The value for single player is managed in my scene manager)
 
@@ -59,7 +59,7 @@ public class PlayerSaveData
     public bool customLocalPlayerCheck;
     public bool lookingLeft;
 
-    public float[] CheckpointPos;
+    //public float[] CheckpointPos;
 
     public PlayerSaveData (PlayerEntity player)
     {
@@ -67,8 +67,8 @@ public class PlayerSaveData
         MaxHealth = player.MaxHealth;
         cameraSize = player.cameraSize;
 
-        Level = player.Level;
-        Lives = player.Lives;
+        //Level = player.Level;
+        Souls = player.Souls;
         speed = player.speed;
         jumpForce = player.jumpForce;
         fallMultiplier = player.fallMultiplier;
@@ -92,9 +92,9 @@ public class PlayerSaveData
         customLocalPlayerCheck = player.customLocalPlayerCheck;
         lookingLeft = player.lookingLeft;
 
-        CheckpointPos = new float[3];
-        CheckpointPos[0] = player.CheckpointPos.x;
-        CheckpointPos[1] = player.CheckpointPos.y;
-        CheckpointPos[2] = player.CheckpointPos.z;
+        //CheckpointPos = new float[3];
+        //CheckpointPos[0] = player.CheckpointPos.x;
+        //CheckpointPos[1] = player.CheckpointPos.y;
+        //CheckpointPos[2] = player.CheckpointPos.z;
     }
 }

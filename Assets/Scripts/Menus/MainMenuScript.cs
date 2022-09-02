@@ -131,6 +131,10 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.GetComponent<MySceneManager>().StartNewSingleplayerGame();
     }
+    public void Singleplayer_continuegame()
+    {
+        SceneManager.GetComponent<MySceneManager>().ContinueSingleplayerGame();
+    }
     public void Back()
     {
         depth = 0;

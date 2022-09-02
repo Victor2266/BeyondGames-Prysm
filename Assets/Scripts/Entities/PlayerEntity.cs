@@ -12,9 +12,9 @@ public class PlayerEntity : MonoBehaviour
 
     public float cameraSize = 3f;//camera size, these are public static because they change
 
-    public int Level = 1;
+    //public int Level = 1;
 
-    public int Lives = 1;//number of lives, changes
+    public int Souls = 0;//number of lives, changes
 
     public float speed = 3.8f;//max speed, changes (The value for single player is managed in my scene manager)
 
@@ -103,8 +103,6 @@ public class PlayerEntity : MonoBehaviour
 
     public WeaponUI WeaponUI;
 
-    public Vector3 CheckpointPos = Vector3.zero;
-
     public GameObject FloorContact;
 
     public void PlayerEntityUpdate(PlayerSaveData player)
@@ -113,8 +111,8 @@ public class PlayerEntity : MonoBehaviour
         MaxHealth = player.MaxHealth;
         cameraSize = player.cameraSize;
 
-        Level = player.Level;
-        Lives = player.Lives;
+        //Level = player.Level;
+        Souls = player.Souls;
         speed = player.speed;
         jumpForce = player.jumpForce;
         fallMultiplier = player.fallMultiplier;
@@ -138,7 +136,7 @@ public class PlayerEntity : MonoBehaviour
         customLocalPlayerCheck = player.customLocalPlayerCheck;
         lookingLeft = player.lookingLeft;
 
-        CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
+        //CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
 
 

@@ -56,8 +56,8 @@ public class PlayerManager : MonoBehaviour
         
         playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
 
-        playerEntity.currentHealth = MySceneManager.StartingHealth;
-        playerEntity.currentMana = MySceneManager.StartingMana;
+        //playerEntity.currentHealth = MySceneManager.StartingHealth;
+        //playerEntity.currentMana = MySceneManager.StartingMana;
 
         playerEntity.HealthBarScalingLength = Screen.width / 2;
 
@@ -259,7 +259,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void UpdateHealth()
     {
-        playerEntity.LivesUI.text = "Lives: " + playerEntity.Lives.ToString();
+        playerEntity.LivesUI.text = "Souls: " + playerEntity.Souls.ToString();
 
         playerEntity.HealthUIText.text = playerEntity.currentHealth.ToString() + "/" + playerEntity.MaxHealth.ToString();
         //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
