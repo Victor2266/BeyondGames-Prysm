@@ -5,20 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour
 {
-    public PlayerEntity playerEntity;
-
-    public GameObject GameManager;
-
-    public EquipmentManager equipmentManager;
-
-    public PlayerManager playerManager;
-
-    public Transform pos;
-
-    public GameObject player;
-
     public GameObject transition;
-
+    public PlayerEntity playerEntity;
     #region Singleton
     public static MySceneManager instance;
 
@@ -37,33 +25,23 @@ public class MySceneManager : MonoBehaviour
     // called first
     void OnEnable()
     {
+        transition = GameObject.FindGameObjectWithTag("Transition");
+        playerEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         DontDestroyOnLoad(this.gameObject);
-        player = GameObject.FindGameObjectWithTag("Player");
         transition = GameObject.FindGameObjectWithTag("Transition");
-        GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        playerEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
         transition.SetActive(false);
-        if (player != null)
-        {
-            pos = player.GetComponent<Transform>();
-            playerEntity = player.GetComponent<PlayerEntity>();
-            playerManager = player.GetComponent<PlayerManager>();
-        }
-        if  (GameManager != null)
-        {
-            equipmentManager = GameManager.GetComponent<EquipmentManager>();
-        }
-
     }
 
     private void Update()
     {
         if (playerEntity.isDead) //Player death 
         {
-            StartCoroutine(SelectLevelScreen());
+            StartCoroutine(SelectLevelScreen(false));
             playerEntity.isDead = false;
                 //SaveSystem.SavePlayerEntity(playerEntity);
         }
@@ -74,24 +52,33 @@ public class MySceneManager : MonoBehaviour
         //CLEAR EVERYTHING
         ClearData();
        
-        base.StartCoroutine(SelectLevelScreen());
+        base.StartCoroutine(SelectLevelScreen(true));
     }
     public void ContinueSingleplayerGame()
     {
         //LOAD EVERYTHING
-        LoadData();
-        
-        base.StartCoroutine(SelectLevelScreen());
+        if (LoadData())
+        {
+            //on successs
+            base.StartCoroutine(SelectLevelScreen(false));
+        }
+        else
+        {
+            StartNewSingleplayerGame();
+        }
     }
 
-    private IEnumerator SelectLevelScreen()
+    private IEnumerator SelectLevelScreen(bool needSave)
     {
         transition.SetActive(true);
 
         yield return new WaitForSeconds(2f);//temp lowered
 
-        //SAVE EVERYTHING
-        SaveData();
+        if (needSave)
+        {
+            //SAVE EVERYTHING
+            SaveData();
+        }
         
         yield return new WaitForSeconds(2f);//temp lowered
 
@@ -118,7 +105,7 @@ public class MySceneManager : MonoBehaviour
     }
     public IEnumerator CompleteLevel(string UnlockNextLevel)
     {
-        StartCoroutine(SelectLevelScreen());
+        StartCoroutine(SelectLevelScreen(true));
 
         yield break;
     }
@@ -130,12 +117,23 @@ public class MySceneManager : MonoBehaviour
         SaveSystem.SaveInventory();
         //SAVE LEVEL PROGRESS NOT DONE
     }
-    public void LoadData()
+    public bool LoadData()
     {
-        playerEntity = SaveSystem.LoadPlayerEntity(playerEntity);
+        PlayerEntity tempPlayer = SaveSystem.LoadPlayerEntity(playerEntity);
         //SaveSystem.LoadEquipment();
         //Inventory.instance.items = SaveSystem.LoadInventory();
         //LOAD LEVEL PROGRESS [NOT DONE]
+
+        if (tempPlayer != null)
+        {
+            playerEntity = tempPlayer;
+            return true;
+        }
+        else
+        {
+            ClearData();
+            return false;
+        }
     }
 
     public void ClearData()

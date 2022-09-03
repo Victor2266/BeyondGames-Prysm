@@ -65112,7 +65112,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 47710991}
-        m_MethodName: Singleplayer_startgame
+        m_MethodName: Singleplayer_continuegame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

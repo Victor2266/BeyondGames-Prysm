@@ -29,11 +29,7 @@ public static class SaveSystem
     }
     public static void SaveEquipment()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Path.Combine(Application.persistentDataPath, "equipment.data");
-        string path2 = Path.Combine(Application.persistentDataPath, "equipment2.data");
-        FileStream stream = new FileStream(path, FileMode.Create);
+        string path = Path.Combine(Application.persistentDataPath, "equipment.json");
 
         if (EquipmentManager.instance == null)
         {
@@ -49,21 +45,22 @@ public static class SaveSystem
         }
         try
         {
-            formatter.Serialize(stream, equipmentNames);
+            SaveEquipment saveEq = new SaveEquipment(equipmentNames);
+            File.WriteAllText(path, JsonUtility.ToJson(saveEq));
             Debug.Log("Saved equipment");
+        }
+        catch
+        {
+            Debug.LogError("can't save equipment");
         }
         finally
         {
-            stream.Close();
         }
 
     }
     public static void SaveInventory()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Path.Combine(Application.persistentDataPath, "inventory.data");
-        FileStream stream = new FileStream(path, FileMode.Create);
+        string path = Path.Combine(Application.persistentDataPath, "inventory.json");
         if (Inventory.instance == null)
         {
             return;
@@ -78,12 +75,16 @@ public static class SaveSystem
         try
         {
             SaveEquipment saveEq = new SaveEquipment(itemNames);
-            formatter.Serialize(stream, saveEq);
-            Debug.Log("Saved inventory" + JsonUtility.ToJson(saveEq));
+            //formatter.Serialize(stream, saveEq);
+            File.WriteAllText(path, JsonUtility.ToJson(saveEq));
+            Debug.Log("Saved inventory");
+        }
+        catch
+        {
+            Debug.LogError("can't save equipment");
         }
         finally
         {
-            stream.Close();
         }
 
     }
@@ -123,39 +124,42 @@ public static class SaveSystem
     {
         PlayerSaveData data = LoadPlayer();
 
-        entity.PlayerEntityUpdate(data);
+        if (data != null)
+        {
+            entity.PlayerEntityUpdate(data);
 
-        return entity;
+            return entity;
+        }
+        else
+        {
+            return null;
+        }
     }
     public static Equipment[] LoadEquipment()
     {
-        string path = Path.Combine(Application.persistentDataPath, "equipment.data");
+        string path = Path.Combine(Application.persistentDataPath, "equipment.json");
         if (File.Exists(path))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            List<string> equipmentNames = new List<string>();
+            string equipmentNames = File.ReadAllText(path);
             Equipment[] returnArray;
             int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
             returnArray = new Equipment[numSlots];
 
+            SaveEquipment SaveEq = new SaveEquipment(new List<string>());
+
             try
             {
-                equipmentNames = formatter.Deserialize(stream) as List<string>;
+                SaveEq = JsonUtility.FromJson<SaveEquipment>(equipmentNames);
                 Debug.Log("Loaded equipment");
             }
             catch
             {
-                Debug.LogError("Failed to load equipment data");
-                stream.Close();
+                Debug.LogWarning("Failed to load equipment data");
                 return returnArray;
             }
             finally
             {
-                stream.Close();
-
-                foreach (string str in equipmentNames)
+                foreach (string str in SaveEq.items)
                 {
                     Equipment eq = Resources.Load("Interactables/" + str) as Equipment;
                     int slotIndex = (int)eq.equipSlot;
@@ -163,8 +167,6 @@ public static class SaveSystem
                     returnArray[slotIndex] = eq;
                 }
             }
-
-
             return returnArray;
         }
         else
@@ -173,68 +175,29 @@ public static class SaveSystem
             return null;
         }
 
-
     }
-
-    internal static void deleteInventoryAndEquipment()
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Path.Combine(Application.persistentDataPath, "inventory.data");
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        List<string> itemNames = new List<string>();
-   
-        try
-        {
-            formatter.Serialize(stream, itemNames);
-            Debug.Log("deleted inventory");
-        }
-        finally
-        {
-            stream.Close();
-        }
-
-        path = Path.Combine(Application.persistentDataPath, "equipment.data");
-        stream = new FileStream(path, FileMode.Create);
-
-        try
-        {
-            formatter.Serialize(stream, itemNames);
-            Debug.Log("deleted equipment");
-        }
-        finally
-        {
-            stream.Close();
-        }
-    }
-
     public static List<Item> LoadInventory()
     {
-        string path = Path.Combine(Application.persistentDataPath, "inventory.data");
+        string path = Path.Combine(Application.persistentDataPath, "inventory.json");
         if (File.Exists(path))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
 
-            List<string> equipmentNames = new List<string>();
-            SaveEquipment SaveEq = new SaveEquipment(equipmentNames);
+            string equipmentNames = File.ReadAllText(path);
+            SaveEquipment SaveEq = new SaveEquipment(new List<string>());
+
             List<Item> data = new List<Item>();
             try
             {
-                SaveEq = formatter.Deserialize(stream) as SaveEquipment;
+                SaveEq = JsonUtility.FromJson<SaveEquipment>(equipmentNames);
                 Debug.Log("Loaded inventory");
             }
             catch
             {
-                Debug.LogError("Failed to load inventory data");
-                stream.Close();
+                Debug.LogWarning("Failed to load inventory data");
                 return data;
             }
             finally
             {
-                stream.Close();
-
                 foreach (string str in SaveEq.items)
                 {
                     Item getRecourse = Resources.Load("Interactables/" + str) as Item;
@@ -250,4 +213,39 @@ public static class SaveSystem
             return null;
         }
     }
+
+    internal static void deleteInventoryAndEquipment()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+
+        string path = Path.Combine(Application.persistentDataPath, "inventory.json");
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        List<string> itemNames = new List<string>();
+   
+        try
+        {
+            formatter.Serialize(stream, itemNames);
+            Debug.Log("deleted inventory");
+        }
+        finally
+        {
+            stream.Close();
+        }
+
+        path = Path.Combine(Application.persistentDataPath, "equipment.json");
+        stream = new FileStream(path, FileMode.Create);
+
+        try
+        {
+            formatter.Serialize(stream, itemNames);
+            Debug.Log("deleted equipment");
+        }
+        finally
+        {
+            stream.Close();
+        }
+    }
+
+
 }
