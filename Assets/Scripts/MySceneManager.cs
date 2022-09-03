@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
 {
     public GameObject transition;
-    public PlayerEntity playerEntity;
+    public PlayerEntity playerEntity = null;
     #region Singleton
     public static MySceneManager instance;
 
@@ -39,6 +39,10 @@ public class MySceneManager : MonoBehaviour
 
     private void Update()
     {
+        if(playerEntity == null)
+        {
+            return;
+        }
         if (playerEntity.isDead) //Player death 
         {
             StartCoroutine(SelectLevelScreen(false));
@@ -120,6 +124,10 @@ public class MySceneManager : MonoBehaviour
     }
     public bool LoadData()
     {
+        if (playerEntity == null)
+        {
+            return true;
+        }
         PlayerEntity tempPlayer = SaveSystem.LoadPlayerEntity(playerEntity);
         //SaveSystem.LoadEquipment();
         //Inventory.instance.items = SaveSystem.LoadInventory();

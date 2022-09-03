@@ -120,7 +120,7 @@ public class OpeningScene : DialogTrigger
         {
             FadeToBlack.SetActive(true);
             DialogManager.instance.EndDialog();
-
+            StartCoroutine(MySceneManager.instance.SelectLevel("Scene 2"));
         }
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, targetPosition, ref velocity, smoothTime);
     }
