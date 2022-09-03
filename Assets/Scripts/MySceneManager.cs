@@ -15,7 +15,7 @@ public class MySceneManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of EquipmentManager found!");
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
         instance = this;
@@ -43,6 +43,7 @@ public class MySceneManager : MonoBehaviour
         {
             StartCoroutine(SelectLevelScreen(false));
             playerEntity.isDead = false;
+            transition.SetActive(true);
                 //SaveSystem.SavePlayerEntity(playerEntity);
         }
     }
@@ -72,7 +73,7 @@ public class MySceneManager : MonoBehaviour
     {
         transition.SetActive(true);
 
-        yield return new WaitForSeconds(2f);//temp lowered
+        yield return new WaitForSeconds(1f);//temp lowered
 
         if (needSave)
         {
@@ -80,7 +81,7 @@ public class MySceneManager : MonoBehaviour
             SaveData();
         }
         
-        yield return new WaitForSeconds(2f);//temp lowered
+        yield return new WaitForSeconds(1f);//temp lowered
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("Level Select", LoadSceneMode.Single);
 

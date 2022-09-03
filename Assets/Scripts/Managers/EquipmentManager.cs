@@ -59,23 +59,15 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void LoadEquipment(Equipment newItem)
-    {
-        int slotIndex = (int)newItem.equipSlot;
-
-        currentEquipment[slotIndex] = newItem;
-        
-
-    }
 
     public void Unequip(int slotIndex)
     {
         if (currentEquipment[slotIndex] != null)
         {
             Equipment oldItem = currentEquipment[slotIndex];
-            inventory.Add(oldItem);
             Debug.Log("UNEQUIPPING " + oldItem.name);
             currentEquipment[slotIndex] = null;
+            inventory.Add(oldItem);
 
             if (onEquipmentChanged != null)
             {

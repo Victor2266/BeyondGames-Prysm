@@ -156,7 +156,7 @@ public class PlayerManager : MonoBehaviour
         playerEntity.currentHealth -= amount;
         if (playerEntity.currentHealth <= 0f && !playerEntity.isDead)
         {
-            StartCoroutine(DeathDelay(6f));
+            StartCoroutine(DeathDelay(4f));
         }
     }
 
@@ -169,8 +169,6 @@ public class PlayerManager : MonoBehaviour
 
         }
         yield return new WaitForSeconds(interval);
-        playerEntity.MaxHealth = 100;
-        playerEntity.MaxMana = 100;
         playerEntity.isDead = true;
         yield break;
     }

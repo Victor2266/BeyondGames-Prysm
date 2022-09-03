@@ -77262,7 +77262,7 @@ GameObject:
   - component: {fileID: 1772109624}
   m_Layer: 0
   m_Name: SceneManager
-  m_TagString: Untagged
+  m_TagString: SceneManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77305,13 +77305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42d5c0075dea974eab704ce207d40ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerEntity: {fileID: 0}
-  GameManager: {fileID: 0}
-  equipmentManager: {fileID: 0}
-  playerManager: {fileID: 0}
-  pos: {fileID: 0}
-  player: {fileID: 309028282558905609}
   transition: {fileID: 0}
+  playerEntity: {fileID: 0}
 --- !u!4 &1772109626
 Transform:
   m_ObjectHideFlags: 0

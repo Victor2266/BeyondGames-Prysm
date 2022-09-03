@@ -29,7 +29,7 @@ public class MainMenuScript : MonoBehaviour
     void Start()
     {
         MainCamera.GetComponent<OldCameraController>().smoothTimeY = 2;
-
+        SceneManager = GameObject.FindGameObjectWithTag("SceneManager");
         MainCamera.GetComponent<OldCameraController>().offsetY = 50.5f;
         depth = -1;
 
