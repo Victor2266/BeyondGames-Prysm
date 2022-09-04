@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Name: Goblin Spear
+  m_EditorClassIdentifier: 
+  name: Goblin Spear
+  icon: {fileID: 21300000, guid: 143b0a64c6896f74899f6d6070b8e9b7, type: 3}
+  iconRotation: 0
+  iconSize: 1.5
+  isDefaultItem: 0
+  WeaponType: 1
+  equipSlot: 0
+  color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  ReachLength: 1.5
+  DMG_Scaling: 3
+  MaxDamage: 35
+  DMGTextSize: 2
+  activeTimeLimit: 2
+  cooldownTime: 0.5
+  XYSize: 1
+  angle_offset: 90
+  CapsuleColliderOffset: {x: -0.5, y: 0}
+  CapsuleColliderSize: {x: 0.3, y: 0.3}
+  handReachMultiplier: 0.5
+  projectileAttack: {fileID: 7953202150918435326, guid: 1e295b2129dd5b44ab8ac87c2c9c05ff,
+    type: 3}
+  projectileOffset: 0
+  thrustResetTime: 1
+  thrustDashDist: 2
+  thrustShortReach: 1
+  projAsChild: 0
+  trail: {fileID: 6359563610306997464, guid: 09d6a1d7f893a174a80270b7932c61cc, type: 3}

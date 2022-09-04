@@ -18,7 +18,7 @@ public class Weapon : Equipment
     public Vector2 CapsuleColliderOffset;
     public Vector2 CapsuleColliderSize;
 
-    public float handReachMultiplier;
+    public float handReachMultiplier;//where the hand mesh goes
     public GameObject projectileAttack;
     public float projectileOffset;
 

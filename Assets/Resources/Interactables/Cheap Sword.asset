@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Cheap Sword
   icon: {fileID: 21300000, guid: e14d1757a39996d4ea69a62a33a1cdf7, type: 3}
   iconRotation: -90
-  iconSize: 1
+  iconSize: 1.5
   isDefaultItem: 0
   WeaponType: 1
   equipSlot: 0

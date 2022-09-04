@@ -196,6 +196,10 @@ public class WeaponController : damageController
 
     private void AttackEntity(float multiplier, Collision2D collision)
     {
+        if (DMG >= MaxDamage)
+        {
+            DMG = MaxDamage;
+        }
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);

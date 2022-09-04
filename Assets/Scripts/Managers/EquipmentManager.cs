@@ -49,6 +49,7 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             oldItem = currentEquipment[slotIndex];
+            currentEquipment[slotIndex] = newItem;
             inventory.Add(oldItem);
         }
 
