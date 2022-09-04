@@ -257,7 +257,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void UpdateHealth()
     {
-        playerEntity.LivesUI.text = "Souls: " + playerEntity.Souls.ToString();
+        playerEntity.LivesUI.text = "souls. " + playerEntity.Souls.ToString();
 
         playerEntity.HealthUIText.text = playerEntity.currentHealth.ToString() + "/" + playerEntity.MaxHealth.ToString();
         //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
