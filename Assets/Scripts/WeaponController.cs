@@ -21,6 +21,7 @@ public class WeaponController : damageController
     private Vector3 lastPosition;
     private float totalDistance;
 
+    public Camera camera = null;
     private float timeStamp;
     private float startTime;
     public float activeTimeLimit;
@@ -33,7 +34,7 @@ public class WeaponController : damageController
     private RectTransform rectTrans;
 
     private GameObject Trail;
-
+    public GameObject player;
     public delegate void OnHeldInHand(bool isHeld);
     public OnHeldInHand onHeldInHand;
 
@@ -66,7 +67,14 @@ public class WeaponController : damageController
         rectTrans = StaminaBar.GetComponent<RectTransform>();
         isInHand = false;
     }
-
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (camera == null)
+        {
+            camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
+    }
     void HeldInHandStatus(bool status)
     {
         if (status == false)
@@ -135,6 +143,9 @@ public class WeaponController : damageController
         }
         //transform.localPosition = whiteArrow.transform.localPosition;
         //transform.localRotation = whiteArrow.transform.localRotation;
+        Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+         
+        transform.localPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0f);
 
         if (transform.localPosition.magnitude > ReachLength)
         {

@@ -56,10 +56,11 @@ public class WeaponUI : MonoBehaviour
 
     private void Awake()
     {
-        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+        //EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
     private void OnEnable()
     {
+        //EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
         manaFillColor = FillObj.GetComponent<Image>();
         SliderUI = Slider.GetComponent<RectTransform>();
         SliderParentUI = SliderParent.GetComponent<RectTransform>();
@@ -71,6 +72,10 @@ public class WeaponUI : MonoBehaviour
         //OrbObject = GameObject.FindWithTag("OrbControler");
         TruePosition = 0;
         CurrentColor = new Color(1f, 1f, 0f, 0f);
+    }
+    private void Start()
+    {
+        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
