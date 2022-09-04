@@ -295,7 +295,7 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 0}
-  tickLimit: 0.1
+  tickLimit: 0.12
   shrinks: 0
   trail: 0
   startSize: 1

@@ -37,6 +37,11 @@ public class PauseMenuScript : MonoBehaviour
                 Pause();
             }
         }
+        else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
+        {
+            Resume();
+            inventoryUI.SetActive(false);
+        }
     }
     public void Resume()
     {
