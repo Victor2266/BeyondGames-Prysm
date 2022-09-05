@@ -39,7 +39,7 @@ public class WeaponController : damageController
     public OnHeldInHand onHeldInHand;
 
     public OldCameraController OrbPosition;
-    private PointerScript pointerScript;
+    private newPointerScript pointerScript;
     private CapsuleCollider2D capsuleColider;
     public WeaponUI weaponUI;
     public PlayerEntity playerEntity;
@@ -57,7 +57,7 @@ public class WeaponController : damageController
     {
         onHeldInHand += HeldInHandStatus;
   
-        pointerScript = GetComponent<PointerScript>();
+        pointerScript = GetComponent<newPointerScript>();
         sprtrend = GetComponent<SpriteRenderer>();
         capsuleColider = GetComponent<CapsuleCollider2D>();
         lastPosition = transform.position;

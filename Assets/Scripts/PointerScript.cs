@@ -20,13 +20,12 @@ public class PointerScript : MonoBehaviour
 
     private float XAngle;
     private float YAngle;
+    [SerializeField]
     private float ZAngle;
 
     public float offset;
     public GameObject boss;
     public bool isEyeBall;
-
-
     private void Awake() //NETWORKING AWAKE
     {
         PlayerUpdated(ClientScene.localPlayer);
@@ -77,7 +76,6 @@ public class PointerScript : MonoBehaviour
         {
             base.transform.eulerAngles = new Vector3(180f - this.ZAngle, 90f, 0f);
         }
-        
         
         
         if (!this.boss.activeSelf || boss == null)
