@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3872912916070181555}
   - component: {fileID: 7903621614544924877}
   - component: {fileID: 8733243472913411085}
+  - component: {fileID: 4344456467243268645}
   m_Layer: 0
   m_Name: DummySpear
   m_TagString: Untagged
@@ -47,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -58,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -128,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 0.05}
   m_EdgeRadius: 0
+--- !u!114 &4344456467243268645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605486083554045278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9a2ae6772804f48a2cd49c354d7b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.5
+  interactionTransform: {fileID: 4276410911775313931}
+  player: {fileID: 0}
+  item: {fileID: 11400000, guid: 8bfda8c858a09514d8c811dc13c2d1c8, type: 2}

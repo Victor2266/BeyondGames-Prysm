@@ -32,6 +32,8 @@ public class BirdFollow : MonoBehaviour
 
     private Vector3 rayDirection;
 
+    public float distance;
+
     private void Start()
     {
         isDead = false;
@@ -71,12 +73,12 @@ public class BirdFollow : MonoBehaviour
                 if (rb2d.position.x > collision.attachedRigidbody.position.x)
                 {
                     LookingLeft = true;
-                    x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x + 1f, ref velocity.x, speed + 0.1f);
+                    x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x + distance, ref velocity.x, speed + 0.1f);
                 }
                 else
                 {
                     LookingLeft = false;
-                    x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x - 1f, ref velocity.x, speed + 0.1f);
+                    x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x - distance, ref velocity.x, speed + 0.1f);
                 }
 
                 float y = Mathf.SmoothDamp(transform.position.y, player.transform.position.y + Mathf.Abs(transform.position.x - player.transform.position.x), ref velocity.y, speed + 0.1f);
