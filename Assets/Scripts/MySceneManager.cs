@@ -73,7 +73,7 @@ public class MySceneManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SelectLevelScreen(bool needSave)
+    public IEnumerator SelectLevelScreen(bool needSave)
     {
         transition.SetActive(true);
 
@@ -159,5 +159,6 @@ public class MySceneManager : MonoBehaviour
         SaveSystem.deleteInventoryAndEquipment();
 
         //clear level progress [NOT DONE]
+        PlayerPrefs.SetInt("levelReached", 1);
     }
 }
