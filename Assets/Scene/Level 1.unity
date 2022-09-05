@@ -29911,6 +29911,7 @@ MonoBehaviour:
   xDest: 0
   yDest: 0
   noFlip: 0
+  ZAngle: 0
   offset: -90
   boss: {fileID: 1805261697}
   isEyeBall: 1
@@ -30455,6 +30456,7 @@ GameObject:
   - component: {fileID: 1108805585}
   - component: {fileID: 1108805584}
   - component: {fileID: 1108805583}
+  - component: {fileID: 1108805586}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -30503,6 +30505,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108805586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108805582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c015b4a3bf4caca48ae7ba78c767b332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToUnlock: 0
 --- !u!1 &1116626195
 GameObject:
   m_ObjectHideFlags: 0
@@ -32185,6 +32200,7 @@ MonoBehaviour:
   xDest: 0
   yDest: 0
   noFlip: 0
+  ZAngle: 0
   offset: -90
   boss: {fileID: 1805261697}
   isEyeBall: 1
@@ -53658,9 +53674,9 @@ GameObject:
   - component: {fileID: 1399574139}
   - component: {fileID: 1399574144}
   - component: {fileID: 1399574143}
-  - component: {fileID: 1399574142}
   - component: {fileID: 1399574141}
   - component: {fileID: 1399574140}
+  - component: {fileID: 1399574145}
   m_Layer: 0
   m_Name: Handheld Weapon
   m_TagString: Untagged
@@ -53719,25 +53735,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &1399574142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399574138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1159e84b912a7b24b8e98ea48e2f600e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsLookingAtPlayer: 0
-  xDest: 0
-  yDest: 0
-  noFlip: 0
-  offset: 90
-  boss: {fileID: 1805261697}
-  isEyeBall: 1
 --- !u!114 &1399574143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53817,6 +53814,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1399574145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399574138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8523e4d4237d6f49b04b9d02e28826f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAtThis: {fileID: 1805261698}
+  turn_speed: 0
+  offset: 0
 --- !u!1 &1413972708
 GameObject:
   m_ObjectHideFlags: 0

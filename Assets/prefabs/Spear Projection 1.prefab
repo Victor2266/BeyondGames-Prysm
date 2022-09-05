@@ -4893,12 +4893,12 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7953202150918435326}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 100
+  m_LinearDrag: 1.85
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -4921,14 +4921,15 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 8843199119083513244}
-  tickLimit: 5
+  tickLimit: 2
   shrinks: 1
   trail: 0
   startSize: 1
   widthOfBullet: 0
   timeOfBullet: 0
-  explodes: 0
-  explosionPrefab: {fileID: 0}
+  explodes: 1
+  explosionPrefab: {fileID: 6708209246093052786, guid: bc7fd660ca836aa47b6b3a97a4aec271,
+    type: 3}
 --- !u!61 &360132941130072968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5067,11 +5068,11 @@ MonoBehaviour:
   DMG: 10
   Primed: 1
   Bouncy: 0
-  pop: {fileID: 1024762355911668, guid: d2346535ff44b4a247a3450fb8a5c387, type: 3}
+  pop: {fileID: 4243457265752490857, guid: 574c16c9cc84d7f418849e4fe46cf27e, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437,
     type: 3}
   DMGTextSize: 2
-  attackVelo: 6
+  attackVelo: 12
   ManaCost: 10
   coolDownPeriod: 2
   rapid_fire: 1

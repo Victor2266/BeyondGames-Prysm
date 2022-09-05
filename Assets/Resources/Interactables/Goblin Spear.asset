@@ -27,7 +27,7 @@ MonoBehaviour:
   activeTimeLimit: 2
   cooldownTime: 0.5
   XYSize: 1
-  angle_offset: 90
+  angle_offset: 0
   CapsuleColliderOffset: {x: -0.5, y: 0}
   CapsuleColliderSize: {x: 0.3, y: 0.3}
   handReachMultiplier: 0.5
