@@ -164,13 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: b9570889261c0f74cb9969d52fedd7dd, type: 3}
   DMG: 20
   Primed: 1
   Bouncy: 0
   pop: {fileID: 4243457265752490857, guid: 0292dc767a03fc748afcc19f4939394a, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 6a054bdc82d465847aa2f93df16c285b,
     type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: b9570889261c0f74cb9969d52fedd7dd, type: 3}
   DMGTextSize: 2
   attackVelo: 16
   ManaCost: 10

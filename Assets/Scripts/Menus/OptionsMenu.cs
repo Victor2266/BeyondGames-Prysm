@@ -11,12 +11,12 @@ public class OptionsMenu : MonoBehaviour
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
     public Slider BGM_Slider;
-    public static float BGMVolume = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        BGM_Slider.value = BGMVolume;
+        BGM_Slider.value = PlayerPrefs.GetFloat("BGM_Volume");
+        AudioMixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("BGM_Volume")) * 20);
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -53,7 +53,8 @@ public class OptionsMenu : MonoBehaviour
         {
             AudioMixer.SetFloat("Volume", -80f);
         }
-        BGMVolume = volume;
+
+        PlayerPrefs.SetFloat("BGM_Volume", volume);
     }
     public void SetFullscreen(bool isFullscreen)
     {

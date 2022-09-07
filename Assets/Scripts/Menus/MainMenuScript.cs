@@ -116,7 +116,7 @@ public class MainMenuScript : MonoBehaviour
         {
             AudioMixer.SetFloat("Volume", -80f);
         }
-        OptionsMenu.BGMVolume = volume;
+        PlayerPrefs.SetFloat("BGM_Volume", volume);
     }
     public void SetFullscreen (bool isFullscreen)
     {

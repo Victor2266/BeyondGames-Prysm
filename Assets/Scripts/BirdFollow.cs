@@ -34,6 +34,8 @@ public class BirdFollow : MonoBehaviour
 
     public float distance;
 
+    public Transform redEye;
+
     private void Start()
     {
         isDead = false;
@@ -52,11 +54,14 @@ public class BirdFollow : MonoBehaviour
         {
             if (LookingLeft)
             {
-                transform.localScale = new Vector3(-size, transform.localScale.y, transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = true;
+                redEye.localPosition = new Vector3(-0.153f, -0.01f, -0.1f);
+
             }
             else if (!LookingLeft)
             {
-                transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = false;
+                redEye.localPosition = new Vector3(0.153f, -0.01f, -0.1f);
             }
 
         }
@@ -86,5 +91,10 @@ public class BirdFollow : MonoBehaviour
             }
         }
     }
-
+    public void TakeDamage(float amount)
+    {
+        GetComponent<AudioSource>().Play();
+        anim.SetTrigger("hurt");
+        //show ouch text
+    }
 }

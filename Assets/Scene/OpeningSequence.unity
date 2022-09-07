@@ -11499,6 +11499,7 @@ MonoBehaviour:
   xDest: 0
   yDest: 0
   noFlip: 0
+  ZAngle: 0
   offset: -90
   boss: {fileID: 1793949805}
   isEyeBall: 1
@@ -11762,8 +11763,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20, y: -40}
-  m_SizeDelta: {x: -40, y: -80}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: -80, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732470828
 MonoBehaviour:
@@ -17233,12 +17234,12 @@ MonoBehaviour:
     - Nothing to live for
     - Just wasting away at my computer.
     - Hidden away from the gaze of others
-    - eventually becoming transparent myself
+    - eventually becoming transparent myself.
     - 'paralized '
-    - 'helpless
+    - 'and helpless.
 
 '
-    - I'ma watch some youtube videos!
+    - the only thing I have to turn to is Youtube.
     - 'Fuck that''s so bright!
 
 '
@@ -17247,7 +17248,9 @@ MonoBehaviour:
     - it's already 6am ...
     - maybe I should go to sleep instead
     - yawn . . .
-    - it feels like I'm falling
+    - 'I''ve given up on changing my life a long time ago. The world of my dreams
+      is usually the only place where I can find solace. But these days even that
+      has become a black void with an endless falling sensation. '
     - ...
     - 'Finally!
 
@@ -17263,9 +17266,7 @@ MonoBehaviour:
     - Become my servant and I'll grant you one wish.
     - 'I''m a Shinigami.
 
-      A being that lives by consuming the souls of others.
-
-'
+      A being that lives by consuming the souls of others.'
     - Instead of consuming your soul, I've made you my servant.
     - 'Any questions?
 

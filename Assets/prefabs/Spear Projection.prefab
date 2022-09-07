@@ -4814,7 +4814,7 @@ GameObject:
   - component: {fileID: 3454484833849804100}
   m_Layer: 0
   m_Name: Spear Projection
-  m_TagString: Mouse
+  m_TagString: enemyProj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

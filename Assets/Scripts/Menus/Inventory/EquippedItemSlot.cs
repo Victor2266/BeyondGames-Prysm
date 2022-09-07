@@ -39,7 +39,10 @@ public class EquippedItemSlot : InventorySlot
 		//removeButton.interactable = true;
 
 		icon.rectTransform.eulerAngles = new Vector3(icon.rectTransform.rotation.x, icon.rectTransform.rotation.y, item.iconRotation);
-		icon.rectTransform.localScale = new Vector3(item.iconSize, item.iconSize, 1f);
-		icon.SetNativeSize();
+		if(newItem.WeaponType == InventoryUI.WeaponTypes.Weapons)
+        {
+			icon.rectTransform.localScale = new Vector3(item.iconSize, item.iconSize, 1f);
+			icon.SetNativeSize();
+		}
 	}
 }

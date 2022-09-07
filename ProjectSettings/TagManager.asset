@@ -35,6 +35,7 @@ TagManager:
   - Handheld_Weapon
   - GameManager
   - SceneManager
+  - enemyProj
   layers:
   - Default
   - TransparentFX

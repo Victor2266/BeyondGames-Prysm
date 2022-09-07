@@ -15,11 +15,9 @@ GameObject:
   - component: {fileID: 5225875635266693847}
   - component: {fileID: 6426245257315660222}
   - component: {fileID: 3442794675359709661}
-  - component: {fileID: 8040186296057739347}
   - component: {fileID: 6487517401422450446}
-  - component: {fileID: 7850069184361078073}
   m_Layer: 0
-  m_Name: NPC Text
+  m_Name: NPC Text 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 5225875635266693844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 4}
+  m_SizeDelta: {x: 20, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5225875635264697364
 MeshRenderer:
@@ -102,7 +100,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TESTING
+  m_text: Heyo im your benefactor, I took possession of this crow so I cna guide
+    you better
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83802a99befcb6648b2e5d75de0e2794, type: 2}
   m_sharedMaterial: {fileID: 21290951584543668, guid: 83802a99befcb6648b2e5d75de0e2794,
@@ -130,8 +129,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.5
-  m_fontSizeBase: 1.5
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -198,8 +197,8 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 0}
-  tickLimit: 2
-  shrinks: 1
+  tickLimit: 5
+  shrinks: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -322,21 +321,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8040186296057739347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225875635266693844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32c266ee6204b21a427753cb0694c81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisplayText: TESTING
-  nonReactive: 1
-  delay: 0.1
 --- !u!50 &6487517401422450446
 Rigidbody2D:
   serializedVersion: 4
@@ -358,19 +342,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7850069184361078073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225875635266693844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0

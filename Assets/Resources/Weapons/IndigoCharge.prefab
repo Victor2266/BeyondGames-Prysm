@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6128729494483861158}
   - component: {fileID: -6214926026157164979}
   - component: {fileID: -3039714242561650117}
+  - component: {fileID: -1163250935358369133}
   m_Layer: 0
   m_Name: IndigoCharge
   m_TagString: Untagged
@@ -124,13 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: 0a2bc51c573b25e4db67465e3948e613, type: 3}
   DMG: 30
   Primed: 0
   Bouncy: 1
   pop: {fileID: 2767647709606753379, guid: 57a4a13353c62764e808c32e5c413f33, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 0567790bb4a2ac241a19157065e4795b,
     type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: 0a2bc51c573b25e4db67465e3948e613, type: 3}
   DMGTextSize: 4
   attackVelo: 1
   ManaCost: 30
@@ -211,6 +212,20 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+--- !u!114 &-1163250935358369133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346022673198726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e851f7aa65def4da1190181db087d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 6708209246093052786, guid: 5b8f152476646a341b6b49c42378b67d,
+    type: 3}
 --- !u!1 &1393016964297500
 GameObject:
   m_ObjectHideFlags: 0
