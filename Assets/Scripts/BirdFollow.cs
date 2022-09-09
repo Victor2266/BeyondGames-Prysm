@@ -44,7 +44,7 @@ public class BirdFollow : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
-        hurtSayings = new string[]{ "OUCH", "STOP THAT", "OW"};
+        hurtSayings = new string[]{ "OUCH", "STOP THAT", "that HURT"};
     }
 
     private void FixedUpdate()
@@ -100,7 +100,7 @@ public class BirdFollow : MonoBehaviour
     }
 
     public GameObject DMGText;
-    public string[] hurtSayings= {"OUCH", "STOP THAT", "OW"};
+    public string[] hurtSayings= {"OUCH", "STOP THAT", "that HURT"};
     public void ShowDMGText()
     {
         GameObject gameObject2 = Instantiate(DMGText, transform.position, transform.rotation);

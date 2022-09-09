@@ -111,6 +111,8 @@ public class ratBehavior : MonoBehaviour
         
     }
 
+
+    GameObject exclaimation = null;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && IsGrounded() && !isDead)
@@ -124,13 +126,17 @@ public class ratBehavior : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 1f * jumpForce);
             }
-            
+
+
+            //spawn exclaimation point
+            if (exclaimation == null)
+            {
+                exclaimation = Instantiate(exclaimMark, transform);
+                exclaimation.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            }
         }
 
-        //spawn exclaimation point
-        GameObject exclaimation = null;
-        exclaimation = Instantiate(exclaimMark, transform);
-        exclaimation.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        
     }
     private IEnumerator RandJump(float delay)
     {
