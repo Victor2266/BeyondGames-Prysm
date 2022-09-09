@@ -22,6 +22,6 @@ public class ItemPickup : Interactable
 		// If successfully picked up
 		if (wasPickedUp)
 			Destroy(gameObject);    // Destroy item from scene
-	}
+    }
 
 }

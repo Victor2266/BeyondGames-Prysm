@@ -126,6 +126,11 @@ public class ratBehavior : MonoBehaviour
             }
             
         }
+
+        //spawn exclaimation point
+        GameObject exclaimation = null;
+        exclaimation = Instantiate(exclaimMark, transform);
+        exclaimation.transform.localPosition = new Vector3(0f, 0.5f, 0f);
     }
     private IEnumerator RandJump(float delay)
     {
@@ -278,7 +283,7 @@ public class ratBehavior : MonoBehaviour
 
     public bool LookingLeft;
 
-    private bool isDead;
+    public bool isDead;
 
     private float moveHorizontal;
 
@@ -295,4 +300,6 @@ public class ratBehavior : MonoBehaviour
     private RaycastHit2D[] hit2 = new RaycastHit2D[2];
 
     public float size;
+
+    public GameObject exclaimMark;
 }

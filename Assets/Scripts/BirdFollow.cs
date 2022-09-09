@@ -44,7 +44,7 @@ public class BirdFollow : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
-
+        hurtSayings = new string[]{ "OUCH", "STOP THAT", "OW"};
     }
 
     private void FixedUpdate()
@@ -96,5 +96,18 @@ public class BirdFollow : MonoBehaviour
         GetComponent<AudioSource>().Play();
         anim.SetTrigger("hurt");
         //show ouch text
+        ShowDMGText();
+    }
+
+    public GameObject DMGText;
+    public string[] hurtSayings= {"OUCH", "STOP THAT", "OW"};
+    public void ShowDMGText()
+    {
+        GameObject gameObject2 = Instantiate(DMGText, transform.position, transform.rotation);
+        int randint = Random.Range(0, hurtSayings.Length);
+        gameObject2.GetComponent<TMPro.TextMeshPro>().text = hurtSayings[randint];
+        gameObject2.GetComponent<RectTransform>().transform.eulerAngles = new Vector3(0f, 0f, Random.Range(-50.0f, 50.0f));
+
+        //NetworkServer.Spawn(gameObject2);
     }
 }

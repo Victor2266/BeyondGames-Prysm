@@ -57,18 +57,18 @@ public class Inventory : MonoBehaviour
 			}
 			foreach(Item currentItem in items)
             {
-				if (currentItem.name == item.name)
+				if (currentItem.name == item.name)//check for duplicates in inventory
                 {
-					return false;
+					return true;
                 }
             }
 			foreach (Equipment currentEquips in EquipmentManager.instance.getCurrentEquipment())
 			{
 				if(currentEquips != null)
                 {
-					if (currentEquips.name == item.name)
+					if (currentEquips.name == item.name)//check for duplicates in equipped items
 					{
-						return false;
+						return true;
 					}
 				}
 			}
