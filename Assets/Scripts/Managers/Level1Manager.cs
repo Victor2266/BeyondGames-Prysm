@@ -63,15 +63,15 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if (index == 14)
         {
-            StartCoroutine(DelaySentence(3f, "try swinging it around <color=green>[left click]</color>", 1f));
+            StartCoroutine(DelaySentence(3.5f, "try swinging it around <color=green>[left click]</color>", 1f));
         }
         else if (index == 16)
         {
-            StartCoroutine(DelaySentence(3f, "the larger the swing the more damage!", 1f));
+            StartCoroutine(DelaySentence(3.5f, "the larger the swing the more damage!", 1f));
         }
         else if (index == 18)
         {
-            StartCoroutine(DelaySentence(3f, "and each weapon has a special <color=green>[right click]</color> move", 1f));
+            StartCoroutine(DelaySentence(3.5f, "and each weapon has a special <color=green>[right click]</color> move", 1f));
         }
         //tell to walk over to right to fight goblin
         else if (index == 20)
