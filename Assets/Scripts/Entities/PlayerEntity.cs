@@ -105,6 +105,8 @@ public class PlayerEntity : MonoBehaviour
 
     public GameObject FloorContact;
 
+    public Transform BlackBodyParticles;
+
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;

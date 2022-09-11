@@ -105,6 +105,10 @@ public class PlayerManager : MonoBehaviour
         {
             playerEntity.FloorContact.SetActive(false);
         }
+        if (!playerEntity.isDying)
+        {
+            TiltCharacter();
+        }
     }
 
     public void SetWeap()//optimize this later to only run when pressed
@@ -297,5 +301,20 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         playerEntity.Flinch = false;
         yield break;
+    }
+
+    private float TiltAngle;
+    private float TiltTargetAngle;
+    private float currVelo;
+
+    public void setTiltTargetAngle(float value)
+    {
+        TiltTargetAngle = value;
+    }
+    private void TiltCharacter()
+    {
+        TiltAngle = playerEntity.BlackBodyParticles.localEulerAngles.z;
+        TiltAngle = Mathf.SmoothDampAngle(TiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
+        playerEntity.BlackBodyParticles.localEulerAngles = new Vector3(0f, 0f, TiltAngle);
     }
 }

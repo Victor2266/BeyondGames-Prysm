@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = false;
             playerEntity.rb2d.velocity = new Vector2(playerEntity.speed, playerEntity.rb2d.velocity.y);
+
+            playerManager.setTiltTargetAngle(-30f);
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
@@ -56,10 +58,14 @@ public class PlayerController : MonoBehaviour
             //transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = true;
             playerEntity.rb2d.velocity = new Vector2(-playerEntity.speed, playerEntity.rb2d.velocity.y);
+
+            playerManager.setTiltTargetAngle(30f);
         }
         else if (Mathf.Abs(playerEntity.rb2d.velocity.x) < 0.05f)
         {
             //playerEntity.anim.SetBool("Running", false);
+
+            playerManager.setTiltTargetAngle(0f);
         }
 
         if (playerEntity.rb2d.velocity.y < 0f && !playerEntity.isClimbing)
