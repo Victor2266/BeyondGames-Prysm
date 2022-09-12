@@ -14,6 +14,6 @@ public class LevelManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("levelReached", levelToUnlock);
         }
-        MySceneManager.instance.SelectLevelScreen(true);
+        MySceneManager.instance.SelectLevelScreen(true);//this automatically finds the transition and activates it
     }
 }

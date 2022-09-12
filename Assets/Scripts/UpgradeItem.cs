@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class UpgradeItem : MonoBehaviour
+public class UpgradeItem : MonoBehaviour//completely depreciated do not use
 {
     private void Start()
     {

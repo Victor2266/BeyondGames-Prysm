@@ -17239,17 +17239,15 @@ MonoBehaviour:
     - 'and helpless.
 
 '
-    - the only thing I have to turn to is Youtube.
-    - 'Fuck that''s so bright!
-
-'
+    - the only thing I have to turn to is the internet.
+    - FUCK that's so bright!
     - Why'd I leave the brightness so high?
     - ...
     - it's already 6am ...
     - maybe I should go to sleep instead
     - yawn . . .
-    - Atleast at night, the endless warped reality of my life is replaced by fleeting
-      plesant dreams.
+    - At least at night, the endless warped reality of my life can be replaced by
+      fleeting pleasant dreams.
     - ...
     - 'Finally!
 
@@ -33639,6 +33637,7 @@ MonoBehaviour:
   lookingLeft: 0
   WeaponUI: {fileID: 0}
   FloorContact: {fileID: 0}
+  BlackBodyParticles: {fileID: 0}
 --- !u!114 &1793949808
 MonoBehaviour:
   m_ObjectHideFlags: 0

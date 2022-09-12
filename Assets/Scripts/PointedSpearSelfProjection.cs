@@ -6,7 +6,6 @@ public class PointedSpearSelfProjection : MonoBehaviour
 {
     private GameObject clone;
     public GameObject SpearProjection;
-    public GameObject Spear;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,9 +15,9 @@ public class PointedSpearSelfProjection : MonoBehaviour
 
             clone = Instantiate(SpearProjection, transform.position, transform.rotation);
             clone.transform.localScale = new Vector3(transform.parent.GetComponentInParent<Transform>().localScale.x, 1f, 1f);
-            float SpearAngle = Spear.GetComponent<Transform>().eulerAngles.z;
+            float SpearAngle = transform.eulerAngles.z;
 
-            Vector3 v = new Vector3(parentVelocity * 1.5f * Mathf.Cos(Mathf.Deg2Rad * (SpearAngle)), parentVelocity * 1.5f * Mathf.Sin(Mathf.Deg2Rad * (SpearAngle)), 0f);
+            Vector3 v = new Vector3(-Mathf.Abs(parentVelocity) * 1.5f * Mathf.Cos(Mathf.Deg2Rad * (SpearAngle)), -Mathf.Abs(parentVelocity) * 1.5f * Mathf.Sin(Mathf.Deg2Rad * (SpearAngle)), 0f);
 
             clone.GetComponent<Rigidbody2D>().velocity = v;
             

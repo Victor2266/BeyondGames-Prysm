@@ -262,7 +262,7 @@ public class ratBehavior : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, new Vector3(transform.position.x, transform.position.y, 0f), base.transform.rotation);
+        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
         Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<Collider2D>());
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
         anim.SetTrigger("dead");

@@ -25,11 +25,13 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             spear.GetComponent<CircleCollider2D>().enabled = false;
             if (player.transform.position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                //transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = false;
             }
             else
             {
-                transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                //transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = true;
             }
         }
         if (aggression == true)
@@ -43,11 +45,13 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             {
                 if (!LookingLeft)
                 {
-                    base.transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                    //base.transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                    GetComponent<SpriteRenderer>().flipX = false;
                 }
                 else if (LookingLeft)
                 {
-                    base.transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                    //base.transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                    GetComponent<SpriteRenderer>().flipX = true;
                 }
                 if (Mathf.Abs(rb2d.velocity.x) < speed)
                 {
@@ -76,14 +80,14 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             if (IsTouchingLeftWall() && TouchingPlayer == false)
             {
                 LookingLeft = false;
-                StartCoroutine(BackUp(0.1f, 1f * speed));
+                StartCoroutine(BackUp(0.5f, 2f * speed));
             }
 
 
             else if (IsTouchingRightWall() && TouchingPlayer == false)
             {
                 LookingLeft = true;
-                StartCoroutine(BackUp(0.1f, -1f * speed));
+                StartCoroutine(BackUp(0.5f, -2f * speed));
             }
         }
     }
@@ -120,7 +124,7 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             }
 
 
-            if (2 == Random.Range(1, 50))
+            if (2 == Random.Range(1, 20))
             {
                 StartCoroutine(RandJump(4f));
             }
@@ -164,8 +168,8 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
     }
     private IEnumerator BackUp(float delay, float moveHorizontalval)
     {
-        yield return new WaitForSeconds(delay);
         moveHorizontal = moveHorizontalval;
+        yield return new WaitForSeconds(delay);
         Jump();
     }
     private void Jump()
@@ -272,7 +276,10 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
         isDead = true;
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
 
-        clone = Instantiate<GameObject>(HealOrb, new Vector3(0f,0f,0f), base.transform.rotation);
+
+        Instantiate<GameObject>(Soul, transform.position, base.transform.rotation);
+
+        clone = Instantiate<GameObject>(HealOrb, transform.position, base.transform.rotation);
         clone.transform.parent = gameObject.transform;
         clone.transform.localPosition = new Vector3(0,- 0.4f, 0f);
         anim.SetTrigger("dead");
@@ -307,6 +314,8 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
     private GameObject clone;
 
     public GameObject HealOrb;
+
+    public GameObject Soul;
 
     private RaycastHit2D[] hit = new RaycastHit2D[2];
 

@@ -71,9 +71,9 @@ public class BirdFollow : MonoBehaviour
     {
         if (collision.tag == "Player" && !isDead)
         {
-            Physics2D.RaycastNonAlloc(transform.position, rayDirection, hit);
-            if (hit[1].collider.name == "Player")
-            {
+            //Physics2D.RaycastNonAlloc(transform.position, rayDirection, hit);
+            //if (hit[1].collider.name == "Player")
+            //{
                 float x;
                 if (rb2d.position.x > collision.attachedRigidbody.position.x)
                 {
@@ -88,7 +88,7 @@ public class BirdFollow : MonoBehaviour
 
                 float y = Mathf.SmoothDamp(transform.position.y, player.transform.position.y + Mathf.Abs(transform.position.x - player.transform.position.x), ref velocity.y, speed + 0.1f);
                 transform.position = new Vector2(x, y);
-            }
+            //}
         }
     }
     public void TakeDamage(float amount)

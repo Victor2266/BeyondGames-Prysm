@@ -18,6 +18,11 @@ public class Boss1AI : MonoBehaviour
     public GameObject rightJaw;
     private float jaw_speed = 0;
 
+    public float leftWall;
+    public float rightWall;
+    public float topCiel;
+    public float botFloor;
+    public Transform eyeDirection;
 
     private void Start()
     {
@@ -27,30 +32,33 @@ public class Boss1AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb2d.position.x > 46f)
+        if (rb2d.position.x > rightWall)
         {
-            velo = new Vector2(-speed, velo.y);
+            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z -90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
         }
-        else if (rb2d.position.x < 32f)
+        else if (rb2d.position.x < leftWall)
         {
-            velo = new Vector2(speed, velo.y);
+            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
         }
-        if (rb2d.position.y > -25.5f)
+        if (rb2d.position.y > topCiel)
         {
-            velo = new Vector2(velo.x, -speed);
+            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
         }
-        else if (rb2d.position.y < -35.6f)
+        else if (rb2d.position.y < botFloor)
         {
-            velo = new Vector2(velo.x, speed);
+            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed, 0f);
         }
         rb2d.velocity = new Vector2(velo.x, velo.y);
+
+
         if (healthObj.health <= 0f && !isDead)
         {
             Death();
         }
         else if (healthObj.health <= 60f)
         {
-            speed = 6f;
+            speed = 12f;
+            topCiel = 10f;
             GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Final_colour, 0.005f);
             if (ChangedToRed == false)
             {
@@ -62,7 +70,7 @@ public class Boss1AI : MonoBehaviour
         else if (healthObj.health <= 120f)
         {
             GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Middle_colour, 0.005f);
-            speed = 4f;
+            speed = 8f;
         }
 
         if (openingJaws)
@@ -88,6 +96,7 @@ public class Boss1AI : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f, rb2d.velocity.y * 4f);
             player.SendMessage("TakeDamage", 20);
             openingJaws = false;
+            chompsound.Play();
         }
         if (collision.gameObject.tag == "platform")
         {
@@ -125,6 +134,8 @@ public class Boss1AI : MonoBehaviour
             clone = UnityEngine.Object.Instantiate<GameObject>(ManaDrops, base.transform.position, base.transform.rotation);
         }
         healthObj.health -= amount;
+
+        GetComponent<AudioSource>().Play();
     }
 
     private void Death()
@@ -135,6 +146,7 @@ public class Boss1AI : MonoBehaviour
         Instantiate<GameObject>(explosion, base.transform.position, base.transform.rotation);
         base.gameObject.SetActive(false);
         Instantiate<GameObject>(ExtraNeon, base.transform.position, base.transform.rotation);
+        Instantiate<GameObject>(soul, base.transform.position, base.transform.rotation);
         BossRoomRange.GetComponent<AudioSource>().enabled = false;
         defeatBossMsg.SetActive(false);
         ChargeEnabler.SetActive(true);
@@ -146,9 +158,9 @@ public class Boss1AI : MonoBehaviour
     public GameObject player;
     public GameObject defeatBossMsg;
     public GameObject ManaDrops;
-
+    public GameObject soul;
     public GameObject HealthDrops;
-
+    public AudioSource chompsound;
     public GameObject MobDrop;
     public HealthBarHealth healthObj;
 
