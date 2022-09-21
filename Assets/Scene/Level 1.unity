@@ -88468,6 +88468,7 @@ GameObject:
   - component: {fileID: 1805261702}
   - component: {fileID: 1805261699}
   - component: {fileID: 1805261701}
+  - component: {fileID: 1805261700}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88581,6 +88582,22 @@ MonoBehaviour:
   WeaponUI: {fileID: 350827846}
   FloorContact: {fileID: 1933710145}
   BlackBodyParticles: {fileID: 129814171}
+--- !u!70 &1805261700
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805261697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 270e9cbbc8e8e9f4da6720b96a1fe77b, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  m_Size: {x: 0.17, y: 0.65}
+  m_Direction: 0
 --- !u!114 &1805261701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88594,6 +88611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEntity: {fileID: 1805261699}
+  grounded: 0
 --- !u!114 &1805261702
 MonoBehaviour:
   m_ObjectHideFlags: 0

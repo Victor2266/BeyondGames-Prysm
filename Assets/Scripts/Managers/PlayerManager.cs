@@ -94,9 +94,10 @@ public class PlayerManager : MonoBehaviour
         
     }
 
+    public bool grounded;
     private void Update()
     {
-        bool grounded = IsGrounded();
+        grounded = IsGrounded();
         if (grounded && playerEntity.FloorContact.activeSelf == false)
         {
             playerEntity.FloorContact.SetActive(true);
@@ -149,8 +150,9 @@ public class PlayerManager : MonoBehaviour
     public bool IsGrounded()
     {
         Vector2 origin = transform.position;
-        origin.y -= 0.6f;
-        return Physics2D.Raycast(origin, -Vector2.up, 0.005f);
+        origin.y -= 0.5f;
+        //Debug.DrawRay(origin, -Vector2.up * 0.05f, Color.red, 0.01f, false);
+        return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
     }
 
     public void TakeDamage(float amount)

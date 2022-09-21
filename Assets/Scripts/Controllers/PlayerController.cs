@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
             return;
         if (!playerEntity.isDying)
         {
-            //MoveUpdate();
+            MoveUpdate();
             Shooting();
         }
         playerManager.UpdateHealth();
@@ -32,13 +32,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(playerEntity.health.maxValue);
         }
     }
-    private void FixedUpdate()
-    {
-        if (!playerEntity.isDying)
-        {
-            MoveUpdate();
-        }
-    }
+
 
     public void MoveUpdate()
     {
@@ -83,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.rb2d.velocity += Vector2.up * Physics2D.gravity.y * (playerEntity.lowJumpMultiplier - 1f) * Time.deltaTime;
         }
-        if (Input.GetButtonDown("Jump") && playerManager.IsGrounded())
+        if (Input.GetButtonDown("Jump") && playerManager.grounded)
         {
             playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x, playerEntity.jumpForce);
             //StartCoroutine(playerManager.JumpStretch());
@@ -107,13 +101,15 @@ public class PlayerController : MonoBehaviour
                 //playerEntity.speedTrail.SetActive(true);
                 
                 //playerEntity.Flinch = true;
-                playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
+                //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
                 if (playerEntity.rb2d.velocity.x > 0)
                 {
+                    playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, 90f);
                 }
                 else
                 {
+                    playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 8f, playerEntity.rb2d.velocity.y);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, -90f);
                 }
                 //GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);
