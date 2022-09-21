@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
             return;
         if (!playerEntity.isDying)
         {
-            MoveUpdate();
+            //MoveUpdate();
             Shooting();
         }
         playerManager.UpdateHealth();
@@ -30,6 +30,13 @@ public class PlayerController : MonoBehaviour
             playerManager.Upgrade(1, 900);
             //Upgrade(3, 1);
             Debug.Log(playerEntity.health.maxValue);
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (!playerEntity.isDying)
+        {
+            MoveUpdate();
         }
     }
 
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
             playerEntity.currentHealth -= 0.5f;
             playerEntity.currentMana += 2;
         }
-        if (Input.GetButtonDown("Slide") && playerManager.IsGrounded() && playerEntity.rb2d.velocity.x != 0)
+        if (Input.GetButtonDown("Slide") && playerEntity.rb2d.velocity.x != 0)//testing without ground check  playerManager.IsGrounded() 
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {

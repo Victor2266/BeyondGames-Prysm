@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Name: Projection Spear
+  m_EditorClassIdentifier: 
+  name: Projection Spear
+  icon: {fileID: 21300000, guid: b5556c20398964241bdd46338b3494b1, type: 3}
+  iconRotation: 0
+  iconSize: 1.5
+  isDefaultItem: 0
+  WeaponType: 1
+  equipSlot: 0
+  color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  ReachLength: 1.5
+  DMG_Scaling: 10
+  MaxDamage: 45
+  DMGTextSize: 2
+  activeTimeLimit: 0.5
+  cooldownTime: 0.5
+  XYSize: 1
+  angle_offset: 0
+  CapsuleColliderOffset: {x: -0.65, y: 0}
+  CapsuleColliderSize: {x: 0.35, y: 0.3}
+  handReachMultiplier: 0.5
+  projectileAttack: {fileID: 7953202150918435326, guid: b34db3c275c64e24c9a7d97dd8c1a08c,
+    type: 3}
+  projectileOffset: 0
+  thrustResetTime: 1
+  thrustDashDist: -4
+  thrustShortReach: 1
+  projAsChild: 0
+  trail: {fileID: 6359563610306997464, guid: 09d6a1d7f893a174a80270b7932c61cc, type: 3}

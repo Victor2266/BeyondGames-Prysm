@@ -278,6 +278,7 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
 
 
         Instantiate<GameObject>(Soul, transform.position, base.transform.rotation);
+        Instantiate<GameObject>(spearDrop, transform.position, base.transform.rotation);
 
         clone = Instantiate<GameObject>(HealOrb, transform.position, base.transform.rotation);
         clone.transform.parent = gameObject.transform;
@@ -313,7 +314,9 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
 
     private GameObject clone;
 
-    public GameObject HealOrb;
+    public GameObject HealOrb;//being used to drop book
+
+    public GameObject spearDrop; 
 
     public GameObject Soul;
 
