@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 3690798953072332048}
   - component: {fileID: 3553518070885600866}
   - component: {fileID: 7345502183800919183}
+  - component: {fileID: 9037466330704739676}
   m_Layer: 0
   m_Name: soul 1
   m_TagString: Untagged
@@ -5394,7 +5395,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 6
 --- !u!114 &1736637759948417563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,7 +5450,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
 --- !u!50 &7345502183800919183
 Rigidbody2D:
   serializedVersion: 4
@@ -5471,3 +5472,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9037466330704739676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736637759948417562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e439492d435778498327b4ec07a7ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

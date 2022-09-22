@@ -14,9 +14,23 @@ public class SoulData : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    public void OnTriggerEnter2D(Collider2D collision)
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        ShowText("++ " + ManaAmount, 2.5f, Color.cyan, 0.15f);
+    //        ShowText("++ " + HealAmount, 2.5f, Color.red, 0.40f);
+
+    //        player.GetComponent<PlayerManager>().Upgrade(0, HealAmount);
+
+    //        player.GetComponent<PlayerManager>().Upgrade(1, ManaAmount);
+    //        player.GetComponent<PlayerEntity>().Souls++;
+    //        Destroy(gameObject);
+    //    }
+    //}
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             ShowText("++ " + ManaAmount, 2.5f, Color.cyan, 0.15f);
             ShowText("++ " + HealAmount, 2.5f, Color.red, 0.40f);

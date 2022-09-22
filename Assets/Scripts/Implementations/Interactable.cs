@@ -14,6 +14,7 @@ public class Interactable : MonoBehaviour
 
 	public Transform player;       // Reference to the player transform
 
+
 	bool hasInteracted = false; // Have we already interacted with the object?
 
     private void OnEnable()
@@ -39,7 +40,7 @@ public class Interactable : MonoBehaviour
 				// Interact with the object
 				Interact();
 				hasInteracted = true;
-			}
+            }
 		}
 	}
 
