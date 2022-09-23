@@ -12,14 +12,14 @@ public class HealthBar : MonoBehaviour//rewrote for canvas world space health ba
         if (newHealth >= 0)
         {
             LTSeq sequence = LeanTween.sequence();
-            sequence.append(LeanTween.scale(redBar, new Vector3(newHealth / maxHealth, 1f, 1f), 0.2f));
-            sequence.append(LeanTween.scale(whiteBar, new Vector3(newHealth / maxHealth, 1f, 1f), 2.0f));
+            sequence.append(LeanTween.scale(redBar, new Vector3(newHealth / maxHealth, 1f, 1f), 0.1f));
+            sequence.append(LeanTween.scale(whiteBar, new Vector3(newHealth / maxHealth, 1f, 1f), 1.5f));
         }
         else
         {
             LTSeq sequence = LeanTween.sequence();
-            sequence.append(LeanTween.scale(redBar, new Vector3(0f, 1f, 1f), 0.2f));
-            sequence.append(LeanTween.scale(whiteBar, new Vector3(0f, 1f, 1f), 2.0f));
+            sequence.append(LeanTween.scale(redBar, new Vector3(0f, 1f, 1f), 0.1f));
+            sequence.append(LeanTween.scale(whiteBar, new Vector3(0f, 1f, 1f), 1.5f));
         }
     }
     

@@ -12,7 +12,6 @@ public class MagneticAttraction : MonoBehaviour
         if (collision.tag == "Player")
         {
             transform.position = Vector3.SmoothDamp(transform.position, collision.transform.position, ref _velo, 0.5f);
-            Debug.Log("in trigger");
         }
     }
 }

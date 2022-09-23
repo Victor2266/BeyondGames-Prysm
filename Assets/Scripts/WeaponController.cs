@@ -122,7 +122,7 @@ public class WeaponController : damageController
             OrbPosition.smoothTimeX = 0.01f;
             OrbPosition.smoothTimeX = 0.01f;
 
-            if (Trail == null)
+            if (Trail != null)
             {
                 Destroy(Trail);
             }

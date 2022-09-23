@@ -16,7 +16,7 @@ public class ItemPickup : Interactable
     {
         tooltip = Instantiate(tooltipPrefab);
 
-        tooltip.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, 0f);
+        tooltip.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -3f);
         tooltip.transform.rotation = Quaternion.identity;
         tooltip.transform.localScale = new Vector3(1f, 1f, 1f);
 
@@ -54,7 +54,7 @@ public class ItemPickup : Interactable
 
     void Update()
     {
-        tooltip.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, 0f);
+        tooltip.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -3f);
 
         // If we are close enough
         float distance = Vector2.Distance(player.position, interactionTransform.position);

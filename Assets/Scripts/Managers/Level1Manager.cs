@@ -16,6 +16,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject goblin1;
     public GameObject goblin2;
     public GameObject spearResearcher;
+    private Level1MiniBossModifiedGoblin spearResearcherScript;
     public GameObject Boss1;
     public GameObject Boss1MSG;
     public GameObject Boss1Bar;
@@ -27,6 +28,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
     float ShakeFadeIn = 0.5f;
     [SerializeField]
     float ShakeFadeOut = 8f;
+
+    private void Start()
+    {
+        spearResearcherScript = spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>();
+    }
     public void Update()
     {
         //start of level, introduce bird follower
@@ -121,7 +127,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if (firstGoblin.GetComponent<ratBehavior>().isDead)
             {
-                StartCoroutine(DelaySentence(5f, "great job", 1f));
+                StartCoroutine(DelaySentence(5f, "excellent!", 1f));
             }
             else
             {
@@ -234,6 +240,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
         if (index < 12 & EquipmentManager.instance.isEquipped(-1))
         {
             index = 22;
+            StopAllCoroutines();
+        }
+        else if(spearResearcherScript.isDead && index < 46 && index >= 36)
+        {
+            index = 46;
             StopAllCoroutines();
         }
     }

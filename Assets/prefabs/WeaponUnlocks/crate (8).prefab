@@ -147,3 +147,5 @@ MonoBehaviour:
   interactionTransform: {fileID: 915222015070153189}
   player: {fileID: 0}
   item: {fileID: 11400000, guid: 5e7383d1932e5a444813aa3d2cd4f535, type: 2}
+  tooltipPrefab: {fileID: 2838675628503439118, guid: 3657f985e4d5e2e47bb050f9376e806a,
+    type: 3}

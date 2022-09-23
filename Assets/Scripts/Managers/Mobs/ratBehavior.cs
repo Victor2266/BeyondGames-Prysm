@@ -273,7 +273,8 @@ public class ratBehavior : MonoBehaviour
         {
             spear.SetActive(false);
         }
-        Destroy(healthBar.gameObject);
+        healthBar.gameObject.SetActive(false);
+        //Destroy(healthBar.gameObject);
     }
 
     public HealthBar healthBar;
