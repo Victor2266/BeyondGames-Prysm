@@ -2,38 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviour//rewrote for canvas world space health bars including tweening, this breaks the old implementation for skeletons
 {
-    private void Start()
-    {
-        healthScript = Mob.GetComponent<HealthBarHealth>();
-        
-        CurrentHealth = healthScript.health;
-        
-    }
+    public RectTransform redBar;
+    public RectTransform whiteBar;
 
-    private void Update()
+    public void UpdateHealthBar(float newHealth, float maxHealth)
     {
-        if (CurrentHealth > healthScript.health + 1 )
+        if (newHealth >= 0)
         {
-            CurrentHealth -= 2f;
+            LTSeq sequence = LeanTween.sequence();
+            sequence.append(LeanTween.scale(redBar, new Vector3(newHealth / maxHealth, 1f, 1f), 0.2f));
+            sequence.append(LeanTween.scale(whiteBar, new Vector3(newHealth / maxHealth, 1f, 1f), 2.0f));
         }
-        else if (CurrentHealth < healthScript.health - 1)
+        else
         {
-            CurrentHealth += 2f;
-        }
-        base.transform.localScale = new Vector3(CurrentHealth / divisor, base.transform.localScale.y, base.transform.localScale.z);
-        if (healthScript.health / divisor <= 0f)
-        {
-            base.transform.localScale = new Vector3(0f, base.transform.localScale.y, base.transform.localScale.z);
+            LTSeq sequence = LeanTween.sequence();
+            sequence.append(LeanTween.scale(redBar, new Vector3(0f, 1f, 1f), 0.2f));
+            sequence.append(LeanTween.scale(whiteBar, new Vector3(0f, 1f, 1f), 2.0f));
         }
     }
-
-    public GameObject Mob;
-
-    public float divisor;
-
-    private float CurrentHealth;
-
-    private HealthBarHealth healthScript;
+    
 }

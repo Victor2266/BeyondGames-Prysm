@@ -130,7 +130,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if (index == 30)
         {
-            StartCoroutine(DelaySentence(6f, "now CONSUME its soul", 1f));
+            StartCoroutine(DelaySentence(6f, "CONSUME its soul", 1f));
             ShowText(6f, "the more you consume the more <color=red>powerful</color> you will become", 1f);
         }
 

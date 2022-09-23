@@ -26,10 +26,12 @@ public class ratBehavior : MonoBehaviour
             if (!LookingLeft)
             {
                 base.transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                healthBar.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
             else if (LookingLeft)
             {
                 base.transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                healthBar.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             }
             if ( Mathf.Abs(rb2d.velocity.x) < speed)
             {
@@ -132,7 +134,7 @@ public class ratBehavior : MonoBehaviour
             if (exclaimation == null)
             {
                 exclaimation = Instantiate(exclaimMark, transform);
-                exclaimation.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+                exclaimation.transform.localPosition = new Vector3(0f, 0.68f, 0f);
             }
         }
 
@@ -250,7 +252,7 @@ public class ratBehavior : MonoBehaviour
     {
         health -= amount;
         anim.SetTrigger("hurt");
-
+        healthBar.UpdateHealthBar(health, 50f);
         Jump();
 
         if (health <= 0f && !isDead)
@@ -271,7 +273,10 @@ public class ratBehavior : MonoBehaviour
         {
             spear.SetActive(false);
         }
+        Destroy(healthBar.gameObject);
     }
+
+    public HealthBar healthBar;
 
     public float speed;
 
