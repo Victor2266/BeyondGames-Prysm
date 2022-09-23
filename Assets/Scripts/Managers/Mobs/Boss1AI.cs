@@ -134,7 +134,7 @@ public class Boss1AI : MonoBehaviour
             clone = UnityEngine.Object.Instantiate<GameObject>(ManaDrops, base.transform.position, base.transform.rotation);
         }
         healthObj.health -= amount;
-
+        healthBar.UpdateHealthBar(healthObj.health, 300f);
         GetComponent<AudioSource>().Play();
     }
 
@@ -150,6 +150,7 @@ public class Boss1AI : MonoBehaviour
         BossRoomRange.GetComponent<AudioSource>().enabled = false;
         defeatBossMsg.SetActive(false);
         ChargeEnabler.SetActive(true);
+        healthBar.gameObject.SetActive(false);
     }
 
     public Vector2 velo = new Vector2(2f, 2f);
@@ -163,6 +164,7 @@ public class Boss1AI : MonoBehaviour
     public AudioSource chompsound;
     public GameObject MobDrop;
     public HealthBarHealth healthObj;
+    public HealthBar healthBar;
 
     public GameObject ExtraNeon;
 

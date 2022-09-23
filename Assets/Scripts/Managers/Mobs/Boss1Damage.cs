@@ -14,7 +14,11 @@ public class Boss1Damage : MonoBehaviour
         this.clone = UnityEngine.Object.Instantiate<GameObject>(this.HealthDrops, base.transform.position, base.transform.rotation);
         boss.GetComponent<Boss1AI>().openingJaws = false;
         bossHealth.health -= amount;
+
+        healthBar.UpdateHealthBar(bossHealth.health, 300f);
     }
+
+    public HealthBar healthBar;
 
     public GameObject boss;
 

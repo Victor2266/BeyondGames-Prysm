@@ -262,6 +262,7 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             health -= amount;
             anim.SetTrigger("hurt");
 
+            healthBar.UpdateHealthBar(health, 100f);
             Jump();
 
             if (health <= 0f && !isDead)
@@ -289,7 +290,11 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
             spear.SetActive(false);
         }
         cape.SetActive(false);
+
+        healthBar.gameObject.SetActive(false);
     }
+    public HealthBar healthBar;
+
     public float speed;
 
     public float jumpForce;

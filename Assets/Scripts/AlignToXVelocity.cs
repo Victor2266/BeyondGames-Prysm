@@ -15,6 +15,9 @@ public class AlignToXVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = new Vector3(-rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        if (rb2d.velocity.x != 0)
+        {
+            transform.localScale = new Vector3(-rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 }
