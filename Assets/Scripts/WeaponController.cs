@@ -51,6 +51,8 @@ public class WeaponController : damageController
     private float thrustDashDist;
     private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     private bool projAsChild;
+
+    public Text DamageCounter;
     // Start is called before the first frame update
 
     private void OnEnable()
@@ -196,10 +198,6 @@ public class WeaponController : damageController
 
     private void AttackEntity(float multiplier, Collision2D collision)
     {
-        if (DMG >= MaxDamage)
-        {
-            DMG = MaxDamage;
-        }
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
@@ -229,6 +227,15 @@ public class WeaponController : damageController
             totalDistance += distance;
             lastPosition = transform.position;
             DMG = (int)(totalDistance * DMG_Scaling);
+            if (DMG >= MaxDamage)
+            {
+                DMG = MaxDamage;
+            }
+            DamageCounter.text = DMG.ToString();
+            if(MaxDamage > 0)
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red,(float) DMG/MaxDamage);
+            else
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
         }
         if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
@@ -242,6 +249,7 @@ public class WeaponController : damageController
             StaminaBar.value = 0f;
             WeaponEnabled = false;
             Trail.SetActive(false);
+            DamageCounter.text = "";
         }
     } 
     private void rightClicking()
