@@ -6,11 +6,13 @@ public class HealItem : MonoBehaviour
 {
     public int HealAmount;
     public GameObject TextPopUp;
-    
+    private bool activatedYet = false;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !activatedYet)
         {
+            activatedYet = true;
             gameObject.SetActive(false);
             ShowText("+" + HealAmount, 2, Color.red);
             for (int i = HealAmount; i > 0; i--)

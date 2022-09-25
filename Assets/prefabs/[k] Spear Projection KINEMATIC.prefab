@@ -4967,7 +4967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0e276e6bfa15e45b60001e3629831a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DMG: 20
+  DMG: 10
   Bouncy: 0
   pop: {fileID: 1024762355911668, guid: f73e6e319ac62a04fa84f2eabe0ca095, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: c6e8cf36b5416db46ab5976e85045924,

@@ -14,6 +14,8 @@ public class Item : ScriptableObject
 
 	public InventoryUI.WeaponTypes WeaponType = InventoryUI.WeaponTypes.Weapons;
 
+    public string desc;
+
 	// Called when the item is pressed in the inventory
 	public virtual void Use()
 	{

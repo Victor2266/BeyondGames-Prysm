@@ -26086,9 +26086,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Singleplayer
-
-'
+  m_Text: Play
 --- !u!222 &444311302
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43140,7 +43138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &937446576
 RectTransform:
   m_ObjectHideFlags: 0
@@ -89661,6 +89659,7 @@ MonoBehaviour:
   xDest: 0
   yDest: 0
   noFlip: 0
+  ZAngle: 0
   offset: -90
   boss: {fileID: 309028282558905609}
   isEyeBall: 1
@@ -89921,6 +89920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEntity: {fileID: 5736416111852835069}
+  grounded: 0
 --- !u!114 &5736416111852835069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90002,6 +90002,7 @@ MonoBehaviour:
   lookingLeft: 0
   WeaponUI: {fileID: 0}
   FloorContact: {fileID: 0}
+  BlackBodyParticles: {fileID: 0}
 --- !u!4 &5772261638752735153
 Transform:
   m_ObjectHideFlags: 0
