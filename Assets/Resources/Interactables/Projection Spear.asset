@@ -18,12 +18,13 @@ MonoBehaviour:
   iconSize: 1.5
   isDefaultItem: 0
   WeaponType: 1
-  desc: The spear dropped by the first shinigami you encountered. It seems to be 
-    partially powered by the green gemstone in its spear tip.
+  desc: The spear dropped by the first shinigami you encountered. It seems to be
+    partially powered by the green gemstone in its spear tip, but it still drains
+    a ton of mama.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
   ReachLength: 1.5
-  DMG_Scaling: 10
+  DMG_Scaling: 15
   MaxDamage: 45
   DMGTextSize: 2
   activeTimeLimit: 0.5
