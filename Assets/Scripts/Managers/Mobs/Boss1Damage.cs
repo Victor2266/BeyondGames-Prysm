@@ -16,6 +16,8 @@ public class Boss1Damage : MonoBehaviour
         bossHealth.health -= amount;
 
         healthBar.UpdateHealthBar(bossHealth.health, 300f);
+
+        Instantiate<GameObject>(boss.GetComponent<Boss1AI>().bossBlood, base.transform.position, base.transform.rotation);
     }
 
     public HealthBar healthBar;

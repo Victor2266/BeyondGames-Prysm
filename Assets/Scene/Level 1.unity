@@ -50987,7 +50987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &961612203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53427,7 +53427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1125658768
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53599,6 +53599,10 @@ MonoBehaviour:
   Final_colour: {r: 1, g: 0, b: 0, a: 1}
   explosion: {fileID: 4814160854226814571, guid: 66a095a1a78302f4d997403c0128ac40,
     type: 3}
+  bossBodyparts: {fileID: 4346429876591319989, guid: 274945d42c97bc946911e11b83529164,
+    type: 3}
+  bossBlood: {fileID: 1763265085460915824, guid: 12e73894a88373645b4870d729547ebf,
+    type: 3}
   openingJaws: 0
   leftJaw: {fileID: 993878418}
   rightJaw: {fileID: 1009787184}
@@ -53632,7 +53636,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1125658767}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDrag: 0

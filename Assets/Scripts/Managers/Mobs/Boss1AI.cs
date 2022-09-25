@@ -9,6 +9,8 @@ public class Boss1AI : MonoBehaviour
     public Color Final_colour;
 
     public GameObject explosion;
+    public GameObject bossBodyparts;
+    public GameObject bossBlood;
 
     private bool ChangedToRed = false;
     public bool openingJaws = false;
@@ -136,6 +138,8 @@ public class Boss1AI : MonoBehaviour
         healthObj.health -= amount;
         healthBar.UpdateHealthBar(healthObj.health, 300f);
         GetComponent<AudioSource>().Play();
+
+        Instantiate<GameObject>(bossBlood, base.transform.position, base.transform.rotation);
     }
 
     private void Death()
@@ -146,6 +150,8 @@ public class Boss1AI : MonoBehaviour
         Instantiate<GameObject>(explosion, base.transform.position, base.transform.rotation);
         base.gameObject.SetActive(false);
         Instantiate<GameObject>(ExtraNeon, base.transform.position, base.transform.rotation);
+        Instantiate<GameObject>(bossBodyparts, base.transform.position, base.transform.rotation);
+
         Instantiate<GameObject>(soul, base.transform.position, base.transform.rotation);
         BossRoomRange.GetComponent<AudioSource>().enabled = false;
         defeatBossMsg.SetActive(false);

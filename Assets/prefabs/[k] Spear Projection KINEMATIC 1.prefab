@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
-  DMG: 20
+  DMG: 10
   Primed: 1
   Bouncy: 0
   pop: {fileID: 4243457265752490857, guid: 574c16c9cc84d7f418849e4fe46cf27e, type: 3}
