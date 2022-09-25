@@ -16,6 +16,7 @@ public class WeaponController : damageController
     private int DMG;// this is just the running total accumulated while dam_scalign is adding up
     public float DMG_Scaling;
     public int MaxDamage;
+    public int MinDamage;
     public float DMGTextSize;
 
     private Vector3 lastPosition;
@@ -104,6 +105,7 @@ public class WeaponController : damageController
             ItemReachLength = equippedWeapon.ReachLength;
             DMG_Scaling = equippedWeapon.DMG_Scaling;
             MaxDamage = equippedWeapon.MaxDamage;
+            MinDamage = equippedWeapon.MinDamage;
             DMGTextSize = equippedWeapon.DMGTextSize;
             activeTimeLimit = equippedWeapon.activeTimeLimit;
             cooldownTime = equippedWeapon.cooldownTime;
@@ -227,6 +229,7 @@ public class WeaponController : damageController
             weaponUI.flashWhite();
             enableWeapon();
             audioSource.Play();
+            totalDistance = MinDamage/DMG_Scaling;
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {

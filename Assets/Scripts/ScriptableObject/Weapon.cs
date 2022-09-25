@@ -9,6 +9,7 @@ public class Weapon : Equipment
     public float ReachLength;
     public float DMG_Scaling;
     public int MaxDamage;
+    public int MinDamage;
     public float DMGTextSize;
     public float activeTimeLimit;
     public float cooldownTime;
