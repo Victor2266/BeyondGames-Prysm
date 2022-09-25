@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
   m_Name: Projection Spear
   m_EditorClassIdentifier: 
-  name: Projection Spear
+  name: <color=green>Projection Spear</color>
   icon: {fileID: 21300000, guid: b5556c20398964241bdd46338b3494b1, type: 3}
   iconRotation: 0
   iconSize: 1.5

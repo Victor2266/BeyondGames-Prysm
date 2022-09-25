@@ -33556,6 +33556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEntity: {fileID: 1793949807}
+  grounded: 0
 --- !u!114 &1793949807
 MonoBehaviour:
   m_ObjectHideFlags: 0

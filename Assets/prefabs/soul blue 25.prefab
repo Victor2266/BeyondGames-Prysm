@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 1736637759603719382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1736637759948417543}
   m_RootOrder: 1
@@ -634,9 +634,9 @@ GameObject:
   - component: {fileID: 3690798953072332048}
   - component: {fileID: 3553518070885600866}
   - component: {fileID: 7345502183800919183}
-  - component: {fileID: 312710321741484050}
+  - component: {fileID: 9037466330704739676}
   m_Layer: 0
-  m_Name: soul
+  m_Name: soul blue 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,8 +650,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736637759948417562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.036, y: -0.897, z: -1}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 1736637759052790482}
   - {fileID: 1736637759603719383}
@@ -1491,7 +1491,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 32
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2920,7 +2920,7 @@ ParticleSystem:
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5408,8 +5408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2f37d19a0681f48b95b790548e9d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealAmount: 5
-  ManaAmount: 5
+  HealAmount: 25
+  ManaAmount: 25
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
 --- !u!114 &3690798953072332048
@@ -5427,10 +5427,10 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 0}
-  tickLimit: 16
+  tickLimit: 32
   shrinks: 1
   trail: 0
-  startSize: 0.15
+  startSize: 0.3
   widthOfBullet: 0
   timeOfBullet: 0
   explodes: 0
@@ -5466,13 +5466,13 @@ Rigidbody2D:
   m_Mass: 16
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.02
+  m_GravityScale: 0.04
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &312710321741484050
+--- !u!114 &9037466330704739676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

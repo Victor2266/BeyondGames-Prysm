@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 1736637759603719382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1736637759948417543}
   m_RootOrder: 1
@@ -634,9 +634,9 @@ GameObject:
   - component: {fileID: 3690798953072332048}
   - component: {fileID: 3553518070885600866}
   - component: {fileID: 7345502183800919183}
-  - component: {fileID: 9037466330704739676}
+  - component: {fileID: 5171064261303423562}
   m_Layer: 0
-  m_Name: soul 1
+  m_Name: soul green 50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 1736637759948417562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.036, y: -0.897, z: -1}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1736637759052790482}
   - {fileID: 1736637759603719383}
@@ -741,7 +741,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -910,7 +910,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1491,7 +1491,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 32
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3409,7 +3409,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 1
-    frequency: 0.5
+    frequency: 0.1
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -3418,7 +3418,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4575,7 +4575,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.7911868, b: 1, a: 0.7529412}
+      maxColor: {r: 0.12454414, g: 1, b: 0, a: 0.7529412}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4691,7 +4691,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.7911868, b: 1, a: 0.7529412}
+      maxColor: {r: 0.08611488, g: 1, b: 0, a: 0.7529412}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5408,8 +5408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2f37d19a0681f48b95b790548e9d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealAmount: 25
-  ManaAmount: 25
+  HealAmount: 50
+  ManaAmount: 50
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
 --- !u!114 &3690798953072332048
@@ -5450,7 +5450,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!50 &7345502183800919183
 Rigidbody2D:
   serializedVersion: 4
@@ -5466,13 +5466,13 @@ Rigidbody2D:
   m_Mass: 16
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.02
+  m_GravityScale: 0.04
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9037466330704739676
+--- !u!114 &5171064261303423562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
