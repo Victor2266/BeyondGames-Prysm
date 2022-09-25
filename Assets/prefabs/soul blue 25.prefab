@@ -793,9 +793,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4567,7 +4567,7 @@ ParticleSystem:
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 0
@@ -4575,7 +4575,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.7911868, b: 1, a: 0.7529412}
+      maxColor: {r: 0, g: 0.41098437, b: 0.5188679, a: 0.7529412}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5395,7 +5395,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 6
 --- !u!114 &1736637759948417563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,7 +5466,7 @@ Rigidbody2D:
   m_Mass: 16
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.04
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

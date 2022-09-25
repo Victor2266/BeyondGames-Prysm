@@ -231,7 +231,7 @@ public class WeaponController : damageController
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
             float distance = Vector3.Distance(lastPosition, transform.position);
-            if(distance > ReachLength * 1.4f && DMG > MaxDamage*0.5f)
+            if(distance > ReachLength * 1.4f && DMG > MaxDamage * 0.1)
             {
                 audioSource.Play();
             }
