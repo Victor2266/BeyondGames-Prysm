@@ -36,11 +36,15 @@ public class PauseMenuScript : MonoBehaviour
             {
                 Pause();
             }
+
+            TooltipManager.Hide();
         }
         else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
         {
             Resume();
             inventoryUI.SetActive(false);
+
+            TooltipManager.Hide();
         }
     }
     public void Resume()

@@ -10,13 +10,11 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public float[] stats;
 
     public InventoryUI.WeaponTypes type;
-
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (type == InventoryUI.WeaponTypes.Weapons)
-            TooltipManager.Show(header, content, stats, "<color=yellow>Reach Length</color>\nSwinging Time\nReset Time\n<color=#F8B481>Damage Scaling</color>\n<color=orange>Max Damage</color>\n<color=green>Special Cooldown</color>\n<color=red>Special Damage</color>");
-        else if (type == InventoryUI.WeaponTypes.Spells)
-            TooltipManager.Show(header, content, stats, "<color=orange>Damage</color>\nCooldown\n<color=red>Special Damage</color>\nSpecial Cooldown");
+        CallShowToolTipManager();
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -24,5 +22,13 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         TooltipManager.Hide();
     }
 
-
+    private void CallShowToolTipManager()
+    {
+        if (type == InventoryUI.WeaponTypes.Weapons)
+            TooltipManager.Show(header, content, stats, "<color=yellow>Reach Length</color>\nSwinging Time\nReset Time\n<color=#F8B481>Damage Scaling</color>\n<color=orange>Max Damage</color>\n<color=green>Special Cooldown</color>\n<color=red>Special Damage</color>");
+        else if (type == InventoryUI.WeaponTypes.Spells)
+            TooltipManager.Show(header, content, stats, "<color=orange>Damage</color>\nCooldown\n<color=red>Special Damage</color>\nSpecial Cooldown");
+        else
+            TooltipManager.Show(header, content);
+    }
 }

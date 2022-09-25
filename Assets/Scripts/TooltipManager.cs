@@ -17,6 +17,11 @@ public class TooltipManager : MonoBehaviour
         instance.toolTip.SetText(header, content, stats, StatNames);
         instance.toolTip.gameObject.SetActive(true);
     }
+    public static void Show(string header, string content)
+    {
+        instance.toolTip.SetText(header, content);
+        instance.toolTip.gameObject.SetActive(true);
+    }
     public static void Hide()
     {
         instance.toolTip.gameObject.SetActive(false);

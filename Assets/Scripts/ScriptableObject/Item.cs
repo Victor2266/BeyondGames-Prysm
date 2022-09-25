@@ -13,7 +13,7 @@ public class Item : ScriptableObject
 	public bool isDefaultItem = false;
 
 	public InventoryUI.WeaponTypes WeaponType = InventoryUI.WeaponTypes.Weapons;
-
+    [TextArea(3,10)]
     public string desc;
 
 	// Called when the item is pressed in the inventory

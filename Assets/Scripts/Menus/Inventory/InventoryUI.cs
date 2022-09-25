@@ -49,12 +49,16 @@ public class InventoryUI : MonoBehaviour
 				{
 					Pause();
 				}
-			
-			inventoryUI.SetActive(!inventoryUI.activeSelf);
+
+
+            TooltipManager.Hide();
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
 		else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
         {
-			//CloseInventory();
+            //CloseInventory();
+
+            TooltipManager.Hide();
         }
 	}
 	public void CloseInventory()

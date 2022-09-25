@@ -41,7 +41,7 @@ public class InventorySlot : MonoBehaviour
             projectileController chargedSpell = newSpell.ChargedSpellPrefab.GetComponent<projectileController>();
             GetComponent<TooltipTrigger>().stats = new float[] { Spell.DMG, Spell.coolDownPeriod, chargedSpell.DMG, chargedSpell.coolDownPeriod};
         }
-
+        TooltipManager.Hide();
     }
 
     // Clear the slot

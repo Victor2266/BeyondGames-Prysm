@@ -15,7 +15,13 @@ public class Tooltip : MonoBehaviour
     public LayoutElement layoutElement;
     
     private Vector2 position;
+    private Vector2 pivot;
+    public RectTransform rectTransform;
 
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
     public void SetText(string header, string content, float[] stats, string statNames)
     {
         contentField.text = content;
@@ -32,6 +38,17 @@ public class Tooltip : MonoBehaviour
 
         statNamesField.text = statNames;
     }
+    public void SetText(string header, string content)
+    {
+        contentField.text = content;
+        headerField.text = header;
+
+        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : false;
+
+
+        statField.text = "";
+        statNamesField.text = "";
+    }
 
     private void Update()
     {
@@ -39,5 +56,7 @@ public class Tooltip : MonoBehaviour
 
         transform.position = position;
 
+        pivot = new Vector2(position.x / Screen.width, position.y / Screen.height);
+        rectTransform.pivot = new Vector2(pivot.x, pivot.y);
     }
 }
