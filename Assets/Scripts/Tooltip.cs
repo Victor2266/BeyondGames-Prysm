@@ -13,19 +13,15 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI statNamesField;
     public TextMeshProUGUI statField;//reach length, damage scale, max damg, swingtime, reset time, special cooldown
     public LayoutElement layoutElement;
-
-    public int characterWrapLimit;
-
+    
+    private Vector2 position;
 
     public void SetText(string header, string content, float[] stats, string statNames)
     {
         contentField.text = content;
         headerField.text = header;
 
-        int headerLength = headerField.text.Length;
-        int contentLength = contentField.text.Length;
-
-        layoutElement.enabled = (headerLength > characterWrapLimit || contentLength > characterWrapLimit) ? true : false;
+        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : false;
 
 
         statField.text = "";
@@ -35,5 +31,13 @@ public class Tooltip : MonoBehaviour
         }
 
         statNamesField.text = statNames;
+    }
+
+    private void Update()
+    {
+        position = Input.mousePosition;
+
+        transform.position = position;
+
     }
 }
