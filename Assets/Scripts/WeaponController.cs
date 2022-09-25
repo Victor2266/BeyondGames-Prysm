@@ -53,6 +53,8 @@ public class WeaponController : damageController
     private bool projAsChild;
 
     public Text DamageCounter;
+
+    AudioSource audioSource;
     // Start is called before the first frame update
 
     private void OnEnable()
@@ -62,6 +64,7 @@ public class WeaponController : damageController
         pointerScript = GetComponent<newPointerScript>();
         sprtrend = GetComponent<SpriteRenderer>();
         capsuleColider = GetComponent<CapsuleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         lastPosition = transform.position;
         timeStamp = 0f;
         startTime = 0f;
@@ -76,6 +79,7 @@ public class WeaponController : damageController
         {
             camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
+
     }
     void HeldInHandStatus(bool status)
     {
@@ -123,6 +127,8 @@ public class WeaponController : damageController
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
             OrbPosition.smoothTimeX = 0.01f;
+            
+            audioSource.pitch = equippedWeapon.soundPitch > 0 ? equippedWeapon.soundPitch : 1f;
 
             if (Trail != null)
             {
@@ -220,22 +226,30 @@ public class WeaponController : damageController
             lastPosition = transform.position;
             weaponUI.flashWhite();
             enableWeapon();
+            audioSource.Play();
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
             float distance = Vector3.Distance(lastPosition, transform.position);
+            if(distance > ReachLength * 1.4f && DMG > MaxDamage*0.5f)
+            {
+                audioSource.Play();
+            }
+
             totalDistance += distance;
             lastPosition = transform.position;
             DMG = (int)(totalDistance * DMG_Scaling);
-            if (DMG >= MaxDamage)
+            if (DMG > MaxDamage)
             {
                 DMG = MaxDamage;
             }
             DamageCounter.text = DMG.ToString();
+
             if(MaxDamage > 0)
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red,(float) DMG/MaxDamage);
             else
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
+
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
         }
         if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click

@@ -19,7 +19,7 @@ public class ratBehavior : MonoBehaviour
         origin.y -= (size/2);
 
 
-        Debug.DrawRay(origin, new Vector3(0f, -0.1f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(0f, -0.1f, 0f), Color.red);
 
         if (!isDead)
         {
@@ -227,7 +227,7 @@ public class ratBehavior : MonoBehaviour
         Vector2 origin = base.transform.position;
         origin.x -= 0.35f;
 
-        Debug.DrawRay(origin, new Vector3(-0.1f, 0f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(-0.1f, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(-0.01f, 0f, 0f), hit2);
         if (hit2[0].collider.name == "Player")
         {
@@ -240,7 +240,7 @@ public class ratBehavior : MonoBehaviour
         Vector2 origin = base.transform.position;
         origin.x += 0.35f;
 
-        Debug.DrawRay(origin, new Vector3(0.1f, 0f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(0.1f, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(0.01f, 0f, 0f), hit2);
         if (hit2[0].collider.name == "Player")
         {
@@ -264,7 +264,7 @@ public class ratBehavior : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        clone = Instantiate(HealOrb, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
         Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<Collider2D>());
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
         anim.SetTrigger("dead");

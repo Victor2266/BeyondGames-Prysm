@@ -27,6 +27,8 @@ public class Weapon : Equipment
     public float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     public bool projAsChild;
     public GameObject trail;
+    public float soundPitch;
+
     public override void Use()
     {
         base.Use();

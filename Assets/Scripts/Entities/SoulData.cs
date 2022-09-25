@@ -10,6 +10,8 @@ public class SoulData : MonoBehaviour
     private GameObject player;
     public GameObject TextPopUp;
 
+    private bool activatedAlready = false;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -30,13 +32,13 @@ public class SoulData : MonoBehaviour
     //}
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !activatedAlready)
         {
             ShowText("++ " + ManaAmount, 2.5f, Color.cyan, 0.15f);
             ShowText("++ " + HealAmount, 2.5f, Color.red, 0.40f);
 
+            activatedAlready = true;
             player.GetComponent<PlayerManager>().Upgrade(0, HealAmount);
-
             player.GetComponent<PlayerManager>().Upgrade(1, ManaAmount);
             player.GetComponent<PlayerEntity>().Souls++;
             Destroy(gameObject);

@@ -38,3 +38,4 @@ MonoBehaviour:
   thrustShortReach: 0
   projAsChild: 0
   trail: {fileID: 0}
+  soundPitch: 0.8

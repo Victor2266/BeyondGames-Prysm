@@ -39,3 +39,4 @@ MonoBehaviour:
   thrustShortReach: 1
   projAsChild: 0
   trail: {fileID: 6359563610306997464, guid: 09d6a1d7f893a174a80270b7932c61cc, type: 3}
+  soundPitch: 1
