@@ -72,6 +72,9 @@ public class WeaponController : damageController
         WeaponEnabled = false;
         rectTrans = StaminaBar.GetComponent<RectTransform>();
         isInHand = false;
+
+        Physics2D.IgnoreCollision(capsuleColider, player.GetComponents<CapsuleCollider2D>()[0], true);
+        Physics2D.IgnoreCollision(capsuleColider, player.GetComponents<CapsuleCollider2D>()[1], true);
     }
     // Start is called before the first frame update
     void Start()
@@ -234,7 +237,7 @@ public class WeaponController : damageController
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
             float distance = Vector3.Distance(lastPosition, transform.position);
-            if(distance > ReachLength * 1.4f && DMG > MaxDamage * 0.1)
+            if(distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
             {
                 audioSource.Play();
             }
