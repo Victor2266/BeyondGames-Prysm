@@ -39,7 +39,7 @@ public class InventorySlot : MonoBehaviour
             Spell newSpell = (Spell)newItem;
             projectileController Spell = newSpell.SpellPrefab.GetComponent<projectileController>();
             projectileController chargedSpell = newSpell.ChargedSpellPrefab.GetComponent<projectileController>();
-            GetComponent<TooltipTrigger>().stats = new float[] { Spell.DMG, Spell.coolDownPeriod, chargedSpell.DMG, chargedSpell.coolDownPeriod};
+            GetComponent<TooltipTrigger>().stats = new float[] {Spell.ManaCost, Spell.DMG, Spell.coolDownPeriod, chargedSpell.ManaCost, chargedSpell.DMG, chargedSpell.coolDownPeriod};
         }
         TooltipManager.Hide();
     }

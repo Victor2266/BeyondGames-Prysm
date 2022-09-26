@@ -27,7 +27,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (type == InventoryUI.WeaponTypes.Weapons)
             TooltipManager.Show(header, content, stats, "<color=yellow>Reach Length</color>\nSwinging Time\nReset Time\n<color=#F8B481>Damage Scaling</color>\n<color=#F8B481>Min Damage</color>\n<color=orange>Max Damage</color>\n<color=green>Special Cooldown</color>\n<color=red>Special Damage</color>");
         else if (type == InventoryUI.WeaponTypes.Spells)
-            TooltipManager.Show(header, content, stats, "<color=orange>Damage</color>\nCooldown\n<color=red>Special Damage</color>\nSpecial Cooldown");
+            TooltipManager.Show(header, content, stats, "<color=green>Mana Cost</color>\n<color=orange>Damage</color>\nCooldown\n<color=green>Special Cost</color>\n<color=red>Special Damage</color>\nSpecial Cooldown");
         else
             TooltipManager.Show(header, content);
     }
