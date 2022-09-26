@@ -106,6 +106,9 @@ public class PlayerEntity : MonoBehaviour
     public GameObject FloorContact;
 
     public Transform BlackBodyParticles;
+    public Rigidbody2D skullRB2D;
+    public GameObject deathParticles;
+    public GameObject handheldWeapon;
 
     public void PlayerEntityUpdate(PlayerSaveData player)
     {

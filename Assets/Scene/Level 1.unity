@@ -24848,6 +24848,8 @@ GameObject:
   m_Component:
   - component: {fileID: 454613713}
   - component: {fileID: 454613714}
+  - component: {fileID: 454613716}
+  - component: {fileID: 454613715}
   m_Layer: 0
   m_Name: Player Skull
   m_TagString: Untagged
@@ -24887,6 +24889,43 @@ MonoBehaviour:
   MagnitudeSubject: {fileID: 1718789879}
   DefaultZRotation: 0
   SphereRadius: 2
+--- !u!50 &454613715
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454613712}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &454613716
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454613712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.05
 --- !u!1 &456553839
 GameObject:
   m_ObjectHideFlags: 0
@@ -89455,6 +89494,10 @@ MonoBehaviour:
   WeaponUI: {fileID: 350827846}
   FloorContact: {fileID: 1933710145}
   BlackBodyParticles: {fileID: 129814171}
+  skullRB2D: {fileID: 454613715}
+  deathParticles: {fileID: 1736637759948417562, guid: 68bfdf05a67942f478f1a4e3a491a762,
+    type: 3}
+  handheldWeapon: {fileID: 1399574138}
 --- !u!70 &1805261700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

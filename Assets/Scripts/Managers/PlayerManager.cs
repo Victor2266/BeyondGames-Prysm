@@ -174,6 +174,11 @@ public class PlayerManager : MonoBehaviour
             playerEntity.isDying = true;
 
         }
+        playerEntity.BlackBodyParticles.gameObject.SetActive(false);
+        playerEntity.skullRB2D.simulated = true;
+        playerEntity.handheldWeapon.SetActive(false);
+        Instantiate(playerEntity.deathParticles, transform);
+
         yield return new WaitForSeconds(interval);
         playerEntity.isDead = true;
         yield break;
