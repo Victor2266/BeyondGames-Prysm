@@ -95,7 +95,7 @@ public class WeaponController : damageController
 
             whiteArrow.SetActive(true);
             OrbPosition.smoothTimeX = 0.05f;
-            OrbPosition.smoothTimeX = 0.05f;
+            OrbPosition.smoothTimeY = 0.05f;
             Destroy(Trail);
         }
         else
@@ -131,7 +131,7 @@ public class WeaponController : damageController
             
             whiteArrow.SetActive(false);
             OrbPosition.smoothTimeX = 0.01f;
-            OrbPosition.smoothTimeX = 0.01f;
+            OrbPosition.smoothTimeY = 0.01f;
             
             audioSource.pitch = equippedWeapon.soundPitch > 0 ? equippedWeapon.soundPitch : 1f;
 

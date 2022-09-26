@@ -58,6 +58,7 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
+        TooltipManager.Hide();
     }
 
 

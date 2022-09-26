@@ -58,7 +58,8 @@ public class InventorySlot : MonoBehaviour
 	public void OnRemoveButton()
 	{
 		Inventory.instance.Remove(item);
-	}
+        TooltipManager.Hide();
+    }
 
 	// Called when the item is pressed
 	public void UseItem()
