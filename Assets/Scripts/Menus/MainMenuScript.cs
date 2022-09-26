@@ -106,6 +106,11 @@ public class MainMenuScript : MonoBehaviour
         MainMenu.SetActive(false);
         depth = 1;
     }
+    public void SupportLink()
+    {
+        Application.OpenURL("https://www.patreon.com/user/membership?u=80022510");
+        Application.OpenURL("https://www.kickstarter.com/projects/662731718/2086840986/build?context=just_started_project&ref=build-onboarding-page-3");
+    }
     public void SetVolume(float volume)
     {
         if (volume > 0)
