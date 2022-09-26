@@ -38,11 +38,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
         //start of level, introduce bird follower
         if (index == 0)
         {
-            StartCoroutine(DelaySentence(1f, "<color=yellow>SQUAK</color>", 1f));
+            StartCoroutine(DelaySentence(2f, "<color=yellow>SQUAK</color>", 1f));
         }
         else if (index == 2)
         {
-            StartCoroutine(DelaySentence(1f, "<color=yellow>SQUAK</color>", 1f));
+            StartCoroutine(DelaySentence(2f, "<color=yellow>SQUAK</color>", 1f));
         }
         else if(index == 4)
         {
