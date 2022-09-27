@@ -20,6 +20,7 @@ public class HealItem : MonoBehaviour
                 if (collision.gameObject.GetComponent<PlayerEntity>().currentHealth < (float)collision.gameObject.GetComponent<PlayerEntity>().MaxHealth)
                 {
                     collision.gameObject.GetComponent<PlayerEntity>().currentHealth += 1f;
+                    collision.gameObject.GetComponent<PlayerEntity>().UpdateHealth();
                 }
             }
         }

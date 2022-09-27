@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
             playerManager.Upgrade(1, 900);
             //Upgrade(3, 1);
             Debug.Log(playerEntity.health.maxValue);
-            playerEntity.UpdateHealth();
-            playerEntity.UpdateMana();
         }
     }
 

@@ -214,32 +214,30 @@ public class PlayerManager : MonoBehaviour
 
     public void Upgrade(int type, int amount)
     {
+        if (type == 0)
+        {
+            playerEntity.MaxHealth += amount;
+            playerEntity.setHealth(playerEntity.currentHealth + amount);
+        }
+        if (type == 1)
+        {
+            playerEntity.MaxMana+= amount;
+            playerEntity.setMana(playerEntity.currentMana + amount);
+        }
+        if (type == 2)
+
+        {
+            playerEntity.cameraSize += amount;
+            playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
+        }
+        if (type == 3)
+        {
+            playerEntity.speed += amount;
+            playerEntity.jumpForce += amount;
+        }
+
         for (int i = amount; i > 0; i--)
         {
-            if (type == 0)
-            {
-                playerEntity.MaxHealth++;
-                playerEntity.currentHealth += 1f;
-                playerEntity.UpdateHealth();
-            }
-            if (type == 1)
-            {
-                playerEntity.MaxMana++;
-                playerEntity.currentMana++;
-                playerEntity.UpdateMana();
-            }
-            if (type == 2)
-
-            {
-                playerEntity.cameraSize += 0.4f;
-                playerEntity.Camera.GetComponent<Camera>().orthographicSize = playerEntity.cameraSize;
-            }
-            if (type == 3)
-            {
-                playerEntity.speed += 0.5f;
-                playerEntity.jumpForce += 0.4f;
-            }
-
             if (playerEntity.health.maxValue < playerEntity.MaxHealth)
             {
                 if (playerEntity.MaxHealth < playerEntity.HealthBarScalingLength)

@@ -162,7 +162,7 @@ public class PlayerEntity : MonoBehaviour
 
     public void UpdateHealth()
     {
-        if(currentHealth < 0)
+        if (currentHealth < 0)
         {
             currentHealth = 0;
         }
