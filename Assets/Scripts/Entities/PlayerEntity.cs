@@ -110,6 +110,9 @@ public class PlayerEntity : MonoBehaviour
     public GameObject deathParticles;
     public GameObject handheldWeapon;
 
+    public RectTransform redHealth;
+    public RectTransform whiteMana;
+
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;
@@ -144,5 +147,42 @@ public class PlayerEntity : MonoBehaviour
         //CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
 
+    public void setHealth(float val)
+    {
+        currentHealth = val;
 
+        UpdateHealth();
+    }
+    public void setMana(int val)
+    {
+        currentMana = val;
+
+        UpdateMana();
+    }
+
+    public void UpdateHealth()
+    {
+        if(currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        LivesUI.text = "souls. " + Souls.ToString();
+
+        HealthUIText.text = currentHealth.ToString() + "/" + MaxHealth.ToString();
+        //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
+        
+        LTSeq sequence = LeanTween.sequence();
+        sequence.append(LeanTween.value(gameObject, health.value, currentHealth, 0.1f).setOnUpdate((float val) => { health.value = val; }));
+        sequence.append(LeanTween.scale(redHealth, new Vector3(currentHealth / MaxHealth, 1f, 1f), 1f));
+    }
+    public void UpdateMana()
+    {
+        ManaUIText.text = currentMana.ToString() + "/" + MaxMana.ToString();
+        //playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
+
+        LTSeq sequence = LeanTween.sequence();
+        sequence.append(LeanTween.value(gameObject, mana.value, currentMana, 0.1f).setOnUpdate((float val) => { mana.value = val; }));
+
+        sequence.append(LeanTween.scale(whiteMana, new Vector3((float)currentMana / MaxMana, 1f, 1f), 1f));
+    }
 }

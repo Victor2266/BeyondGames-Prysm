@@ -41,6 +41,7 @@ public class SoulData : MonoBehaviour
             player.GetComponent<PlayerManager>().Upgrade(0, HealAmount);
             player.GetComponent<PlayerManager>().Upgrade(1, ManaAmount);
             player.GetComponent<PlayerEntity>().Souls++;
+            player.GetComponent<PlayerEntity>().UpdateHealth();
             Destroy(gameObject);
         }
     }

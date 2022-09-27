@@ -146,7 +146,6 @@ MonoBehaviour:
   Bouncy: 0
   pop: {fileID: 1024762355911668, guid: 1f2ccd02132a08c43a02ac12b454cdce, type: 3}
   InitialPop: {fileID: 1109919489364486, guid: 33a8f26a4749a074fb7bedbbbc9d3c58, type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: 6a75d574a7dc0bf418c3636ddc4263fc, type: 3}
   DMGTextSize: 1
   attackVelo: 14
   ManaCost: 2

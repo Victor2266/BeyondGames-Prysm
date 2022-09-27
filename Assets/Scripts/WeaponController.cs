@@ -299,7 +299,7 @@ public class WeaponController : damageController
                 {
                     playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
                 }
-                playerEntity.currentMana -= playerEntity.ManaCost;
+                playerEntity.setMana(playerEntity.currentMana - playerEntity.ManaCost);
                 playerEntity.charges = 0;
                 ReachLength = thrustShortReach;
                 Dash();

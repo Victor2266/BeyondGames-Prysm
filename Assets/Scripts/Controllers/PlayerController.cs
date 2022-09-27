@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
             MoveUpdate();
             Shooting();
         }
-        playerManager.UpdateHealth();
         if (Input.GetButtonDown("Reset"))
         {
             playerManager.TakeDamage(playerEntity.currentHealth);
@@ -30,6 +29,8 @@ public class PlayerController : MonoBehaviour
             playerManager.Upgrade(1, 900);
             //Upgrade(3, 1);
             Debug.Log(playerEntity.health.maxValue);
+            playerEntity.UpdateHealth();
+            playerEntity.UpdateMana();
         }
     }
 
@@ -87,8 +88,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
         {
-            playerEntity.currentHealth -= 0.5f;
-            playerEntity.currentMana += 2;
+            playerEntity.setHealth(playerEntity.currentHealth - 0.5f);
+            playerEntity.setMana(playerEntity.currentMana + 2);
+
         }
         if (Input.GetButtonDown("Slide") && playerEntity.rb2d.velocity.x != 0)//testing without ground check  playerManager.IsGrounded() 
         {
@@ -151,7 +153,8 @@ public class PlayerController : MonoBehaviour
                 playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
 
                 playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation);
-                playerEntity.currentMana -= playerEntity.ManaCost;
+                playerEntity.setMana(playerEntity.currentMana - playerEntity.ManaCost);
+
                 playerEntity.charges = 0;
                 if (playerEntity.weapon < 8)
                 {
@@ -317,6 +320,8 @@ public class PlayerController : MonoBehaviour
             {
                 ShowText("+", 2, Color.cyan);
             }
+
+            playerEntity.UpdateMana();
         }
         if (collision.tag == "healthItem" && playerEntity.currentHealth < (float)playerEntity.MaxHealth)
         {
@@ -325,6 +330,8 @@ public class PlayerController : MonoBehaviour
             {
                 ShowText("+", 2, Color.red);
             }
+
+            playerEntity.UpdateHealth();
         }
     }
 

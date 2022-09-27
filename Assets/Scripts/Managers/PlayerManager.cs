@@ -91,7 +91,8 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        
+        playerEntity.UpdateHealth();
+        playerEntity.UpdateMana();
     }
 
     public bool grounded;
@@ -159,7 +160,7 @@ public class PlayerManager : MonoBehaviour
     {
         playerEntity.redFlash.SetActive(true);
         playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
-        playerEntity.currentHealth -= amount;
+        playerEntity.setHealth(playerEntity.currentHealth - amount);
         if (playerEntity.currentHealth <= 0f && !playerEntity.isDead)
         {
             StartCoroutine(DeathDelay(4f));
@@ -219,11 +220,13 @@ public class PlayerManager : MonoBehaviour
             {
                 playerEntity.MaxHealth++;
                 playerEntity.currentHealth += 1f;
+                playerEntity.UpdateHealth();
             }
             if (type == 1)
             {
                 playerEntity.MaxMana++;
                 playerEntity.currentMana++;
+                playerEntity.UpdateMana();
             }
             if (type == 2)
 
@@ -266,19 +269,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    public void UpdateHealth()
-    {
-        playerEntity.LivesUI.text = "souls. " + playerEntity.Souls.ToString();
 
-        playerEntity.HealthUIText.text = playerEntity.currentHealth.ToString() + "/" + playerEntity.MaxHealth.ToString();
-        //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
-
-        playerEntity.ManaUIText.text = playerEntity.currentMana.ToString() + "/" + playerEntity.MaxMana.ToString();
-        //playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
-
-        playerEntity.health.value = Mathf.SmoothStep(playerEntity.health.value, playerEntity.currentHealth, 0.25f);
-        playerEntity.mana.value = Mathf.SmoothStep(playerEntity.mana.value, playerEntity.currentMana, 0.25f);
-    }
 
     /*
     public IEnumerator JumpStretch()
