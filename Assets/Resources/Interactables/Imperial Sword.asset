@@ -18,11 +18,13 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
+  desc: 
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 2
   DMG_Scaling: 3
-  MaxDamage: 0
+  MaxDamage: 150
+  MinDamage: 0
   DMGTextSize: 2
   activeTimeLimit: 1
   cooldownTime: 1.8
@@ -40,3 +42,4 @@ MonoBehaviour:
   projAsChild: 0
   trail: {fileID: 2300350798725474172, guid: e059cab0d5b339040a11d7f1fb3b3e74, type: 3}
   soundPitch: 0.9
+  movementDelay: 0
