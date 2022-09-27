@@ -56,8 +56,11 @@ public class WeaponController : damageController
     public Text DamageCounter;
 
     AudioSource audioSource;
-    // Start is called before the first frame update
 
+    public float movementDelay;
+    private Vector3 _velocity;
+
+    // Start is called before the first frame update
     private void OnEnable()
     {
         onHeldInHand += HeldInHandStatus;
@@ -126,6 +129,7 @@ public class WeaponController : damageController
             sprtrend.sprite = equippedWeapon.icon;
             handReachMultiplier = equippedWeapon.handReachMultiplier;
             projectileOffset = equippedWeapon.projectileOffset;
+            movementDelay = equippedWeapon.movementDelay;
 
             playerEntity.attack = equippedWeapon.projectileAttack;
             
@@ -157,8 +161,9 @@ public class WeaponController : damageController
         //transform.localPosition = whiteArrow.transform.localPosition;
         //transform.localRotation = whiteArrow.transform.localRotation;
         Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-         
-        transform.localPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0f);
+
+        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, mouseWorldPosition, ref _velocity, movementDelay);
+        //transform.localPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0f);
 
         if (transform.localPosition.magnitude > ReachLength)
         {
@@ -224,7 +229,7 @@ public class WeaponController : damageController
         Trail.SetActive(true);
     }
 
-    private void leftClicking()
+    private void leftClicking()//sword strategy/sling weapon/heavysword
     {
         if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
         {

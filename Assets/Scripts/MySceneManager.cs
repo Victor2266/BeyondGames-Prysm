@@ -34,7 +34,8 @@ public class MySceneManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         transition = GameObject.FindGameObjectWithTag("Transition");
         playerEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
-        transition.SetActive(false);
+        if(transform != null)
+            transition.SetActive(false);
     }
 
     private void Update()

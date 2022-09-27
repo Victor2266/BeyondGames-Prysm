@@ -172,7 +172,7 @@ public class PlayerManager : MonoBehaviour
         if (!playerEntity.isDying)
         {
             playerEntity.isDying = true;
-            
+            playerEntity.Orb.SetActive(false);
             playerEntity.BlackBodyParticles.gameObject.SetActive(false);
             playerEntity.skullRB2D.simulated = true;
             playerEntity.handheldWeapon.SetActive(false);

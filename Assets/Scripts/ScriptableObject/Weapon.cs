@@ -29,6 +29,7 @@ public class Weapon : Equipment
     public bool projAsChild;
     public GameObject trail;
     public float soundPitch;
+    public float movementDelay;
 
     public override void Use()
     {
