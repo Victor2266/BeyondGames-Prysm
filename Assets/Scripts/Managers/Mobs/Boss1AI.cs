@@ -49,6 +49,8 @@ public class Boss1AI : MonoBehaviour
         else if (rb2d.position.y < botFloor)
         {
             velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed, 0f);
+            topCiel = Random.RandomRange(6f, 10f);
+
         }
         rb2d.velocity = new Vector2(velo.x, velo.y);
 
@@ -60,7 +62,6 @@ public class Boss1AI : MonoBehaviour
         else if (healthObj.health <= 60f)
         {
             speed = 12f;
-            topCiel = 10f;
             GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Final_colour, 0.005f);
             if (ChangedToRed == false)
             {
