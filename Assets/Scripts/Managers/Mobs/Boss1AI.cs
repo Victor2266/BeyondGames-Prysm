@@ -26,6 +26,8 @@ public class Boss1AI : MonoBehaviour
     public float botFloor;
     public Transform eyeDirection;
 
+    public bool activeLaser;
+
     private void Start()
     {
         rb2d = base.GetComponent<Rigidbody2D>();
@@ -34,6 +36,7 @@ public class Boss1AI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //when not laser
         if (rb2d.position.x > rightWall)
         {
             velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z -90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
@@ -54,7 +57,11 @@ public class Boss1AI : MonoBehaviour
         }
         rb2d.velocity = new Vector2(velo.x, velo.y);
 
+        //when laser
 
+
+
+        //always
         if (healthObj.health <= 0f && !isDead)
         {
             Death();
