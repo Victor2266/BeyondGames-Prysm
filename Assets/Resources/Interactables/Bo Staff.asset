@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Name: Bo Staff
+  m_EditorClassIdentifier: 
+  name: Bo Staff
+  icon: {fileID: 21300000, guid: 8acf3e3996784dd4085f2d988db19cc5, type: 3}
+  iconRotation: 90
+  iconSize: 0.8
+  isDefaultItem: 0
+  WeaponType: 1
+  desc: 
+  equipSlot: 0
+  color: {r: 0.3207547, g: 0.18010415, b: 0, a: 1}
+  ReachLength: 2
+  DMG_Scaling: 1.5
+  MaxDamage: 30
+  MinDamage: 5
+  DMGTextSize: 1.5
+  activeTimeLimit: 2
+  cooldownTime: 2
+  XYSize: 1
+  angle_offset: 90
+  CapsuleColliderOffset: {x: 0, y: 0}
+  CapsuleColliderSize: {x: 0.2, y: 4.2}
+  handReachMultiplier: 0.3
+  projectileAttack: {fileID: 1310705855610197, guid: 460885e839165b242922c7bcb709c7ac,
+    type: 3}
+  projectileOffset: -1
+  thrustResetTime: 0.1
+  thrustDashDist: 5
+  thrustShortReach: 0
+  projAsChild: 0
+  trail: {fileID: 2300350798725474172, guid: e059cab0d5b339040a11d7f1fb3b3e74, type: 3}
+  soundPitch: 0.5
+  movementDelay: 0

@@ -18,7 +18,6 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject spearResearcher;
     private Level1MiniBossModifiedGoblin spearResearcherScript;
     public GameObject Boss1;
-    public GameObject Boss1MSG;
     public GameObject Boss1Bar;
 
     float ShakeMagnitude = 2f;
@@ -217,7 +216,6 @@ public class Level1Manager : LevelManager// inherets winlevel function
             StartCoroutine(DelaySentence(6f, "uh oh...", 1f));
             CameraShaker.Instance.ShakeOnce(ShakeMagnitude * 2f, ShakeRoughness * 2f, ShakeFadeIn, ShakeFadeOut);
             Boss1.SetActive(true);
-            Boss1MSG.SetActive(true);
             Boss1Bar.SetActive(true);
 
         }
@@ -225,7 +223,6 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if(Boss1.activeSelf == false)
             {
-                Boss1MSG.SetActive(false);
                 Boss1Bar.SetActive(false);
 
                 StartCoroutine(DelaySentence(6f, "mission success", 1f));
