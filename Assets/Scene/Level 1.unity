@@ -1198,6 +1198,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103938743}
   m_CullTransparentMesh: 0
+--- !u!1001 &112369930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 319756670771915068, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: fdc431d0c5da35e46bbcc8a2d13041d8,
+        type: 2}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.28518668
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.958472
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 146.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 319756670771915070, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfb563847a1b3b942b36fa850882121b,
+        type: 3}
+    - target: {fileID: 319756670771915071, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_Name
+      value: Imperial Longsword (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04c763de87678c24f878a9acd3fe1a20, type: 3}
 --- !u!1 &125010980
 GameObject:
   m_ObjectHideFlags: 0
