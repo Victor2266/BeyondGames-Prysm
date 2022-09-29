@@ -27,8 +27,10 @@ public class Boss1AI : MonoBehaviour
     public Transform eyeDirection;
 
     public bool activeLaser;
+    private bool waitingForLaser=false;
     public GameObject laserBeam;
     private ParticleSystem laserPart;
+    public GameObject LaserLight;
     private float _refLazerSize;
     private Vector3 _refvelo;
 
@@ -46,7 +48,7 @@ public class Boss1AI : MonoBehaviour
         if (!activeLaser)
         {
             laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0f, ref _refLazerSize, 0.1f);
-            eyeDirection.gameObject.GetComponent<newPointerScript>().turn_speed = 1f;
+            eyeDirection.gameObject.GetComponent<newPointerScript>().turn_speed = 2f;
 
             if (rb2d.position.x > rightWall)
             {
@@ -83,16 +85,41 @@ public class Boss1AI : MonoBehaviour
             if(healthObj.health <= 100f)
             {
                 laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 1f);
-                StartCoroutine(waitForLaser(3f));
+                if (!waitingForLaser)
+                {
+                    waitingForLaser = true;
+                    GetComponent<AudioSource>().Play();
+                    laserBeam.GetComponent<AudioSource>().volume = 0.5f;
+                    laserBeam.GetComponent<AudioSource>().Play();
+                    LaserLight.SetActive(true);
+                    StartCoroutine(waitForLaser(3f));
+                }
+                    
             }else if (healthObj.health <= 200f)
             {
                 laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 2f);
-                StartCoroutine(waitForLaser(4f));
+                if (!waitingForLaser)
+                {
+                    waitingForLaser = true;
+                    GetComponent<AudioSource>().Play();
+                    laserBeam.GetComponent<AudioSource>().volume = 0.25f;
+                    laserBeam.GetComponent<AudioSource>().Play();
+                    LaserLight.SetActive(true);
+                    StartCoroutine(waitForLaser(4f));
+                }
             }
             else
             {
                 laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 2f);
-                StartCoroutine(waitForLaser(4.5f));
+                if (!waitingForLaser)
+                {
+                    waitingForLaser = true;
+                    GetComponent<AudioSource>().Play();
+                    laserBeam.GetComponent<AudioSource>().volume = 0.25f;
+                    laserBeam.GetComponent<AudioSource>().Play();
+                    LaserLight.SetActive(true);
+                    StartCoroutine(waitForLaser(4.5f));
+                }
             }
         }
 
@@ -227,6 +254,8 @@ public class Boss1AI : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         activeLaser = false;
+        waitingForLaser = false;
+        LaserLight.SetActive(false);
     }
     public Vector2 velo = new Vector2(2f, 2f);
 
