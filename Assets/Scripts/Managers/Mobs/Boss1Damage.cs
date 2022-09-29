@@ -15,7 +15,7 @@ public class Boss1Damage : MonoBehaviour
         boss.GetComponent<Boss1AI>().openingJaws = false;
         bossHealth.health -= amount;
 
-        healthBar.UpdateHealthBar(bossHealth.health, 300f);
+        healthBar.UpdateHealthBar(bossHealth.health, 350f);
 
         Instantiate<GameObject>(boss.GetComponent<Boss1AI>().bossBlood, base.transform.position, base.transform.rotation);
     }

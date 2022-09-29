@@ -374,8 +374,21 @@ public class WeaponController : damageController
         //playerEntity.speedTrail.SetActive(true);
 
         //playerEntity.Flinch = true;
-        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.x, 0.6f * thrustDashDist * transform.localPosition.y);
-        //dash.transform.eulerAngles = transform.eulerAngles;
+
+        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.normalized.x, 0.6f * thrustDashDist * transform.localPosition.normalized.y);
+        //playerEntity.rb2d.AddForce(new Vector2(thrustDashDist * transform.localPosition.x, 0.6f * thrustDashDist * transform.localPosition.y), ForceMode2D.Impulse);
         
+        /*
+        if (transform.localPosition.x > 0)
+        {
+            playerEntity.rb2d.AddForce(new Vector2(16f, 0f), ForceMode2D.Impulse);
+        }
+        else
+        {
+            playerEntity.rb2d.AddForce(new Vector2(-16f, 0f), ForceMode2D.Impulse);
+        }*/
+
+        //dash.transform.eulerAngles = transform.eulerAngles;
+
     }
 }

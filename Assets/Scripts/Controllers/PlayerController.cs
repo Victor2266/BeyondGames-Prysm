@@ -32,17 +32,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public void MoveUpdate()
     {
-        if (playerEntity.rb2d.velocity.x > 0.5f)
-        {
-            playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 0.3f, playerEntity.rb2d.velocity.y);
-        }
-        else if (playerEntity.rb2d.velocity.x < -0.5f)
-        {
-            playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 0.3f, playerEntity.rb2d.velocity.y);
-        }
+        
         if (Input.GetAxisRaw("Horizontal") > 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
             //playerEntity.SprtRnderer.flipX = false;
@@ -66,7 +58,21 @@ public class PlayerController : MonoBehaviour
             //playerEntity.anim.SetBool("Running", false);
 
             playerManager.setTiltTargetAngle(0f);
+        }/*
+        else if (playerEntity.rb2d.velocity.x < -0.5f)
+        {
+            playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 0.3f, playerEntity.rb2d.velocity.y);
+            Debug.Log("decrease LEFT");
+
+            Debug.Log(playerEntity.rb2d.velocity.x);
         }
+        else if (playerEntity.rb2d.velocity.x > 0.5f)
+        {
+            playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 0.3f, playerEntity.rb2d.velocity.y);
+            Debug.Log("decrease RIGHT");//this gets activated more
+
+            Debug.Log(playerEntity.rb2d.velocity.x);
+        }*/
 
         if (playerEntity.rb2d.velocity.y < 0f && !playerEntity.isClimbing)
         {
@@ -99,17 +105,23 @@ public class PlayerController : MonoBehaviour
                 GameObject dash = Instantiate(playerEntity.speedTrail, transform);
                 dash.transform.position = transform.position;
                 //playerEntity.speedTrail.SetActive(true);
-                
+
                 //playerEntity.Flinch = true;
                 //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
+
+                
+                
                 if (playerEntity.rb2d.velocity.x > 0)
                 {
-                    playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
+                    //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
+                    playerEntity.rb2d.AddForce(new Vector2(6f, 0f), ForceMode2D.Impulse);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, 90f);
                 }
                 else
                 {
-                    playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 8f, playerEntity.rb2d.velocity.y);
+                    //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 8f, playerEntity.rb2d.velocity.y);
+
+                    playerEntity.rb2d.AddForce(new Vector2(-6f, 0f), ForceMode2D.Impulse);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, -90f);
                 }
                 //GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);

@@ -27,38 +27,74 @@ public class Boss1AI : MonoBehaviour
     public Transform eyeDirection;
 
     public bool activeLaser;
+    public GameObject laserBeam;
+    private ParticleSystem laserPart;
+    private float _refLazerSize;
+    private Vector3 _refvelo;
 
+    public int topCount = 0;
     private void Start()
     {
         rb2d = base.GetComponent<Rigidbody2D>();
         healthObj = GetComponent<HealthBarHealth>();
+        laserPart = laserBeam.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
     {
         //when not laser
-        if (rb2d.position.x > rightWall)
+        if (!activeLaser)
         {
-            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z -90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
-        }
-        else if (rb2d.position.x < leftWall)
-        {
-            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
-        }
-        if (rb2d.position.y > topCiel)
-        {
-            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
-        }
-        else if (rb2d.position.y < botFloor)
-        {
-            velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed, 0f);
-            topCiel = Random.RandomRange(6f, 10f);
+            laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0f, ref _refLazerSize, 0.1f);
+            eyeDirection.gameObject.GetComponent<newPointerScript>().turn_speed = 1f;
 
-        }
-        rb2d.velocity = new Vector2(velo.x, velo.y);
+            if (rb2d.position.x > rightWall)
+            {
+                velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
+            }
+            else if (rb2d.position.x < leftWall)
+            {
+                velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), -speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
+            }
+            if (rb2d.position.y > topCiel)
+            {
+                topCount++;
+                velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed * Mathf.Sin(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), 0f);
+            }
+            else if (rb2d.position.y < botFloor)
+            {
+                velo = new Vector3(speed * Mathf.Cos(Mathf.Deg2Rad * (eyeDirection.eulerAngles.z - 90f)), speed, 0f);
+                topCiel = Random.RandomRange(6f, 10f);
 
+            }
+            rb2d.velocity = new Vector2(velo.x, velo.y);
+
+            
+        }
+        
         //when laser
+        else if (activeLaser)
+        {
+            eyeDirection.gameObject.GetComponent<newPointerScript>().turn_speed = 0.5f;
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(player.transform.position.x, 4f, 0f), ref _refvelo, 1f);
+            rb2d.velocity = new Vector2(0f, 0f);
+            laserBeam.SetActive(true);
 
+            if(healthObj.health <= 100f)
+            {
+                laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 1f);
+                StartCoroutine(waitForLaser(3f));
+            }else if (healthObj.health <= 200f)
+            {
+                laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 2f);
+                StartCoroutine(waitForLaser(4f));
+            }
+            else
+            {
+                laserPart.startSize = Mathf.SmoothDamp(laserPart.startSize, 0.5f, ref _refLazerSize, 2f);
+                StartCoroutine(waitForLaser(4.5f));
+            }
+        }
 
 
         //always
@@ -66,7 +102,7 @@ public class Boss1AI : MonoBehaviour
         {
             Death();
         }
-        else if (healthObj.health <= 60f)
+        else if (healthObj.health <= 100f)
         {
             speed = 12f;
             GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Final_colour, 0.005f);
@@ -76,11 +112,31 @@ public class Boss1AI : MonoBehaviour
                 redEye.SetActive(true);
                 ChangedToRed = true;
             }
+            if (topCount >= 4)
+            {
+                topCount = 0;
+                var veloOverLife = laserPart.velocityOverLifetime;
+                veloOverLife.orbitalY = Random.Range(9f,16f);
+                activeLaser = true;
+            }
         }
-        else if (healthObj.health <= 120f)
+        else if (healthObj.health <= 200f)
         {
             GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, Middle_colour, 0.005f);
             speed = 8f;
+            if (topCount >= 3)
+            {
+                topCount = 0;
+                activeLaser = true;
+            }
+        }
+        else
+        {
+            if (topCount >= 5)
+            {
+                topCount = 0;
+                activeLaser = true;
+            }
         }
 
         if (openingJaws)
@@ -142,9 +198,10 @@ public class Boss1AI : MonoBehaviour
         {
             manaTimer -= 5;
             clone = UnityEngine.Object.Instantiate<GameObject>(ManaDrops, base.transform.position, base.transform.rotation);
+
         }
         healthObj.health -= amount;
-        healthBar.UpdateHealthBar(healthObj.health, 300f);
+        healthBar.UpdateHealthBar(healthObj.health, 350f);
         GetComponent<AudioSource>().Play();
 
         Instantiate<GameObject>(bossBlood, base.transform.position, base.transform.rotation);
@@ -166,7 +223,11 @@ public class Boss1AI : MonoBehaviour
         ChargeEnabler.SetActive(true);
         healthBar.gameObject.SetActive(false);
     }
-
+    private IEnumerator waitForLaser(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        activeLaser = false;
+    }
     public Vector2 velo = new Vector2(2f, 2f);
 
     public GameObject BossRoomRange;

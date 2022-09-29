@@ -23,6 +23,8 @@ public class projectileController : damageController
     public bool power_control = false;
     public float inaccuracy = 0;
 
+    public bool DontTouchPlayer;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -32,6 +34,13 @@ public class projectileController : damageController
         {
             Vector3 popPosition = new Vector3(transform.position.x, transform.position.y + .05f, InitialPop.transform.position.z);
             Instantiate(InitialPop, popPosition, transform.rotation);
+        }
+        if (DontTouchPlayer)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            CapsuleCollider2D capsuleColider = GetComponent<CapsuleCollider2D>();
+            Physics2D.IgnoreCollision(capsuleColider, player.GetComponents<CapsuleCollider2D>()[0], true);
+            Physics2D.IgnoreCollision(capsuleColider, player.GetComponents<CapsuleCollider2D>()[1], true);
         }
     }
 
