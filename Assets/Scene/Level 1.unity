@@ -62091,12 +62091,12 @@ PrefabInstance:
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.28
+      value: 13.324
       objectReference: {fileID: 0}
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
@@ -62106,7 +62106,7 @@ PrefabInstance:
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28518668
+      value: 0.9902681
       objectReference: {fileID: 0}
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
@@ -62121,7 +62121,7 @@ PrefabInstance:
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.958472
+      value: 0.13917309
       objectReference: {fileID: 0}
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
@@ -62136,7 +62136,7 @@ PrefabInstance:
     - target: {fileID: 319756670771915069, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 146.86
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 319756670771915070, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
@@ -62144,6 +62144,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8acf3e3996784dd4085f2d988db19cc5,
         type: 3}
+    - target: {fileID: 319756670771915070, guid: 04c763de87678c24f878a9acd3fe1a20,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7216d4096998fbb343512e2005b97852, type: 2}
     - target: {fileID: 319756670771915071, guid: 04c763de87678c24f878a9acd3fe1a20,
         type: 3}
       propertyPath: m_Name
