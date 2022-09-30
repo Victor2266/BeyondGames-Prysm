@@ -34,11 +34,13 @@ public class DeathTimer : MonoBehaviour
         {
             if (gameObject.transform.localScale.x > 0)
             {
-                gameObject.transform.localScale = new Vector3(startSize * (timeend - ticks) / endValue, startSize * (timeend - ticks) / endValue, 1f);
+                gameObject.transform.localScale = Vector3.SmoothDamp(gameObject.transform.localScale, Vector3.zero, ref _velo, tickLimit/2f);
+                //gameObject.transform.localScale = new Vector3(startSize * (timeend - ticks) / endValue, startSize * (timeend - ticks) / endValue, 1f);
             }
             else
             {
-                gameObject.transform.localScale = new Vector3(-startSize * (timeend - ticks) / endValue, startSize * (timeend - ticks) / endValue, 1f);
+                gameObject.transform.localScale = Vector3.SmoothDamp(gameObject.transform.localScale, Vector3.zero, ref _velo, tickLimit/2f);
+                //gameObject.transform.localScale = new Vector3(-startSize * (timeend - ticks) / endValue, startSize * (timeend - ticks) / endValue, 1f);
             }
             if (trail)
             {
@@ -74,4 +76,5 @@ public class DeathTimer : MonoBehaviour
     public GameObject explosionPrefab;
 
     private TrailRenderer trailRenderer;
+    private Vector3 _velo;
 }
