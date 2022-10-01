@@ -16,7 +16,7 @@ public class OpeningScene : DialogTrigger
     public Button SkipButton;
     public ParticleSystem SoulAtomDeath;
     public GameObject SkullMask;
-
+    public ParticleSystem whiteSoul;
     public float smoothTime = 2F;
     private Vector3 velocity = Vector3.zero;
     private Vector3 targetPosition;
@@ -24,6 +24,8 @@ public class OpeningScene : DialogTrigger
 
     private float velo;
     private float velo2;
+
+    private float velo3;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,7 @@ public class OpeningScene : DialogTrigger
         if (DialogManager.instance.index == 24)
         {
             SoulAtomDeath.startLifetime = Mathf.SmoothDamp(SoulAtomDeath.startLifetime, 0f, ref velo, 1.5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
+            whiteSoul.startSize = Mathf.SmoothDamp(whiteSoul.startSize, 0f, ref velo3, 5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
             SkullMask.SetActive(true);
         }
         if (DialogManager.instance.index > 24)

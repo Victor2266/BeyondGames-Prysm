@@ -11394,7 +11394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &609579869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17282,6 +17282,7 @@ MonoBehaviour:
   SkipButton: {fileID: 2002024036}
   SoulAtomDeath: {fileID: 1844755101}
   SkullMask: {fileID: 1261250193}
+  whiteSoul: {fileID: 1811854461}
   smoothTime: 2
 --- !u!4 &899003683
 Transform:
@@ -33187,6 +33188,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1736637759603719382, guid: a1a6d38e545ae0542861b07765d3f741,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1736637759948417542, guid: a1a6d38e545ae0542861b07765d3f741,
         type: 3}
       propertyPath: ExternalForcesModule.enabled
@@ -33250,7 +33256,7 @@ PrefabInstance:
     - target: {fileID: 1736637759948417543, guid: a1a6d38e545ae0542861b07765d3f741,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.430646
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1736637759948417543, guid: a1a6d38e545ae0542861b07765d3f741,
         type: 3}
@@ -34092,6 +34098,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1811854461 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1736637759948417542, guid: a1a6d38e545ae0542861b07765d3f741,
+    type: 3}
+  m_PrefabInstance: {fileID: 1572504079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1836136058
 GameObject:
   m_ObjectHideFlags: 0
