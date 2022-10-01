@@ -92,8 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
         {
-            playerEntity.setHealth(playerEntity.currentHealth - 0.5f);
-            playerEntity.setMana(playerEntity.currentMana + 2);
+            playerEntity.setHealthAndMana(playerEntity.currentHealth - 0.5f, playerEntity.currentMana + 2);
 
         }
         if (Input.GetButtonDown("Slide") && playerEntity.rb2d.velocity.x != 0)//testing without ground check  playerManager.IsGrounded() 

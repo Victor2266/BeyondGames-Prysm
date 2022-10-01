@@ -8,12 +8,14 @@ public class LevelManager : MonoBehaviour
 
     public void WinLevel()
     {
-        Debug.Log("Level: " + levelToUnlock + " completed");
+        Debug.Log("Level: " + (levelToUnlock-1) + " completed");
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+
         if (levelReached <= levelToUnlock)
         {
             PlayerPrefs.SetInt("levelReached", levelToUnlock);
         }
-        MySceneManager.instance.SelectLevelScreen(true);//this automatically finds the transition and activates it
+        StartCoroutine(MySceneManager.instance.SelectLevelScreen(true));//this automatically finds the transition and activates it
+
     }
 }

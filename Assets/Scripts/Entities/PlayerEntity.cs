@@ -159,6 +159,15 @@ public class PlayerEntity : MonoBehaviour
 
         UpdateMana();
     }
+    public void setHealthAndMana(float health, int mana)
+    {
+        LeanTween.cancel(gameObject);
+        currentHealth = health;
+        currentMana = mana;
+
+        UpdateHealth();
+        UpdateMana();
+    }
 
     public void UpdateHealth()
     {

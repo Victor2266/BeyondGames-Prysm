@@ -19,6 +19,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
     private Level1MiniBossModifiedGoblin spearResearcherScript;
     public GameObject Boss1;
     public GameObject Boss1Bar;
+    public GameObject bossSoul;
 
     float ShakeMagnitude = 2f;
     [SerializeField]
@@ -201,14 +202,14 @@ public class Level1Manager : LevelManager// inherets winlevel function
         else if (index == 50)
         {
             StartCoroutine(DelaySentence(6f, "because there's a rumour", 1f));
-            ShowText(6f, "whoever collects enough souls can have their dreams come true", 1f);
+            ShowText(6f, "whoever collects enough souls can have one wish come true", 1f);
         }
         //spawn lvl1 plant boss as familiar 
 
         else if (index == 52)
         {
             StartCoroutine(DelaySentence(6f, "but it's strange...", 1f));
-            ShowText(6f, "Shinigami usually travel with a familiar...", 1f);
+            ShowText(6f, "Chumps like that usually travel with a familiar...", 1f);
 
         }
         else if (index == 54)
@@ -226,12 +227,17 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 Boss1Bar.SetActive(false);
 
                 StartCoroutine(DelaySentence(6f, "mission success", 1f));
+                ShowText(6f, "collect that soul", 1f);
             }
 
         }
         else if (index == 58)
         {
-            WinLevel();
+            if(bossSoul == null)
+            {
+                WinLevel();
+                index++;
+            }
         }
 
         if (index < 12 & EquipmentManager.instance.isEquipped(-1))

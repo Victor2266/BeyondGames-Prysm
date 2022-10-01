@@ -77,7 +77,7 @@ public class MySceneManager : MonoBehaviour
     public IEnumerator SelectLevelScreen(bool needSave)
     {
         transition.SetActive(true);
-
+        Debug.Log("Returning to Level Select");
         yield return new WaitForSeconds(1f);//temp lowered
 
         if (needSave)

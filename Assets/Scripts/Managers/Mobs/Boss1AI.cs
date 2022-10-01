@@ -35,6 +35,8 @@ public class Boss1AI : MonoBehaviour
     private Vector3 _refvelo;
 
     public int topCount = 0;
+
+    public Level1Manager levelManager;
     private void Start()
     {
         rb2d = base.GetComponent<Rigidbody2D>();
@@ -244,10 +246,12 @@ public class Boss1AI : MonoBehaviour
         Instantiate<GameObject>(ExtraNeon, base.transform.position, base.transform.rotation);
         Instantiate<GameObject>(bossBodyparts, base.transform.position, base.transform.rotation);
 
-        Instantiate<GameObject>(soul, base.transform.position, base.transform.rotation);
-        BossRoomRange.GetComponent<AudioSource>().enabled = false;
-        defeatBossMsg.SetActive(false);
-        ChargeEnabler.SetActive(true);
+        levelManager.bossSoul = Instantiate<GameObject>(soul, base.transform.position, base.transform.rotation);
+        if(BossRoomRange != null)
+        {
+
+            BossRoomRange.GetComponent<AudioSource>().enabled = false;
+        }
         healthBar.gameObject.SetActive(false);
     }
     private IEnumerator waitForLaser(float seconds)
@@ -261,7 +265,6 @@ public class Boss1AI : MonoBehaviour
 
     public GameObject BossRoomRange;
     public GameObject player;
-    public GameObject defeatBossMsg;
     public GameObject ManaDrops;
     public GameObject soul;
     public GameObject HealthDrops;
@@ -283,6 +286,5 @@ public class Boss1AI : MonoBehaviour
     private Rigidbody2D rb2d;
 
     private bool isDead;
-
-    public GameObject ChargeEnabler;
+    
 }
