@@ -21,6 +21,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject Boss1Bar;
     public GameObject bossSoul;
     public GameObject BossRoomRange;
+    public GameObject GoblinRoomRange;
+    public GameObject SpearRoomRange;
     public Light globalLight;
 
     float ShakeMagnitude = 2f;
@@ -157,6 +159,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
             if (spearGoblin.GetComponent<ratBehavior>().isDead)
             {
                 StartCoroutine(DelaySentence(7f, "Nice! pickup that spear he dropped <color=green>[E]</color>", 1f));
+                ShowText(7f, "you can regen mana with <color=red>[Q]</color>", 1f);
+                GoblinRoomRange.SetActive(false);
             }
         }
 
@@ -166,6 +170,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if (goblin1.GetComponent<ratBehavior>().isDead && goblin2.GetComponent<ratBehavior>().isDead)
             {
+                SpearRoomRange.SetActive(true);
                 StartCoroutine(DelaySentence(3f, "that can't be good", 1f));
                 spearResearcher.SetActive(true);
                 CameraShaker.Instance.ShakeOnce(ShakeMagnitude, ShakeRoughness, ShakeFadeIn, ShakeFadeOut);
@@ -187,21 +192,22 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if (index == 44)
         {
-            StartCoroutine(DelaySentence2(6f, "<color=red>DIEEEE</color>", 3f));
+            StartCoroutine(DelaySentence2(2f, "<color=red>DIEEEE</color>", 3f));
         }
         //when spear/re is dead, exposition about competition for souls & about lack of spear/re familiar
         else if (index == 46)
         {
             if (spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>().isDead)
             {
+                SpearRoomRange.SetActive(false);
                 birdFollower.distance = 3f;
                 StartCoroutine(DelaySentence(7f, "thank god you beat him", 1f));
-                ShowText(7f, "pick up, equip, and try using the magic tome he dropped", 1f);
+                ShowText(7f, "pick up the magic tome he dropped", 1f);
             }
         }
         else if (index == 48)
         {
-            StartCoroutine(DelaySentence(7f, "we sort of trespassed on his hunting grounds", 1f));
+            StartCoroutine(DelaySentence(7f, "we kinda did trespass on his hunting grounds", 1f));
             ShowText(7f, " and everyone is scrambling for souls right now", 1f);
         }
         else if (index == 50)
@@ -221,11 +227,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             StartCoroutine(DelaySentence(6f, "uh oh...", 1f));
 
+            BossRoomRange.SetActive(true);
             birdFollower.distance = 4.5f;
             CameraShaker.Instance.ShakeOnce(ShakeMagnitude * 2f, ShakeRoughness * 2f, ShakeFadeIn, ShakeFadeOut);
             Boss1.SetActive(true);
             Boss1Bar.SetActive(true);
-            BossRoomRange.SetActive(true);
         }
         else if (index == 56)
         {

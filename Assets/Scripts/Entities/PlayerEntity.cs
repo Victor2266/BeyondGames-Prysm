@@ -125,15 +125,17 @@ public class PlayerEntity : MonoBehaviour
         jumpForce = player.jumpForce;
         fallMultiplier = player.fallMultiplier;
         lowJumpMultiplier = player.lowJumpMultiplier;
-        currentHealth = player.currentHealth;
-        currentMana = player.currentMana;
+
+        currentHealth = player.MaxHealth;//sets to max value not current
+        currentMana = player.MaxMana;
+
         ManaCost = player.ManaCost;
         isDead = player.isDead;
         isDying = player.isDying;
         charges = player.charges;
         timeStamp = player.timeStamp;
-        SlideCooldown = player.SlideCooldown;
-        coolDownPeriod = player.coolDownPeriod;
+        SlideCooldown = 0f;//don't want to spawn with cooldowns
+        coolDownPeriod = 0f;
         weapon = player.weapon;
         attackVelo = player.attackVelo;
         rapid_fire = player.rapid_fire;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 319756670771915070}
   - component: {fileID: 319756670771915068}
   m_Layer: 0
-  m_Name: Imperial Longsword
+  m_Name: Imperial Longsword Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

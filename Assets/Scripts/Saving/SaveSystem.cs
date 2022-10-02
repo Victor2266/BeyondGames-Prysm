@@ -161,7 +161,25 @@ public static class SaveSystem
             {
                 foreach (string str in SaveEq.items)
                 {
-                    Equipment eq = Resources.Load("Interactables/" + str) as Equipment;
+                    string parsedStr;
+                    if (str.Contains("<"))
+                    {
+                        int firstBracket = str.IndexOf('<');
+                        int closeFirstBracket = str.IndexOf('>');
+                        int diff = closeFirstBracket - firstBracket + 1;
+                        parsedStr = str.Remove(firstBracket, diff);
+
+                        firstBracket = parsedStr.IndexOf('<');
+                        closeFirstBracket = parsedStr.IndexOf('>');
+                        diff = closeFirstBracket - firstBracket + 1;
+                        parsedStr = parsedStr.Remove(firstBracket, diff);
+                    }
+                    else
+                    {
+                        parsedStr = str;
+                    }
+
+                    Equipment eq = Resources.Load("Interactables/" + parsedStr) as Equipment;
                     int slotIndex = (int)eq.equipSlot;
 
                     returnArray[slotIndex] = eq;
@@ -200,7 +218,25 @@ public static class SaveSystem
             {
                 foreach (string str in SaveEq.items)
                 {
-                    Item getRecourse = Resources.Load("Interactables/" + str) as Item;
+                    string parsedStr;
+                    if (str.Contains("<"))
+                    {
+                        int firstBracket = str.IndexOf('<');
+                        int closeFirstBracket = str.IndexOf('>');
+                        int diff = closeFirstBracket - firstBracket + 1;
+                        parsedStr = str.Remove(firstBracket, diff);
+
+                        firstBracket = parsedStr.IndexOf('<');
+                        closeFirstBracket = parsedStr.IndexOf('>');
+                        diff = closeFirstBracket - firstBracket + 1;
+                        parsedStr = parsedStr.Remove(firstBracket, diff);
+                    }
+                    else
+                    {
+                        parsedStr = str;
+                    }
+
+                    Item getRecourse = Resources.Load("Interactables/" + parsedStr) as Item;
                     data.Add(getRecourse);
                 }
             }

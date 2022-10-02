@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             playerEntity.setHealthAndMana(playerEntity.currentHealth - 0.5f, playerEntity.currentMana + 2);
 
         }
-        if (Input.GetButtonDown("Slide") && playerEntity.rb2d.velocity.x != 0)//testing without ground check  playerManager.IsGrounded() 
+        if (Input.GetButtonDown("Slide") && Input.GetAxisRaw("Horizontal") != 0)//testing without ground check  playerManager.IsGrounded() 
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {
@@ -108,13 +108,13 @@ public class PlayerController : MonoBehaviour
 
                 
                 
-                if (playerEntity.rb2d.velocity.x > 0)
+                if (Input.GetAxisRaw("Horizontal") > 0f)
                 {
                     //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
                     playerEntity.rb2d.AddForce(new Vector2(6f, 0f), ForceMode2D.Impulse);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, 90f);
                 }
-                else
+                else if (Input.GetAxisRaw("Horizontal") < 0f)
                 {
                     //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 8f, playerEntity.rb2d.velocity.y);
 

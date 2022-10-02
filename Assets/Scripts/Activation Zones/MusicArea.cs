@@ -5,17 +5,20 @@ using UnityEngine;
 public class MusicArea : MonoBehaviour
 {
     private AudioSource audioSauzer;
-    public float lightLevel;
     public GameObject BackgroundParent;
 
     public GameObject GlobalLight;
+    private Light gLight;
 
+    public float lightLevel;
+    public Color lightColor;
     public float smoothTime;
 
     void Start()
     {
         audioSauzer = GetComponent<AudioSource>();
         GlobalLight = GameObject.FindGameObjectWithTag("GlobalLight");
+        gLight = GlobalLight.GetComponent<Light>();
     }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +29,8 @@ public class MusicArea : MonoBehaviour
 
             audioSauzer.Play();
 
-            BackgroundParent.SetActive(true);
+            if(BackgroundParent != null)
+                BackgroundParent.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -36,7 +40,8 @@ public class MusicArea : MonoBehaviour
 
             audioSauzer.Stop();
 
-            BackgroundParent.SetActive(false);
+            if (BackgroundParent != null)
+                BackgroundParent.SetActive(false);
         }
     }
 
@@ -45,7 +50,9 @@ public class MusicArea : MonoBehaviour
         if (collision.name == "Player")
         {
 
-            GlobalLight.GetComponent<Light>().intensity = Mathf.SmoothStep(GlobalLight.GetComponent<Light>().intensity, lightLevel, smoothTime);
+            gLight.intensity = Mathf.SmoothStep(GlobalLight.GetComponent<Light>().intensity, lightLevel, smoothTime);
+
+            gLight.color = lightColor;
 
         }
     }

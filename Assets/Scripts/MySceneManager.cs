@@ -78,12 +78,14 @@ public class MySceneManager : MonoBehaviour
     {
         transition.SetActive(true);
         Debug.Log("Returning to Level Select");
-        yield return new WaitForSeconds(1f);//temp lowered
 
+        yield return new WaitForSeconds(1f);
         if (needSave)
         {
             //SAVE EVERYTHING
             SaveData();
+
+            yield return new WaitForSeconds(3f);
         }
         
         yield return new WaitForSeconds(1f);//temp lowered

@@ -23,7 +23,6 @@ public class EnemyProjectileController : MonoBehaviour
         {
             Instantiate(InitialPop, popPosition, transform.rotation);
         }
-        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -51,9 +50,11 @@ public class EnemyProjectileController : MonoBehaviour
   
     private void Burst()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         GameObject gameObject = Instantiate(pop, transform.position, transform.rotation);
-            
+
+        Destroy(this.gameObject);
+
     }
 
 }

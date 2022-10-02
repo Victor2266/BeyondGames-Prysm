@@ -24,7 +24,7 @@ MonoBehaviour:
   ReachLength: 2
   DMG_Scaling: 7
   MaxDamage: 75
-  MinDamage: 0
+  MinDamage: 5
   DMGTextSize: 2
   activeTimeLimit: 1
   cooldownTime: 1.8
