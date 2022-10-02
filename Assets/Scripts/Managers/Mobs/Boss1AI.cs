@@ -246,7 +246,7 @@ public class Boss1AI : MonoBehaviour
         Instantiate<GameObject>(ExtraNeon, base.transform.position, base.transform.rotation);
         Instantiate<GameObject>(bossBodyparts, base.transform.position, base.transform.rotation);
 
-        levelManager.bossSoul = Instantiate<GameObject>(soul, base.transform.position, base.transform.rotation);
+        levelManager.bossSoul = Instantiate<GameObject>(soul, new Vector3(transform.position.x, transform.position.y, -2f), base.transform.rotation);
         if(BossRoomRange != null)
         {
 

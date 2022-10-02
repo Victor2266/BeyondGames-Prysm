@@ -52,7 +52,7 @@ public class MusicArea : MonoBehaviour
 
             gLight.intensity = Mathf.SmoothStep(GlobalLight.GetComponent<Light>().intensity, lightLevel, smoothTime);
 
-            gLight.color = lightColor;
+            gLight.color = Color.Lerp(gLight.color, lightColor, 0.1f);
 
         }
     }

@@ -40,6 +40,6 @@ MonoBehaviour:
   thrustDashDist: 5
   thrustShortReach: 0
   projAsChild: 0
-  trail: {fileID: 2300350798725474172, guid: e059cab0d5b339040a11d7f1fb3b3e74, type: 3}
+  trail: {fileID: 1491279371004310850, guid: 0aae3042efc1ced48bf0c33570a35b64, type: 3}
   soundPitch: 0.5
   movementDelay: 0
