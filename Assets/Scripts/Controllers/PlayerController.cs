@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
             playerEntity.lookingLeft = false;
             playerEntity.rb2d.velocity = new Vector2(playerEntity.speed, playerEntity.rb2d.velocity.y);
 
-            playerManager.setTiltTargetAngle(-30f);
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
             playerEntity.lookingLeft = true;
             playerEntity.rb2d.velocity = new Vector2(-playerEntity.speed, playerEntity.rb2d.velocity.y);
 
-            playerManager.setTiltTargetAngle(30f);
         }
         else if (Mathf.Abs(playerEntity.rb2d.velocity.x) < 0.05f)
         {

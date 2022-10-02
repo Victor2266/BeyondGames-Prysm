@@ -20,6 +20,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject Boss1;
     public GameObject Boss1Bar;
     public GameObject bossSoul;
+    public GameObject BossRoomRange;
+    public Light globalLight;
 
     float ShakeMagnitude = 2f;
     [SerializeField]
@@ -167,6 +169,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 StartCoroutine(DelaySentence(3f, "that can't be good", 1f));
                 spearResearcher.SetActive(true);
                 CameraShaker.Instance.ShakeOnce(ShakeMagnitude, ShakeRoughness, ShakeFadeIn, ShakeFadeOut);
+
+                birdFollower.distance = 4.5f;
             }
         }
         else if (index == 38)
@@ -190,6 +194,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if (spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>().isDead)
             {
+                birdFollower.distance = 3f;
                 StartCoroutine(DelaySentence(7f, "thank god you beat him", 1f));
                 ShowText(7f, "pick up, equip, and try using the magic tome he dropped", 1f);
             }
@@ -215,10 +220,12 @@ public class Level1Manager : LevelManager// inherets winlevel function
         else if (index == 54)
         {
             StartCoroutine(DelaySentence(6f, "uh oh...", 1f));
+
+            birdFollower.distance = 4.5f;
             CameraShaker.Instance.ShakeOnce(ShakeMagnitude * 2f, ShakeRoughness * 2f, ShakeFadeIn, ShakeFadeOut);
             Boss1.SetActive(true);
             Boss1Bar.SetActive(true);
-
+            BossRoomRange.SetActive(true);
         }
         else if (index == 56)
         {
@@ -226,8 +233,12 @@ public class Level1Manager : LevelManager// inherets winlevel function
             {
                 Boss1Bar.SetActive(false);
 
+                birdFollower.distance = 2f;
                 StartCoroutine(DelaySentence(6f, "mission success", 1f));
                 ShowText(6f, "collect that soul", 1f);
+
+                BossRoomRange.SetActive(false);
+                globalLight.intensity = 0f;
             }
 
         }

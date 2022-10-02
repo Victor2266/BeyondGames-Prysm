@@ -109,6 +109,7 @@ public class PlayerManager : MonoBehaviour
         }
         if (!playerEntity.isDying)
         {
+            setTiltTargetAngle(-playerEntity.rb2d.velocity.x * 10f);
             TiltCharacter();
         }
     }
