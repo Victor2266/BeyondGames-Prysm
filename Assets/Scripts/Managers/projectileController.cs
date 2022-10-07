@@ -70,14 +70,14 @@ public class projectileController : damageController
             BurstIfPrimed();
             ShowDMGText((DMG * 2), DMGTextSize * 2);
         }
-        if(collision.gameObject.tag == "EnemyPlayer")
+        if (collision.gameObject.tag == "EnemyPlayer")
         {
             collision.gameObject.SendMessage("CmdTakeDamage", DMG);
             BurstIfPrimed();
             ShowDMGText(DMG, DMGTextSize);
         }
-        
-        if (Bouncy == false && collision.gameObject.tag == "Untagged")
+
+        if (Bouncy == false && collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground")
         {
             BurstIfPrimed();
         }

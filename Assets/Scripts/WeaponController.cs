@@ -214,6 +214,7 @@ public class WeaponController : damageController
 
     private void AttackEntity(float multiplier, Collision2D collision)
     {
+        collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);

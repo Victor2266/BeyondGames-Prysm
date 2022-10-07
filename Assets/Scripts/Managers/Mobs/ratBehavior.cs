@@ -254,12 +254,34 @@ public class ratBehavior : MonoBehaviour
         anim.SetTrigger("hurt");
         healthBar.UpdateHealthBar(health, 50f);
         Jump();
-
+        Instantiate(bloodSplatter, collisionPosition, Quaternion.identity);
         if (health <= 0f && !isDead)
         {
             Death();
         }
     }
+    private Vector3 collisionPosition;
+    public void SetCollision(Vector2 pos)
+    {
+        collisionPosition = pos;
+        bloodDir = transform.position - new Vector3(pos.x, pos.x, 0f);
+
+                    dir = lookAtThis.position - transform.position;
+        ZAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + offset;
+        _lookRot = Quaternion.AngleAxis(ZAngle, Vector3.forward);
+
+        if (turn_speed == 0)
+        {
+            transform.rotation = _lookRot;
+        }
+        else
+        {
+            transform.rotation =
+         Quaternion.Slerp(transform.rotation, _lookRot, Time.deltaTime * turn_speed);
+        }
+    }
+    private Quaternion bloodDir;
+
 
     private void Death()
     {
@@ -300,6 +322,8 @@ public class ratBehavior : MonoBehaviour
     private float moveHorizontal;
 
     private GameObject clone;
+
+    public GameObject bloodSplatter;
 
     public GameObject HealOrb;
 

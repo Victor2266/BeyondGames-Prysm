@@ -42,7 +42,7 @@ public class EnemyProjectileController : MonoBehaviour
             collision.gameObject.GetComponent<MobGeneric>().SendMessage("TakeDamage", DMG);
             Burst();
         }
-        if (Bouncy == false && collision.gameObject.tag == "Untagged")
+        if (Bouncy == false && collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground")
         {
             Burst();
         }

@@ -36,6 +36,7 @@ TagManager:
   - GameManager
   - SceneManager
   - enemyProj
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -47,7 +48,7 @@ TagManager:
   - 
   - parallax
   - Weapon
-  - 
+  - Ground
   - 
   - 
   - 
