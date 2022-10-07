@@ -33200,6 +33200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1736637759948417542, guid: a1a6d38e545ae0542861b07765d3f741,
         type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736637759948417542, guid: a1a6d38e545ae0542861b07765d3f741,
+        type: 3}
       propertyPath: ExternalForcesModule.influenceFilter
       value: 1
       objectReference: {fileID: 0}
