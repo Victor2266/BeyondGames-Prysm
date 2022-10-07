@@ -18,7 +18,7 @@ MonoBehaviour:
   iconSize: 0.95
   isDefaultItem: 0
   WeaponType: 1
-  desc: 
+  desc: 'Big sword. Heavy sword. '
   equipSlot: 0
   color: {r: 0.16905482, g: 0.2735849, b: 0.19579506, a: 1}
   ReachLength: 2

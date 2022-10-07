@@ -19,7 +19,7 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 2
   desc: A magic grimoire containing a spell which projects a green cube of energy.
-    It also seems to enhance jumping capabilities.
+    Can be used to enhance jumping capabilities.
   equipSlot: 5
   color: {r: 0, g: 1, b: 0, a: 1}
   SpellPrefab: {fileID: 1346022673198726, guid: 68e18870fc4151a446e6738563237644,

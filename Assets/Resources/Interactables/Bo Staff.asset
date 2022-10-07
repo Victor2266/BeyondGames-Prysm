@@ -18,7 +18,8 @@ MonoBehaviour:
   iconSize: 0.8
   isDefaultItem: 0
   WeaponType: 1
-  desc: 
+  desc: A longer ranged weapon. But it doesn't do that much damage ... and it looks
+    suspiciously like a clothing rack.
   equipSlot: 0
   color: {r: 0.3207547, g: 0.18010415, b: 0, a: 1}
   ReachLength: 2
