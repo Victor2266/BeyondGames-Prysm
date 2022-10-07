@@ -53,6 +53,7 @@ public class projectileController : damageController
 
         if (collision.gameObject.tag == "enemy")
         {
+            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             collision.gameObject.SendMessage("TakeDamage", DMG);
             BurstIfPrimed();
             ShowDMGText(DMG, DMGTextSize);
@@ -60,12 +61,15 @@ public class projectileController : damageController
 
         if (collision.gameObject.tag == "boss")
         {
+            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             collision.gameObject.SendMessage("TakeDamage", DMG / 2f);
             BurstIfPrimed();
             ShowDMGText((DMG / 2), DMGTextSize);
         }
         if (collision.gameObject.tag == "CritBox")
         {
+
+            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             collision.gameObject.SendMessage("TakeDamage", DMG * 2);
             BurstIfPrimed();
             ShowDMGText((DMG * 2), DMGTextSize * 2);
