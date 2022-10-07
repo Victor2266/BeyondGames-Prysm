@@ -255,6 +255,7 @@ public class ratBehavior : MonoBehaviour
         healthBar.UpdateHealthBar(health, 50f);
         Jump();
         Instantiate(bloodSplatter, collisionPosition, Quaternion.identity);
+        //bloodSplatter.GetComponent<ParticleSystem>().emission.GetBurst(0).count = (int)amount;
         if (health <= 0f && !isDead)
         {
             Death();
@@ -265,23 +266,15 @@ public class ratBehavior : MonoBehaviour
     {
         collisionPosition = pos;
         bloodDir = transform.position - new Vector3(pos.x, pos.x, 0f);
-
-                    dir = lookAtThis.position - transform.position;
-        ZAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + offset;
+        ZAngle = Mathf.Atan2(bloodDir.y, bloodDir.x) * Mathf.Rad2Deg + bloodOffset;
         _lookRot = Quaternion.AngleAxis(ZAngle, Vector3.forward);
-
-        if (turn_speed == 0)
-        {
-            transform.rotation = _lookRot;
-        }
-        else
-        {
-            transform.rotation =
-         Quaternion.Slerp(transform.rotation, _lookRot, Time.deltaTime * turn_speed);
-        }
+        transform.rotation = _lookRot;
+        
     }
-    private Quaternion bloodDir;
-
+    private Vector3 bloodDir;
+    public float bloodOffset;
+    private float ZAngle;
+    private Quaternion _lookRot;
 
     private void Death()
     {
