@@ -255,7 +255,7 @@ public class ratBehavior : MonoBehaviour
         healthBar.UpdateHealthBar(health, 50f);
         Jump();
         Instantiate(bloodSplatter, collisionPosition, Quaternion.identity);
-        //bloodSplatter.GetComponent<ParticleSystem>().emission.GetBurst(0).count = (int)amount;
+        bloodSplatter.GetComponent<ParticleSystem>().Emit((int)amount);
         if (health <= 0f && !isDead)
         {
             Death();
