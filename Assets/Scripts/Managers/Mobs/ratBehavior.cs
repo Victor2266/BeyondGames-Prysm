@@ -25,12 +25,12 @@ public class ratBehavior : MonoBehaviour
         {
             if (!LookingLeft)
             {
-                base.transform.localScale = new Vector3(-1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                base.transform.localScale = new Vector3(-1f * size, size, base.transform.localScale.z);
                 healthBar.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
             else if (LookingLeft)
             {
-                base.transform.localScale = new Vector3(1f * size, base.transform.localScale.y, base.transform.localScale.z);
+                base.transform.localScale = new Vector3(1f * size, size, base.transform.localScale.z);
                 healthBar.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             }
             if ( Mathf.Abs(rb2d.velocity.x) < speed)
@@ -182,7 +182,7 @@ public class ratBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !isDead)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f, rb2d.velocity.y * 2f);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, rb2d.velocity.y * 2f);
             player.SendMessage("TakeDamage", 10);
 
             TouchingPlayer = true;
@@ -225,7 +225,7 @@ public class ratBehavior : MonoBehaviour
     private bool IsTouchingLeftWall()
     {
         Vector2 origin = base.transform.position;
-        origin.x -= 0.35f;
+        origin.x -= 0.35f *size;
 
         //Debug.DrawRay(origin, new Vector3(-0.1f, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(-0.01f, 0f, 0f), hit2);
@@ -233,12 +233,12 @@ public class ratBehavior : MonoBehaviour
         {
             return false;
         }*/
-            return Physics2D.Raycast(origin, Vector2.left, 0.01f);
+            return Physics2D.Raycast(origin, Vector2.left, 0.01f * size);
     }
     private bool IsTouchingRightWall()
     {
         Vector2 origin = base.transform.position;
-        origin.x += 0.35f;
+        origin.x += 0.35f *size;
 
         //Debug.DrawRay(origin, new Vector3(0.1f, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(0.01f, 0f, 0f), hit2);
@@ -246,7 +246,7 @@ public class ratBehavior : MonoBehaviour
         {
             return false;
         }*/
-        return Physics2D.Raycast(origin, Vector2.right, 0.01f);
+        return Physics2D.Raycast(origin, Vector2.right, 0.01f * size);
     }
     public void TakeDamage(float amount)
     {
