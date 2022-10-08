@@ -10,7 +10,6 @@ public class Boss1AI : MonoBehaviour
 
     public GameObject explosion;
     public GameObject bossBodyparts;
-    public GameObject bossBlood;
 
     private bool ChangedToRed = false;
     public bool openingJaws = false;
@@ -233,23 +232,9 @@ public class Boss1AI : MonoBehaviour
         healthBar.UpdateHealthBar(healthObj.health, 350f);
         GetComponent<AudioSource>().Play();
 
-        Instantiate(bossBlood, collisionPosition, Quaternion.identity);
-        bossBlood.GetComponent<ParticleSystem>().Emit((int)amount / 3);//amount of splatter particles
+        GetComponent<BloodSplatterer>().Spray((int)amount/3);
     }
-    private Vector3 collisionPosition;
-    public void SetCollision(Vector2 pos)//setting up position and direction of blood splatter
-    {
-        collisionPosition = pos;
-        bloodDir = transform.position - new Vector3(pos.x, pos.x, 0f);
-        ZAngle = Mathf.Atan2(bloodDir.y, bloodDir.x) * Mathf.Rad2Deg + bloodOffset;
-        _lookRot = Quaternion.AngleAxis(ZAngle, Vector3.forward);
-        transform.rotation = _lookRot;
 
-    }
-    private Vector3 bloodDir;
-    public float bloodOffset;
-    private float ZAngle;
-    private Quaternion _lookRot;
 
     private void Death()
     {

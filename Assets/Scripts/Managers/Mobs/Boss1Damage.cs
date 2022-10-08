@@ -17,7 +17,7 @@ public class Boss1Damage : MonoBehaviour
 
         healthBar.UpdateHealthBar(bossHealth.health, 350f);
 
-        Instantiate<GameObject>(boss.GetComponent<Boss1AI>().bossBlood, base.transform.position, base.transform.rotation);
+        GetComponent<BloodSplatterer>().Spray((int)amount / 3);
     }
 
     public HealthBar healthBar;
