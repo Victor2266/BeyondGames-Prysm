@@ -99,14 +99,14 @@ public class ratBehavior : MonoBehaviour
         if (IsTouchingLeftWall() && TouchingPlayer == false)
         {
             LookingLeft = false;
-            StartCoroutine(BackUp(0.1f * speed, 1f * speed));
+            StartCoroutine(BackUp(0.5f * speed, 1f * speed));
         }
         
     
         else if (IsTouchingRightWall() && TouchingPlayer == false)
         {
             LookingLeft = true;
-            StartCoroutine(BackUp(0.1f * speed, -1f * speed));
+            StartCoroutine(BackUp(0.5f * speed, -1f * speed));
         }
         
     }
