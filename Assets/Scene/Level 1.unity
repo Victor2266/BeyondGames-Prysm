@@ -6919,6 +6919,7 @@ GameObject:
   - component: {fileID: 195554254}
   - component: {fileID: 195554253}
   - component: {fileID: 195554252}
+  - component: {fileID: 195554257}
   m_Layer: 2
   m_Name: BossCritBox
   m_TagString: CritBox
@@ -7062,6 +7063,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &195554257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195554250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: 89d5c6b9104908648bd58babefe525bc,
+    type: 3}
+  bloodOffset: 180
 --- !u!1 &199814314
 GameObject:
   m_ObjectHideFlags: 0
@@ -8506,7 +8522,17 @@ PrefabInstance:
     - target: {fileID: 58719860916072455, guid: 76602b9e4494d6af42e0a18b97f38dbc,
         type: 3}
       propertyPath: m_Radius
-      value: 45
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821031185698447, guid: 76602b9e4494d6af42e0a18b97f38dbc,
+        type: 3}
+      propertyPath: size
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821031185698447, guid: 76602b9e4494d6af42e0a18b97f38dbc,
+        type: 3}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114821031185698447, guid: 76602b9e4494d6af42e0a18b97f38dbc,
         type: 3}
@@ -8514,6 +8540,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1736637759948417562, guid: a91b13e57ab0309478b43c0a1d724440,
         type: 3}
+    - target: {fileID: 114821031185698447, guid: 76602b9e4494d6af42e0a18b97f38dbc,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114821031185698447, guid: 76602b9e4494d6af42e0a18b97f38dbc,
         type: 3}
       propertyPath: exclaimMark
@@ -25841,7 +25872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &474919567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31294,7 +31325,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 12}
+  m_Size: {x: 75, y: 25}
   m_EdgeRadius: 0
 --- !u!1 &517355938
 GameObject:
@@ -61684,7 +61715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e53cef2080f8c6428f60ff75de16b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStains: 200
+  MaxStains: 512
   currentStains: 0
 --- !u!1 &1116626195
 GameObject:
@@ -62096,6 +62127,7 @@ GameObject:
   - component: {fileID: 1125658770}
   - component: {fileID: 1125658769}
   - component: {fileID: 1125658768}
+  - component: {fileID: 1125658777}
   m_Layer: 2
   m_Name: Boss1
   m_TagString: boss
@@ -62290,6 +62322,8 @@ MonoBehaviour:
   LaserLight: {fileID: 1104932349}
   topCount: 0
   levelManager: {fileID: 1108805586}
+  audioSource: {fileID: 1125658768}
+  BSplat: {fileID: 1125658777}
   velo: {x: 2, y: 2}
   BossRoomRange: {fileID: 0}
   player: {fileID: 1805261697}
@@ -62401,6 +62435,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1125658777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125658767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: 89d5c6b9104908648bd58babefe525bc,
+    type: 3}
+  bloodOffset: 180
 --- !u!1 &1135666162
 GameObject:
   m_ObjectHideFlags: 0
@@ -86123,7 +86172,12 @@ PrefabInstance:
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 6
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
@@ -117018,7 +117072,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 819
+      m_Bits: 1536
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

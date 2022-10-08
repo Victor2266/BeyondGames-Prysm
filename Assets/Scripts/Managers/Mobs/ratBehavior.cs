@@ -99,14 +99,14 @@ public class ratBehavior : MonoBehaviour
         if (IsTouchingLeftWall() && TouchingPlayer == false)
         {
             LookingLeft = false;
-            StartCoroutine(BackUp(0.5f * speed, 1f * speed));
+            StartCoroutine(BackUp(0.1f * speed, 2f * speed));
         }
         
     
         else if (IsTouchingRightWall() && TouchingPlayer == false)
         {
             LookingLeft = true;
-            StartCoroutine(BackUp(0.5f * speed, -1f * speed));
+            StartCoroutine(BackUp(0.1f * speed, -2f * speed));
         }
         
     }
@@ -198,8 +198,13 @@ public class ratBehavior : MonoBehaviour
     }
     private IEnumerator BackUp(float delay, float moveHorizontalval)
     {
+        yield return new WaitForSeconds(0.01f);//hit the player before backing up
         moveHorizontal = moveHorizontalval;
-        yield return new WaitForSeconds(delay);
+        rb2d.velocity = new Vector2(moveHorizontal, rb2d.velocity.y);
+        yield return new WaitForSeconds(delay);//backing up
+        moveHorizontal = -moveHorizontalval/2f;
+        rb2d.velocity = new Vector2(moveHorizontal, rb2d.velocity.y);
+        yield return new WaitForSeconds(0.05f);//runnign forwards then jump
         Jump();
     }
     private void Jump()
