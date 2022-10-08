@@ -96,14 +96,14 @@ public class ratBehavior : MonoBehaviour
             base.StartCoroutine(FreezeInPlace());
         }
         
-        if (IsTouchingLeftWall() && TouchingPlayer == false)
+        if (IsTouchingLeftWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = false;
             StartCoroutine(BackUp(0.1f * speed, 2f * speed));
         }
         
     
-        else if (IsTouchingRightWall() && TouchingPlayer == false)
+        else if (IsTouchingRightWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = true;
             StartCoroutine(BackUp(0.1f * speed, -2f * speed));
