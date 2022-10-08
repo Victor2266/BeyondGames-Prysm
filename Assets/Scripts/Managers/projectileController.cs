@@ -81,7 +81,7 @@ public class projectileController : damageController
             ShowDMGText(DMG, DMGTextSize);
         }
 
-        if (Bouncy == false && collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground")
+        if (Bouncy == false && (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground"))
         {
             BurstIfPrimed();
         }

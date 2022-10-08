@@ -44,7 +44,7 @@ public class BloodTouchesGround : MonoBehaviour
 
         while(i < numCollisionEvents)
         {
-            Vector3 pos = new Vector3 (collisionEvents[i].intersection.x, collisionEvents[i].intersection.y, -1f);
+            Vector3 pos = new Vector3 (collisionEvents[i].intersection.x, collisionEvents[i].intersection.y, -0.01f);
             Vector3 velocity = collisionEvents[i].velocity;
 
             if(velocity.magnitude > 0.2f)
@@ -63,7 +63,7 @@ public class BloodTouchesGround : MonoBehaviour
                 {
                     soundsPlayed += 1;
                     audioSource.pitch = Random.Range(0.9f, 1.1f);
-                    audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)], Random.Range(0.1f, 0.5f));
+                    audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)], Random.Range(0.1f, 0.3f));
                 }
             }
 

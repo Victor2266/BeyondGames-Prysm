@@ -3631,7 +3631,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3684,7 +3684,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3737,7 +3737,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4925,8 +4925,11 @@ MonoBehaviour:
   part: {fileID: 0}
   stain:
   - {fileID: 5114960050747064306, guid: 68889afb51526d44db422c8301cc8104, type: 3}
+  - {fileID: 5114960050747064306, guid: 75ba7523a1f145b43b0f26b4c6cd9fb8, type: 3}
   SoundCapResetSpeed: 0.2
   MaxSounds: 4
   audioSource: {fileID: 123433217}
   sounds:
-  - {fileID: 8300000, guid: d073e8e23b7e5884f9fe709c722ff890, type: 3}
+  - {fileID: 8300000, guid: e896e40e32407f042947be768efc0e57, type: 3}
+  - {fileID: 8300000, guid: 8f7706463829c114d95d55bf9360fec6, type: 3}
+  - {fileID: 8300000, guid: 0df8240b16131fd4380dfb34fa770f22, type: 3}

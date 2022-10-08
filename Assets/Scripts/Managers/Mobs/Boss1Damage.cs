@@ -17,7 +17,7 @@ public class Boss1Damage : MonoBehaviour
 
         healthBar.UpdateHealthBar(bossHealth.health, 350f);
 
-        GetComponent<BloodSplatterer>().Spray((int)amount / 3);
+        GetComponent<BloodSplatterer>().Spray((int)amount *2);
     }
 
     public HealthBar healthBar;

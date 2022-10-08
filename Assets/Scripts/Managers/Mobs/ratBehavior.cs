@@ -4,6 +4,45 @@ using UnityEngine;
 
 public class ratBehavior : MonoBehaviour
 {
+    public HealthBar healthBar;
+
+    public float speed;
+
+    public float jumpForce;
+
+    public float health;
+
+    public GameObject player;
+
+    private Rigidbody2D rb2d;
+
+    public GameObject spear = null;
+
+    private Animator anim;
+
+    public bool LookingLeft;
+
+    public bool isDead;
+
+    private float moveHorizontal;
+
+    private GameObject clone;
+
+    public GameObject HealOrb;
+
+    private RaycastHit2D[] hit = new RaycastHit2D[2];
+
+    private Vector3 rayDirection;
+
+    private bool TouchingPlayer;
+
+    private RaycastHit2D[] hit2 = new RaycastHit2D[2];
+
+    public float size;
+
+    public GameObject exclaimMark;
+
+    public BloodSplatterer BSplat;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -60,14 +99,14 @@ public class ratBehavior : MonoBehaviour
         if (IsTouchingLeftWall() && TouchingPlayer == false)
         {
             LookingLeft = false;
-            StartCoroutine(BackUp(0.1f, 1f * speed));
+            StartCoroutine(BackUp(0.1f * speed, 1f * speed));
         }
         
     
         else if (IsTouchingRightWall() && TouchingPlayer == false)
         {
             LookingLeft = true;
-            StartCoroutine(BackUp(0.1f, -1f * speed));
+            StartCoroutine(BackUp(0.1f * speed, -1f * speed));
         }
         
     }
@@ -159,8 +198,8 @@ public class ratBehavior : MonoBehaviour
     }
     private IEnumerator BackUp(float delay, float moveHorizontalval)
     {
-        yield return new WaitForSeconds(delay);
         moveHorizontal = moveHorizontalval;
+        yield return new WaitForSeconds(delay);
         Jump();
     }
     private void Jump()
@@ -255,7 +294,7 @@ public class ratBehavior : MonoBehaviour
         healthBar.UpdateHealthBar(health, 50f);
         Jump();
 
-        GetComponent<BloodSplatterer>().Spray((int) amount/3);
+        BSplat.Spray((int) amount/3);
         if (health <= 0f && !isDead)
         {
             Death();
@@ -278,43 +317,5 @@ public class ratBehavior : MonoBehaviour
         //Destroy(healthBar.gameObject);
     }
 
-    public HealthBar healthBar;
 
-    public float speed;
-
-    public float jumpForce;
-
-    public float health;
-
-    public GameObject player;
-
-    private Rigidbody2D rb2d;
-
-    public GameObject spear = null;
-
-    private Animator anim;
-
-    public bool LookingLeft;
-
-    public bool isDead;
-
-    private float moveHorizontal;
-
-    private GameObject clone;
-
-    public GameObject bloodSplatter;
-
-    public GameObject HealOrb;
-
-    private RaycastHit2D[] hit = new RaycastHit2D[2];
-
-    private Vector3 rayDirection;
-
-    private bool TouchingPlayer;
-
-    private RaycastHit2D[] hit2 = new RaycastHit2D[2];
-
-    public float size;
-
-    public GameObject exclaimMark;
 }

@@ -4,6 +4,51 @@ using UnityEngine;
 
 public class Level1MiniBossModifiedGoblin : MonoBehaviour
 {
+    public HealthBar healthBar;
+
+    public float speed;
+
+    public float jumpForce;
+
+    public float health;
+
+    public GameObject player;
+
+    private Rigidbody2D rb2d;
+
+    public GameObject spear = null;
+
+    public GameObject cape;
+
+    private Animator anim;
+
+    public bool LookingLeft;
+
+    public bool isDead;
+
+    private float moveHorizontal;
+
+    private GameObject clone;
+
+    public GameObject HealOrb;//being used to drop book
+
+    public GameObject spearDrop;
+
+    public GameObject Soul;
+
+    private RaycastHit2D[] hit = new RaycastHit2D[2];
+
+    private Vector3 rayDirection;
+
+    private bool TouchingPlayer;
+
+    private RaycastHit2D[] hit2 = new RaycastHit2D[2];
+
+    public float size;
+
+    public bool aggression;
+
+    public BloodSplatterer BSplat;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -261,7 +306,7 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
         {
             health -= amount;
             anim.SetTrigger("hurt");
-
+            BSplat.Spray(amount);
             healthBar.UpdateHealthBar(health, 100f);
             Jump();
 
@@ -293,47 +338,5 @@ public class Level1MiniBossModifiedGoblin : MonoBehaviour
 
         healthBar.gameObject.SetActive(false);
     }
-    public HealthBar healthBar;
 
-    public float speed;
-
-    public float jumpForce;
-
-    public float health;
-
-    public GameObject player;
-
-    private Rigidbody2D rb2d;
-
-    public GameObject spear = null;
-
-    public GameObject cape;
-
-    private Animator anim;
-
-    public bool LookingLeft;
-
-    public bool isDead;
-
-    private float moveHorizontal;
-
-    private GameObject clone;
-
-    public GameObject HealOrb;//being used to drop book
-
-    public GameObject spearDrop; 
-
-    public GameObject Soul;
-
-    private RaycastHit2D[] hit = new RaycastHit2D[2];
-
-    private Vector3 rayDirection;
-
-    private bool TouchingPlayer;
-
-    private RaycastHit2D[] hit2 = new RaycastHit2D[2];
-
-    public float size;
-
-    public bool aggression;
 }

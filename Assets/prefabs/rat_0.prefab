@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 70781354778440317}
   - component: {fileID: 95121925163851258}
   - component: {fileID: 58632906388712808}
+  - component: {fileID: 8001471033622738636}
   m_Layer: 0
   m_Name: rat_0
   m_TagString: enemy
@@ -494,6 +495,7 @@ MonoBehaviour:
   size: 1
   exclaimMark: {fileID: 5225875635266693844, guid: 1de7c56cfbbdb134793b28056f501d06,
     type: 3}
+  BSplat: {fileID: 8001471033622738636}
 --- !u!58 &58719860916072455
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -561,6 +563,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.9
+--- !u!114 &8001471033622738636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654472680000148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: 0c4997826b75d794e99d2c018581cbc1,
+    type: 3}
+  bloodOffset: 180
 --- !u!1 &1682050444007961
 GameObject:
   m_ObjectHideFlags: 0

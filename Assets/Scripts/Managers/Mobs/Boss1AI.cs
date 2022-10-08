@@ -230,11 +230,12 @@ public class Boss1AI : MonoBehaviour
         }
         healthObj.health -= amount;
         healthBar.UpdateHealthBar(healthObj.health, 350f);
-        GetComponent<AudioSource>().Play();
+        audioSource.Play();
 
-        GetComponent<BloodSplatterer>().Spray((int)amount/3);
+        BSplat.Spray((int)amount/3);
     }
-
+    public AudioSource audioSource;
+    public BloodSplatterer BSplat;
 
     private void Death()
     {
