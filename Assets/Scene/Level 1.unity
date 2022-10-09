@@ -7075,7 +7075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSpray: {fileID: 3730447902578487952, guid: 89d5c6b9104908648bd58babefe525bc,
+  bloodSpray: {fileID: 3730447902578487952, guid: 0c4997826b75d794e99d2c018581cbc1,
     type: 3}
   bloodOffset: 180
 --- !u!1 &199814314
@@ -62144,8 +62144,7 @@ AudioSource:
   m_GameObject: {fileID: 1125658767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 957862d914fab1345a0631274e5e28a1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

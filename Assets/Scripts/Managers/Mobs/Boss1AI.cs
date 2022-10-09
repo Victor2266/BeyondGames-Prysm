@@ -232,7 +232,7 @@ public class Boss1AI : MonoBehaviour
         healthBar.UpdateHealthBar(healthObj.health, 350f);
         audioSource.Play();
 
-        BSplat.Spray((int)amount/3);
+        BSplat.Spray((int)amount/2);
     }
     public AudioSource audioSource;
     public BloodSplatterer BSplat;

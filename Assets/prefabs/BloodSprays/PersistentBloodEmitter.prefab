@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 123433217}
   - component: {fileID: 123433213}
   m_Layer: 0
-  m_Name: PersistentBloodEmitter 1
+  m_Name: PersistentBloodEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3730447902578487952}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.268629, y: 0.06545262, z: -3.4538157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -224,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.10617697, g: 1, b: 0, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -662,7 +662,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 45
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4924,8 +4924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   part: {fileID: 0}
   stain:
-  - {fileID: 5114960050747064306, guid: cb1585faf3314a241a7c48eb0ab8f44d, type: 3}
-  - {fileID: 5114960050747064306, guid: a3c848c879925904fb61330040af6a24, type: 3}
+  - {fileID: 5114960050747064306, guid: 68889afb51526d44db422c8301cc8104, type: 3}
+  - {fileID: 5114960050747064306, guid: 75ba7523a1f145b43b0f26b4c6cd9fb8, type: 3}
+  - {fileID: 5114960050747064306, guid: 6317e65b8d50c4947982a1768871c3a6, type: 3}
   SoundCapResetSpeed: 0.2
   MaxSounds: 4
   audioSource: {fileID: 123433217}
