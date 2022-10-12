@@ -26,11 +26,19 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
-		inventory = Inventory.instance;
-		inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
+		if(Inventory.instance != null)
+        {
+			inventory = Inventory.instance;
+			inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
+		}
 	}
     void Start()
 	{
+		if (Inventory.instance != null)
+		{
+			inventory = Inventory.instance;
+			inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
+		}
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();

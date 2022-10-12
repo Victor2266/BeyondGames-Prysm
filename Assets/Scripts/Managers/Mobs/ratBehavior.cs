@@ -228,7 +228,7 @@ public class ratBehavior : MonoBehaviour
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, rb2d.velocity.y * 2f);
 
-            player.SendMessage("TakeDamage", 10);
+            player.SendMessage("TakeDamage", 15);
             TouchingPlayer = true;
             if (LookingLeft == false)
             {
