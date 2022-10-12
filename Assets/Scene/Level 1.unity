@@ -709,11 +709,27 @@ MonoBehaviour:
   HealOrb: {fileID: 0}
   distance: 1
   redEye: {fileID: 1538233118}
+  BSplat: {fileID: 75717782}
   DMGText: {fileID: 5225875635266693844, guid: 9d8c454d75982594fb8219862dd24e4b, type: 3}
   hurtSayings:
   - OUCH
   - STOP THAT
   - OW
+--- !u!114 &75717782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75717773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: e9327783f0d399e4fa836b3feb4dc131,
+    type: 3}
+  bloodOffset: 180
 --- !u!1 &79177969
 GameObject:
   m_ObjectHideFlags: 0

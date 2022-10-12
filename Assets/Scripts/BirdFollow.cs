@@ -36,6 +36,7 @@ public class BirdFollow : MonoBehaviour
 
     public Transform redEye;
 
+    public BloodSplatterer BSplat;
     private void Start()
     {
         isDead = false;
@@ -97,6 +98,8 @@ public class BirdFollow : MonoBehaviour
         anim.SetTrigger("hurt");
         //show ouch text
         ShowDMGText();
+
+        BSplat.Spray((int)amount / 3);
     }
 
     public GameObject DMGText;

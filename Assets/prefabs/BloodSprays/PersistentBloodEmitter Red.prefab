@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 123433217}
   - component: {fileID: 123433213}
   m_Layer: 0
-  m_Name: PersistentBloodEmitter
+  m_Name: PersistentBloodEmitter Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
