@@ -227,8 +227,8 @@ public class ratBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !isDead)
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, rb2d.velocity.y * 2f);
-            player.SendMessage("TakeDamage", 10);
 
+            player.SendMessage("TakeDamage", 10);
             TouchingPlayer = true;
             if (LookingLeft == false)
             {
