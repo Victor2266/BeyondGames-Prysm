@@ -26,6 +26,10 @@ public class OpeningScene : DialogTrigger
     private float velo2;
 
     private float velo3;
+    private float audioVelo;
+    public AudioSource audioSource;
+    public AudioClip LoyaltySong;
+    private bool playedLoyalty = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +74,13 @@ public class OpeningScene : DialogTrigger
             SkipButton.interactable = false;
             StartCoroutine(DelaySentence(5f));
             notTriggeredYet = false;
+
         }
+        if (DialogManager.instance.index == 15)
+        {
+            audioSource.volume = Mathf.SmoothDamp(audioSource.volume, 0f, ref audioVelo, 1f);  //change 0.01f to something else to adjust the rate of the volume dropping
+        }
+        
         if (DialogManager.instance.index == 16)//element 15
         {
             notTriggeredYet = true;
@@ -80,6 +90,15 @@ public class OpeningScene : DialogTrigger
             FadeToBlack.SetActive(false);
             DESKTOP.SetActive(false);
             fallingParticles.SetActive(true);
+
+            if (!playedLoyalty)
+            {
+                audioSource.volume = 1f;
+                audioSource.clip = LoyaltySong;
+                audioSource.Play();
+                playedLoyalty = true;
+            }
+
         }
         if (DialogManager.instance.index == 17 && notTriggeredYet)
         {
@@ -91,6 +110,7 @@ public class OpeningScene : DialogTrigger
             NextButton.interactable = false;
             SkipButton.interactable = false;
 
+
             StartCoroutine(DelaySentence(15f));
             //shrink flying particles
 
@@ -99,6 +119,7 @@ public class OpeningScene : DialogTrigger
         {
             FlyingUpWhiteLines.startLifetime = Mathf.SmoothDamp(FlyingUpWhiteLines.startLifetime, 0f, ref velo, 5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
             FlyingUpWhiteLines.startSize = Mathf.SmoothDamp(FlyingUpWhiteLines.startSize, 0f, ref velo2, 5f);//Start Lifetime go from 1 to 5, start size go from 0.02 to 0.05
+            
         }
         if (DialogManager.instance.index == 18)
         {
@@ -127,4 +148,5 @@ public class OpeningScene : DialogTrigger
         }
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, targetPosition, ref velocity, smoothTime);
     }
+
 }
