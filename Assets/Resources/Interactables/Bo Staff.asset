@@ -22,7 +22,7 @@ MonoBehaviour:
     suspiciously like a clothing rack.
   equipSlot: 0
   color: {r: 0.3207547, g: 0.18010415, b: 0, a: 1}
-  ReachLength: 2
+  ReachLength: 1.7
   DMG_Scaling: 1.5
   MaxDamage: 30
   MinDamage: 5
