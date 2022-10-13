@@ -45,6 +45,7 @@ public class WeaponUI : MonoBehaviour
     public bool DoneScaling;
     public float cooldowntime;
 
+    private bool unequipAll = false;
     [SerializeField]
     private int xAdjustment;
     /*
@@ -80,6 +81,7 @@ public class WeaponUI : MonoBehaviour
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
+        unequipAll = false;
         if (newItem == null)
         {
             if (oldItem.equipSlot == EquipmentSlot.melee)
@@ -131,13 +133,23 @@ public class WeaponUI : MonoBehaviour
                 {
                     playerScript.weapon++;
                 }
-                if (playerScript.weapon == 7)
+                if (playerScript.weapon == 7)//nothing is equipped because we checked every slot
                 {
-                    TruePosition = 50;
+                    playerScript.weapon = -1;
+                    unequipAll = true;
                 }
             }
-            autoChangeWeapons(playerScript.weapon);
-            playerManager.SetWeap();
+            if (!unequipAll)
+            {
+                autoChangeWeapons(playerScript.weapon);
+                playerManager.SetWeap();
+            }
+            else
+            {
+                autoChangeWeapons(15);
+                playerManager.SetWeap();
+            }
+            
         }
         else if(newItem.equipSlot == EquipmentSlot.melee)
         {
@@ -245,64 +257,67 @@ public class WeaponUI : MonoBehaviour
         }
 
 
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0.09f) // forward
+        if (!unequipAll)
         {
-            if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
+            if (Input.GetAxis("Mouse ScrollWheel") > 0.09f) // forward
             {
-                playerScript.weapon--;
-            }
-            
-
-            if (playerScript.weapon > -2 && playerScript.weapon <= 7)
-            {
-                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
+                if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
                 {
                     playerScript.weapon--;
-                    
                 }
-                if (playerScript.weapon == -1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[-1]
+
+
+                if (playerScript.weapon > -2 && playerScript.weapon <= 7)
                 {
-                    playerScript.weapon = 7;
                     while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
                     {
                         playerScript.weapon--;
 
                     }
+                    if (playerScript.weapon == -1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[-1]
+                    {
+                        playerScript.weapon = 7;
+                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
+                        {
+                            playerScript.weapon--;
+
+                        }
+                    }
+
+                    autoChangeWeapons(playerScript.weapon);
+                    playerManager.SetWeap();
                 }
-
-                autoChangeWeapons(playerScript.weapon);
-                playerManager.SetWeap();
             }
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < -0.09f) // backwards
-        {
-            if (playerScript.weapon > -2 && playerScript.weapon < 7)//from weapons [-1 0 123456]7
+            else if (Input.GetAxis("Mouse ScrollWheel") < -0.09f) // backwards
             {
-                playerScript.weapon++;
-            }
-            
-
-            if (playerScript.weapon > -2 && playerScript.weapon <= 7)
-            {
-                while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+                if (playerScript.weapon > -2 && playerScript.weapon < 7)//from weapons [-1 0 123456]7
                 {
                     playerScript.weapon++;
-                    
                 }
-                if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
+
+
+                if (playerScript.weapon > -2 && playerScript.weapon <= 7)
                 {
-                    playerScript.weapon = -1;
                     while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
                     {
                         playerScript.weapon++;
 
                     }
+                    if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
+                    {
+                        playerScript.weapon = -1;
+                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+                        {
+                            playerScript.weapon++;
+
+                        }
+                    }
+                    autoChangeWeapons(playerScript.weapon);
+                    playerManager.SetWeap();
                 }
-                autoChangeWeapons(playerScript.weapon);
-                playerManager.SetWeap();
             }
         }
+        
 
 
         if (playerScript.weapon > 7)
@@ -336,7 +351,13 @@ public class WeaponUI : MonoBehaviour
 
     public void autoChangeWeapons(int weaponNumber)
     {
-        if (EquipmentManager.instance.getWeaponType(weaponNumber) == InventoryUI.WeaponTypes.Weapons)//change weapons
+        if(weaponNumber == 15)//15 means nothing is equipped
+        {
+            playerScript.weapon = -1;//setting this to -1 so no magic is used
+            ChangeWeapons(-1, 50, Color.black, false);
+        }
+
+        else if (EquipmentManager.instance.getWeaponType(weaponNumber) == InventoryUI.WeaponTypes.Weapons)//change weapons
         {
             ChangeWeapons(weaponNumber, Mathf.Abs(7 - weaponNumber) * -30, EquipmentManager.instance.getColor(weaponNumber), true);
         }
@@ -366,7 +387,7 @@ public class WeaponUI : MonoBehaviour
             CurrentColor = col;
             playerScript.ChargeIndicator.GetComponent<ParticleSystem>().startColor = col;
       
-            handheld_weapon.onHeldInHand.Invoke(true);
+            handheld_weapon.onHeldInHand.Invoke(inHand);
             playerManager.SetWeap();
         }
     }

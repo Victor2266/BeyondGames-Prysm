@@ -9,8 +9,6 @@ public class BloodTouchesGround : MonoBehaviour
 
     public GameObject[] stain;
 
-
-
     private float TimePassed;
     private int soundsPlayed;
     public float SoundCapResetSpeed;

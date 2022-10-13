@@ -99,6 +99,9 @@ public class WeaponController : damageController
             whiteArrow.SetActive(true);
             OrbPosition.smoothTimeX = 0.05f;
             OrbPosition.smoothTimeY = 0.05f;
+            OrbPosition.offsetX = 0f;
+            OrbPosition.offsetY = 0.03f;
+            DamageCounter.text = "";
             Destroy(Trail);
         }
         else

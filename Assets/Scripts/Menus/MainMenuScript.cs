@@ -18,8 +18,6 @@ public class MainMenuScript : MonoBehaviour
     public GameObject SingleplayerMenu;
     public GameObject MultiplayerMenu;
 
-    public GameObject MainMenuWarning;
-
     private int depth;
 
     private Vector2 velocity;
@@ -147,13 +145,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void QuitGame()
     {
-        if (MainMenuWarning.activeSelf == false)
-        {
-            MainMenuWarning.SetActive(true);
-        }
-        else if (MainMenuWarning.activeSelf == true)
-        {
-            Application.Quit();
-        }
+         Application.Quit();
+        
     }
 }

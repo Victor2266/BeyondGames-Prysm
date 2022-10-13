@@ -709,11 +709,27 @@ MonoBehaviour:
   HealOrb: {fileID: 0}
   distance: 1
   redEye: {fileID: 1538233118}
+  BSplat: {fileID: 75717782}
   DMGText: {fileID: 5225875635266693844, guid: 9d8c454d75982594fb8219862dd24e4b, type: 3}
   hurtSayings:
   - OUCH
   - STOP THAT
   - OW
+--- !u!114 &75717782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75717773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: e9327783f0d399e4fa836b3feb4dc131,
+    type: 3}
+  bloodOffset: 180
 --- !u!1 &79177969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6294,7 +6310,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6aea218d4a0eae74f9f84fe7c4dc2bba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -8471,6 +8487,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 432146316}
     m_Modifications:
+    - target: {fileID: 11432823, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432823, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432823, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432823, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 591403065, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591403065, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591403065, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 591403065, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248308932, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248308932, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248308932, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248308932, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1654472680000148, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
       propertyPath: m_Name
       value: rat_0 (5)
@@ -8478,6 +8542,14 @@ PrefabInstance:
     - target: {fileID: 4094905547290014, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094905547290014, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094905547290014, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4094905547290014, guid: 76602b9e4494d6af42e0a18b97f38dbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14160,10 +14232,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a8b12b4695e851244a3ef67f4f2f14f5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6aea218d4a0eae74f9f84fe7c4dc2bba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -36643,7 +36715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553517187}
   m_LocalRotation: {x: 0, y: 0, z: -0.038475025, w: 0.99925965}
-  m_LocalPosition: {x: 2.348, y: 5.56, z: 0.1}
+  m_LocalPosition: {x: 2.348, y: 5.45, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53060,7 +53132,7 @@ PrefabInstance:
     - target: {fileID: 5177853483473469145, guid: 7af26d3623a3a0d45abdcf1d5d742fda,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5177853483473469145, guid: 7af26d3623a3a0d45abdcf1d5d742fda,
         type: 3}
@@ -61663,7 +61735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1108805586
 MonoBehaviour:
@@ -63285,7 +63357,7 @@ RectTransform:
   - {fileID: 961612203}
   - {fileID: 1750031689}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -63625,7 +63697,7 @@ Transform:
   m_Children:
   - {fileID: 420693821}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229445664
 GameObject:
@@ -86083,6 +86155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dash Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828008, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 550704458554828009, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
       propertyPath: m_RootOrder
@@ -86155,13 +86232,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: ForceModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
       propertyPath: CollisionModule.type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
@@ -86170,13 +86272,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: VelocityModule.orbitalZ.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 12
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
+        type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 550704458554828011, guid: 285a3971e39a63a40bedd4f2eb2f0bf0,
         type: 3}
@@ -98151,7 +98308,7 @@ Transform:
   - {fileID: 1736637758220874953}
   - {fileID: 454613713}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1805261699
 MonoBehaviour:
@@ -98494,7 +98651,7 @@ PrefabInstance:
     - target: {fileID: 2956782630440820906, guid: c4fae06c3e79d424ca2446c2323ae2a2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2956782630440820906, guid: c4fae06c3e79d424ca2446c2323ae2a2,
         type: 3}
@@ -100588,7 +100745,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 18b130faf7c954046840c41a113496d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -112784,7 +112941,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -117071,7 +117228,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1536
+      m_Bits: 1537
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

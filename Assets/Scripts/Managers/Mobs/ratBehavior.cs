@@ -198,7 +198,7 @@ public class ratBehavior : MonoBehaviour
     }
     private IEnumerator BackUp(float delay, float moveHorizontalval)
     {
-        yield return new WaitForSeconds(0.01f);//hit the player before backing up
+        yield return new WaitForSeconds(0.02f);//hit the player before backing up
         moveHorizontal = moveHorizontalval;
         rb2d.velocity = new Vector2(moveHorizontal, rb2d.velocity.y);
         yield return new WaitForSeconds(delay);//backing up
@@ -227,8 +227,8 @@ public class ratBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !isDead)
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, rb2d.velocity.y * 2f);
-            player.SendMessage("TakeDamage", 10);
 
+            player.SendMessage("TakeDamage", 15);
             TouchingPlayer = true;
             if (LookingLeft == false)
             {
