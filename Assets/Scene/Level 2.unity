@@ -90106,7 +90106,11 @@ MonoBehaviour:
     the hill to the left.
 
     You will keep any weapons found here. <color=orange>(They
-    are still WIP)'
+    are still WIP)</color>
+
+
+    Big thanks to AZALI for the help with the music,
+    check our their youtube!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83802a99befcb6648b2e5d75de0e2794, type: 2}
   m_sharedMaterial: {fileID: 21290951584543668, guid: 83802a99befcb6648b2e5d75de0e2794,
