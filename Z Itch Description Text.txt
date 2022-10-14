@@ -13,11 +13,19 @@ Music: Me / <a href="https://www.youtube.com/channel/UC9UKPs9ZisfhMJdalnETLRg">A
 
 <pre>
 <h4>Note #1:</h4>
-The web version may be laggy/buggy, it's recommended to download the game. (Currently only 37MB!)
+After playing the game, please fill out this quick multiple choice survey, your feedback helps to make the game better!
+<h2><a href="https://forms.gle/cN3uJmXUN3CouKsU7">CLICK HERE</a></h2>
 </pre>
 
 <pre>
-<h4>Note #2:</h4>
-After playing the game, please fill out this quick multiple choice survey, your feedback helps to make the game better!
-<h2><a href="https://forms.gle/cN3uJmXUN3CouKsU7">CLICK HERE</a></h2>
+<h4>CONTROLS:</h4>
+WASD + SPACE       [Movement]
+Q                  [Recover Mana]
+E                  [Interact]
+R                  [Charge Magic]
+I                  [Inventory]
+ESCAPE             [Pause Menu]
+SHIFT              [Dash]
+LEFT/RIGHT CLICK   [Attack]
+1-9 / SCROLL WHEEL [Weapon Select]
 </pre>
