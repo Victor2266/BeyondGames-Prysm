@@ -193,7 +193,7 @@ public class WeaponController : damageController
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "box")
+        if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
         {
             GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         }
