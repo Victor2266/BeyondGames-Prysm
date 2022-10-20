@@ -30,3 +30,8 @@ SHIFT              [Dash]
 LEFT/RIGHT CLICK   [Attack]
 1-9 / SCROLL WHEEL [Weapon Select]
 </pre>
+
+<pre>
+<h4>Note #2:</h4>
+File is currently just a level 1 demo.
+</pre>
