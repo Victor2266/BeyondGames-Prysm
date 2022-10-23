@@ -2,7 +2,7 @@
 <b>You escape into your dreams. Into a world beyond your imagination.
 
 Struggle and fight with your own hands.
-Decide how you swing your sword, parry incoming projectiles, and precisely aim your magic spells.
+Decide how to swing your sword, parry incoming projectiles, and precisely aim magic spells.
 
 Wield the weapons pried from the hands of your enemies.
 
@@ -39,4 +39,10 @@ File is currently just a level 1 demo.
 <pre>
 <h4>Support Me:</h4>
 <a href="https://www.patreon.com/awasete">Patreon</a>
+<a href="https://www.kickstarter.com/projects/awasete/beyond-awasete">Kickstarter</a>
+</pre>
+
+<pre>
+<h4>All The Links:</h4>
+<a href="https://linktr.ee/awasete">Linktree</a>
 </pre>
