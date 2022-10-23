@@ -35,3 +35,8 @@ LEFT/RIGHT CLICK   [Attack]
 <h4>Note #2:</h4>
 File is currently just a level 1 demo.
 </pre>
+
+<pre>
+<h4>Support Me:</h4>
+<a href="https://www.patreon.com/awasete">Patreon</a>
+</pre>
