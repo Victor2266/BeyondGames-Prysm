@@ -34,6 +34,7 @@ LEFT/RIGHT CLICK   [Attack]
 <pre>
 <h4>Note #2:</h4>
 File is currently just a level 1 demo.
+Please share it with your friends.
 </pre>
 
 <pre>
