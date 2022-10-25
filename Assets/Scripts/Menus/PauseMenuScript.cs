@@ -8,6 +8,7 @@ public class PauseMenuScript : MonoBehaviour
     public static bool isPaused = false;
     public GameObject PauseMenuUI;
     public GameObject OptionsMenuUI;
+    public GameObject ControlsMenuUI;
     public GameObject player;
     public GameObject mousePointer;
     public GameObject MainMenuWarning;
@@ -50,6 +51,7 @@ public class PauseMenuScript : MonoBehaviour
     public void Resume()
     {
         MainMenuWarning.SetActive(false);
+        ControlsMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         if(player.GetComponent<PlayerEntity>().weapon > 0)
@@ -65,6 +67,7 @@ public class PauseMenuScript : MonoBehaviour
     public void Pause()
     {
         MainMenuWarning.SetActive(false);
+        ControlsMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         mousePointer.SetActive(false);
