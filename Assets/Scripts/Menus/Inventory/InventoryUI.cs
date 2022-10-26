@@ -88,7 +88,14 @@ public class InventoryUI : MonoBehaviour
     {
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false;
-		player.mousePointer.SetActive(true);
+		if (player.GetComponent<PlayerEntity>().weapon > 0)
+		{
+			player.mousePointer.SetActive(true);
+		}
+		else
+		{
+			player.mousePointer.SetActive(false);
+		}
 		player.GetComponent<PlayerController>().enabled = true;
 		Time.timeScale = 1f;
 		PauseMenuScript.isPaused = false;

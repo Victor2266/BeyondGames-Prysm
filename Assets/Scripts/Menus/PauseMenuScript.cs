@@ -58,6 +58,10 @@ public class PauseMenuScript : MonoBehaviour
         {
             mousePointer.SetActive(true);
         }
+        else
+        {
+            mousePointer.SetActive(false);
+        }
         player.GetComponent<PlayerController>().enabled = true;
         PauseMenuUI.SetActive(false);
         Time.timeScale = testint;
