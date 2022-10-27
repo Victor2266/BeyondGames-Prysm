@@ -6,6 +6,8 @@ Decide how to swing your sword, parry incoming projectiles, and precisely aim ma
 
 Wield the weapons pried from the hands of your enemies.
 
+Compete to collect the most souls.
+
 And defeat foe after foe until your reach the end of your journey.</b></pre>
 
 <pre>Beyond is a difficult, action-driven, linear sidescroller with unique combat mechanics. Each level is tied together by an overarching narrative element and progression accumulates in the form of equipment gathered after each completed level. The game is set in an ethereal world filled with magical beasts, warriors, and weapons. The player begins as a Shinigami who needs to collect souls from the inhabitants of said world. Along their quest, they will face off against others with the very same goal.</pre>
