@@ -86,6 +86,14 @@ public class PlayerController : MonoBehaviour
             //StartCoroutine(playerManager.JumpStretch());
             Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
             playerEntity.spawnedEffect = Instantiate(playerEntity.gasPuff, GasPos, transform.rotation);
+
+            playerEntity.leftBosoter.startLifetime = 0.5f;
+            playerEntity.rightBooster.startLifetime = 0.5f;
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            playerEntity.leftBosoter.startLifetime = 0.35f;
+            playerEntity.rightBooster.startLifetime = 0.35f;
         }
 
         if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
@@ -106,13 +114,16 @@ public class PlayerController : MonoBehaviour
                 //playerEntity.Flinch = true;
                 //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
 
-                
-                
+
+
                 if (Input.GetAxisRaw("Horizontal") > 0f)
                 {
                     //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
                     playerEntity.rb2d.AddForce(new Vector2(6f, 0f), ForceMode2D.Impulse);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, 90f);
+
+                    playerEntity.leftBosoter.startLifetime = 0.7f;
+                    playerEntity.rightBooster.startLifetime = 0.6f;
                 }
                 else if (Input.GetAxisRaw("Horizontal") < 0f)
                 {
@@ -120,10 +131,18 @@ public class PlayerController : MonoBehaviour
 
                     playerEntity.rb2d.AddForce(new Vector2(-6f, 0f), ForceMode2D.Impulse);
                     dash.transform.eulerAngles = new Vector3(0f, 0f, -90f);
+
+                    playerEntity.leftBosoter.startLifetime = 0.6f;
+                    playerEntity.rightBooster.startLifetime = 0.7f;
                 }
                 //GetComponent<CapsuleCollider2D>().size = new Vector2(0.12f, 0.3f);
                 //GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.36f);
             }
+        }
+        if (Input.GetButtonUp("Slide"))
+        {
+            playerEntity.leftBosoter.startLifetime = 0.35f;
+            playerEntity.rightBooster.startLifetime = 0.35f;
         }
     }
 
@@ -201,7 +220,6 @@ public class PlayerController : MonoBehaviour
                         }
                         playerEntity.OrbPosition.offsetX = v.x * 0.65f;
                         playerEntity.OrbPosition.offsetY = v.y * 0.65f;
-
                     }
 
                 }
@@ -304,7 +322,7 @@ public class PlayerController : MonoBehaviour
             else if (playerEntity.timeStamp + 2f <= Time.time)//RETURNS HAND ORB TO MIDDLE POSITION
             {
                 playerEntity.OrbPosition.offsetX = 0f;
-                playerEntity.OrbPosition.offsetY = 0.03f;
+                playerEntity.OrbPosition.offsetY = 0.05f;
             }
         }
         if (Input.GetMouseButtonUp(1))

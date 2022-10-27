@@ -100,7 +100,7 @@ public class WeaponController : damageController
             OrbPosition.smoothTimeX = 0.05f;
             OrbPosition.smoothTimeY = 0.05f;
             OrbPosition.offsetX = 0f;
-            OrbPosition.offsetY = 0.03f;
+            OrbPosition.offsetY = 0.05f;
             DamageCounter.text = "";
             Destroy(Trail);
         }

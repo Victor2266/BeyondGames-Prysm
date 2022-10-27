@@ -113,6 +113,9 @@ public class PlayerEntity : MonoBehaviour
     public RectTransform redHealth;
     public RectTransform whiteMana;
 
+    public ParticleSystem leftBosoter;
+    public ParticleSystem rightBooster;
+
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;
