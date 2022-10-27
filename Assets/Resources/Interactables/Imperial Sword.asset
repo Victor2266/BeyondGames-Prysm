@@ -38,7 +38,7 @@ MonoBehaviour:
   projectileOffset: 0.1
   thrustResetTime: 0.1
   thrustDashDist: 12
-  thrustShortReach: 1
+  thrustShortReach: 0.5
   projAsChild: 0
   trail: {fileID: 2300350798725474172, guid: e059cab0d5b339040a11d7f1fb3b3e74, type: 3}
   soundPitch: 0.9

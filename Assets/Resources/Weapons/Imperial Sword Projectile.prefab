@@ -318,8 +318,8 @@ MonoBehaviour:
     type: 3}
   DMGTextSize: 4
   attackVelo: 38
-  ManaCost: 0
-  coolDownPeriod: 2
+  ManaCost: 10
+  coolDownPeriod: 0.5
   rapid_fire: 1
   power_control: 0
   inaccuracy: 0
