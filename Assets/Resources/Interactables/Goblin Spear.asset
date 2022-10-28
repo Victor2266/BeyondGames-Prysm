@@ -19,6 +19,7 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 1
   desc: A crude spear, dropped by a goblin and somehow enchanted with green magic.
+    Capable of projecting a medium range attack.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
   ReachLength: 1.5

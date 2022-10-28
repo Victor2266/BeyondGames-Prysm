@@ -18,7 +18,8 @@ MonoBehaviour:
   iconSize: 1.5
   isDefaultItem: 0
   WeaponType: 1
-  desc: A simple shortsword not of particularly high quality.
+  desc: A simple shortsword not of particularly high quality. The bare minimum required
+    to slash and thrust.
   equipSlot: 0
   color: {r: 0.4056604, g: 0.18043432, b: 0, a: 0.54509807}
   ReachLength: 1.5

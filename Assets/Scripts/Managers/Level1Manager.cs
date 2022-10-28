@@ -159,7 +159,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             if (spearGoblin.GetComponent<ratBehavior>().isDead)
             {
                 StartCoroutine(DelaySentence(7f, "Nice! pickup that spear he dropped <color=green>[E]</color>", 1f));
-                ShowText(7f, "you can regen mana with <color=red>[Q]</color>", 1f);
+                ShowText(7f, "when you run low on mana press <color=red>[Q]</color>", 1f);
                 GoblinRoomRange.SetActive(false);
             }
         }
