@@ -314,4 +314,5 @@ public class PlayerManager : MonoBehaviour
         TiltAngle = Mathf.SmoothDampAngle(TiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
         playerEntity.BlackBodyParticles.localEulerAngles = new Vector3(0f, 0f, TiltAngle);
     }
+
 }

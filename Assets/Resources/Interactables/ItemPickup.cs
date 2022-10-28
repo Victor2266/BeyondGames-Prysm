@@ -12,6 +12,7 @@ public class ItemPickup : Interactable
 
     private string name;
 
+    public GameObject pickUpText;
     private void Start()
     {
         tooltip = Instantiate(tooltipPrefab);
@@ -35,7 +36,9 @@ public class ItemPickup : Interactable
 	{
 		base.Interact();
 
-		PickUp();   // Pick it up!
+        GameObject lastText = Instantiate(pickUpText, transform.position, transform.rotation);
+
+        PickUp();   // Pick it up!
 	}
 
 	// Pick up the item

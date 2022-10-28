@@ -149,3 +149,5 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 98732f7636cfbdb4aa928f73f623ec1d, type: 2}
   tooltipPrefab: {fileID: 2838675628503439118, guid: 3657f985e4d5e2e47bb050f9376e806a,
     type: 3}
+  pickUpText: {fileID: 5225875635266693844, guid: a33cf2b0a88250246b537c0b52d6a55e,
+    type: 3}

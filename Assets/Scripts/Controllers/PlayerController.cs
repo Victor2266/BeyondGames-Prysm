@@ -34,14 +34,13 @@ public class PlayerController : MonoBehaviour
 
     public void MoveUpdate()
     {
-        
+
         if (Input.GetAxisRaw("Horizontal") > 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
             //playerEntity.SprtRnderer.flipX = false;
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = false;
             playerEntity.rb2d.velocity = new Vector2(playerEntity.speed, playerEntity.rb2d.velocity.y);
-
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
             //transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = true;
             playerEntity.rb2d.velocity = new Vector2(-playerEntity.speed, playerEntity.rb2d.velocity.y);
-
         }
         else if (Mathf.Abs(playerEntity.rb2d.velocity.x) < 0.05f)
         {
@@ -92,8 +90,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump"))
         {
-            playerEntity.leftBosoter.startLifetime = 0.35f;
-            playerEntity.rightBooster.startLifetime = 0.35f;
+            playerEntity.leftBosoter.startLifetime = 0f;
+            playerEntity.rightBooster.startLifetime = 0f;
         }
 
         if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
@@ -141,8 +139,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Slide"))
         {
-            playerEntity.leftBosoter.startLifetime = 0.35f;
-            playerEntity.rightBooster.startLifetime = 0.35f;
+            playerEntity.leftBosoter.startLifetime = 0f;
+            playerEntity.rightBooster.startLifetime = 0f;
         }
     }
 

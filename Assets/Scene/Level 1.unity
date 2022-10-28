@@ -21633,7 +21633,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 123
+  m_Text: 
 --- !u!222 &414885460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27331,7 +27331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &474919567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40508,6 +40508,8 @@ MonoBehaviour:
   player: {fileID: 0}
   item: {fileID: 11400000, guid: 486940ac90cd05248abefcdda60675da, type: 2}
   tooltipPrefab: {fileID: 2838675628503439118, guid: 3657f985e4d5e2e47bb050f9376e806a,
+    type: 3}
+  pickUpText: {fileID: 5225875635266693844, guid: a33cf2b0a88250246b537c0b52d6a55e,
     type: 3}
 --- !u!212 &627627464
 SpriteRenderer:
@@ -61384,7 +61386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &961612203
 RectTransform:
   m_ObjectHideFlags: 0
