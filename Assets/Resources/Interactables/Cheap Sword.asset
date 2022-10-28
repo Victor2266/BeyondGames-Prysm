@@ -26,7 +26,7 @@ MonoBehaviour:
   MaxDamage: 50
   MinDamage: 0
   DMGTextSize: 2
-  activeTimeLimit: 0.6
+  activeTimeLimit: 0.65
   cooldownTime: 0.5
   XYSize: 1
   angle_offset: -90

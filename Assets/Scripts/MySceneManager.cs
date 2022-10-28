@@ -161,7 +161,7 @@ public class MySceneManager : MonoBehaviour
         //Clears equipments and inventory below
         SaveSystem.deleteInventoryAndEquipment();
 
-        //clear level progress [NOT DONE]
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("levelReached", 1);
     }
 }

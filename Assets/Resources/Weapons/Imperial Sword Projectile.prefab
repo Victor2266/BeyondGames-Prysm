@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 4387628689335062434}
   - component: {fileID: 5247957155951733812}
   - component: {fileID: 201472378661978894}
+  - component: {fileID: 5385400854854731240}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -569,13 +570,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26240313579266420}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 0.6
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5315,6 +5316,20 @@ MonoBehaviour:
   timeOfBullet: 0.4
   explodes: 0
   explosionPrefab: {fileID: 0}
+--- !u!114 &5385400854854731240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26240313579266420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2b79080b5c4c145bd437fca48feb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldParent: {fileID: 4651215122391889}
+  part: {fileID: 4387628689335062434}
 --- !u!1 &2632170199201635656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10110,9 +10125,9 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5686053119804905223}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 0.6
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}

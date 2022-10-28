@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 58200941759057498}
   - component: {fileID: 114559209703318233}
   - component: {fileID: 173205788146175641}
-  - component: {fileID: -1409321127436929463}
-  - component: {fileID: -8009052891910164395}
   m_Layer: 0
   m_Name: GreenShot
   m_TagString: Untagged
@@ -147,7 +145,6 @@ MonoBehaviour:
   pop: {fileID: 4243457265752490857, guid: 574c16c9cc84d7f418849e4fe46cf27e, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437,
     type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
   DMGTextSize: 2
   attackVelo: 7
   ManaCost: 5
@@ -155,6 +152,7 @@ MonoBehaviour:
   rapid_fire: 0
   power_control: 0
   inaccuracy: 0
+  DontTouchPlayer: 0
 --- !u!114 &173205788146175641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,40 +176,6 @@ MonoBehaviour:
   timeOfBullet: 0.05
   explodes: 0
   explosionPrefab: {fileID: 0}
---- !u!114 &-1409321127436929463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346022673198726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
---- !u!114 &-8009052891910164395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346022673198726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.02
-  clientAuthority: 1
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &1393016964297500
 GameObject:
   m_ObjectHideFlags: 0
