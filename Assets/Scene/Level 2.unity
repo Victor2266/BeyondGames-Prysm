@@ -77027,7 +77027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToUnlock: 2
   index: 0
-  player: {fileID: 0}
+  player: {fileID: 926332572}
   ShakeRoughness: 3
   ShakeFadeIn: 0.5
   ShakeFadeOut: 8
