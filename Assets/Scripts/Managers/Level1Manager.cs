@@ -12,6 +12,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject leftEnemyWave;
     public GameObject rightEnemyWave;
     public GameObject firstGoblin;
+    private ratBehavior firstGoblinScript;
     public GameObject spearGoblin;
     public GameObject goblin1;
     public GameObject goblin2;
@@ -33,8 +34,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
     [SerializeField]
     float ShakeFadeOut = 8f;
 
+    public SkillCheckDamage treeScript;
+
     private void Start()
     {
+        firstGoblinScript = firstGoblin.GetComponent<ratBehavior>();
         spearResearcherScript = spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>();
     }
     public void Update()
@@ -106,9 +110,64 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             StartCoroutine(DelaySentence(5f, "<color=red>ATTACK</color> the goblin to your right", 1f));
             birdFollower.distance = 3f;
-            TreeFall();
+            //TreeFall();
+        }else if (index == 24)
+        {
+            StartCoroutine(DelaySentence(5f, "there's a log in the way.", 1f));
+            ShowText(5f, "cut it down", 1f);
+        }else if (index == 26)//tutorial 1
+        {
+            if (treeScript.isDead)
+            {
+                TutorialPassed();
+            }
+            else
+            {
+                StartCoroutine(DelaySentence(5f, "you gotta arc your swing more!", 1f));
+            }
         }
-        else if (index == 24)
+        else if (index == 28)//tutorial 2
+        {
+            if (treeScript.isDead)
+            {
+                ShowText(3f, "FINALLY!", 1f);
+                TutorialPassed();
+            }
+            else
+            {
+                StartCoroutine(DelaySentence(5f, "bring the sword a bit closer and make a full circle!", 1f));
+            }
+        }
+        else if (index == 30)//tutorial 3
+        {
+            if (treeScript.isDead)
+            {
+                ShowText(3f, "About time.", 1f);
+                TutorialPassed();
+            }
+            else
+            {
+                StartCoroutine(DelaySentence(5f, "it's not about speed, focus on the size of your swing", 1f));
+            }
+        }
+        else if (index == 32)//tutorial 4
+        {
+            if (treeScript.isDead)
+            {
+                ShowText(3f, "that took a while,", 1f);
+                TutorialPassed();
+            }
+            else
+            {
+                StartCoroutine(DelaySentence(5f, "WIMP! you need to do at least 40 DMG!", 1f));
+            }
+        }
+        else if (index == 34)//tutorial repeat
+        {
+            StopAllCoroutines();
+            index = 28;
+        }
+        else if (index == 24+14)
         {
             StartCoroutine(DelaySentence(5f, "think of it as a mindless creature", 1f));
             ShowText(6f, "you can dash circles around it <color=green>[left shift]</color>", 1f);
@@ -116,9 +175,9 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
         //check if first golin has been killed
         //tell the benefits of collecting their soul
-        else if (index == 26)
+        else if (index == 26+14)
         {
-            if (firstGoblin.GetComponent<ratBehavior>().isDead)
+            if (firstGoblinScript.isDead)
             {
                 StartCoroutine(DelaySentence(5f, "great job!", 1f));
             }
@@ -127,25 +186,25 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 StartCoroutine(DelaySentence(5f, "<color=red>KILL!</color>", 1f));
             }
         }
-        else if (index == 28)
+        else if (index == 28+14)
         {
-            if (firstGoblin.GetComponent<ratBehavior>().isDead)
+            if (firstGoblinScript.isDead)
             {
                 StartCoroutine(DelaySentence(5f, "excellent!", 1f));
             }
             else
             {
-                index = 26;
+                index = 26+14;
             }
         }
-        else if (index == 30)
+        else if (index == 30+14)
         {
             StartCoroutine(DelaySentence(6f, "CONSUME its soul", 1f));
             ShowText(6f, "the more you consume the more <color=red>powerful</color> you will become", 1f);
         }
 
         // when goblin is dead and soul is consumed, spawn goblin with spear to the left and 2 regulars goblins on right
-        else if (index == 32)
+        else if (index == 32+14)
         {
             StartCoroutine(DelaySentence(6f, "Be careful, the goblins have been alerted of your presence", 1f));
             ShowText(6f, "get ready to <color=red>FIGHT</color>", 1f);
@@ -154,7 +213,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
 
         //when spear goblin dies, tell player to pick up their spear
-        else if (index == 34)
+        else if (index == 34+14)
         {
             if (spearGoblin.GetComponent<ratBehavior>().isDead)
             {
@@ -166,7 +225,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
         // when all the goblins are dead, spawn spear researcher who complains about player invading theri territory 
 
-        else if (index == 36)
+        else if (index == 36+14)
         {
             if (goblin1.GetComponent<ratBehavior>().isDead && goblin2.GetComponent<ratBehavior>().isDead)
             {
@@ -178,24 +237,24 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 birdFollower.distance = 4.5f;
             }
         }
-        else if (index == 38)
+        else if (index == 38+14)
         {
             StartCoroutine(DelaySentence2(4f, "WHO ARE YOU?", 1f));
         }
-        else if (index == 40)
+        else if (index == 40+14)
         {
             StartCoroutine(DelaySentence2(7f, "THIS IS MY TERRITORY", 1f));
         }
-        else if (index == 42)
+        else if (index == 42+14)
         {
             StartCoroutine(DelaySentence2(7f, "THOSE ARE MY SOULS", 1f));
         }
-        else if (index == 44)
+        else if (index == 44+14)
         {
             StartCoroutine(DelaySentence2(2f, "<color=red>DIEEEE</color>", 3f));
         }
         //when spear/re is dead, exposition about competition for souls & about lack of spear/re familiar
-        else if (index == 46)
+        else if (index == 46+14)
         {
             if (spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>().isDead)
             {
@@ -205,25 +264,25 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 ShowText(7f, "pick up the magic tome he dropped", 1f);
             }
         }
-        else if (index == 48)
+        else if (index == 48+14)
         {
             StartCoroutine(DelaySentence(7f, "we kinda did trespass on his hunting grounds", 1f));
             ShowText(7f, " and everyone is scrambling for souls right now", 1f);
         }
-        else if (index == 50)
+        else if (index == 50+14)
         {
             StartCoroutine(DelaySentence(6f, "because there's a rumour", 1f));
             ShowText(6f, "whoever collects enough souls can have one wish come true", 1f);
         }
         //spawn lvl1 plant boss as familiar 
 
-        else if (index == 52)
+        else if (index == 52+14)
         {
             StartCoroutine(DelaySentence(6f, "but it's strange...", 1f));
             ShowText(6f, "Chumps like that usually travel with a familiar...", 1f);
 
         }
-        else if (index == 54)
+        else if (index == 54+14)
         {
             StartCoroutine(DelaySentence(6f, "uh oh...", 1f));
 
@@ -233,7 +292,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             Boss1.SetActive(true);
             Boss1Bar.SetActive(true);
         }
-        else if (index == 56)
+        else if (index == 56+14)
         {
             if(Boss1.activeSelf == false)
             {
@@ -248,7 +307,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             }
 
         }
-        else if (index == 58)
+        else if (index == 58+14)
         {
             if(bossSoul == null)
             {
@@ -262,9 +321,9 @@ public class Level1Manager : LevelManager// inherets winlevel function
             index = 22;
             StopAllCoroutines();
         }
-        else if(spearResearcherScript.isDead && index < 46 && index >= 36)
+        else if(spearResearcherScript.isDead && index < 46+14 && index >= 36+14)
         {
-            index = 46;
+            index = 46+14;
             StopAllCoroutines();
         }
     }
@@ -337,5 +396,13 @@ public class Level1Manager : LevelManager// inherets winlevel function
         nextMsg.GetComponent<TMPro.TextMeshPro>().fontSize = size;
         nextMsg.GetComponent<DeathTimer>().tickLimit = waitForAmount * 1.1f;
         //NetworkServer.Spawn(gameObject2);
+    }
+
+    private void TutorialPassed()
+    {
+        TreeFall();
+        index = 36;
+        StopAllCoroutines();
+        StartCoroutine(DelaySentence(5f, "NOW, kill the goblin", 1f));
     }
 }

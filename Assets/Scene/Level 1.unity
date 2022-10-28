@@ -27331,7 +27331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &474919567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45837,9 +45837,11 @@ GameObject:
   - component: {fileID: 665278617}
   - component: {fileID: 665278616}
   - component: {fileID: 665278615}
+  - component: {fileID: 665278619}
+  - component: {fileID: 665278620}
   m_Layer: 0
   m_Name: Build your tree2_1_10
-  m_TagString: box
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45955,6 +45957,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.6}
+--- !u!114 &665278619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665278614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc79488cb9c550349bb740b44e8e70d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  minimimDamage: 40
+--- !u!114 &665278620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665278614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: 0c4997826b75d794e99d2c018581cbc1,
+    type: 3}
+  bloodOffset: 0
 --- !u!1 &665733413
 GameObject:
   m_ObjectHideFlags: 0
@@ -63788,6 +63819,7 @@ MonoBehaviour:
   ShakeRoughness: 3
   ShakeFadeIn: 0.5
   ShakeFadeOut: 4
+  treeScript: {fileID: 665278619}
   TextObject: {fileID: 5225875635266693844, guid: 710deeb4304b35e4db2d6c7629d405c4,
     type: 3}
   TreeBlockingPath: {fileID: 665278616}
