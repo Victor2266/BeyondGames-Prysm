@@ -113,8 +113,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
             //TreeFall();
         }else if (index == 24)
         {
-            StartCoroutine(DelaySentence(5f, "there's a log in the way.", 1f));
-            ShowText(5f, "cut it down", 1f);
+            StartCoroutine(DelaySentence(5f, "oh wait, there's a log in the way.", 1f));
+            ShowText(5f, "cut it down.", 1f);
         }else if (index == 26)//tutorial 1
         {
             if (treeScript.isDead)
@@ -169,7 +169,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if (index == 24+14)
         {
-            StartCoroutine(DelaySentence(5f, "think of it as a mindless creature", 1f));
+            StartCoroutine(DelaySentence(5f, "<color=red>ATTACK,</color> think of it as a mindless creature", 1f));
             ShowText(6f, "you can dash circles around it <color=green>[left shift]</color>", 1f);
         }
 
