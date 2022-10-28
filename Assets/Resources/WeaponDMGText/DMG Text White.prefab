@@ -196,7 +196,7 @@ MonoBehaviour:
   glowsBright: 0
   lightObject: {fileID: 0}
   tickLimit: 0.9
-  shrinks: 1
+  shrinks: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
