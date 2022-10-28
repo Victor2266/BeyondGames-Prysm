@@ -10,5 +10,10 @@ public class DialogTrigger : MonoBehaviour
     {
         DialogManager.instance.StartDialog(dialog);
         DialogManager.instance.maxSentences = dialog.sentences.Length;
+
+        if (PlayerPrefs.GetInt("SkipCutscene", 0) == 1)
+        {
+            DialogManager.instance.SkipDialog();
+        }
     }
 }

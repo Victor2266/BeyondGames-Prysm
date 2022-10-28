@@ -4,10 +4,20 @@ using UnityEngine.UI;
 public class LevelSelector : MonoBehaviour
 {
     public Button[] levelButtons;
+    public Toggle skipCutsceneToggle;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if(PlayerPrefs.GetInt("SkipCutscene", 0) == 1)
+        {
+            skipCutsceneToggle.isOn = true;
+        }
+        else
+        {
+            skipCutsceneToggle.isOn = false;
+        }
 
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
 
@@ -23,5 +33,17 @@ public class LevelSelector : MonoBehaviour
     public void Select (string levelName)
     {
         StartCoroutine(MySceneManager.instance.SelectLevel(levelName));
+    }
+
+    public void setCutscenePref()
+    {
+        if (skipCutsceneToggle.isOn)
+        {
+            PlayerPrefs.SetInt("SkipCutscene", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SkipCutscene", 0);
+        }
     }
 }

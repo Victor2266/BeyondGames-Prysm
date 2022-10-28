@@ -36,7 +36,7 @@ public class ItemPickup : Interactable
 	{
 		base.Interact();
 
-        GameObject lastText = Instantiate(pickUpText, transform.position, transform.rotation);
+        GameObject lastText = Instantiate(pickUpText, transform.position + Vector3.up *.5f, Quaternion.identity);
 
         PickUp();   // Pick it up!
 	}

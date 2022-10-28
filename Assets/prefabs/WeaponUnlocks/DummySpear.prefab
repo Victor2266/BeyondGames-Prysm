@@ -150,6 +150,8 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 8bfda8c858a09514d8c811dc13c2d1c8, type: 2}
   tooltipPrefab: {fileID: 2838675628503439118, guid: 3657f985e4d5e2e47bb050f9376e806a,
     type: 3}
+  pickUpText: {fileID: 5225875635266693844, guid: a33cf2b0a88250246b537c0b52d6a55e,
+    type: 3}
 --- !u!1 &6205611786841926724
 GameObject:
   m_ObjectHideFlags: 0
