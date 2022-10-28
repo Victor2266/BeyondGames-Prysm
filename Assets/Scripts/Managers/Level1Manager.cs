@@ -115,7 +115,9 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             StartCoroutine(DelaySentence(5f, "oh wait, there's a log in the way.", 1f));
             ShowText(5f, "cut it down.", 1f);
-        }else if (index == 26)//tutorial 1
+            birdFollower.distance = 3.5f;
+        }
+        else if (index == 26)//tutorial 1
         {
             if (treeScript.isDead)
             {
@@ -159,7 +161,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             }
             else
             {
-                StartCoroutine(DelaySentence(5f, "WIMP! you need to do at least 40 DMG!", 1f));
+                StartCoroutine(DelaySentence(5f, "WIMP! you need to do at least <color=red>40 DMG!</color>", 1f));
             }
         }
         else if (index == 34)//tutorial repeat
@@ -167,8 +169,18 @@ public class Level1Manager : LevelManager// inherets winlevel function
             StopAllCoroutines();
             index = 28;
         }
+        else if(index == 27 || index == 29 || index == 31)
+        {
+            if (treeScript.isDead)
+            {
+                ShowText(3f, "finally,", 1f);
+                TutorialPassed();
+            }
+        }
         else if (index == 24+14)
         {
+
+            birdFollower.distance = 3f;
             StartCoroutine(DelaySentence(5f, "<color=red>ATTACK,</color> think of it as a mindless creature", 1f));
             ShowText(6f, "you can dash circles around it <color=green>[left shift]</color>", 1f);
         }
