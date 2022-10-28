@@ -169,7 +169,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             StopAllCoroutines();
             index = 28;
         }
-        else if(index == 27 || index == 29 || index == 31)
+        else if(index == 23 || index == 25 || index == 27 || index == 29 || index == 31 || index == 33)
         {
             if (treeScript.isDead)
             {
@@ -374,10 +374,13 @@ public class Level1Manager : LevelManager// inherets winlevel function
     }
 
     public Rigidbody2D TreeBlockingPath;
+    public GameObject TreeHealthBar;
     private void TreeFall()
     {
         TreeBlockingPath.bodyType = RigidbodyType2D.Dynamic;
         TreeBlockingPath.mass = 10f;
+        TreeBlockingPath.gameObject.tag = "box";
+        Destroy(TreeHealthBar);
     }
 
     public GameObject TextObject2;
