@@ -13,6 +13,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
     public GameObject rightEnemyWave;
     public GameObject firstGoblin;
     private ratBehavior firstGoblinScript;
+
+    private ratBehavior spearGoblinScript;
+    private ratBehavior Goblin1Script;
+    private ratBehavior Goblin2Script;
+
     public GameObject spearGoblin;
     public GameObject goblin1;
     public GameObject goblin2;
@@ -39,6 +44,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
     private void Start()
     {
         firstGoblinScript = firstGoblin.GetComponent<ratBehavior>();
+
+        spearGoblinScript = spearGoblin.GetComponent<ratBehavior>();
+        Goblin1Script = goblin1.GetComponent<ratBehavior>();
+        Goblin2Script = goblin2.GetComponent<ratBehavior>();
+
         spearResearcherScript = spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>();
     }
     public void Update()
@@ -227,10 +237,13 @@ public class Level1Manager : LevelManager// inherets winlevel function
         //when spear goblin dies, tell player to pick up their spear
         else if (index == 34+14)
         {
-            if (spearGoblin.GetComponent<ratBehavior>().isDead)
+            if (spearGoblinScript.isDead)
             {
                 StartCoroutine(DelaySentence(7f, "Nice! pickup that spear he dropped <color=green>[E]</color>", 1f));
                 ShowText(7f, "when you run low on mana press <color=red>[Q]</color>", 1f);
+            }
+            if (spearGoblinScript.isDead && Goblin1Script.isDead && Goblin2Script.isDead)
+            {
                 GoblinRoomRange.SetActive(false);
             }
         }
@@ -239,7 +252,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
         else if (index == 36+14)
         {
-            if (goblin1.GetComponent<ratBehavior>().isDead && goblin2.GetComponent<ratBehavior>().isDead)
+            if (spearGoblinScript.isDead && Goblin1Script.isDead && Goblin2Script.isDead)
+            {
+                GoblinRoomRange.SetActive(false);
+            }
+            if (Goblin1Script.isDead && Goblin2Script.isDead)
             {
                 SpearRoomRange.SetActive(true);
                 StartCoroutine(DelaySentence(3f, "that can't be good", 1f));
