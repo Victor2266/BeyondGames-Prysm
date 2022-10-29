@@ -214,6 +214,25 @@ public class WeaponController : damageController
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
         }
     }
+    public void DoubleCheckingCollision(RaycastHit2D collision)
+    {
+        if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")
+        {
+            GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
+        }
+        if (collision.collider.tag == "enemy")
+        {
+            AttackEntity(1f, collision);
+        }
+        if (collision.collider.tag == "boss")
+        {
+            AttackEntity(0.5f, collision);
+        }
+        if (collision.collider.tag == "CritBox")
+        {
+            AttackEntity(2f, collision);
+        }
+    }
 
     private void AttackEntity(float multiplier, Collision2D collision)
     {
@@ -221,6 +240,14 @@ public class WeaponController : damageController
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+        totalDistance = 0f;
+    }
+    private void AttackEntity(float multiplier, RaycastHit2D collision)
+    {
+        collision.collider.SendMessage("SetCollision", collision.point);
+        collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
+        ShowDMGText((int)(DMG * multiplier), DMGTextSize);
+        GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
         totalDistance = 0f;
     }
 
@@ -245,14 +272,19 @@ public class WeaponController : damageController
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
-            float distance = Vector3.Distance(lastPosition, transform.position);
+            Vector3 currPos = transform.position;
+            float distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
+
+            RaycastHit2D[] hits;
+            hits = Physics2D.CapsuleCastAll(currPos, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, Vector2.right, distance);//used to check if passing through hitboxes
+
             if(distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
             {
                 audioSource.Play();
             }
 
             totalDistance += distance;
-            lastPosition = transform.position;
+            lastPosition = currPos;
             DMG = (int)(totalDistance * DMG_Scaling);
             if (DMG > MaxDamage)
             {

@@ -1869,7 +1869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1805261698}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &126669841
 ParticleSystemRenderer:
@@ -6628,6 +6628,7 @@ Transform:
   - {fileID: 1933710146}
   - {fileID: 2103990995}
   - {fileID: 1454406300}
+  - {fileID: 289035392}
   m_Father: {fileID: 454613713}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9829,7 +9830,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -11305,7 +11306,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -11521,7 +11522,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -14519,13 +14520,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289035389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.45, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 228749515}
   - {fileID: 2021292868}
-  m_Father: {fileID: 1805261698}
-  m_RootOrder: 4
+  m_Father: {fileID: 129814171}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291086330
 GameObject:
@@ -27036,7 +27037,7 @@ Transform:
   - {fileID: 1636207723}
   - {fileID: 129814171}
   m_Father: {fileID: 1805261698}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &454613714
 MonoBehaviour:
@@ -63306,7 +63307,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1805261698}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1077046469
 GameObject:
@@ -89746,7 +89747,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1805261698}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!70 &1399574140
 CapsuleCollider2D:
@@ -103127,7 +103128,6 @@ Transform:
   - {fileID: 1346554138}
   - {fileID: 1718789880}
   - {fileID: 1616206225}
-  - {fileID: 289035392}
   - {fileID: 1058134221}
   - {fileID: 1399574139}
   - {fileID: 126669840}
@@ -118481,7 +118481,7 @@ Transform:
   m_Children:
   - {fileID: 1736637759136162844}
   m_Father: {fileID: 1805261698}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736637758220874964
 GameObject:
