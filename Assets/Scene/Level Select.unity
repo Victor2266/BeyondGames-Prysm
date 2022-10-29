@@ -17481,7 +17481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: SKIP CUTSCEENS
+  m_Text: SKIP CUTSCENES
 --- !u!222 &1822746727
 CanvasRenderer:
   m_ObjectHideFlags: 0
