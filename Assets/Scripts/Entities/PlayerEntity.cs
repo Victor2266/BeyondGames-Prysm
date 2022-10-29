@@ -136,7 +136,7 @@ public class PlayerEntity : MonoBehaviour
         isDead = player.isDead;
         isDying = player.isDying;
         charges = player.charges;
-        timeStamp = player.timeStamp;
+        timeStamp = 0f;
         SlideCooldown = 0f;//don't want to spawn with cooldowns
         coolDownPeriod = 0f;
         weapon = player.weapon;
