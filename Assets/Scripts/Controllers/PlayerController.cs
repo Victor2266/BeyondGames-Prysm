@@ -87,11 +87,13 @@ public class PlayerController : MonoBehaviour
 
             playerEntity.leftBosoter.startLifetime = 0.5f;
             playerEntity.rightBooster.startLifetime = 0.5f;
+            playerEntity.audioSource.Play();
         }
         if (Input.GetButtonUp("Jump"))
         {
             playerEntity.leftBosoter.startLifetime = 0f;
             playerEntity.rightBooster.startLifetime = 0f;
+            playerEntity.audioSource.Stop();
         }
 
         if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 //playerEntity.Flinch = true;
                 //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x * 4f, playerEntity.rb2d.velocity.y);
 
-
+                playerEntity.audioSource.Play();
 
                 if (Input.GetAxisRaw("Horizontal") > 0f)
                 {
@@ -141,6 +143,8 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.leftBosoter.startLifetime = 0f;
             playerEntity.rightBooster.startLifetime = 0f;
+
+            playerEntity.audioSource.Stop();
         }
     }
 

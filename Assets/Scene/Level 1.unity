@@ -103227,6 +103227,7 @@ MonoBehaviour:
   whiteMana: {fileID: 204240087}
   leftBosoter: {fileID: 207891276}
   rightBooster: {fileID: 2103990997}
+  audioSource: {fileID: 1805261704}
 --- !u!70 &1805261700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -103299,10 +103300,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4f717d507311f154a8516def2de0bb5b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 0.1
   Loop: 0
   Mute: 0
   Spatialize: 0
