@@ -199,8 +199,13 @@ public class WeaponController : damageController
         //if weapon directly contacts obj then the capsule will not hit it again
         if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
         {
-            GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
             lastHit = collision.gameObject;
+
+            if (DMG > 0)
+            {
+                Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            }
+            DMG = 0;//resets dmg value for double hits in quick succession 
         }
         if (collision.gameObject.tag == "enemy")
         {
@@ -247,8 +252,12 @@ public class WeaponController : damageController
     {
         if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")//if capsule alone hits obj then the weapon can't hit it with the colider again unless weapon is outside the colider first
         {
-            GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
             lastHit = collision.collider.gameObject;
+            if(DMG > 0)
+            {
+                Instantiate(pop, collision.point, transform.rotation);
+            }
+            DMG = 0;//resets dmg value for double hits in quick succession 
         }
         if (collision.collider.tag == "enemy")
         {
@@ -267,25 +276,24 @@ public class WeaponController : damageController
     private void AttackEntity(float multiplier, Collision2D collision)
     {
         lastHit = collision.gameObject;
-
-        collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-        collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         if (DMG > 0)
         {
+            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
+            collision.gameObject.SendMessage("TakeDamage", (int)(DMG * multiplier));
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
             GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         }
-        totalDistance = 0f;
-        DMG = 0;
+        totalDistance = 0f;//resets dmg calc for next hit
+        DMG = 0;//resets dmg value for double hits in quick succession 
     }
     private void AttackEntity(float multiplier, RaycastHit2D collision)
     {
         lastHit = collision.collider.gameObject;
 
-        collision.collider.SendMessage("SetCollision", collision.point);
-        collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
         if(DMG > 0)
         {
+            collision.collider.SendMessage("SetCollision", collision.point);
+            collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
             GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
         }
