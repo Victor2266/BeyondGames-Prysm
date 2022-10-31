@@ -90,6 +90,7 @@ public class ratBehavior : MonoBehaviour
             {
                 moveHorizontal += 0.1f;
             }
+            rb2d.gravityScale = 1f;
         }
         if (IsTouchingGround() && isDead)
         {
@@ -107,6 +108,9 @@ public class ratBehavior : MonoBehaviour
         {
             LookingLeft = true;
             StartCoroutine(BackUp(0.1f * speed, -2f * speed));
+        }else if (IsTouchingCieling() && !isDead)
+        {
+            rb2d.gravityScale = 3f;
         }
         
     }
@@ -265,6 +269,13 @@ public class ratBehavior : MonoBehaviour
         origin.y -= (size/2);
 
         return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
+    }
+    private bool IsTouchingCieling()
+    {
+        Vector2 origin = base.transform.position;
+        origin.y += (size / 2);
+
+        return Physics2D.Raycast(origin, Vector2.up, 0.05f);
     }
     private bool IsTouchingLeftWall()
     {
