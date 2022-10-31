@@ -188,14 +188,17 @@ public class WeaponController : damageController
 
         leftClicking();
         rightClicking();
-
-
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject == lastHit )
+        {
+            return;
+        }
         if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
         {
             GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            lastHit = collision.gameObject;
         }
         if (collision.gameObject.tag == "enemy")
         {
@@ -214,11 +217,38 @@ public class WeaponController : damageController
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
         }
     }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        //Debug.Log("exiting " + collision.collider.tag);
+        if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.collider.tag == "enemy")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.collider.tag == "boss")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.collider.tag == "CritBox")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+    }
     public void DoubleCheckingCollision(RaycastHit2D collision)
     {
         if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")
         {
             GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
+            lastHit = collision.collider.gameObject;
+
+
         }
         if (collision.collider.tag == "enemy")
         {
@@ -236,19 +266,27 @@ public class WeaponController : damageController
 
     private void AttackEntity(float multiplier, Collision2D collision)
     {
+        lastHit = collision.gameObject;
+
         collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
-        ShowDMGText((int)(DMG * multiplier), DMGTextSize);
+        if (DMG > 0)
+            ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         totalDistance = 0f;
+        DMG = 0;
     }
     private void AttackEntity(float multiplier, RaycastHit2D collision)
     {
+        lastHit = collision.collider.gameObject;
+
         collision.collider.SendMessage("SetCollision", collision.point);
         collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
-        ShowDMGText((int)(DMG * multiplier), DMGTextSize);
+        if(DMG > 0)
+            ShowDMGText((int)(DMG * multiplier), DMGTextSize);
         GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
         totalDistance = 0f;
+        DMG = 0;
     }
 
     private void enableWeapon()
@@ -260,6 +298,12 @@ public class WeaponController : damageController
         Trail.SetActive(true);
     }
 
+    RaycastHit2D[] hits;
+    Vector3 currPos;
+    public GameObject lastHit;
+    float distance;
+    Vector2 worldSpaceOffset;
+    float zAngle;
     private void leftClicking()//sword strategy/sling weapon/heavysword
     {
         if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
@@ -269,14 +313,12 @@ public class WeaponController : damageController
             enableWeapon();
             audioSource.Play();
             totalDistance = MinDamage/DMG_Scaling;
+            lastHit = null;
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
-            Vector3 currPos = transform.position;
-            float distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
-
-            RaycastHit2D[] hits;
-            hits = Physics2D.CapsuleCastAll(currPos, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, Vector2.right, distance);//used to check if passing through hitboxes
+            currPos = transform.position;
+            distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
 
             if(distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
             {
@@ -284,7 +326,6 @@ public class WeaponController : damageController
             }
 
             totalDistance += distance;
-            lastPosition = currPos;
             DMG = (int)(totalDistance * DMG_Scaling);
             if (DMG > MaxDamage)
             {
@@ -298,6 +339,37 @@ public class WeaponController : damageController
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
+
+            if (distance > capsuleColider.size.x * 2f)
+            {
+                zAngle = transform.localEulerAngles.z;
+                worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);
+                hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
+                //Debug.DrawRay((Vector2)currPos + worldSpaceOffset, lastPosition - currPos, Color.red, 10.0f);
+
+                foreach (RaycastHit2D hit in hits)
+                {
+
+                    if (capsuleColider.IsTouching(hit.collider))
+                    {
+                        lastHit = hit.collider.gameObject;
+                    }
+                    if (lastHit == null)
+                    {
+                        DoubleCheckingCollision(hit);
+                    }
+                    else if (lastHit != (hit.collider.gameObject))
+                    {
+                        //Debug.Log(lastHit.name);
+                        DoubleCheckingCollision(hit);
+                    }
+
+                }
+
+
+            }
+
+            lastPosition = currPos;
         }
         if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
         {
