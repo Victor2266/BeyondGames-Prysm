@@ -191,10 +191,12 @@ public class WeaponController : damageController
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == lastHit )
+        if(collision.gameObject == lastHit )//will not hit the same obj as the capsule
         {
             return;
         }
+
+        //if weapon directly contacts obj then the capsule will not hit it again
         if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
         {
             GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
@@ -243,12 +245,10 @@ public class WeaponController : damageController
     }
     public void DoubleCheckingCollision(RaycastHit2D collision)
     {
-        if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")
+        if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")//if capsule alone hits obj then the weapon can't hit it with the colider again unless weapon is outside the colider first
         {
             GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
             lastHit = collision.collider.gameObject;
-
-
         }
         if (collision.collider.tag == "enemy")
         {
@@ -271,8 +271,10 @@ public class WeaponController : damageController
         collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
         collision.gameObject.SendMessage("TakeDamage", (int) (DMG * multiplier));
         if (DMG > 0)
+        {
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
-        GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+        }
         totalDistance = 0f;
         DMG = 0;
     }
@@ -283,8 +285,10 @@ public class WeaponController : damageController
         collision.collider.SendMessage("SetCollision", collision.point);
         collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
         if(DMG > 0)
+        {
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
-        GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
+            GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
+        }
         totalDistance = 0f;
         DMG = 0;
     }
@@ -340,17 +344,17 @@ public class WeaponController : damageController
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
 
-            if (distance > capsuleColider.size.x * 2f)
+            if (distance > capsuleColider.size.x * 2f)//capsule checking
             {
                 zAngle = transform.localEulerAngles.z;
-                worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);
+                worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
                 hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
                 //Debug.DrawRay((Vector2)currPos + worldSpaceOffset, lastPosition - currPos, Color.red, 10.0f);
 
                 foreach (RaycastHit2D hit in hits)
                 {
 
-                    if (capsuleColider.IsTouching(hit.collider))
+                    if (capsuleColider.IsTouching(hit.collider))//if weapon is in colider, no need for casting
                     {
                         lastHit = hit.collider.gameObject;
                     }
