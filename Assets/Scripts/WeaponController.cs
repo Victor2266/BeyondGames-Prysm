@@ -281,7 +281,7 @@ public class WeaponController : damageController
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             collision.gameObject.SendMessage("TakeDamage", (int)(DMG * multiplier));
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
-            GameObject gameObject = Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         }
         totalDistance = 0f;//resets dmg calc for next hit
         DMG = 0;//resets dmg value for double hits in quick succession 
@@ -295,7 +295,7 @@ public class WeaponController : damageController
             collision.collider.SendMessage("SetCollision", collision.point);
             collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
             ShowDMGText((int)(DMG * multiplier), DMGTextSize);
-            GameObject gameObject = Instantiate(pop, collision.point, transform.rotation);
+            Instantiate(pop, collision.point, transform.rotation);
         }
         totalDistance = 0f;
         DMG = 0;
