@@ -33,7 +33,7 @@ public class InventorySlot : MonoBehaviour
         {
             Weapon newWeapon = (Weapon) newItem;
             projectileController projectile = newWeapon.projectileAttack.GetComponent<projectileController>();
-            GetComponent<TooltipTrigger>().stats = new float[] { newWeapon.ReachLength + newWeapon.CapsuleColliderSize.y * 0.5f + newWeapon.CapsuleColliderOffset.magnitude, newWeapon.activeTimeLimit, newWeapon.cooldownTime, newWeapon.DMG_Scaling, newWeapon.MinDamage, newWeapon.MaxDamage, projectile.coolDownPeriod, projectile.DMG};
+            GetComponent<TooltipTrigger>().stats = new float[] { newWeapon.XYSize*(newWeapon.ReachLength + newWeapon.CapsuleColliderSize.y * 0.5f + newWeapon.CapsuleColliderOffset.magnitude), newWeapon.activeTimeLimit, newWeapon.cooldownTime, newWeapon.DMG_Scaling, newWeapon.MinDamage, newWeapon.MaxDamage, projectile.coolDownPeriod, projectile.DMG};
         }else if (newItem.WeaponType == InventoryUI.WeaponTypes.Spells)
         {
             Spell newSpell = (Spell)newItem;
