@@ -130,8 +130,9 @@ public class WeaponController : damageController
             thrustDashDist = equippedWeapon.thrustDashDist;
             thrustShortReach = equippedWeapon.thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
 
-            spriteTransform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
             xySize = equippedWeapon.XYSize;
+            transform.localScale = new Vector3(xySize, xySize, 1f);
+
             pointerScript.offset = 90;
             spriteTransform.localEulerAngles = new Vector3(0, 0, equippedWeapon.angle_offset);
 

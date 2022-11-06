@@ -28,7 +28,7 @@ MonoBehaviour:
   DMGTextSize: 2
   activeTimeLimit: 1.5
   cooldownTime: 1.8
-  XYSize: 1
+  XYSize: 0.8
   angle_offset: 9
   CapsuleColliderOffset: {x: -0.1, y: 0.4}
   CapsuleColliderSize: {x: 0.3, y: 2}
