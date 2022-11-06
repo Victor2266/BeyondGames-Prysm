@@ -13,6 +13,10 @@ public class MobGeneric : MonoBehaviour
 
     public Animator anim;
     public Rigidbody2D rb2d;
+    public HealthBar healthBar;
+
+    public BloodSplatterer BSplat;
+    public GameObject deathItem;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,9 @@ public class MobGeneric : MonoBehaviour
     {
         Health -= amount;
         anim.SetTrigger("hurt");
+        healthBar.UpdateHealthBar(Health, 50f);
+
+        BSplat.Spray((int)amount / 3);
         if (Health <= 0f && !isDead)
         {
             Death();
@@ -47,9 +54,12 @@ public class MobGeneric : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = Instantiate<GameObject>(DeathItem, transform.position, transform.rotation);
-        anim.SetBool("alive", false);
-        anim.SetTrigger("death");
+        clone = Instantiate(deathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<Collider2D>());
+        base.gameObject.GetComponentInChildren<Light>().enabled = false;
+        anim.SetTrigger("dead");
+        anim.SetBool("FullyDead", true);
+        healthBar.gameObject.SetActive(false);
+        //Destroy(healthBar.gameObject);
     }
-
 }
