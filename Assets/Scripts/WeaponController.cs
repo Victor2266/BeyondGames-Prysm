@@ -394,8 +394,6 @@ public class WeaponController : damageController
                     }
 
                 }
-
-
             }
 
             if (oneSided)
