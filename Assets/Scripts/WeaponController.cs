@@ -60,15 +60,21 @@ public class WeaponController : damageController
     public float movementDelay;
     private Vector3 _velocity;
 
+    public bool oneSided;
+    public bool flipSide;
+    private Transform spriteTransform;
+    private float xySize;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
         onHeldInHand += HeldInHandStatus;
   
         pointerScript = GetComponent<newPointerScript>();
-        sprtrend = GetComponent<SpriteRenderer>();
+        sprtrend = GetComponentsInChildren<SpriteRenderer>()[1];
         capsuleColider = GetComponent<CapsuleCollider2D>();
         audioSource = GetComponent<AudioSource>();
+        spriteTransform = GetComponentsInChildren<Transform>()[1];
         lastPosition = transform.position;
         timeStamp = 0f;
         startTime = 0f;
@@ -124,8 +130,10 @@ public class WeaponController : damageController
             thrustDashDist = equippedWeapon.thrustDashDist;
             thrustShortReach = equippedWeapon.thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
 
-            transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
-            pointerScript.offset = equippedWeapon.angle_offset;
+            spriteTransform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
+            xySize = equippedWeapon.XYSize;
+            pointerScript.offset = 90;
+            spriteTransform.localEulerAngles = new Vector3(0, 0, equippedWeapon.angle_offset);
 
             capsuleColider.offset = equippedWeapon.CapsuleColliderOffset;
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
@@ -137,8 +145,9 @@ public class WeaponController : damageController
             playerEntity.attack = equippedWeapon.projectileAttack;
             
             whiteArrow.SetActive(false);
-            OrbPosition.smoothTimeX = 0.01f;
-            OrbPosition.smoothTimeY = 0.01f;
+            OrbPosition.smoothTimeX = 0;
+            OrbPosition.smoothTimeY = 0;
+            spriteTransform.localPosition = equippedWeapon.SpriteOffset;
             
             audioSource.pitch = equippedWeapon.soundPitch > 0 ? equippedWeapon.soundPitch : 1f;
 
@@ -146,8 +155,13 @@ public class WeaponController : damageController
             {
                 Destroy(Trail);
             }
+
+            //GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(0,0, equippedWeapon.angle_offset);
             Trail = Instantiate(equippedWeapon.trail, transform);
             Trail.SetActive(false);
+            pop = equippedWeapon.popSpawn;
+            oneSided = equippedWeapon.oneSidedSwing;
+            flipSide = equippedWeapon.swingOtherSide;
         }
     }
     // Update is called once per frame
@@ -316,11 +330,13 @@ public class WeaponController : damageController
     float distance;
     Vector2 worldSpaceOffset;
     float zAngle;
+    private float lastZAngle;
     private void leftClicking()//sword strategy/sling weapon/heavysword
     {
         if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
         {
             lastPosition = transform.position;
+            lastZAngle = zAngle;
             weaponUI.flashWhite();
             enableWeapon();
             audioSource.Play();
@@ -352,9 +368,9 @@ public class WeaponController : damageController
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
 
+            zAngle = transform.localEulerAngles.z;
             if (distance > capsuleColider.size.x * 2f)//capsule checking
             {
-                zAngle = transform.localEulerAngles.z;
                 worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
                 hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
                 //Debug.DrawRay((Vector2)currPos + worldSpaceOffset, lastPosition - currPos, Color.red, 10.0f);
@@ -381,7 +397,27 @@ public class WeaponController : damageController
 
             }
 
+            if (oneSided)
+            {
+                if (zAngle - lastZAngle > 0)
+                {
+                    if (!flipSide)
+                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                    else
+                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                }
+                else
+                {
+                    if (!flipSide)
+                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                    else
+                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                }
+            }
+
+
             lastPosition = currPos;
+            lastZAngle = zAngle;
         }
         if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
         {
@@ -436,7 +472,7 @@ public class WeaponController : damageController
                     {
                         Vector3 TransNorm = transform.localPosition.normalized;
                         playerEntity.bullet.transform.position = transform.position - TransNorm*projectileOffset;
-                        playerEntity.bullet.transform.eulerAngles = transform.localEulerAngles;
+                        playerEntity.bullet.transform.eulerAngles = transform.localEulerAngles + spriteTransform.localEulerAngles;
 
                         if (playerEntity.power_control == false && playerEntity.inaccuracy == 0)
                         {

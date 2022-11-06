@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 [ExecuteInEditMode()]
 public class Tooltip : MonoBehaviour
@@ -33,7 +34,7 @@ public class Tooltip : MonoBehaviour
         statField.text = "";
         foreach (float stat in stats)
         {
-            statField.text += stat.ToString() + "\n";
+            statField.text += Math.Round(stat, 2).ToString() + "\n";
         }
 
         statNamesField.text = statNames;

@@ -30,9 +30,9 @@ MonoBehaviour:
   activeTimeLimit: 0.25
   cooldownTime: 0.5
   XYSize: 1
-  angle_offset: 0
-  CapsuleColliderOffset: {x: -0.5, y: 0}
-  CapsuleColliderSize: {x: 0.3, y: 0.3}
+  angle_offset: -90
+  CapsuleColliderOffset: {x: 0, y: 0.53}
+  CapsuleColliderSize: {x: 0.3, y: 0.35}
   handReachMultiplier: 0.5
   projectileAttack: {fileID: 7953202150918435326, guid: 1e295b2129dd5b44ab8ac87c2c9c05ff,
     type: 3}
@@ -44,3 +44,6 @@ MonoBehaviour:
   trail: {fileID: 6359563610306997464, guid: 09d6a1d7f893a174a80270b7932c61cc, type: 3}
   soundPitch: 1.1
   movementDelay: 0
+  popSpawn: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
+  oneSidedSwing: 0
+  swingOtherSide: 0

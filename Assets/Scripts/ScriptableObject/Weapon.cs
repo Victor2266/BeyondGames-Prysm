@@ -18,6 +18,7 @@ public class Weapon : Equipment
 
     public Vector2 CapsuleColliderOffset;
     public Vector2 CapsuleColliderSize;
+    public Vector2 SpriteOffset;
 
     public float handReachMultiplier;//where the hand mesh goes
     public GameObject projectileAttack;
@@ -30,6 +31,9 @@ public class Weapon : Equipment
     public GameObject trail;
     public float soundPitch;
     public float movementDelay;
+    public GameObject popSpawn;
+    public bool oneSidedSwing;
+    public bool swingOtherSide;
 
     public override void Use()
     {
