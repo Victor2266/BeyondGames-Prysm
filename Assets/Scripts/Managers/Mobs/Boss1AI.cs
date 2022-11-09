@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EZCameraShake;
 public class Boss1AI : MonoBehaviour
 {
     public GameObject redEye;
@@ -254,6 +254,8 @@ public class Boss1AI : MonoBehaviour
             BossRoomRange.GetComponent<AudioSource>().enabled = false;
         }
         healthBar.gameObject.SetActive(false);
+
+        CameraShaker.Instance.ShakeOnce(10f, 5f, 0.1f, 5f);
     }
     private IEnumerator waitForLaser(float seconds)
     {

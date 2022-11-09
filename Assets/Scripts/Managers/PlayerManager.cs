@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -166,6 +167,7 @@ public class PlayerManager : MonoBehaviour
         {
             StartCoroutine(DeathDelay(4f));
         }
+        CameraShaker.Instance.ShakeOnce(5f, 1f, 0.1f, 1f);
     }
 
     private IEnumerator DeathDelay(float interval)
