@@ -10,6 +10,7 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer AudioMixer;
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+    public Toggle fullScreentoggle;
     public Slider BGM_Slider;
 
     // Start is called before the first frame update
@@ -27,11 +28,11 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log(Screen.currentResolution);
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = resolutions[i].ToString();
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = resolutions.Length - 1 - i;
             }
@@ -41,6 +42,8 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        fullScreentoggle.isOn = Screen.fullScreen;
     }
 
     public void SetVolume(float volume)

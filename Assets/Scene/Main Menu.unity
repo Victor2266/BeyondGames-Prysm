@@ -3983,6 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24100000, guid: f2334e979e35e2e4f91eedc86365c889, type: 2}
   resolutionDropdown: {fileID: 1496018103}
+  fullScreentoggle: {fileID: 598292422}
   MainCamera: {fileID: 1}
   SceneManager: {fileID: 1772109623}
   MainMenu: {fileID: 319763922}
@@ -90327,6 +90328,7 @@ MonoBehaviour:
   whiteMana: {fileID: 0}
   leftBosoter: {fileID: 0}
   rightBooster: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!4 &5772261638752735153
 Transform:
   m_ObjectHideFlags: 0

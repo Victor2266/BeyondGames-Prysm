@@ -10,6 +10,8 @@ public class MainMenuScript : MonoBehaviour
     public AudioMixer AudioMixer;
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+    public Toggle fullScreentoggle;
+
 
     public GameObject MainCamera;
     public GameObject SceneManager;
@@ -41,11 +43,11 @@ public class MainMenuScript : MonoBehaviour
         Debug.Log(Screen.currentResolution);
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = resolutions[i].ToString();
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = resolutions.Length -1 - i;
             }
@@ -55,7 +57,9 @@ public class MainMenuScript : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        
+
+        fullScreentoggle.isOn = Screen.fullScreen;
+
     }
 
 
