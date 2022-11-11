@@ -5,8 +5,9 @@ using UnityEngine;
 public class MobGeneric : MonoBehaviour
 {
     public float Health;
+    public float MaxHealth;
     public float Speed;
-    public float Height;
+    public float Height;//used to check if grounded
     public bool isDead = false;
     public GameObject DeathItem;
     private GameObject clone;
@@ -16,7 +17,6 @@ public class MobGeneric : MonoBehaviour
     public HealthBar healthBar;
 
     public BloodSplatterer BSplat;
-    public GameObject deathItem;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class MobGeneric : MonoBehaviour
     {
         Health -= amount;
         anim.SetTrigger("hurt");
-        healthBar.UpdateHealthBar(Health, 50f);
+        healthBar.UpdateHealthBar(Health, MaxHealth);
 
         BSplat.Spray((int)amount / 3);
         if (Health <= 0f && !isDead)
@@ -54,7 +54,7 @@ public class MobGeneric : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = Instantiate(deathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
         Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<Collider2D>());
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
         anim.SetTrigger("dead");
