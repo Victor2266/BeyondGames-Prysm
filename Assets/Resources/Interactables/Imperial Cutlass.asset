@@ -18,7 +18,7 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
-  desc: 
+  desc: hefty with great chopping power
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7

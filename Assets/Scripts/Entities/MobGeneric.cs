@@ -24,13 +24,6 @@ public class MobGeneric : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool IsGrounded()
     {
         Vector2 origin = base.transform.position;
