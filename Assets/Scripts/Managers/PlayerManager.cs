@@ -165,7 +165,7 @@ public class PlayerManager : MonoBehaviour
         playerEntity.setHealth(playerEntity.currentHealth - amount);
         if (playerEntity.currentHealth <= 0f && !playerEntity.isDead)
         {
-            StartCoroutine(DeathDelay(4f));
+            StartCoroutine(DeathDelay(3f));
         }
         CameraShaker.Instance.ShakeOnce(5f, 1f, 0.1f, 1f);
     }

@@ -133,8 +133,8 @@ public class PlayerEntity : MonoBehaviour
         currentMana = player.MaxMana;
 
         ManaCost = player.ManaCost;
-        isDead = player.isDead;
-        isDying = player.isDying;
+        isDead = false;
+        isDying = false;
         charges = player.charges;
         timeStamp = 0f;
         SlideCooldown = 0f;//don't want to spawn with cooldowns

@@ -72648,7 +72648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -90301,7 +90301,7 @@ MonoBehaviour:
   UseSpriteRend: 0
   ResetAlphaToZeroOnAwake: 0
   ticks: 0
-  tickLimit: 5
+  tickLimit: 3
 --- !u!114 &2018257167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90316,7 +90316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -16,8 +16,17 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BGM_Slider.value = PlayerPrefs.GetFloat("BGM_Volume");
-        AudioMixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("BGM_Volume")) * 20);
+        float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
+        BGM_Slider.value = volume;
+
+        if (volume > 0)
+        {
+            AudioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        }
+        else
+        {
+            AudioMixer.SetFloat("Volume", -80f);
+        }
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();

@@ -17236,7 +17236,7 @@ MonoBehaviour:
     - Just wasting away at my computer.
     - Hidden away from the gaze of others
     - eventually becoming transparent myself.
-    - 'paralized '
+    - paralyzed
     - 'and helpless.
 
 '
@@ -33896,6 +33896,9 @@ MonoBehaviour:
   handheldWeapon: {fileID: 0}
   redHealth: {fileID: 0}
   whiteMana: {fileID: 0}
+  leftBosoter: {fileID: 0}
+  rightBooster: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &1793949808
 MonoBehaviour:
   m_ObjectHideFlags: 0
