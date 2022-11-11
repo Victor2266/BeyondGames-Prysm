@@ -32593,7 +32593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &908434822
 Transform:
   m_ObjectHideFlags: 0
@@ -34823,7 +34823,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -10
+      scalar: 10
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -38535,7 +38535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1059752867
 Transform:
   m_ObjectHideFlags: 0
@@ -57084,7 +57084,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2047654933}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 4119.321}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 3939.321}
 --- !u!1 &1428146276
 GameObject:
   m_ObjectHideFlags: 0
