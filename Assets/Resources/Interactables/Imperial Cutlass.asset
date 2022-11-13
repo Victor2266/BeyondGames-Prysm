@@ -23,7 +23,7 @@ MonoBehaviour:
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7
   DMG_Scaling: 4
-  MaxDamage: 22
+  MaxDamage: 30
   MinDamage: 1
   DMGTextSize: 2
   activeTimeLimit: 1.5
@@ -43,7 +43,7 @@ MonoBehaviour:
   projAsChild: 0
   trail: {fileID: 2300350798725474172, guid: 87b90aefc577a1245be2ddf63ccbe8c4, type: 3}
   soundPitch: 0.9
-  movementDelay: 0
+  movementDelay: 0.05
   popSpawn: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
   oneSidedSwing: 1
   swingOtherSide: 1
