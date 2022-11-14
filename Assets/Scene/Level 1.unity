@@ -33643,96 +33643,6 @@ PrefabInstance:
       objectReference: {fileID: 484848684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af334b02e3ff13747ac59cccccee9387, type: 3}
---- !u!1 &764949447
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 764949448}
-  - component: {fileID: 764949451}
-  - component: {fileID: 764949450}
-  - component: {fileID: 764949449}
-  m_Layer: 5
-  m_Name: open Blackout fade to black (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &764949448
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764949447}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3285364920733330311}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &764949449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764949447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a76976d675fac74fae49dda198ff6ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseRawImage: 1
-  UseSpriteRend: 0
-  ResetAlphaToZeroOnAwake: 0
-  ticks: 0
-  tickLimit: 0.1
-  alpha: 0
---- !u!114 &764949450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764949447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &764949451
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764949447}
-  m_CullTransparentMesh: 0
 --- !u!4 &771915490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5636389220590213431, guid: c193bce83761ad549ac0b5acdd25cb20,
@@ -69369,7 +69279,7 @@ PrefabInstance:
     - target: {fileID: 3285364922042361390, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 3285364922120537116, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
@@ -69486,6 +69396,12 @@ PrefabInstance:
       propertyPath: UseSpriteRend
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8320475021151987704, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_text
+      value: 'Tip: Dash <color=green>[Left Shift]</color> to Avoid Enemies Approaching
+        You'
+      objectReference: {fileID: 0}
     - target: {fileID: 8530899635893513360, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_Color.a
@@ -69496,12 +69412,6 @@ PrefabInstance:
 --- !u!1 &3285364920733330310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2045847391925278392, guid: 183cad2a4a224974491568da4081552a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3285364920733330309}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &3285364920733330311 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3285364921891006696, guid: 183cad2a4a224974491568da4081552a,
     type: 3}
   m_PrefabInstance: {fileID: 3285364920733330309}
   m_PrefabAsset: {fileID: 0}

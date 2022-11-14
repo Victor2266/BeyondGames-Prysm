@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.rb2d.velocity += Vector2.up * Physics2D.gravity.y * (playerEntity.lowJumpMultiplier - 1f) * Time.deltaTime;
         }
-        if (Input.GetButtonDown("Jump") && playerManager.grounded)
+        if (Input.GetButtonDown("Jump")) //&& playerManager.grounded)
         {
             playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x, playerEntity.jumpForce);
             //StartCoroutine(playerManager.JumpStretch());
