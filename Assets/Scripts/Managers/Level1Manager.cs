@@ -40,7 +40,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
     float ShakeFadeOut = 8f;
 
     public SkillCheckDamage treeScript;
-
+    public GameObject instructions;
     private void Start()
     {
         firstGoblinScript = firstGoblin.GetComponent<ratBehavior>();
@@ -340,6 +340,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if(bossSoul == null)
             {
+                instructions.SetActive(false);
                 WinLevel();
                 index++;
             }

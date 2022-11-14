@@ -17272,6 +17272,7 @@ MonoBehaviour:
       no? Good.'
     - Now, go and collect some souls for me
     - 
+  ActualLevelSceneName: Level 1
   fallingParticles: {fileID: 259585610}
   FlyingUpWhiteLines: {fileID: 953159317}
   SoulAtom: {fileID: 370867349}

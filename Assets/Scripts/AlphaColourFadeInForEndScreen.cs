@@ -7,9 +7,11 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
 {
     RawImage rawImage;
     SpriteRenderer sprtRend;
+    Image image;
 
     public bool UseRawImage = true;
     public bool UseSpriteRend;
+    public bool UseImage;
     public bool ResetAlphaToZeroOnAwake;
 
     public float ticks;
@@ -23,6 +25,7 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
     {
         rawImage = GetComponent<RawImage>();
         sprtRend = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
 
         if (ResetAlphaToZeroOnAwake)
         {
@@ -33,6 +36,10 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
             else if (UseSpriteRend)
             {
                 sprtRend.color = new Vector4(sprtRend.color.r, sprtRend.color.g, sprtRend.color.b, 0f);
+            }
+            else if (UseImage)
+            {
+                image.color = new Vector4(rawImage.color.r, rawImage.color.g, rawImage.color.b, 00);
             }
         }
 
@@ -60,6 +67,13 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
                 if (sprtRend.color.a < 1)
                 {
                     sprtRend.color = new Vector4(sprtRend.color.r, sprtRend.color.g, sprtRend.color.b, 1 * ((ticks - startValue) / (tickLimit)));
+                }
+            }
+            else if (UseImage)
+            {
+                if (image.color.a < 1)
+                {
+                    image.color = new Vector4(image.color.r, image.color.g, image.color.b, 1 * ((ticks - startValue) / (tickLimit)));
                 }
             }
         }
