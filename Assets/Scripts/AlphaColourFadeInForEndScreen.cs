@@ -39,7 +39,7 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
             }
             else if (UseImage)
             {
-                image.color = new Vector4(rawImage.color.r, rawImage.color.g, rawImage.color.b, 00);
+                image.color = new Vector4(image.color.r, image.color.g, image.color.b, 0f);
             }
         }
 

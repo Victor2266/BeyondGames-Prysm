@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class FadeToTransparent : MonoBehaviour
 {
     RawImage rawImage;
+    public Image image;
     SpriteRenderer sprtRend;
 
     public bool UseRawImage = true;
     public bool UseSpriteRend;
+    public bool UseImage;
     public bool ResetAlphaToZeroOnAwake;
 
     public float ticks;
@@ -33,6 +35,10 @@ public class FadeToTransparent : MonoBehaviour
             else if (UseSpriteRend)
             {
                 sprtRend.color = new Vector4(sprtRend.color.r, sprtRend.color.g, sprtRend.color.b, 0f);
+            }
+            else if (UseImage)
+            {
+                image.color = new Vector4(image.color.r, image.color.g, image.color.b, 0f);
             }
         }
 
@@ -61,6 +67,13 @@ public class FadeToTransparent : MonoBehaviour
                 if (sprtRend.color.a <= 1)
                 {
                     sprtRend.color = new Color(sprtRend.color.r, sprtRend.color.g, sprtRend.color.b, alpha);
+                }
+            }
+            else if (UseImage)
+            {
+                if (image.color.a <= 1)
+                {
+                    image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
                 }
             }
         }

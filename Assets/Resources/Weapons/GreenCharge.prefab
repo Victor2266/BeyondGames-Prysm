@@ -256,20 +256,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e048fa865fd0824185dcc5757950c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
   DMG: 50
   Primed: 1
   Bouncy: 0
   pop: {fileID: 4243457265752490857, guid: 057b865550c716947b1320bc62089efb, type: 3}
   InitialPop: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437,
     type: 3}
-  DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
   DMGTextSize: 4
   attackVelo: 3.5
-  ManaCost: 20
+  ManaCost: 25
   coolDownPeriod: 1
   rapid_fire: 0
   power_control: 0
   inaccuracy: 0.1
+  DontTouchPlayer: 0
 --- !u!58 &58222758247822518
 CircleCollider2D:
   m_ObjectHideFlags: 0
