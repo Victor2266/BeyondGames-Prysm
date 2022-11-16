@@ -38,7 +38,7 @@ MonoBehaviour:
   projectileAttack: {fileID: 1310705855610197, guid: 460885e839165b242922c7bcb709c7ac,
     type: 3}
   projectileOffset: 0.1
-  thrustResetTime: 0.2
+  thrustResetTime: 0.15
   thrustDashDist: 8
   thrustShortReach: 0.4
   projAsChild: 1

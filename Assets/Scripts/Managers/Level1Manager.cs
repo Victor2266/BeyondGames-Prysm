@@ -129,7 +129,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if (index == 26)//tutorial 1
         {
-            if (treeScript.isDead)
+            if (treeScript.isDead || firstGoblinScript.isDead)
             {
                 TutorialPassed();
             }
@@ -145,6 +145,10 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 ShowText(3f, "FINALLY!", 1f);
                 TutorialPassed();
             }
+            else if (firstGoblinScript.isDead)
+            {
+                TutorialPassed();
+            }
             else
             {
                 StartCoroutine(DelaySentence(5f, "bring the sword a bit closer and make a full circle!", 1f));
@@ -157,6 +161,10 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 ShowText(3f, "About time.", 1f);
                 TutorialPassed();
             }
+            else if (firstGoblinScript.isDead)
+            {
+                TutorialPassed();
+            }
             else
             {
                 StartCoroutine(DelaySentence(5f, "it's not about speed, focus on the size of your swing", 1f));
@@ -167,6 +175,10 @@ public class Level1Manager : LevelManager// inherets winlevel function
             if (treeScript.isDead)
             {
                 ShowText(3f, "that took a while,", 1f);
+                TutorialPassed();
+            }
+            else if (firstGoblinScript.isDead)
+            {
                 TutorialPassed();
             }
             else
@@ -201,7 +213,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if (firstGoblinScript.isDead)
             {
-                StartCoroutine(DelaySentence(5f, "great job!", 1f));
+                StartCoroutine(DelaySentence(2f, "great job!", 1f));
             }
             else
             {
@@ -212,7 +224,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             if (firstGoblinScript.isDead)
             {
-                StartCoroutine(DelaySentence(5f, "excellent!", 1f));
+                StartCoroutine(DelaySentence(2f, "excellent!", 1f));
             }
             else
             {
@@ -346,10 +358,14 @@ public class Level1Manager : LevelManager// inherets winlevel function
             }
         }
 
-        if (index < 12 & EquipmentManager.instance.isEquipped(-1))
+        if (index < 12 && EquipmentManager.instance.isEquipped(-1))
         {
             index = 22;
             StopAllCoroutines();
+        }
+        else if (index >= 14 && index <= 24 && (treeScript.isDead || firstGoblinScript.isDead))
+        {
+            TutorialPassed();
         }
         else if(spearResearcherScript.isDead && index < 46+14 && index >= 36+14)
         {
@@ -436,6 +452,12 @@ public class Level1Manager : LevelManager// inherets winlevel function
         TreeFall();
         index = 36;
         StopAllCoroutines();
-        StartCoroutine(DelaySentence(5f, "NOW, kill the goblin", 1f));
+        if(!firstGoblinScript.isDead)
+            StartCoroutine(DelaySentence(5f, "NOW, kill the goblin", 1f));
+        else
+        {
+            index = 44;
+            StartCoroutine(DelaySentence(5f, "BRO, there's an order to this shit", 1f));
+        }
     }
 }
