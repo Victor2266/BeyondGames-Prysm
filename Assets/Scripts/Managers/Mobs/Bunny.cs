@@ -44,6 +44,28 @@ public class Bunny : MobGeneric
         
 
     }
+    public void TakeDamage(float amount)
+    {
+        Health -= amount;
+        anim.SetTrigger("hurt");
+
+        if (Health <= 0f && !isDead)
+        {
+            Death();
+        }
+    }
+
+    private GameObject clone;
+    private void Death()
+    {
+        isDead = true;
+        clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), clone.GetComponent<Collider2D>());
+        anim.SetTrigger("hurt");
+        anim.SetBool("alive", false);
+        GetComponent<CircleCollider2D>().radius = 0.01f;
+        gameObject.tag = "box";
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "HealItem" || collision.gameObject.tag == "Player")
