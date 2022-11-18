@@ -63,7 +63,7 @@ public class Bunny : MobGeneric
         Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), clone.GetComponent<Collider2D>());
         anim.SetTrigger("hurt");
         anim.SetBool("alive", false);
-        GetComponent<CircleCollider2D>().radius = 0.01f;
+        GetComponent<CircleCollider2D>().radius = 0.08f;
         gameObject.tag = "box";
     }
     public void OnCollisionEnter2D(Collision2D collision)

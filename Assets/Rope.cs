@@ -7,10 +7,13 @@ public class Rope : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private List<RopeSegment> ropeSegments = new List<RopeSegment>();
-    private float ropeSegLen = 0.25f;
-    private int segmentLength = 5;
-    private float lineWidth = 0.1f;
+    public float ropeSegLen = 0.25f;
+    public int segmentLength = 5;
+    public float lineWidth = 0.1f;
     public float zPos;
+    public Vector2 forceGravity = new Vector2(0f,-1.5f);
+    public float changeMultiplier = 0.5f;
+
     // Use this for initialization
     void Start()
     {
@@ -39,7 +42,6 @@ public class Rope : MonoBehaviour
     private void Simulate()
     {
         // SIMULATION
-        Vector2 forceGravity = new Vector2(1.5f, -1.5f);
 
         for (int i = 1; i < this.segmentLength; i++)
         {
@@ -77,9 +79,9 @@ public class Rope : MonoBehaviour
 
             if (i != 0)
             {
-                firstSeg.posNow -= changeAmount * 0.5f;
+                firstSeg.posNow -= changeAmount * changeMultiplier;
                 this.ropeSegments[i] = firstSeg;
-                secondSeg.posNow += changeAmount * 0.5f;
+                secondSeg.posNow += changeAmount * changeMultiplier;
                 this.ropeSegments[i + 1] = secondSeg;
 
 
