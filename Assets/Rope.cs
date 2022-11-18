@@ -11,7 +11,7 @@ public class Rope : MonoBehaviour
     public int segmentLength = 5;
     public float lineWidth = 0.1f;
     public float zPos;
-    public Vector2 forceGravity = new Vector2(0f,-1.5f);
+    public Vector3 forceGravity = new Vector2(0f,-1.5f);
     public float changeMultiplier = 0.5f;
 
     // Use this for initialization
@@ -46,7 +46,7 @@ public class Rope : MonoBehaviour
         for (int i = 1; i < this.segmentLength; i++)
         {
             RopeSegment firstSegment = this.ropeSegments[i];
-            Vector2 velocity = firstSegment.posNow - firstSegment.posOld;
+            Vector3 velocity = firstSegment.posNow - firstSegment.posOld;
             firstSegment.posOld = firstSegment.posNow;
             firstSegment.posNow += velocity;
             firstSegment.posNow += forceGravity * Time.fixedDeltaTime;
@@ -75,7 +75,7 @@ public class Rope : MonoBehaviour
             float dist = (firstSeg.posNow - secondSeg.posNow).magnitude;
             float error = dist - ropeSegLen;
             Vector2 changeDir = (firstSeg.posNow - secondSeg.posNow).normalized;
-            Vector2 changeAmount = changeDir * error;
+            Vector3 changeAmount = changeDir * error;
 
             if (i != 0)
             {
@@ -103,7 +103,7 @@ public class Rope : MonoBehaviour
         Vector3[] ropePositions = new Vector3[this.segmentLength];
         for (int i = 0; i < this.segmentLength; i++)
         {
-            ropePositions[i] = this.ropeSegments[i].posNow;
+            ropePositions[i] = this.ropeSegments[i].posNow + new Vector3(0f, 0f, zPos);
         }
 
         lineRenderer.positionCount = ropePositions.Length;
@@ -112,10 +112,10 @@ public class Rope : MonoBehaviour
 
     public struct RopeSegment
     {
-        public Vector2 posNow;
-        public Vector2 posOld;
+        public Vector3 posNow;
+        public Vector3 posOld;
 
-        public RopeSegment(Vector2 pos)
+        public RopeSegment(Vector3 pos)
         {
             this.posNow = pos;
             this.posOld = pos;

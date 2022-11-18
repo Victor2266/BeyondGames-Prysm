@@ -67368,8 +67368,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605892739}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7908508, w: 0.61200905}
-  m_LocalPosition: {x: 1.0717921, y: -0.048845347, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.113, y: -0.119, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543618074}
@@ -67387,7 +67387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3fcc56c439b264ba9e957c191c2bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zPos: -1
+  ropeSegLen: 0.25
+  segmentLength: 8
+  lineWidth: 0.1
+  zPos: 1
+  forceGravity: {x: 0.4, y: -0.2, z: 0}
+  changeMultiplier: 0.5
 --- !u!120 &1605892742
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -67427,9 +67432,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
