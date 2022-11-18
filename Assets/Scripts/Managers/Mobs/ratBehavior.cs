@@ -43,6 +43,8 @@ public class ratBehavior : MonoBehaviour
     public GameObject exclaimMark;
 
     public BloodSplatterer BSplat;
+
+    public GameObject Vine;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -331,6 +333,10 @@ public class ratBehavior : MonoBehaviour
         }
         healthBar.gameObject.SetActive(false);
         //Destroy(healthBar.gameObject);
+        if(Vine != null)
+        {
+            Vine.SetActive(false);
+        }
     }
 
 

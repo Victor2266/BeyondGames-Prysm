@@ -44,7 +44,11 @@ public class MobGeneric : MonoBehaviour
         }
     }
 
-    private void Death()
+    public virtual void SetCollision()
+    {
+        //this is for hte lbood spray position
+    }
+    protected void Death()
     {
         isDead = true;
         clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);

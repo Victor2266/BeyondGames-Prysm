@@ -8,7 +8,6 @@ public class Bunny : MobGeneric
     // Start is called before the first frame update
     void Start()
     {
-        Health = 10f;
         Speed = 1f;
         Height = 0.26f;
         anim = GetComponent<Animator>();
@@ -39,11 +38,33 @@ public class Bunny : MobGeneric
             {
                 Vector3 Pos = new Vector3(transform.position.x, transform.position.y, -2f);
                 GameObject clone;
-                clone = Instantiate(squeak, Pos, transform.rotation);
+                clone = Instantiate(squeak, transform);
             }
         }
         
 
+    }
+    public void TakeDamage(float amount)
+    {
+        Health -= amount;
+        anim.SetTrigger("hurt");
+
+        if (Health <= 0f && !isDead)
+        {
+            Death();
+        }
+    }
+
+    private GameObject clone;
+    private void Death()
+    {
+        isDead = true;
+        clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), clone.GetComponent<Collider2D>());
+        anim.SetTrigger("hurt");
+        anim.SetBool("alive", false);
+        GetComponent<CircleCollider2D>().radius = 0.08f;
+        gameObject.tag = "box";
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
