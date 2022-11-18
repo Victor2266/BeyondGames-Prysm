@@ -8,7 +8,6 @@ public class Bunny : MobGeneric
     // Start is called before the first frame update
     void Start()
     {
-        Health = 10f;
         Speed = 1f;
         Height = 0.26f;
         anim = GetComponent<Animator>();
@@ -39,7 +38,7 @@ public class Bunny : MobGeneric
             {
                 Vector3 Pos = new Vector3(transform.position.x, transform.position.y, -2f);
                 GameObject clone;
-                clone = Instantiate(squeak, Pos, transform.rotation);
+                clone = Instantiate(squeak, transform);
             }
         }
         
