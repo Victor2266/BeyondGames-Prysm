@@ -7,14 +7,12 @@ public class Bunny : MobGeneric
     public GameObject squeak;
     private SpriteRenderer sprd;
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         Speed = 1f;
         Height = 0.26f;
-        anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
         sprd = GetComponent<SpriteRenderer>();
-        
+        base.Start();
     }
 
 
@@ -40,14 +38,13 @@ public class Bunny : MobGeneric
             if (Random.Range(0, 50.0f) > 49.9f && Time.timeScale == 1)
             {
                 Vector3 Pos = new Vector3(transform.position.x, transform.position.y, -2f);
-                GameObject clone;
-                clone = Instantiate(squeak, transform);
+                Instantiate(squeak, transform);
             }
         }
         
 
     }
-    public void TakeDamage(float amount)
+    new public void TakeDamage(float amount)
     {
         Health -= amount;
         anim.SetTrigger("hurt");
@@ -58,8 +55,7 @@ public class Bunny : MobGeneric
         }
     }
 
-    private GameObject clone;
-    private void Death()
+    new void Death()
     {
         isDead = true;
         clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);

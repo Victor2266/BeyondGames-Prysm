@@ -18,8 +18,8 @@ MonoBehaviour:
   iconSize: 0.8
   isDefaultItem: 0
   WeaponType: 1
-  desc: A longer ranged weapon. But it doesn't do that much damage ... and it looks
-    suspiciously like a clothing rack.
+  desc: "A longer ranged weapon. \nBut it doesn't do that much damage ... \nAnd it
+    looks suspiciously like a clothing rack."
   equipSlot: 0
   color: {r: 0.3207547, g: 0.18010415, b: 0, a: 1}
   ReachLength: 1.7
@@ -33,6 +33,7 @@ MonoBehaviour:
   angle_offset: 0
   CapsuleColliderOffset: {x: 0, y: 0}
   CapsuleColliderSize: {x: 0.2, y: 4.2}
+  SpriteOffset: {x: 0, y: 0}
   handReachMultiplier: 0.3
   projectileAttack: {fileID: 1310705855610197, guid: 460885e839165b242922c7bcb709c7ac,
     type: 3}

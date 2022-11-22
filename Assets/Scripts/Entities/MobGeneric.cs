@@ -10,7 +10,7 @@ public class MobGeneric : MonoBehaviour
     public float Height;//used to check if grounded
     public bool isDead = false;
     public GameObject DeathItem;
-    private GameObject clone;
+    protected GameObject clone;
 
     public Animator anim;
     public Rigidbody2D rb2d;
@@ -19,7 +19,7 @@ public class MobGeneric : MonoBehaviour
     public BloodSplatterer BSplat;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
