@@ -329,7 +329,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
             BossRoomRange.SetActive(true);
             birdFollower.distance = 4.5f;
-            CameraShaker.Instance.ShakeOnce(ShakeMagnitude * 2f, ShakeRoughness * 2f, ShakeFadeIn, ShakeFadeOut);
+            CameraShaker.Instance.ShakeOnce(ShakeMagnitude * 3f, ShakeRoughness * 2f, ShakeFadeIn, ShakeFadeOut * 3f);
             Boss1.SetActive(true);
             Boss1Bar.SetActive(true);
         }

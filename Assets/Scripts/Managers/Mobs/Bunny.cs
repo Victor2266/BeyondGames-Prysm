@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bunny : MobGeneric
 {
     public GameObject squeak;
+    private SpriteRenderer sprd;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,7 +13,7 @@ public class Bunny : MobGeneric
         Height = 0.26f;
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-
+        sprd = GetComponent<SpriteRenderer>();
         
     }
 
@@ -24,13 +25,15 @@ public class Bunny : MobGeneric
         {   
             if (Random.Range(0, 50.0f) < 0.2f)
             {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                //transform.localScale = new Vector3(1f, 1f, 1f);
+                sprd.flipX = false;
                 rb2d.AddForce(new Vector2(-2f * Time.timeScale, 2f * Time.timeScale), ForceMode2D.Impulse);
                 anim.SetTrigger("hop");
             }
             if (Random.Range(0, 50.0f) > 49.8f)
             {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
+                //transform.localScale = new Vector3(-1f, 1f, 1f);
+                sprd.flipX = true;
                 rb2d.AddForce(new Vector2(2f * Time.timeScale, 2f * Time.timeScale), ForceMode2D.Impulse);
                 anim.SetTrigger("hop");
             }

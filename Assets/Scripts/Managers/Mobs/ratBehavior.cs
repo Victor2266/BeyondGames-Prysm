@@ -327,6 +327,7 @@ public class ratBehavior : MonoBehaviour
         base.gameObject.GetComponentInChildren<Light>().enabled = false;
         anim.SetTrigger("dead");
         anim.SetBool("FullyDead", true);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         if (spear != null)
         {
             spear.SetActive(false);
