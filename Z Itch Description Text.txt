@@ -38,8 +38,9 @@ LEFT/RIGHT CLICK   [Attack]
 
 <pre>
 <h4>Note #2:</h4>
-File is currently just a level 1 demo.
-MAKE SURE TO EXTRACT THE ZIP FILE, RUN THE .EXE
+Game is currently just a level 1 demo.
+The web version is prone to bugs and problems, try downloading it instead.
+MAKE SURE TO EXTRACT THE ZIP FILE, THEN RUN THE .EXE FILE
 Please share it with your friends.
 </pre>
 
