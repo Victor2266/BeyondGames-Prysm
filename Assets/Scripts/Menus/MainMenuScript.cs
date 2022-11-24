@@ -11,7 +11,7 @@ public class MainMenuScript : MonoBehaviour
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreentoggle;
-
+    public Toggle cameraLockToggle;
 
     public GameObject MainCamera;
     public GameObject SceneManager;
@@ -59,7 +59,7 @@ public class MainMenuScript : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         fullScreentoggle.isOn = Screen.fullScreen;
-
+        cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
     }
 
 
@@ -151,6 +151,17 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame()
     {
          Application.Quit();
-        
+
+    }
+    public void SetCameraLock(bool isLocked)
+    {
+        if (isLocked)
+        {
+            PlayerPrefs.SetInt("CameraLock", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CameraLock", 0);
+        }
     }
 }

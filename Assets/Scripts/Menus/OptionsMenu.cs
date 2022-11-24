@@ -11,7 +11,13 @@ public class OptionsMenu : MonoBehaviour
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreentoggle;
+    public Toggle cameraLockToggle;
     public Slider BGM_Slider;
+
+    // Callback which is triggered when
+    // Camera lock setting is changed
+    public delegate void OnCameraLockChanged();
+    public static OnCameraLockChanged onCameraLockChangedCallback;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +59,7 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         fullScreentoggle.isOn = Screen.fullScreen;
+        cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
     }
 
     public void SetVolume(float volume)
@@ -76,5 +83,17 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutions.Length - 1 - resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    public void SetCameraLock(bool isLocked) {
+        if (isLocked)
+        {
+            PlayerPrefs.SetInt("CameraLock", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CameraLock", 0);
+        }
+
+        onCameraLockChangedCallback.Invoke();
     }
 }

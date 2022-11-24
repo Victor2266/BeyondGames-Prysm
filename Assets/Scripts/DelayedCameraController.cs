@@ -8,7 +8,7 @@ public class DelayedCameraController : MonoBehaviour
 
     public Vector2 velocity;
 
-    public bool notTrackingPlayer;
+    public bool SetTargetInInspector;
 
     public float smoothTimeY;
 
@@ -18,7 +18,11 @@ public class DelayedCameraController : MonoBehaviour
 
     public float offsetY;
 
-    public GameObject player;
+    public GameObject cameraTarget;
+
+    public GameObject truePlayer;
+
+    public GameObject mouseTarget;
 
     public float delay;
 
@@ -28,13 +32,17 @@ public class DelayedCameraController : MonoBehaviour
     {
         PlayerUpdated(ClientScene.localPlayer);
         LocalPlayerAnnouncer.OnLocalPlayerUpdated += PlayerUpdated;
+
+        OptionsMenu.onCameraLockChangedCallback += UpdateCameraTarget;
         
     }
     private void Start()
     {
-        if (!notTrackingPlayer)
+        if (!SetTargetInInspector)
         {
-            player = GameObject.FindGameObjectWithTag("Mouse");
+            truePlayer = GameObject.FindGameObjectWithTag("Player");
+            mouseTarget = GameObject.FindGameObjectWithTag("Mouse");
+            UpdateCameraTarget();
         }
         //is always delayed
         StartCoroutine(DelayCamera(delay));
@@ -44,8 +52,8 @@ public class DelayedCameraController : MonoBehaviour
     {
         if (active)
         {
-            float x = Mathf.SmoothDamp(transform.position.x, player.transform.position.x + offsetX, ref velocity.x, smoothTimeX);
-            float num = Mathf.SmoothDamp(transform.position.y, player.transform.position.y + offsetY, ref velocity.y, smoothTimeY);
+            float x = Mathf.SmoothDamp(transform.position.x, cameraTarget.transform.position.x + offsetX, ref velocity.x, smoothTimeX);
+            float num = Mathf.SmoothDamp(transform.position.y, cameraTarget.transform.position.y + offsetY, ref velocity.y, smoothTimeY);
             transform.position = new Vector3(x, num + 0.5f, transform.position.z);
             /*if (!this.notTrackingPlayer)
             {
@@ -79,8 +87,23 @@ public class DelayedCameraController : MonoBehaviour
     {
         if (localPlayer != null && localPlayer.hasAuthority)
         {
-            player = localPlayer.gameObject.transform.GetChild(5).gameObject;
+            cameraTarget = localPlayer.gameObject.transform.GetChild(5).gameObject;
         }
         //this.enabled = (localPlayer != null);
+    }
+    public void UpdateCameraTarget()
+    {
+        if (PlayerPrefs.GetInt("CameraLock", 0) == 0)
+        {
+            cameraTarget = mouseTarget;
+        }
+        else if (PlayerPrefs.GetInt("CameraLock", 0) == 1)
+        {
+            cameraTarget = truePlayer;
+        }
+        else
+        {
+            cameraTarget = mouseTarget;
+        }
     }
 }
