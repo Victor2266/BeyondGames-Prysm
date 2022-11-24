@@ -1,3 +1,5 @@
+<p style="text-align:center"><b>The web version may be outdated, or prone to bugs and problems, try downloading it instead.</b></p>
+
 <pre>
 <b>You escape into your dreams. Into a world beyond your imagination.
 
@@ -39,7 +41,6 @@ LEFT/RIGHT CLICK   [Attack]
 <pre>
 <h4>Note #2:</h4>
 Game is currently just a level 1 demo.
-<b>The web version is prone to bugs and problems, try downloading it instead.</b>
 MAKE SURE TO EXTRACT THE ZIP FILE, THEN RUN THE .EXE FILE
 Please share it with your friends.
 </pre>
