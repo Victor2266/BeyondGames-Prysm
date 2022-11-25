@@ -67,6 +67,16 @@ public class DelayedCameraController : MonoBehaviour
                 }
             }*/
         }
+        if (PlayerPrefs.GetInt("CameraLock", 0) == 1)
+        {
+            if(Input.GetButtonDown("UnlockCam"))
+            {
+                cameraTarget = mouseTarget;
+            }else if(Input.GetButtonUp("UnlockCam"))
+            {
+                cameraTarget = truePlayer;
+            }
+        }
     }
 
     private IEnumerator DelayCamera(float WaitForAmount)

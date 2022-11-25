@@ -67689,7 +67689,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Lock The Camera To Player (For reduced motion sickness)
+  m_Text: 'Lock The Camera To Player (For reduced motion sickness)
+
+    (You can
+    press left ctrl to look around)'
 --- !u!222 &1520248931
 CanvasRenderer:
   m_ObjectHideFlags: 0
