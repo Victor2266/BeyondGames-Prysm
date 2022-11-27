@@ -36,6 +36,7 @@ ESCAPE             [Pause Menu]
 SHIFT              [Dash]
 LEFT/RIGHT CLICK   [Attack]
 1-9 / SCROLL WHEEL [Weapon Select]
+TOGGLE CAMERA LOCK [Left Ctrl]
 </pre>
 
 <pre>
