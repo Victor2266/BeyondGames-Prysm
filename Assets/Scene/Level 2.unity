@@ -68334,6 +68334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DMGText: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28, type: 3}
   whiteArrow: {fileID: 3923112819648393591}
+  arrowColor: {fileID: 3923112819648393585}
   pop: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
   ReachLength: 2
   DMG_Scaling: 4

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class WeaponController : damageController
 {
-    [SerializeField]
-    private GameObject whiteArrow;
+    [SerializeField] private GameObject whiteArrow;
+    [SerializeField] private SpriteRenderer arrowColor;
+
     public GameObject pop;
 
     private SpriteRenderer sprtrend;
@@ -102,6 +103,7 @@ public class WeaponController : damageController
             sprtrend.color = new Vector4(1f, 1f, 1f, 0f);
             isInHand = false;
 
+            arrowColor.color = new Color(1f, 1f, 1f, 0.5882353f);
             whiteArrow.SetActive(true);
             OrbPosition.smoothTimeX = 0.05f;
             OrbPosition.smoothTimeY = 0.05f;
@@ -145,7 +147,9 @@ public class WeaponController : damageController
 
             playerEntity.attack = equippedWeapon.projectileAttack;
             
+            arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(false);
+
             OrbPosition.smoothTimeX = 0;
             OrbPosition.smoothTimeY = 0;
             spriteTransform.localPosition = equippedWeapon.SpriteOffset;
@@ -194,12 +198,20 @@ public class WeaponController : damageController
 
         if (timeStamp <= Time.time && !WeaponEnabled)
         {
+            if (StaminaBar.value != StaminaBar.maxValue)
+            {
+                arrowColor.color = new Color(1f, 1f, 1f, 1f);
+            }
             StaminaBar.value = StaminaBar.maxValue;
+ 
         }
         if (ReachLength < ItemReachLength)
         {
             ReachLength = Mathf.SmoothDamp(ReachLength, ItemReachLength, ref itemVelo, thrustResetTime);
         }
+
+        alphaVal = Mathf.SmoothDamp(arrowColor.color.a, 0f, ref alphaVelo, 0.25f);
+        arrowColor.color = new Color(1f, 1f, 1f, alphaVal);
 
         leftClicking();
         rightClicking();
@@ -343,6 +355,8 @@ public class WeaponController : damageController
             audioSource.Play();
             totalDistance = MinDamage/DMG_Scaling;
             lastHit = null;
+
+            arrowColor.color = new Color(0f, 0f, 0f, 0f);
         }
         if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
@@ -424,14 +438,20 @@ public class WeaponController : damageController
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
 
             totalDistance = 0f;
-            timeStamp = Time.time + cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit)*cooldownTime;
-            weaponUI.ScaleDown(cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit) * cooldownTime);
+            remainingCooldown = cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit) * cooldownTime;
+            timeStamp = Time.time + remainingCooldown;
+            weaponUI.ScaleDown(remainingCooldown);
             StaminaBar.value = 0f;
             WeaponEnabled = false;
             Trail.SetActive(false);
             DamageCounter.text = "";
+
+            arrowColor.color = new Color(0f, 0f, 0f, 0f);
+            whiteArrow.SetActive(true);
         }
-    } 
+    }
+    float remainingCooldown;
+
     private void rightClicking()
     {
         shootSpecialAttack();
@@ -546,4 +566,8 @@ public class WeaponController : damageController
         //dash.transform.eulerAngles = transform.eulerAngles;
 
     }
+
+    private float alphaVelo;
+    private float alphaVal;
+
 }

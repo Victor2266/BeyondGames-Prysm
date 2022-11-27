@@ -60,7 +60,7 @@ public class PauseMenuScript : MonoBehaviour
         }
         else
         {
-            mousePointer.SetActive(false);
+            mousePointer.SetActive(true);
         }
         player.GetComponent<PlayerController>().enabled = true;
         PauseMenuUI.SetActive(false);
