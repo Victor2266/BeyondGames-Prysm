@@ -438,6 +438,7 @@ public class WeaponController : damageController
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
 
             totalDistance = 0f;
+
             remainingCooldown = cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit) * cooldownTime;
             timeStamp = Time.time + remainingCooldown;
             weaponUI.ScaleDown(remainingCooldown);
@@ -464,6 +465,7 @@ public class WeaponController : damageController
             {
                 playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
                 weaponUI.flashWhite();
+                whiteArrow.SetActive(false);
                 sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
                 StaminaBar.value = 0f;
                 if (projAsChild == true)

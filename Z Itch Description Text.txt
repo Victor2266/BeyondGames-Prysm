@@ -1,4 +1,4 @@
-<p style="text-align:center"><b>The web version may be outdated, or prone to bugs and problems, and the mouse won't lock to the window, try downloading it instead.</b></p>
+<p style="text-align:center"><b>The web demo may be outdated, slow, or prone to bugs and problems, and the mouse won't lock to the window, try downloading it instead.</b></p>
 
 <pre>
 <b>You escape into your dreams. Into a world beyond your imagination.
