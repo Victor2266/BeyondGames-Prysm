@@ -17,12 +17,14 @@ namespace TMPro.Examples
         private TMP_Text m_textMeshPro;
         public bool nonReactive;
         public float delay;
+        public bool disableWrapping = false;
         void Awake()
         {
             // Get Reference to TextMeshPro Component
             m_textMeshPro = GetComponent<TMP_Text>();
             m_textMeshPro.text = DisplayText;
-            m_textMeshPro.enableWordWrapping = true;
+            if(!disableWrapping)
+                m_textMeshPro.enableWordWrapping = true;
             m_textMeshPro.maxVisibleCharacters = 0;
 
             if (nonReactive)
