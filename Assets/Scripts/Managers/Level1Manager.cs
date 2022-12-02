@@ -41,6 +41,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
     public SkillCheckDamage treeScript;
     public GameObject instructions;
+    public GameObject CreditTextGameObject;
     private void Start()
     {
         firstGoblinScript = firstGoblin.GetComponent<ratBehavior>();
@@ -353,6 +354,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
             if(bossSoul == null)
             {
                 instructions.SetActive(false);
+                CreditTextGameObject.SetActive(true);
                 WinLevel();
                 index++;
             }
