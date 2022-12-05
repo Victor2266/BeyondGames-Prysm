@@ -157,7 +157,6 @@ public class PlayerManager : MonoBehaviour
         //Debug.DrawRay(origin, -Vector2.up * 0.05f, Color.red, 0.01f, false);
         return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
     }
-
     public void TakeDamage(float amount)
     {
         playerEntity.redFlash.SetActive(true);

@@ -11428,6 +11428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseRawImage: 1
   UseSpriteRend: 0
+  UseImage: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
   tickLimit: 4
@@ -17272,7 +17273,6 @@ MonoBehaviour:
       no? Good.'
     - Now, go and collect some souls for me
     - 
-  ActualLevelSceneName: Level 1
   fallingParticles: {fileID: 259585610}
   FlyingUpWhiteLines: {fileID: 953159317}
   SoulAtom: {fileID: 370867349}
@@ -17287,7 +17287,7 @@ MonoBehaviour:
   whiteSoul: {fileID: 1811854461}
   smoothTime: 2
   audioSource: {fileID: 899003684}
-  LoyaltySong: {fileID: 8300000, guid: 91eac4023580b6346bc974db27016f2e, type: 3}
+  LoyaltySong: {fileID: 8300000, guid: 226bab5de0d1fb246beab1491bcfdd30, type: 3}
 --- !u!4 &899003683
 Transform:
   m_ObjectHideFlags: 0

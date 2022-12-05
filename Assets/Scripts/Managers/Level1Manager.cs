@@ -304,6 +304,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 birdFollower.distance = 3f;
                 StartCoroutine(DelaySentence(7f, "thank god you beat him", 1f));
                 ShowText(7f, "pick up the magic tome he dropped", 1f);
+                ShowText(7f, "<color=green>press [F] to skip dialog</color>", 0.9f);
             }
         }
         else if (index == 48+14)
@@ -373,6 +374,13 @@ public class Level1Manager : LevelManager// inherets winlevel function
         {
             index = 46+14;
             StopAllCoroutines();
+        }
+        else if( 60 <= index && index <= 66)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SkipFinalDialog();
+            }
         }
     }
 
@@ -461,5 +469,11 @@ public class Level1Manager : LevelManager// inherets winlevel function
             index = 44;
             StartCoroutine(DelaySentence(5f, "BRO, there's an order to this shit", 1f));
         }
+    }
+
+    private void SkipFinalDialog()
+    {
+        index = 54+14;
+        StopAllCoroutines();
     }
 }
