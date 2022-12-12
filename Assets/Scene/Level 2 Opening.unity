@@ -16054,10 +16054,10 @@ MonoBehaviour:
       Good Luck!'
   mainCamera: {fileID: 1947762705}
   FadeToBlack: {fileID: 609579868}
-  NextButton: {fileID: 0}
-  SkipButton: {fileID: 0}
+  NextButton: {fileID: 1724383309}
+  SkipButton: {fileID: 2002024036}
   smoothTime: 2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 899003684}
   CutSceneSong: {fileID: 0}
 --- !u!4 &899003683
 Transform:
