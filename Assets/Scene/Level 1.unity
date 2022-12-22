@@ -119135,6 +119135,11 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 1805261699}
+    - target: {fileID: 3285364921919906243, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
     - target: {fileID: 3285364922042361390, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_SizeDelta.y

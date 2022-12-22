@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.InputSystem;
 
 public class DelayedCameraController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class DelayedCameraController : MonoBehaviour
     public GameObject cameraTarget;
 
     public GameObject truePlayer;
+    public PlayerInput playerInput;
+    bool ToggleButtonDown = false;
 
     public GameObject mouseTarget;
 
@@ -67,22 +70,24 @@ public class DelayedCameraController : MonoBehaviour
                 }
             }*/
         }
+        ToggleButtonDown = playerInput.actions["Toggle Camera Lock"].IsPressed();
+
         if (PlayerPrefs.GetInt("CameraLock", 0) == 1)
         {
-            if(Input.GetButtonDown("UnlockCam"))
+            if(ToggleButtonDown)
             {
                 cameraTarget = mouseTarget;
-            }else if(Input.GetButtonUp("UnlockCam"))
+            }else if(!ToggleButtonDown)
             {
                 cameraTarget = truePlayer;
             }
         }
         else {
-            if (Input.GetButtonDown("UnlockCam"))
+            if (ToggleButtonDown)
             {
                 cameraTarget = truePlayer;
             }
-            else if (Input.GetButtonUp("UnlockCam"))
+            else if (!ToggleButtonDown)
             {
                 cameraTarget = mouseTarget;
             }
