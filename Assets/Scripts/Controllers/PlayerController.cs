@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerEntity playerEntity;
     public PlayerManager playerManager;
 
+    private bool holdingJump = false;
+    private bool holdingRegenMana = false;
+    private PlayerInput playerInput;
 
+    private void Start()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
     private void Update()
     {
         if (!playerEntity.customLocalPlayerCheck)
@@ -31,18 +39,28 @@ public class PlayerController : MonoBehaviour
             Debug.Log(playerEntity.health.maxValue);
         }
     }
+    private void FixedUpdate()
+    {
+        if (holdingRegenMana)
+        {
+            if (playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
+            {
+                playerEntity.setHealthAndMana(playerEntity.currentHealth - 0.5f, playerEntity.currentMana + 2);
+            }
+        }
+    }
 
     public void MoveUpdate()
     {
-
-        if (Input.GetAxisRaw("Horizontal") > 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
+        Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
+        if (input.x > 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
             //playerEntity.SprtRnderer.flipX = false;
             transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             playerEntity.lookingLeft = false;
             playerEntity.rb2d.velocity = new Vector2(playerEntity.speed, playerEntity.rb2d.velocity.y);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
+        else if (input.x < 0f && Mathf.Abs(playerEntity.rb2d.velocity.x) < playerEntity.speed && !playerEntity.Flinch)
         {
             //playerEntity.SprtRnderer.flipX = true;
             //transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
@@ -74,34 +92,30 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.rb2d.velocity += Vector2.up * Physics2D.gravity.y * (playerEntity.fallMultiplier - 1f) * Time.deltaTime;
         }
-        else if (playerEntity.rb2d.velocity.y > 0f && !Input.GetButton("Jump") && !playerEntity.isClimbing)
+        else if (playerEntity.rb2d.velocity.y > 0f && !holdingJump && !playerEntity.isClimbing)
         {
             playerEntity.rb2d.velocity += Vector2.up * Physics2D.gravity.y * (playerEntity.lowJumpMultiplier - 1f) * Time.deltaTime;
         }
-        if (Input.GetButtonDown("Jump") && playerManager.grounded)
-        {
-            playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x, playerEntity.jumpForce);
-            //StartCoroutine(playerManager.JumpStretch());
-            Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
-            playerEntity.spawnedEffect = Instantiate(playerEntity.gasPuff, GasPos, transform.rotation);
 
-            playerEntity.leftBosoter.startLifetime = 0.5f;
-            playerEntity.rightBooster.startLifetime = 0.5f;
-            playerEntity.audioSource.Play();
-        }
-        if (Input.GetButtonUp("Jump"))
-        {
-            playerEntity.leftBosoter.startLifetime = 0f;
-            playerEntity.rightBooster.startLifetime = 0f;
-            playerEntity.audioSource.Stop();
-        }
 
-        if (Input.GetButton("RegenMana") && playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
-        {
-            playerEntity.setHealthAndMana(playerEntity.currentHealth - 0.5f, playerEntity.currentMana + 2);
+    }
 
+    public void RegenManaEvent(InputAction.CallbackContext context)
+    {
+        Debug.Log(context);
+        if (context.started)
+        {
+            holdingRegenMana = true;
         }
-        if (Input.GetButtonDown("Slide") && Input.GetAxisRaw("Horizontal") != 0)//testing without ground check  playerManager.IsGrounded() 
+        else if (context.canceled)
+        {
+            holdingRegenMana = false;
+        }
+    }
+    public void SlideEvent(InputAction.CallbackContext context)
+    {
+        Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
+        if (context.started && input.x != 0)
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {
@@ -116,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
                 playerEntity.audioSource.Play();
 
-                if (Input.GetAxisRaw("Horizontal") > 0f)
+                if (input.x > 0f)
                 {
                     //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x + 8f, playerEntity.rb2d.velocity.y);
                     playerEntity.rb2d.AddForce(new Vector2(6f, 0f), ForceMode2D.Impulse);
@@ -125,7 +139,7 @@ public class PlayerController : MonoBehaviour
                     playerEntity.leftBosoter.startLifetime = 0.7f;
                     playerEntity.rightBooster.startLifetime = 0.6f;
                 }
-                else if (Input.GetAxisRaw("Horizontal") < 0f)
+                else if (input.x < 0f)
                 {
                     //playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x - 8f, playerEntity.rb2d.velocity.y);
 
@@ -139,12 +153,39 @@ public class PlayerController : MonoBehaviour
                 //GetComponent<CapsuleCollider2D>().offset = new Vector2(0.01f, -0.36f);
             }
         }
-        if (Input.GetButtonUp("Slide"))
+        else if (context.canceled)
         {
             playerEntity.leftBosoter.startLifetime = 0f;
             playerEntity.rightBooster.startLifetime = 0f;
 
             playerEntity.audioSource.Stop();
+        }
+    }
+    public void JumpEvent(InputAction.CallbackContext context)
+    {
+        //Debug.Log(context);
+        if (context.started)
+        {
+            if (playerManager.grounded)
+            {
+                playerEntity.rb2d.velocity = new Vector2(playerEntity.rb2d.velocity.x, playerEntity.jumpForce);
+                //StartCoroutine(playerManager.JumpStretch());
+                Vector3 GasPos = new Vector3(transform.position.x, transform.position.y - 0.4f, 0);
+                playerEntity.spawnedEffect = Instantiate(playerEntity.gasPuff, GasPos, transform.rotation);
+
+                playerEntity.leftBosoter.startLifetime = 0.5f;
+                playerEntity.rightBooster.startLifetime = 0.5f;
+                playerEntity.audioSource.Play();
+            }
+
+            holdingJump = true;
+        }
+        else if (context.canceled)
+        {
+            playerEntity.leftBosoter.startLifetime = 0f;
+            playerEntity.rightBooster.startLifetime = 0f;
+            playerEntity.audioSource.Stop();
+            holdingJump = false;
         }
     }
 

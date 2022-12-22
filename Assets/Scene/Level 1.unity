@@ -95300,6 +95300,118 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3285364920733330309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1805261699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805261697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: JumpEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4912c198-4f0f-41e7-8985-d718da8f0b29
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c82f065-bf1e-4164-ad13-56c150d115f4
+    m_ActionName: Player/Primary Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 163cb0c6-851d-42fa-b6a9-49cad74ed603
+    m_ActionName: Player/Secondary Attack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ce9db05-4152-4eba-afb3-19d96b33bda0
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 63f1c198-6887-4c70-9e6d-59f8952ec7df
+    m_ActionName: Player/Inventory
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c95759d4-fa2c-496e-bcb4-9dea529b4d4f
+    m_ActionName: Player/Pause Menu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: SlideEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e95cb786-245f-411b-a411-ac934d970a56
+    m_ActionName: Player/Dash
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: RegenManaEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d513f455-b07f-4b7c-b720-a120ef8262df
+    m_ActionName: Player/Regen Mana
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58999e93-fa3b-4724-9e01-51a626902b8e
+    m_ActionName: Player/Charge Magic
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 86165328-8b07-4a57-8583-d06855b7e21a
+    m_ActionName: Player/Interact
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 429b88a7-8987-488b-ae63-a9f5c1c8cc9b
+    m_ActionName: Player/Change Weapon
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be749359-4128-4ca1-873f-8e1c746758f9
+    m_ActionName: Player/Toggle Camera Lock
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1812347129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118747,7 +118859,7 @@ PrefabInstance:
     - target: {fileID: 3285364921198991627, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3285364921291605200, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
@@ -119093,6 +119205,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3285364920733330309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3285364920733330311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285364921412153358, guid: 183cad2a4a224974491568da4081552a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3285364920733330309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805261697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3053a96a055a82f4bae5306ba20566b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &3516884955188338019
 ParticleSystem:
   m_ObjectHideFlags: 0

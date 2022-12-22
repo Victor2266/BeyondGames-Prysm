@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*	
 	This component is for all objects that the player can
@@ -13,6 +14,7 @@ public class Interactable : MonoBehaviour
 	public Transform interactionTransform;  // The transform from where we interact in case you want to offset it
 
 	public Transform player;       // Reference to the player transform
+	private PlayerInput playerInput;
 
 
 	bool hasInteracted = false; // Have we already interacted with the object?
@@ -20,6 +22,7 @@ public class Interactable : MonoBehaviour
     private void OnEnable()
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		playerInput = player.gameObject.GetComponent<PlayerInput>();
 	}
 	public virtual void Interact()
 	{
@@ -35,7 +38,7 @@ public class Interactable : MonoBehaviour
 		{
 			// If we are close enough
 			float distance = Vector2.Distance(player.position, interactionTransform.position);
-			if (distance <= radius && Input.GetButtonDown("Use/Interact"))
+			if (distance <= radius && playerInput.actions["Interact"].ReadValue<float>() > 0f)
 			{
 				// Interact with the object
 				Interact();
