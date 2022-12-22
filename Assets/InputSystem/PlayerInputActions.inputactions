@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Primary Attack [Gamepad]",
+                    "type": "Value",
+                    "id": "abab97f7-360b-4c30-93c9-33c1b431dec7",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Secondary Attack",
                     "type": "Button",
                     "id": "163cb0c6-851d-42fa-b6a9-49cad74ed603",
@@ -87,7 +96,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause Menu",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "c95759d4-fa2c-496e-bcb4-9dea529b4d4f",
                     "expectedControlType": "Button",
@@ -97,12 +106,12 @@
                 },
                 {
                     "name": "Change Weapon",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "429b88a7-8987-488b-ae63-a9f5c1c8cc9b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Toggle Camera Lock",
@@ -150,17 +159,6 @@
                 },
                 {
                     "name": "",
-                    "id": "167198ab-7ca2-42c0-a77e-6a542a137a81",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Primary Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6dfa1437-b566-4ded-8c4f-44785cfd511b",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -172,8 +170,30 @@
                 },
                 {
                     "name": "",
+                    "id": "c2cf45e4-8419-4650-80c5-0384e2f09582",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Secondary Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9b6ade39-0b70-47f1-9c4b-7738fb4e6baa",
-                    "path": "",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1f8a324-3b10-4607-ba18-168768c100f3",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -184,18 +204,29 @@
                 {
                     "name": "",
                     "id": "2f7f046b-9d43-4b9e-b603-243be43bbf31",
-                    "path": "",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause Menu",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb668e25-7f5d-4996-94e9-25b6ce66f392",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "f92a2f1d-dec8-4c6a-be6f-44ad754fcfaa",
-                    "path": "",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -349,7 +380,18 @@
                 {
                     "name": "",
                     "id": "84101eaf-b391-4533-91d5-7d60cb701ea8",
-                    "path": "",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Charge Magic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9c20f75-3a33-414e-9eec-fe057d8fbafd",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -365,6 +407,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba3c7f9b-6dae-4ca4-a388-c96bcf414096",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "caabce4a-632d-4f44-b3c9-55dab3e67973",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Primary Attack [Gamepad]",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "167198ab-7ca2-42c0-a77e-6a542a137a81",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Primary Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

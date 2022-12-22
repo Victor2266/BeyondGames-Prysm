@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 /* This object updates the inventory UI. */
 
@@ -16,6 +17,8 @@ public class InventoryUI : MonoBehaviour
 	InventorySlot[] slots;  // List of all the slots
 	public Image[] Tabs = new Image[3];
 	PlayerEntity player;
+	public PlayerInput playerInput;
+
 	public GameObject pauseMenu;
 
 	public enum WeaponTypes { All, Weapons, Spells };
@@ -47,7 +50,7 @@ public class InventoryUI : MonoBehaviour
 	void Update()
 	{
 		// Check to see if we should open/close the inventory
-		if (Input.GetButtonDown("Inventory") && pauseMenu.activeSelf == false)
+		if (playerInput.actions["Inventory"].WasPressedThisFrame() && pauseMenu.activeSelf == false)
 		{
 				if (PauseMenuScript.isPaused)
 				{
@@ -62,7 +65,7 @@ public class InventoryUI : MonoBehaviour
             TooltipManager.Hide();
             inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
-		else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
+		else if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == true)
         {
             //CloseInventory();
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject OptionsMenuUI;
     public GameObject ControlsMenuUI;
     public GameObject player;
+    public PlayerInput playerInput;
     public GameObject mousePointer;
     public GameObject MainMenuWarning;
     public GameObject inventoryUI;
@@ -25,7 +27,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == false)
+        if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == false)
         {
             Debug.Log("Pausing Game");
             OptionsMenuUI.SetActive(false);
@@ -40,7 +42,7 @@ public class PauseMenuScript : MonoBehaviour
 
             TooltipManager.Hide();
         }
-        else if (Input.GetButtonDown("Pause") && inventoryUI.activeSelf == true)
+        else if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == true)
         {
             Resume();
             inventoryUI.SetActive(false);

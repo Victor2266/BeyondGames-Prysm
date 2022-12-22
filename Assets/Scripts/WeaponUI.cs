@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
+using UnityEngine.InputSystem;
 
 public class WeaponUI : MonoBehaviour
 {
@@ -28,6 +28,7 @@ public class WeaponUI : MonoBehaviour
     public int TruePosition;
     private float posX;
     public GameObject Player;
+    public PlayerInput playerInput;
     
     private PlayerEntity playerScript;
     private PlayerManager playerManager;
@@ -259,7 +260,8 @@ public class WeaponUI : MonoBehaviour
 
         if (!unequipAll)
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0.09f) // forward
+            float scrollVal = playerInput.actions["Change Weapon"].ReadValue<float>();
+            if (scrollVal > 0.09f) // forward
             {
                 if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
                 {
@@ -276,10 +278,10 @@ public class WeaponUI : MonoBehaviour
                     }
                     if (playerScript.weapon == -1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[-1]
                     {
-                        playerScript.weapon = 7;
+                        playerScript.weapon = 0;
                         while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
                         {
-                            playerScript.weapon--;
+                            playerScript.weapon++;
 
                         }
                     }
@@ -288,7 +290,7 @@ public class WeaponUI : MonoBehaviour
                     playerManager.SetWeap();
                 }
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") < -0.09f) // backwards
+            else if (scrollVal < -0.09f) // backwards
             {
                 if (playerScript.weapon > -2 && playerScript.weapon < 7)//from weapons [-1 0 123456]7
                 {
@@ -305,10 +307,10 @@ public class WeaponUI : MonoBehaviour
                     }
                     if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
                     {
-                        playerScript.weapon = -1;
+                        playerScript.weapon = 6;
                         while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
                         {
-                            playerScript.weapon++;
+                            playerScript.weapon--;
 
                         }
                     }

@@ -12,6 +12,15 @@ public class PlayerController : MonoBehaviour
 
     private bool holdingJump = false;
     private bool holdingRegenMana = false;
+
+    private bool startRight = false;
+    private bool holdingRight = false;
+    private bool liftRight = false;
+
+    private bool startLeft = false;
+    private bool holdingLeft = false;
+    private bool liftLeft = false;
+
     private PlayerInput playerInput;
 
     private void Start()
@@ -102,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     public void RegenManaEvent(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+        if(Time.timeScale == 0) { return; }
         if (context.started)
         {
             holdingRegenMana = true;
@@ -114,6 +123,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SlideEvent(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) { return; }
         Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
         if (context.started && input.x != 0)
         {
@@ -163,6 +173,7 @@ public class PlayerController : MonoBehaviour
     }
     public void JumpEvent(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) { return; }
         //Debug.Log(context);
         if (context.started)
         {
@@ -189,34 +200,86 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ChargeEvent(InputAction.CallbackContext context)
+    {
+        if (Time.timeScale == 0) { return; }
+        if (playerEntity.weapon < 1)
+        {
+            return;
+        }
+
+        if (context.started)
+        {
+            ToggleChargeWeapon();
+        }
+    }
+
+    public void ToggleChargeWeapon()
+    {
+        if (playerEntity.weapon <= 7 && playerEntity.weapon > 0)
+        {
+            playerEntity.ChargeIndicator.SetActive(true);
+            playerEntity.weapon += 7;
+            Debug.Log("chrge up");
+        }
+        else if (playerEntity.weapon >= 8)
+        {
+            playerEntity.ChargeIndicator.SetActive(false);
+            playerEntity.weapon -= 7;
+            Debug.Log("chrge down");
+        }
+        playerManager.SetWeap();
+    }
+    public void ChargeWeapon()
+    {
+        if (playerEntity.weapon <= 7 && playerEntity.weapon > 0)
+        {
+            playerEntity.ChargeIndicator.SetActive(true);
+            playerEntity.weapon += 7;
+            Debug.Log("chrge up");
+        }
+        playerManager.SetWeap();
+    }
+
+    public void UnChargeWeapon()
+    {
+        if (playerEntity.weapon >= 8)
+        {
+            playerEntity.ChargeIndicator.SetActive(false);
+            playerEntity.weapon -= 7;
+            Debug.Log("chrge down");
+        }
+        playerManager.SetWeap();
+    }
+
     public void Shooting()
     {
         if (playerEntity.weapon < 1)
         {
             return;
         }
-        if ((Input.GetButtonDown("Charge") || Input.GetMouseButtonDown(1)))
+
+        startLeft = playerInput.actions["Primary Attack"].WasPressedThisFrame();
+        holdingLeft = playerInput.actions["Primary Attack"].IsPressed();
+        liftLeft = playerInput.actions["Primary Attack"].WasReleasedThisFrame();
+
+        startRight = playerInput.actions["Secondary Attack"].WasPressedThisFrame();
+        holdingRight = playerInput.actions["Secondary Attack"].IsPressed();
+        liftRight = playerInput.actions["Secondary Attack"].WasReleasedThisFrame();
+
+        if (holdingRight)
         {
-            if (playerEntity.weapon <= 7 && playerEntity.weapon > 0)
-            {
-                playerEntity.ChargeIndicator.SetActive(true);
-                playerEntity.weapon += 7;
-                Debug.Log("chrge up");
-            }
-            else if (playerEntity.weapon >= 8)
-            {
-                playerEntity.ChargeIndicator.SetActive(false);
-                playerEntity.weapon -= 7;
-                Debug.Log("chrge down");
-            }
-            playerManager.SetWeap();
+            ChargeWeapon();
+        }
+        if (liftRight)
+        {
+            UnChargeWeapon();
         }
 
         if (playerEntity.timeStamp <= Time.time)
         {
 
-            if ((Input.GetMouseButtonDown(0) || (Input.GetMouseButtonDown(1)) ||
-                (playerEntity.rapid_fire && (Input.GetMouseButton(0))))
+            if ((startLeft || startRight || (playerEntity.rapid_fire && holdingLeft))
                 && playerEntity.charges == 1 && playerEntity.currentMana - playerEntity.ManaCost >= 0)
             {
                 playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
@@ -232,7 +295,7 @@ public class PlayerController : MonoBehaviour
             }
             if (playerEntity.charges == 0)
             {
-                if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+                if (holdingLeft || holdingRight)
                 {
                     if (playerEntity.bullet != null)
                     {
@@ -276,7 +339,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                 }
-                else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+                else if (liftLeft || liftRight)
                 {
                     playerEntity.timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;
@@ -361,22 +424,13 @@ public class PlayerController : MonoBehaviour
                 }
             }*/
 
-
             else if (playerEntity.timeStamp + 2f <= Time.time)//RETURNS HAND ORB TO MIDDLE POSITION
             {
                 playerEntity.OrbPosition.offsetX = 0f;
                 playerEntity.OrbPosition.offsetY = 0.05f;
             }
         }
-        if (Input.GetMouseButtonUp(1))
-        {
-            if (playerEntity.weapon >= 8)
-            {
-                playerEntity.ChargeIndicator.SetActive(false);
-                playerEntity.weapon -= 7;
-                playerManager.SetWeap();
-            }
-        }
+
     }
 
     public void OnTriggerStay2D(Collider2D collision)

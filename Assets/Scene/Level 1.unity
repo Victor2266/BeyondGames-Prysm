@@ -94021,7 +94021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1520933079
 Transform:
   m_ObjectHideFlags: 0
@@ -95342,11 +95342,33 @@ MonoBehaviour:
     m_ActionId: 4912c198-4f0f-41e7-8985-d718da8f0b29
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: LeftClickEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7c82f065-bf1e-4164-ad13-56c150d115f4
     m_ActionName: Player/Primary Attack[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: RightClickEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 163cb0c6-851d-42fa-b6a9-49cad74ed603
     m_ActionName: Player/Secondary Attack[/Mouse/rightButton]
   - m_PersistentCalls:
@@ -95392,7 +95414,18 @@ MonoBehaviour:
     m_ActionId: d513f455-b07f-4b7c-b720-a120ef8262df
     m_ActionName: Player/Regen Mana
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3285364920733330311}
+        m_MethodName: ChargeEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 58999e93-fa3b-4724-9e01-51a626902b8e
     m_ActionName: Player/Charge Magic
   - m_PersistentCalls:
@@ -118846,6 +118879,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3285364921058975427, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
     - target: {fileID: 3285364921133087576, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -119087,6 +119125,16 @@ PrefabInstance:
       propertyPath: CreditTextGameObject
       value: 
       objectReference: {fileID: 216210951}
+    - target: {fileID: 3285364921891006699, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
+    - target: {fileID: 3285364921891006709, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
     - target: {fileID: 3285364922042361390, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_SizeDelta.y
