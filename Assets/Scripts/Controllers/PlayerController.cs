@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     private bool holdingJump = false;
     private bool holdingRegenMana = false;
 
-    private bool startRight = false;
-    private bool holdingRight = false;
-    private bool liftRight = false;
+    public static bool startRight = false;
+    public static bool holdingRight = false;
+    public static bool liftRight = false;
 
-    private bool startLeft = false;
-    private bool holdingLeft = false;
-    private bool liftLeft = false;
+    public static bool startLeft = false;
+    public static bool holdingLeft = false;
+    public static bool liftLeft = false;
 
     private PlayerInput playerInput;
 
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
             return;
         if (!playerEntity.isDying)
         {
+            UpdateMouseInput();
             MoveUpdate();
             Shooting();
         }
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Time.timeScale == 0) { return; }
         Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
-        if (context.started && input.x != 0)
+        if (context.performed && input.x != 0)
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {
@@ -175,7 +176,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Time.timeScale == 0) { return; }
         //Debug.Log(context);
-        if (context.started)
+        if (context.performed)
         {
             if (playerManager.grounded)
             {
@@ -251,14 +252,8 @@ public class PlayerController : MonoBehaviour
         }
         playerManager.SetWeap();
     }
-
-    public void Shooting()
+    public void UpdateMouseInput()
     {
-        if (playerEntity.weapon < 1)
-        {
-            return;
-        }
-
         startLeft = playerInput.actions["Primary Attack"].WasPressedThisFrame();
         holdingLeft = playerInput.actions["Primary Attack"].IsPressed();
         liftLeft = playerInput.actions["Primary Attack"].WasReleasedThisFrame();
@@ -266,6 +261,21 @@ public class PlayerController : MonoBehaviour
         startRight = playerInput.actions["Secondary Attack"].WasPressedThisFrame();
         holdingRight = playerInput.actions["Secondary Attack"].IsPressed();
         liftRight = playerInput.actions["Secondary Attack"].WasReleasedThisFrame();
+    }
+    public void JoyStickMovementEvent()
+    {
+
+    }
+
+    public void Shooting()
+    {
+
+
+        if (playerEntity.weapon < 1)
+        {
+            return;
+        }
+
 
         if (holdingRight)
         {

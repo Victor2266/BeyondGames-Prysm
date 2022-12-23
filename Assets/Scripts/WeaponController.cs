@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class WeaponController : damageController
 {
     [SerializeField] private GameObject whiteArrow;
@@ -37,6 +36,7 @@ public class WeaponController : damageController
 
     private GameObject Trail;
     public GameObject player;
+    public PlayerController playerController;
     public delegate void OnHeldInHand(bool isHeld);
     public OnHeldInHand onHeldInHand;
 
@@ -110,6 +110,7 @@ public class WeaponController : damageController
             OrbPosition.offsetX = 0f;
             OrbPosition.offsetY = 0.05f;
             DamageCounter.text = "";
+            ReachLength = 1.5f;
             Destroy(Trail);
         }
         else
@@ -182,7 +183,8 @@ public class WeaponController : damageController
         }
         //transform.localPosition = whiteArrow.transform.localPosition;
         //transform.localRotation = whiteArrow.transform.localRotation;
-        Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        //Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        Vector2 mouseWorldPosition = whiteArrow.transform.position - player.transform.position;
 
         transform.localPosition = Vector3.SmoothDamp(transform.localPosition, mouseWorldPosition, ref _velocity, movementDelay);
         //transform.localPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0f);
@@ -213,6 +215,7 @@ public class WeaponController : damageController
         alphaVal = Mathf.SmoothDamp(arrowColor.color.a, 0f, ref alphaVelo, 0.25f);
         arrowColor.color = new Color(1f, 1f, 1f, alphaVal);
 
+        playerController.UpdateMouseInput();
         leftClicking();
         rightClicking();
     }
@@ -344,9 +347,10 @@ public class WeaponController : damageController
     Vector2 worldSpaceOffset;
     float zAngle;
     private float lastZAngle;
+
     private void leftClicking()//sword strategy/sling weapon/heavysword
     {
-        if (Input.GetMouseButtonDown(0) && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
+        if (PlayerController.startLeft && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
         {
             lastPosition = transform.position;
             lastZAngle = zAngle;
@@ -358,7 +362,7 @@ public class WeaponController : damageController
 
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
         }
-        if (Input.GetMouseButton(0) && timeStamp <= Time.time && WeaponEnabled)//while holding left click
+        if (PlayerController.holdingLeft && timeStamp <= Time.time && WeaponEnabled)//while holding left click
         {
             currPos = transform.position;
             distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
@@ -432,7 +436,7 @@ public class WeaponController : damageController
             lastPosition = currPos;
             lastZAngle = zAngle;
         }
-        if ((Input.GetMouseButtonUp(0) && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
+        if ((PlayerController.liftLeft && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
@@ -461,7 +465,7 @@ public class WeaponController : damageController
     {
         if (timeStamp <= Time.time)
         {
-            if ((Input.GetMouseButtonDown(1) || (playerEntity.rapid_fire && Input.GetMouseButton(1))) && playerEntity.charges == 1 && playerEntity.currentMana - playerEntity.ManaCost >= 0)
+            if ((PlayerController.startRight || (playerEntity.rapid_fire && PlayerController.holdingRight)) && playerEntity.charges == 1 && playerEntity.currentMana - playerEntity.ManaCost >= 0)
             {
                 playerEntity.WeaponUI.ScaleDown(playerEntity.coolDownPeriod);
                 weaponUI.flashWhite();
@@ -487,7 +491,7 @@ public class WeaponController : damageController
             }
             if (playerEntity.charges == 0)
             {
-                if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+                if (PlayerController.holdingLeft || PlayerController.holdingRight)
                 {
                     if (playerEntity.bullet != null)
                     {
@@ -529,7 +533,7 @@ public class WeaponController : damageController
                     }
 
                 }
-                else if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+                else if (PlayerController.liftLeft || PlayerController.liftRight)
                 {
                     timeStamp = Time.time + playerEntity.coolDownPeriod;
                     playerEntity.charges = 1;

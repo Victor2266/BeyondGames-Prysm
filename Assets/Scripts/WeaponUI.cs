@@ -49,6 +49,10 @@ public class WeaponUI : MonoBehaviour
     private bool unequipAll = false;
     [SerializeField]
     private int xAdjustment;
+
+    private float scrollVal;
+
+    private float selectWeapon;
     /*
     private void Awake() //NETWORKING AWAKE
     {
@@ -220,39 +224,49 @@ public class WeaponUI : MonoBehaviour
 
         }
 
-        if ((Input.GetKey(KeyCode.Alpha1) ) && EquipmentManager.instance.isEquipped(-1))
+        if (playerInput.actions["Select Weapon"].IsPressed())
+        {
+            Debug.Log(playerInput.actions["Select Weapon"].ReadValue<float>());
+            selectWeapon = playerInput.actions["Select Weapon"].ReadValue<float>();
+        }
+        else
+        {
+            selectWeapon = 0;
+        }
+
+        if ((selectWeapon == 1) && EquipmentManager.instance.isEquipped(-1))
         {
             autoChangeWeapons(-1);
         }
-        if ((Input.GetKey(KeyCode.Alpha2) ) && EquipmentManager.instance.isEquipped(0))
+        else if ((selectWeapon == 2) && EquipmentManager.instance.isEquipped(0))
         {
             autoChangeWeapons(0);
         }
-        if ((Input.GetKey(KeyCode.Alpha3) ) && EquipmentManager.instance.isEquipped(1))
+        else if ((selectWeapon == 3) && EquipmentManager.instance.isEquipped(1))
         {
             autoChangeWeapons(1);
         }
-        if ((Input.GetKey(KeyCode.Alpha4) ) && EquipmentManager.instance.isEquipped(2))
+        else if ((selectWeapon == 4) && EquipmentManager.instance.isEquipped(2))
         {
             autoChangeWeapons(2);
         }
-        if ((Input.GetKey(KeyCode.Alpha5)) && EquipmentManager.instance.isEquipped(3))
+        else if ((selectWeapon == 5) && EquipmentManager.instance.isEquipped(3))
         {
             autoChangeWeapons(3);
         }
-        if ((Input.GetKey(KeyCode.Alpha6)) && EquipmentManager.instance.isEquipped(4))
+        else if ((selectWeapon == 6) && EquipmentManager.instance.isEquipped(4))
         {
             autoChangeWeapons(4);
         }
-        if ((Input.GetKey(KeyCode.Alpha7)) && EquipmentManager.instance.isEquipped(5))
+        else if ((selectWeapon == 7) && EquipmentManager.instance.isEquipped(5))
         {
             autoChangeWeapons(5);
         }
-        if ((Input.GetKey(KeyCode.Alpha8)) && EquipmentManager.instance.isEquipped(6))
+        else if ((selectWeapon == 8) && EquipmentManager.instance.isEquipped(6))
         {
             autoChangeWeapons(6);
         }
-        if ((Input.GetKey(KeyCode.Alpha9)) && EquipmentManager.instance.isEquipped(7))
+        else if ((selectWeapon == 9) && EquipmentManager.instance.isEquipped(7))
         {
             autoChangeWeapons(7);
         }
@@ -260,7 +274,11 @@ public class WeaponUI : MonoBehaviour
 
         if (!unequipAll)
         {
-            float scrollVal = playerInput.actions["Change Weapon"].ReadValue<float>();
+            if (playerInput.actions["Change Weapon"].WasPerformedThisFrame())
+            {
+                scrollVal = playerInput.actions["Change Weapon"].ReadValue<float>();
+            }
+
             if (scrollVal > 0.09f) // forward
             {
                 if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
@@ -279,7 +297,7 @@ public class WeaponUI : MonoBehaviour
                     if (playerScript.weapon == -1 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[-1]
                     {
                         playerScript.weapon = 0;
-                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1)
+                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon > -1 && playerScript.weapon < 7)
                         {
                             playerScript.weapon++;
 
@@ -308,7 +326,7 @@ public class WeaponUI : MonoBehaviour
                     if (playerScript.weapon == 7 && !EquipmentManager.instance.isEquipped(playerScript.weapon))//[7]
                     {
                         playerScript.weapon = 6;
-                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7)
+                        while (!EquipmentManager.instance.isEquipped(playerScript.weapon) && playerScript.weapon < 7 && playerScript.weapon > -1)
                         {
                             playerScript.weapon--;
 
@@ -318,6 +336,8 @@ public class WeaponUI : MonoBehaviour
                     playerManager.SetWeap();
                 }
             }
+
+            scrollVal = 0f;
         }
         
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 
 public class DialogManager : MonoBehaviour
 {
@@ -54,6 +55,14 @@ public class DialogManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+    }
+
+    public void DisplayNextSentenceEvent(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            DisplayNextSentence();
+        }
     }
 
     IEnumerator TypeSentence(string sentence)

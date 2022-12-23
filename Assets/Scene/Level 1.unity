@@ -11814,6 +11814,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216210951}
   m_CullTransparentMesh: 0
+--- !u!114 &218989765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285364922090595834, guid: 183cad2a4a224974491568da4081552a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3285364920733330309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5864661cccb8fc4895f8b0c53eadc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &219582367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95440,6 +95452,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: be749359-4128-4ca1-873f-8e1c746758f9
     m_ActionName: Player/Toggle Camera Lock
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abab97f7-360b-4c30-93c9-33c1b431dec7
+    m_ActionName: Player/Primary Attack [Gamepad][/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ebb3dcd-b5db-4e3a-8010-2caaff095275
+    m_ActionName: Player/Select Weapon[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8,/Keyboard/9]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c35e2cd7-8ed1-4d86-9228-abf5675ea074
+    m_ActionName: Player/Mouse[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -118969,6 +118993,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3285364921412153346, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
+    - target: {fileID: 3285364921412153347, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
+    - target: {fileID: 3285364921412153347, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: moveWithJoystick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285364921412153347, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 218989765}
     - target: {fileID: 3285364921412153350, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: wallCollisionParticles
@@ -119150,6 +119194,16 @@ PrefabInstance:
       propertyPath: arrowColor
       value: 
       objectReference: {fileID: 373646070}
+    - target: {fileID: 3285364922090595834, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1805261699}
+    - target: {fileID: 3285364922090595834, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 3285364920733330311}
     - target: {fileID: 3285364922120537116, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_AnchorMax.x
