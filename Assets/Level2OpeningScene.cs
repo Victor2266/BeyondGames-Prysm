@@ -45,6 +45,7 @@ public class Level2OpeningScene : DialogTrigger
         if (DialogManager.instance.index == 0)
         {
             TriggerDialog();
+            DialogManager.instance.nameText.text = "<color=#5888FF>Renka</color>";
             targetPosition = new Vector3(0, -10, -10);
             //opening right eye ball
         }

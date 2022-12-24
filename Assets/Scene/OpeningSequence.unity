@@ -33908,7 +33908,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793949805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61d427a5fa510a149917c399eddaa7f4, type: 3}
   m_Name: 
@@ -33917,6 +33917,8 @@ MonoBehaviour:
   CameraPointerObj: {fileID: 650358313}
   distanceLimit: 0
   isChildOfPlayer: 1
+  playerInput: {fileID: 0}
+  weaponController: {fileID: 0}
 --- !u!114 &1793949809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33937,7 +33939,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793949805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61d427a5fa510a149917c399eddaa7f4, type: 3}
   m_Name: 
@@ -33946,6 +33948,8 @@ MonoBehaviour:
   CameraPointerObj: {fileID: 275014988}
   distanceLimit: 1
   isChildOfPlayer: 1
+  playerInput: {fileID: 0}
+  weaponController: {fileID: 0}
 --- !u!82 &1793949811
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34297,6 +34301,54 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: be749359-4128-4ca1-873f-8e1c746758f9
     m_ActionName: Player/Toggle Camera Lock[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ebb3dcd-b5db-4e3a-8010-2caaff095275
+    m_ActionName: Player/Select Weapon[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8,/Keyboard/9]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c35e2cd7-8ed1-4d86-9228-abf5675ea074
+    m_ActionName: Player/Mouse[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e63cc10-db8d-4ac8-b62d-1ac6ba4f08f9
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2db75f19-7e12-4f7a-b789-e734a37373ab
+    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 169d399c-dc08-44d1-afb1-a2c51bd1b047
+    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b533e2ed-1991-44c6-ac8c-f08430cdc88e
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 830cf9aa-8210-430f-aa89-9d123e75a782
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82711423-458f-44d1-8baf-49f6448c6660
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ffb784fc-6d74-4d6a-9b67-932120f9d839
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f12fe851-428f-4693-8908-7923a4f02d47
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 93bf04a8-e666-476c-8ee1-6282e10243ca
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ba68e338-ceaa-42de-8c7d-99a62d7f8c8f
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
