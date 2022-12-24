@@ -17,6 +17,10 @@ public class mouseController : MonoBehaviour
 
     public static bool useStickPos = false;
     private Vector2 lastJoyPos;
+
+    private Vector3 _velocity;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,18 +65,19 @@ public class mouseController : MonoBehaviour
             Real_mouseWorldPosition = Real_mouseWorldPosition.normalized * 1;
         }
         */
-        CameraPointerObj.transform.localPosition = new Vector3(Real_mouseWorldPosition.x , Real_mouseWorldPosition.y, 0);
 
         Vector2 joystickPos = playerInput.actions["Primary Attack [Gamepad]"].ReadValue<Vector2>();
         if (joystickPos != Vector2.zero)
         {
             if (weaponController != null)
             {
-                CameraPointerObj.transform.localPosition = joystickPos * weaponController.ReachLength;
+                //CameraPointerObj.transform.localPosition = joystickPos * weaponController.ReachLength;//regular white mouse
+                CameraPointerObj.transform.localPosition = Vector3.SmoothDamp(CameraPointerObj.transform.localPosition, joystickPos * weaponController.ReachLength, ref _velocity, 0.01f);
             }
             else
             {
-                CameraPointerObj.transform.localPosition = joystickPos;
+                //CameraPointerObj.transform.localPosition = joystickPos;// camera tracking object
+                CameraPointerObj.transform.localPosition = Vector3.SmoothDamp(CameraPointerObj.transform.localPosition, joystickPos, ref _velocity, 0.01f);
             }
             useStickPos = true;
             lastJoyPos = joystickPos;
@@ -82,7 +87,10 @@ public class mouseController : MonoBehaviour
             CameraPointerObj.transform.localPosition = Vector2.ClampMagnitude(lastJoyPos.normalized, 0.1f);
             useStickPos = !playerInput.actions["Mouse"].WasPerformedThisFrame();
         }
-
+        else
+        {
+            CameraPointerObj.transform.localPosition = new Vector3(Real_mouseWorldPosition.x, Real_mouseWorldPosition.y, 0);
+        }
 
         //Debug.DrawRay(transform.position, mouseWorldPosition - transform.position, Color.green);
         Debug.DrawRay(transform.position, Real_mouseWorldPosition, Color.green);
