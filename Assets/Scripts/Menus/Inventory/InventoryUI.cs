@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 /* This object updates the inventory UI. */
 
@@ -50,16 +51,16 @@ public class InventoryUI : MonoBehaviour
 	void Update()
 	{
 		// Check to see if we should open/close the inventory
-		if (playerInput.actions["Inventory"].WasPressedThisFrame() && pauseMenu.activeSelf == false)
+		if (playerInput.actions["Inventory"].WasPressedThisFrame())
 		{
-				if (PauseMenuScript.isPaused)
-				{
-					Resume();
-				}
-				else
-				{
-					Pause();
-				}
+			if (PauseMenuScript.isPaused)
+			{
+				Resume();
+			}
+			else
+			{
+				Pause();
+			}
 
 
             TooltipManager.Hide();
@@ -79,16 +80,19 @@ public class InventoryUI : MonoBehaviour
 	}
     private void Pause()
     {
+		playerInput.actions.FindActionMap("UI").Enable();
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		player.mousePointer.SetActive(false);
 		player.GetComponent<PlayerController>().enabled = false;
 		Time.timeScale = 0f;
 		PauseMenuScript.isPaused = true;
+
 	}
 
     private void Resume()
     {
+		playerInput.SwitchCurrentActionMap("Player");
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false;
 		if (player.GetComponent<PlayerEntity>().weapon > 0)

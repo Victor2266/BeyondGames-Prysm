@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -49,9 +50,26 @@ public class PauseMenuScript : MonoBehaviour
 
             TooltipManager.Hide();
         }
+
+        if (isPaused)
+        {
+            //check for controller press
+            if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                GameObject defaultMenuOption = GameObject.FindGameObjectWithTag("DefaultOption");
+                if (defaultMenuOption != null)
+                    EventSystem.current.SetSelectedGameObject(defaultMenuOption);
+            }
+            else if (playerInput.actions["Point"].WasPerformedThisFrame())
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
+        }
     }
     public void Resume()
     {
+        playerInput.SwitchCurrentActionMap("Player");
         MainMenuWarning.SetActive(false);
         ControlsMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
@@ -72,6 +90,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void Pause()
     {
+        playerInput.actions.FindActionMap("UI").Enable();
         MainMenuWarning.SetActive(false);
         ControlsMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
