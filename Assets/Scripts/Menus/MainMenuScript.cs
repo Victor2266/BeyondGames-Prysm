@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -17,13 +19,17 @@ public class MainMenuScript : MonoBehaviour
     public GameObject SceneManager;
 
     public GameObject MainMenu;
+    public GameObject mainMenuDefaultOption, SingleplayerDefaultOption, OptionsDefaultOption;
     public GameObject SingleplayerMenu;
+
     public GameObject MultiplayerMenu;
 
     private int depth;
 
     private Vector2 velocity;
     private float cameraTargetSize = 22.23f;
+
+    public PlayerInput playerInput;
 
     // Start is called before the first frame update
     void Start()
@@ -73,8 +79,24 @@ public class MainMenuScript : MonoBehaviour
             MainMenu.SetActive(true);
             SingleplayerMenu.SetActive(false);
             MultiplayerMenu.SetActive(false);
+            depth = -1;
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(mainMenuDefaultOption);
 
         }
+
+        //check for controller press
+        if (playerInput.actions["Navigate"].WasPressedThisFrame() && EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultOption"));
+        }
+        else if (playerInput.actions["Point"].WasPerformedThisFrame())
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
         float num = Mathf.SmoothDamp(MainCamera.GetComponent<Camera>().orthographicSize, cameraTargetSize, ref velocity.y, 1f);
         MainCamera.GetComponent<Camera>().orthographicSize = num;
     }
@@ -97,6 +119,9 @@ public class MainMenuScript : MonoBehaviour
         depth = 1;
 
         cameraTargetSize = 4.2f;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(SingleplayerDefaultOption);
     }
     public void Options()
     {
@@ -107,6 +132,9 @@ public class MainMenuScript : MonoBehaviour
         //and the back button within the options menu deactivates the options menu
         MainMenu.SetActive(false);
         depth = 1;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(OptionsDefaultOption);
     }
     public void SupportLink()
     {

@@ -37,6 +37,7 @@ TagManager:
   - SceneManager
   - enemyProj
   - Ground
+  - DefaultOption
   layers:
   - Default
   - TransparentFX

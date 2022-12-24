@@ -19,7 +19,7 @@ public class mouseController : MonoBehaviour
     private Vector2 lastJoyPos;
 
     private Vector3 _velocity;
-
+    private Vector2 joystickPos;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +66,8 @@ public class mouseController : MonoBehaviour
         }
         */
 
-        Vector2 joystickPos = playerInput.actions["Primary Attack [Gamepad]"].ReadValue<Vector2>();
+        if (playerInput.actions != null)
+            joystickPos = playerInput.actions["Primary Attack [Gamepad]"].ReadValue<Vector2>();
         if (joystickPos != Vector2.zero)
         {
             if (weaponController != null)
