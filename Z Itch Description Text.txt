@@ -26,7 +26,7 @@ After playing the game, please fill out this quick multiple-choice survey, your 
 </pre>
 
 <pre>
-<h4>CONTROLS:</h4>
+<h4>DEFAULT CONTROLS:</h4>
 WASD + SPACE       [Movement]
 Q                  [Recover Mana]
 E                  [Interact]

@@ -19,7 +19,6 @@ public class MainMenuScript : MonoBehaviour
     public GameObject SceneManager;
 
     public GameObject MainMenu;
-    public GameObject mainMenuDefaultOption, SingleplayerDefaultOption, OptionsDefaultOption;
     public GameObject SingleplayerMenu;
 
     public GameObject MultiplayerMenu;
@@ -31,9 +30,14 @@ public class MainMenuScript : MonoBehaviour
 
     public PlayerInput playerInput;
 
+    public Slider BGM_Slider;
+    public Slider UI_Slider;
+
     // Start is called before the first frame update
     void Start()
     {
+        SetStartingSliders();
+
         MainCamera.GetComponent<OldCameraController>().smoothTimeY = 2;
         SceneManager = GameObject.FindGameObjectWithTag("SceneManager");
         MainCamera.GetComponent<OldCameraController>().offsetY = 50.5f;
@@ -68,6 +72,24 @@ public class MainMenuScript : MonoBehaviour
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
     }
 
+    private void SetStartingSliders()
+    {
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * PlayerPrefs.GetFloat("UISize", 0f));
+        UI_Slider.value = PlayerPrefs.GetFloat("UISize", 0f);
+
+        float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
+        BGM_Slider.value = volume;
+
+        if (volume > 0)
+        {
+            AudioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        }
+        else
+        {
+            AudioMixer.SetFloat("Volume", -80f);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -81,13 +103,10 @@ public class MainMenuScript : MonoBehaviour
             MultiplayerMenu.SetActive(false);
             depth = -1;
 
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(mainMenuDefaultOption);
-
         }
 
         //check for controller press
-        if (playerInput.actions["Navigate"].WasPressedThisFrame() && EventSystem.current.currentSelectedGameObject == null)
+        if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultOption"));
@@ -119,9 +138,6 @@ public class MainMenuScript : MonoBehaviour
         depth = 1;
 
         cameraTargetSize = 4.2f;
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(SingleplayerDefaultOption);
     }
     public void Options()
     {
@@ -132,9 +148,6 @@ public class MainMenuScript : MonoBehaviour
         //and the back button within the options menu deactivates the options menu
         MainMenu.SetActive(false);
         depth = 1;
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(OptionsDefaultOption);
     }
     public void SupportLink()
     {
@@ -191,5 +204,11 @@ public class MainMenuScript : MonoBehaviour
         {
             PlayerPrefs.SetInt("CameraLock", 0);
         }
+    }
+
+    public void SetUiSize(float size)
+    {
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * size);
+        PlayerPrefs.SetFloat("UISize", size);
     }
 }

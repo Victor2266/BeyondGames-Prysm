@@ -37,11 +37,11 @@ public class PlayerController : MonoBehaviour
             MoveUpdate();
             Shooting();
         }
-        if (Input.GetButtonDown("Reset"))
+        if (Input.GetButtonDown("Reset"))//suicide
         {
             playerManager.TakeDamage(playerEntity.currentHealth);
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))//godmode
         {
             playerManager.Upgrade(0, 900);
             playerManager.Upgrade(1, 900);

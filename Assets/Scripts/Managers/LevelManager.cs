@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public int levelToUnlock;
-
+    public GameObject CreditTextGameObject;
     public void WinLevel()
     {
         Debug.Log("Level: " + (levelToUnlock-1) + " completed");

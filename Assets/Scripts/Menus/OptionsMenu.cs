@@ -23,20 +23,7 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * PlayerPrefs.GetFloat("UISize", 0f));
-        UI_Slider.value = PlayerPrefs.GetFloat("UISize", 0f);
-
-        float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
-        BGM_Slider.value = volume;
-
-        if (volume > 0)
-        {
-            AudioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
-        }
-        else
-        {
-            AudioMixer.SetFloat("Volume", -80f);
-        }
+        SetStartingSliders();
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -64,6 +51,24 @@ public class OptionsMenu : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
+    }
+
+    private void SetStartingSliders()
+    {
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * PlayerPrefs.GetFloat("UISize", 0f));
+        UI_Slider.value = PlayerPrefs.GetFloat("UISize", 0f);
+
+        float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
+        BGM_Slider.value = volume;
+
+        if (volume > 0)
+        {
+            AudioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        }
+        else
+        {
+            AudioMixer.SetFloat("Volume", -80f);
+        }
     }
 
     public void SetVolume(float volume)
