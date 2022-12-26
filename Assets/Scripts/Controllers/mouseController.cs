@@ -67,7 +67,7 @@ public class mouseController : MonoBehaviour
         */
 
         if (playerInput.actions != null)
-            joystickPos = playerInput.actions["Primary Attack [Gamepad]"].ReadValue<Vector2>();
+            joystickPos = playerInput.actions["Move Cursor [Gamepad]"].ReadValue<Vector2>();
         if (joystickPos != Vector2.zero)
         {
             if (weaponController != null)

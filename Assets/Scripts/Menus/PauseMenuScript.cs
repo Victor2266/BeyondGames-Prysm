@@ -8,14 +8,13 @@ public class PauseMenuScript : MonoBehaviour
 {
 
     public static bool isPaused = false;
-    public GameObject PauseMenuUI;
-    public GameObject OptionsMenuUI;
-    public GameObject ControlsMenuUI;
+
+    public GameObject PauseMenuUI, OptionsMenuUI, inventoryUI, ControlsMenuUI, keyboardControlsUI, controllerControlsUI;
+
     public GameObject player;
     public PlayerInput playerInput;
     public GameObject mousePointer;
     public GameObject MainMenuWarning;
-    public GameObject inventoryUI;
 
     public float testint;
     // Start is called before the first frame update
@@ -28,10 +27,10 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == false)
+        if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
             Debug.Log("Pausing Game");
-            OptionsMenuUI.SetActive(false);
+
             if (isPaused)
             {
                 Resume();
@@ -40,13 +39,6 @@ public class PauseMenuScript : MonoBehaviour
             {
                 Pause();
             }
-
-            TooltipManager.Hide();
-        }
-        else if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == true)
-        {
-            Resume();
-            inventoryUI.SetActive(false);
 
             TooltipManager.Hide();
         }
@@ -70,8 +62,14 @@ public class PauseMenuScript : MonoBehaviour
     public void Resume()
     {
         playerInput.SwitchCurrentActionMap("Player");
+
+        OptionsMenuUI.SetActive(false);
+        inventoryUI.SetActive(false);
         MainMenuWarning.SetActive(false);
         ControlsMenuUI.SetActive(false);
+        keyboardControlsUI.SetActive(false);
+        controllerControlsUI.SetActive(false);
+
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         if(player.GetComponent<PlayerEntity>().weapon > 0)

@@ -13,6 +13,7 @@ public class OptionsMenu : MonoBehaviour
     public Toggle fullScreentoggle;
     public Toggle cameraLockToggle;
     public Slider BGM_Slider;
+    public Slider UI_Slider;
 
     // Callback which is triggered when
     // Camera lock setting is changed
@@ -22,6 +23,9 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * PlayerPrefs.GetFloat("UISize", 0f));
+        UI_Slider.value = PlayerPrefs.GetFloat("UISize", 0f);
+
         float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
         BGM_Slider.value = volume;
 
@@ -75,6 +79,13 @@ public class OptionsMenu : MonoBehaviour
 
         PlayerPrefs.SetFloat("BGM_Volume", volume);
     }
+
+    public void SetUiSize(float size)
+    {
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560*size);
+        PlayerPrefs.SetFloat("UISize", size);
+    }
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

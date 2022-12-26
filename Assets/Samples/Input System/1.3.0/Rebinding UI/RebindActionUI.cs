@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
 ////TODO: localization support
 
 ////TODO: deal with composites that have parts bound in different control schemes
@@ -188,7 +187,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         /// </summary>
         public void UpdateBindingDisplay()
         {
-            var displayString = string.Empty;
+            String displayString = string.Empty;
             var deviceLayoutName = default(string);
             var controlPath = default(string);
 
@@ -262,11 +261,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation = null;
             }
 
+            //Disable action before use
+            action.Disable();
+
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 .OnCancel(
                     operation =>
                     {
+                        action.Enable();
                         m_RebindStopEvent?.Invoke(this, operation);
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
@@ -275,6 +278,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnComplete(
                     operation =>
                     {
+                        action.Enable();
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
                         UpdateBindingDisplay();
@@ -420,7 +424,13 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             UpdateBindingDisplay();
         }
 
-        #endif
+#endif
+
+        private void Start()
+        {
+            UpdateActionLabel();
+            UpdateBindingDisplay();
+        }
 
         private void UpdateActionLabel()
         {

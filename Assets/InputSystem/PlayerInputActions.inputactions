@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Primary Attack [Gamepad]",
+                    "name": "Move Cursor [Gamepad]",
                     "type": "Value",
                     "id": "abab97f7-360b-4c30-93c9-33c1b431dec7",
                     "expectedControlType": "Vector2",
@@ -512,7 +512,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Primary Attack [Gamepad]",
+                    "action": "Move Cursor [Gamepad]",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
