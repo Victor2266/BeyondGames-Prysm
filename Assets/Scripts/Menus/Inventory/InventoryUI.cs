@@ -55,16 +55,16 @@ public class InventoryUI : MonoBehaviour
 		{
 			if (PauseMenuScript.isPaused)
 			{
-				Resume();
+				//Resume();
 			}
 			else
 			{
 				Pause();
+				inventoryUI.SetActive(!inventoryUI.activeSelf);
 			}
 
 
             TooltipManager.Hide();
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
 		else if (playerInput.actions["Pause"].WasPressedThisFrame() && inventoryUI.activeSelf == true)
         {

@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Action: {fileID: 4535924505212562389, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
     type: 3}
   m_BindingId: 9c28dd8f-de78-401d-a3d4-33f235ca0b4a
-  m_DisplayStringOptions: -1
+  m_DisplayStringOptions: 7
   m_ActionLabel: {fileID: 9178746194458642467}
   m_BindingText: {fileID: 3044524863742218226}
   m_RebindOverlay: {fileID: 0}
