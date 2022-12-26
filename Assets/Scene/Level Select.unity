@@ -308,7 +308,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -450,7 +450,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -539,6 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154252980}
   - component: {fileID: 154252979}
+  - component: {fileID: 154252981}
   m_Layer: 0
   m_Name: Level Selector
   m_TagString: Untagged
@@ -577,6 +578,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154252981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154252978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1710eb45be539874da3c2e24d59f9d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!1 &225589122
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,9 +877,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5814,16 +5829,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 510590831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_PointAction: {fileID: 9106386116083999571, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_MoveAction: {fileID: -7793651785042903736, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_SubmitAction: {fileID: 4686705154433739963, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_CancelAction: {fileID: -9056028883140065410, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_LeftClickAction: {fileID: 7907031537410802691, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_MiddleClickAction: {fileID: 7643451631891854152, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_RightClickAction: {fileID: -5359357234598001166, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_ScrollWheelAction: {fileID: -7425142049597371288, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 5645717050215829253, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 5580614603988023520, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &510590833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5836,7 +5871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1357703620}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &510590834
@@ -6304,7 +6339,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11538,6 +11573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseRawImage: 1
   UseSpriteRend: 0
+  UseImage: 0
   ResetAlphaToZeroOnAwake: 0
   ticks: 0
   tickLimit: 0.2
@@ -11791,6 +11827,7 @@ GameObject:
   - component: {fileID: 1320478897}
   - component: {fileID: 1320478896}
   - component: {fileID: 1320478895}
+  - component: {fileID: 1320478909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11909,7 +11946,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320478894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61d427a5fa510a149917c399eddaa7f4, type: 3}
   m_Name: 
@@ -11918,6 +11955,8 @@ MonoBehaviour:
   CameraPointerObj: {fileID: 1038002971}
   distanceLimit: 0
   isChildOfPlayer: 1
+  playerInput: {fileID: 0}
+  weaponController: {fileID: 0}
 --- !u!114 &1320478898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11938,7 +11977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320478894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61d427a5fa510a149917c399eddaa7f4, type: 3}
   m_Name: 
@@ -11947,6 +11986,8 @@ MonoBehaviour:
   CameraPointerObj: {fileID: 1836408978}
   distanceLimit: 1
   isChildOfPlayer: 1
+  playerInput: {fileID: 0}
+  weaponController: {fileID: 0}
 --- !u!82 &1320478900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12209,6 +12250,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320478909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320478894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1350432340
 GameObject:
   m_ObjectHideFlags: 0
@@ -12339,7 +12411,7 @@ GameObject:
   - component: {fileID: 1357703622}
   m_Layer: 5
   m_Name: back to main menu
-  m_TagString: Untagged
+  m_TagString: DefaultOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12384,10 +12456,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2509804}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 0.5019608}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.5019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
