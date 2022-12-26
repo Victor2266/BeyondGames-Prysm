@@ -55,7 +55,12 @@ public class InventoryUI : MonoBehaviour
 		{
 			if (PauseMenuScript.isPaused)
 			{
-				//Resume();
+				if (inventoryUI.activeSelf == true)
+                {
+					Resume();
+					inventoryUI.SetActive(!inventoryUI.activeSelf);
+				}
+
 			}
 			else
 			{
