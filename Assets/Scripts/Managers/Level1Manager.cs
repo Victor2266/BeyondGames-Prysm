@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.InputSystem;
 
 public class Level1Manager : LevelManager// inherets winlevel function
 {
@@ -41,6 +42,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
 
     public SkillCheckDamage treeScript;
     public GameObject instructions;
+
+    private PlayerInput playerInput;
     private void Start()
     {
         firstGoblinScript = firstGoblin.GetComponent<ratBehavior>();
@@ -50,6 +53,8 @@ public class Level1Manager : LevelManager// inherets winlevel function
         Goblin2Script = goblin2.GetComponent<ratBehavior>();
 
         spearResearcherScript = spearResearcher.GetComponent<Level1MiniBossModifiedGoblin>();
+
+        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
     public void Update()
     {
@@ -303,7 +308,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
                 birdFollower.distance = 3f;
                 StartCoroutine(DelaySentence(7f, "thank god you beat him", 1f));
                 ShowText(7f, "pick up the magic tome he dropped", 1f);
-                ShowText(7f, "<color=green>press [F] to skip dialog</color>", 0.9f);
+                ShowText(7f, "<color=green>hold [E] to skip dialog</color>", 0.9f);
             }
         }
         else if (index == 48+14)
@@ -376,8 +381,9 @@ public class Level1Manager : LevelManager// inherets winlevel function
         }
         else if( 60 <= index && index <= 66)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (playerInput.actions["Interact"].WasPerformedThisFrame())
             {
+                Debug.Log("Skipping Dialog");
                 SkipFinalDialog();
             }
         }
