@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 367570660}
   m_Layer: 5
   m_Name: Dialog Box
-  m_TagString: Untagged
+  m_TagString: DefaultOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1362,18 +1362,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2002024036}
+    m_SelectOnDown: {fileID: 2002024036}
+    m_SelectOnLeft: {fileID: 2002024036}
+    m_SelectOnRight: {fileID: 2002024036}
+  m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+    m_HighlightedColor: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 0.5019608}
+    m_PressedColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0.5019608}
+    m_SelectedColor: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1382,13 +1382,13 @@ MonoBehaviour:
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
+    m_NormalTrigger: Selected
     m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
+    m_PressedTrigger: Selected
     m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
+    m_DisabledTrigger: Selected
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1724383310}
+  m_TargetGraphic: {fileID: 367570657}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12323,16 +12323,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 836429289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_PointAction: {fileID: 9106386116083999571, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_MoveAction: {fileID: -7793651785042903736, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_SubmitAction: {fileID: 4686705154433739963, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_CancelAction: {fileID: -9056028883140065410, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_LeftClickAction: {fileID: 7907031537410802691, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_MiddleClickAction: {fileID: 7643451631891854152, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_RightClickAction: {fileID: -5359357234598001166, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_ScrollWheelAction: {fileID: -7425142049597371288, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 5645717050215829253, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 5580614603988023520, guid: 8a8fac48c2e57dd47ad50bd3a9bc6546,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &836429291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27606,6 +27626,7 @@ GameObject:
   - component: {fileID: 1272505717}
   - component: {fileID: 1272505716}
   - component: {fileID: 1272505715}
+  - component: {fileID: 1272505719}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -27694,6 +27715,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1272505719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272505714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1710eb45be539874da3c2e24d59f9d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1793949805}
+  playerInput: {fileID: 1793949820}
 --- !u!1 &1301212888
 GameObject:
   m_ObjectHideFlags: 0
@@ -33725,7 +33760,7 @@ GameObject:
   - component: {fileID: 1740926247}
   m_Layer: 0
   m_Name: DESKTOP
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34241,58 +34276,47 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6ce9db05-4152-4eba-afb3-19d96b33bda0
-    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/XInputControllerWindows/dpad]
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 4912c198-4f0f-41e7-8985-d718da8f0b29
-    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/buttonSouth]
+    m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e95cb786-245f-411b-a411-ac934d970a56
-    m_ActionName: Player/Dash[/Keyboard/shift,/XInputControllerWindows/buttonWest,/XInputControllerWindows/leftTrigger]
+    m_ActionName: Player/Dash[/Keyboard/shift]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d513f455-b07f-4b7c-b720-a120ef8262df
-    m_ActionName: Player/Regen Mana[/Keyboard/q,/XInputControllerWindows/buttonNorth]
+    m_ActionName: Player/Regen Mana[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 58999e93-fa3b-4724-9e01-51a626902b8e
-    m_ActionName: Player/Charge Magic[/Keyboard/r,/XInputControllerWindows/buttonNorth]
+    m_ActionName: Player/Charge Magic[/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 39013086}
-        m_MethodName: DisplayNextSentenceEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 86165328-8b07-4a57-8583-d06855b7e21a
-    m_ActionName: Player/Interact[/Keyboard/e,/XInputControllerWindows/buttonEast]
+    m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 7c82f065-bf1e-4164-ad13-56c150d115f4
-    m_ActionName: Player/Primary Attack[/Mouse/leftButton,/XInputControllerWindows/rightShoulder]
+    m_ActionName: Player/Primary Attack[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: abab97f7-360b-4c30-93c9-33c1b431dec7
-    m_ActionName: Player/Primary Attack [Gamepad][/XInputControllerWindows/rightStick]
+    m_ActionName: Player/Move Cursor [Gamepad]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 163cb0c6-851d-42fa-b6a9-49cad74ed603
-    m_ActionName: Player/Secondary Attack[/Mouse/rightButton,/XInputControllerWindows/rightTrigger]
+    m_ActionName: Player/Secondary Attack[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 63f1c198-6887-4c70-9e6d-59f8952ec7df
-    m_ActionName: Player/Inventory[/Keyboard/tab,/XInputControllerWindows/select]
+    m_ActionName: Player/Inventory[/Keyboard/i]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c95759d4-fa2c-496e-bcb4-9dea529b4d4f
-    m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start]
+    m_ActionName: Player/Pause[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 429b88a7-8987-488b-ae63-a9f5c1c8cc9b
@@ -34312,15 +34336,15 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 2e63cc10-db8d-4ac8-b62d-1ac6ba4f08f9
-    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 2db75f19-7e12-4f7a-b789-e734a37373ab
-    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+    m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 169d399c-dc08-44d1-afb1-a2c51bd1b047
-    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+    m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b533e2ed-1991-44c6-ac8c-f08430cdc88e
@@ -34351,7 +34375,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!198 &1811854461 stripped
@@ -44664,17 +44688,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 367570659}
+    m_SelectOnDown: {fileID: 367570659}
+    m_SelectOnLeft: {fileID: 367570659}
+    m_SelectOnRight: {fileID: 367570659}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2509804}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2509804}
     m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.2509804}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
