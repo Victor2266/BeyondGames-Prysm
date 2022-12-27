@@ -23,7 +23,6 @@ public class TooltipTrigger : EventTrigger, IPointerEnterHandler, IPointerExitHa
 
     public override void OnSelect(BaseEventData data)
     {
-        Debug.Log(data.selectedObject);
         CallShowToolTipManager();
     }
 
