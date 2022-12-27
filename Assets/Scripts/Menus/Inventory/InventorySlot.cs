@@ -23,23 +23,23 @@ public class InventorySlot : MonoBehaviour
 		icon.rectTransform.eulerAngles = new Vector3(icon.rectTransform.rotation.x, icon.rectTransform.rotation.y, item.iconRotation);
 		icon.rectTransform.localScale = new Vector3(item.iconSize, item.iconSize, 1f);
 		icon.SetNativeSize();
-        //removeButton.interactable = true;
+		//removeButton.interactable = true;
 
-        GetComponent<TooltipTrigger>().header = newItem.name;
-        GetComponent<TooltipTrigger>().content = newItem.desc;
-        GetComponent<TooltipTrigger>().type = newItem.WeaponType;
+		GetComponentInChildren<TooltipTrigger>().header = newItem.name;
+		GetComponentInChildren<TooltipTrigger>().content = newItem.desc;
+		GetComponentInChildren<TooltipTrigger>().type = newItem.WeaponType;
 
         if (newItem.WeaponType == InventoryUI.WeaponTypes.Weapons)
         {
             Weapon newWeapon = (Weapon) newItem;
             projectileController projectile = newWeapon.projectileAttack.GetComponent<projectileController>();
-            GetComponent<TooltipTrigger>().stats = new float[] { newWeapon.ReachLength + newWeapon.XYSize * newWeapon.CapsuleColliderSize.y * 0.5f + newWeapon.CapsuleColliderOffset.magnitude, newWeapon.activeTimeLimit, newWeapon.cooldownTime, newWeapon.DMG_Scaling, newWeapon.MinDamage, newWeapon.MaxDamage, projectile.coolDownPeriod, projectile.DMG};
+			GetComponentInChildren<TooltipTrigger>().stats = new float[] { newWeapon.ReachLength + newWeapon.XYSize * newWeapon.CapsuleColliderSize.y * 0.5f + newWeapon.CapsuleColliderOffset.magnitude, newWeapon.activeTimeLimit, newWeapon.cooldownTime, newWeapon.DMG_Scaling, newWeapon.MinDamage, newWeapon.MaxDamage, projectile.coolDownPeriod, projectile.DMG};
         }else if (newItem.WeaponType == InventoryUI.WeaponTypes.Spells)
         {
             Spell newSpell = (Spell)newItem;
             projectileController Spell = newSpell.SpellPrefab.GetComponent<projectileController>();
             projectileController chargedSpell = newSpell.ChargedSpellPrefab.GetComponent<projectileController>();
-            GetComponent<TooltipTrigger>().stats = new float[] {Spell.ManaCost, Spell.DMG, Spell.coolDownPeriod, chargedSpell.ManaCost, chargedSpell.DMG, chargedSpell.coolDownPeriod};
+			GetComponentInChildren<TooltipTrigger>().stats = new float[] {Spell.ManaCost, Spell.DMG, Spell.coolDownPeriod, chargedSpell.ManaCost, chargedSpell.DMG, chargedSpell.coolDownPeriod};
         }
         TooltipManager.Hide();
     }
