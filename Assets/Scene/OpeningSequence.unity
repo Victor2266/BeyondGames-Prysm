@@ -1369,10 +1369,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 2002024036}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.5019608}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.627451}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_PressedColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0.5019608}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -33928,6 +33928,8 @@ MonoBehaviour:
   WeaponUI: {fileID: 0}
   FloorContact: {fileID: 0}
   BlackBodyParticles: {fileID: 0}
+  Skull: {fileID: 0}
+  burp: {fileID: 0}
   skullRB2D: {fileID: 0}
   deathParticles: {fileID: 0}
   handheldWeapon: {fileID: 0}
