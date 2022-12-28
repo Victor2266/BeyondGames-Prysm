@@ -106,6 +106,8 @@ public class PlayerEntity : MonoBehaviour
     public GameObject FloorContact;
 
     public Transform BlackBodyParticles;
+    public GameObject Skull;
+    public GameObject burp;
     public Rigidbody2D skullRB2D;
     public GameObject deathParticles;
     public GameObject handheldWeapon;

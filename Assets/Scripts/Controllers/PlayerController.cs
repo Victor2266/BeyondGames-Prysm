@@ -281,10 +281,6 @@ public class PlayerController : MonoBehaviour
         {
             ChargeWeapon();
         }
-        if (liftRight)
-        {
-            UnChargeWeapon();
-        }
 
         if (playerEntity.timeStamp <= Time.time)
         {
@@ -433,6 +429,11 @@ public class PlayerController : MonoBehaviour
                     clone.GetComponent<projectileController>().Primed = true;
                 }
             }*/
+
+            if (liftRight)
+            {
+                UnChargeWeapon();
+            }
 
             else if (playerEntity.timeStamp + 2f <= Time.time)//RETURNS HAND ORB TO MIDDLE POSITION
             {

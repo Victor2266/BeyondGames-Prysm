@@ -238,6 +238,14 @@ public class PlayerManager : MonoBehaviour
             playerEntity.jumpForce += amount;
         }
 
+        //make mask big and release gas
+        
+        LeanTween.cancel(playerEntity.Skull);
+        LTSeq sequence = LeanTween.sequence();
+        sequence.append(LeanTween.scale(playerEntity.Skull, new Vector3(15f, 15f, 16f), 0.1f));
+        sequence.append(LeanTween.scale(playerEntity.Skull, new Vector3(10f, 10f, 11f), 0.5f));
+        GameObject burpClone = Instantiate(playerEntity.burp, playerEntity.Skull.transform);
+
         for (int i = amount; i > 0; i--)
         {
             if (playerEntity.health.maxValue < playerEntity.MaxHealth)
@@ -303,7 +311,7 @@ public class PlayerManager : MonoBehaviour
 
     private float TiltAngle;
     private float TiltTargetAngle;
-    private float currVelo;
+    private float currVelo = 0f;
 
     public void setTiltTargetAngle(float value)
     {
