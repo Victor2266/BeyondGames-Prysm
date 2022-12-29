@@ -31344,7 +31344,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 1986807110}
+      objectReference: {fileID: 2120381662}
     - target: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -31369,7 +31369,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 709510371}
+      objectReference: {fileID: 1669315072}
     - target: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -32707,6 +32707,7 @@ GameObject:
   - component: {fileID: 708112595}
   - component: {fileID: 708112594}
   - component: {fileID: 708112593}
+  - component: {fileID: 708112596}
   m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
@@ -32732,10 +32733,10 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 0, y: -300}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 530}
+  m_SizeDelta: {x: 0, y: 420}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &708112593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32803,6 +32804,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708112591}
   m_CullTransparentMesh: 0
+--- !u!114 &708112596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708112591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 50
+  displacementVal: {x: 0, y: -30, z: 0}
+  m_templateScrollRect: {fileID: 708112593}
+  m_templateViewportTransform: {fileID: 1040388170}
+  m_ContentRectTransform: {fileID: 1968758812}
+  buttonIsChild: 1
 --- !u!1 &708294409
 GameObject:
   m_ObjectHideFlags: 0
@@ -72716,9 +72735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 50
+  displacementVal: {x: 0, y: 0, z: 0}
   m_templateScrollRect: {fileID: 1239402305}
   m_templateViewportTransform: {fileID: 163799504}
   m_ContentRectTransform: {fileID: 263047326}
+  buttonIsChild: 0
 --- !u!114 &1239402305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75621,7 +75642,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 921458338}
+      objectReference: {fileID: 854574885}
     - target: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -75646,7 +75667,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 557995402}
+      objectReference: {fileID: 1210601708}
     - target: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -83773,6 +83794,7 @@ GameObject:
   - component: {fileID: 1680265249}
   - component: {fileID: 1680265248}
   - component: {fileID: 1680265247}
+  - component: {fileID: 1680265250}
   m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
@@ -83798,10 +83820,10 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 0, y: -300}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 530}
+  m_SizeDelta: {x: 0, y: 420}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1680265247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83869,6 +83891,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680265245}
   m_CullTransparentMesh: 0
+--- !u!114 &1680265250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680265245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 50
+  displacementVal: {x: 0, y: -30, z: 0}
+  m_templateScrollRect: {fileID: 1680265247}
+  m_templateViewportTransform: {fileID: 538112225}
+  m_ContentRectTransform: {fileID: 1395350862}
+  buttonIsChild: 1
 --- !u!1 &1683271814
 GameObject:
   m_ObjectHideFlags: 0
@@ -98058,7 +98098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 1514302435}
+    m_SelectOnUp: {fileID: 2080865612}
     m_SelectOnDown: {fileID: 1277459452}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 1549232899}

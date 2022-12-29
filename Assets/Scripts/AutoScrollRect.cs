@@ -9,6 +9,7 @@ public class AutoScrollRect : MonoBehaviour
 {
     // Sets the speed to move the scrollbar
     public float scrollSpeed = 50f;
+    public Vector3 displacementVal;
 
     // Set as Template Object via (Your Dropdown Button > Template)
     public ScrollRect m_templateScrollRect;
@@ -20,6 +21,8 @@ public class AutoScrollRect : MonoBehaviour
     public RectTransform m_ContentRectTransform;
 
     private RectTransform m_SelectedRectTransform;
+
+    [SerializeField] bool buttonIsChild = false;
 
     void Update()
     {
@@ -35,15 +38,29 @@ public class AutoScrollRect : MonoBehaviour
         {
             return;
         }
-        if (selected.transform.parent != contentRectTransform.transform)
+        if (!buttonIsChild)
         {
-            return;
+            if (selected.transform.parent != contentRectTransform.transform)
+            {
+                return;
+            }
+
+            m_SelectedRectTransform = selected.GetComponent<RectTransform>();
+        }
+        else
+        {
+
+            if (selected.transform.parent.parent != contentRectTransform.transform)
+            {
+                return;
+            }
+
+            m_SelectedRectTransform = selected.transform.parent.GetComponent<RectTransform>();
         }
 
-        m_SelectedRectTransform = selected.GetComponent<RectTransform>();
 
         // Math stuff
-        Vector3 selectedDifference = viewportRectTransform.localPosition - m_SelectedRectTransform.localPosition;
+        Vector3 selectedDifference = viewportRectTransform.localPosition - m_SelectedRectTransform.localPosition - displacementVal;
         float contentHeightDifference = (contentRectTransform.rect.height - viewportRectTransform.rect.height);
 
         float selectedPosition = (contentRectTransform.rect.height - selectedDifference.y);
@@ -51,9 +68,11 @@ public class AutoScrollRect : MonoBehaviour
         float above = currentScrollRectPosition - (m_SelectedRectTransform.rect.height / 2) + viewportRectTransform.rect.height;
         float below = currentScrollRectPosition + (m_SelectedRectTransform.rect.height / 2);
 
+        //Debug.Log(m_SelectedRectTransform);
         //Debug.Log("above position" + above);
         //Debug.Log("selectedPosition" + selectedPosition);
         //Debug.Log("below position" + below);
+        //Debug.Log(selectedDifference);
 
         // Check if selected option is out of bounds.
         if (selectedPosition > above)
