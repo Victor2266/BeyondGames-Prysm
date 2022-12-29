@@ -32732,10 +32732,10 @@ RectTransform:
   m_Father: {fileID: 1996383946}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 530}
-  m_SizeDelta: {x: 0, y: 420}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -190}
+  m_SizeDelta: {x: 1280, y: -300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &708112593
 MonoBehaviour:
@@ -32816,7 +32816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 50
   displacementVal: {x: 0, y: -30, z: 0}
   m_templateScrollRect: {fileID: 708112593}
   m_templateViewportTransform: {fileID: 1040388170}
@@ -72734,7 +72733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 50
   displacementVal: {x: 0, y: 0, z: 0}
   m_templateScrollRect: {fileID: 1239402305}
   m_templateViewportTransform: {fileID: 163799504}
@@ -83819,10 +83817,10 @@ RectTransform:
   m_Father: {fileID: 1470920534}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 530}
-  m_SizeDelta: {x: 0, y: 420}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -190}
+  m_SizeDelta: {x: 1280, y: -300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1680265247
 MonoBehaviour:
@@ -83903,7 +83901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 50
   displacementVal: {x: 0, y: -30, z: 0}
   m_templateScrollRect: {fileID: 1680265247}
   m_templateViewportTransform: {fileID: 538112225}
