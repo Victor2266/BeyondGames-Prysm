@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class AutoScrollRect : MonoBehaviour
 {
     // Sets the speed to move the scrollbar
-    public float scrollSpeed = 50f;
+    //public float scrollSpeed = 50f;
+
+    //Make sure rect anchors are the same as dropdown template and displacement is based on size of item
     public Vector3 displacementVal;
 
     // Set as Template Object via (Your Dropdown Button > Template)
@@ -22,6 +24,7 @@ public class AutoScrollRect : MonoBehaviour
 
     private RectTransform m_SelectedRectTransform;
 
+    //Dropdown items are not children
     [SerializeField] bool buttonIsChild = false;
 
     void Update()

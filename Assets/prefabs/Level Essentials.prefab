@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19673,6 +19673,7 @@ MonoBehaviour:
   icon: {fileID: 5168091095412200650}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 4
 --- !u!1 &5168091094566593682
 GameObject:
@@ -20414,6 +20415,7 @@ MonoBehaviour:
   icon: {fileID: 5168091095982724022}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 6
 --- !u!1 &5168091094664760072
 GameObject:
@@ -20844,7 +20846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 6752426837371474264}
+    m_SelectOnUp: {fileID: 6752426836304274658}
     m_SelectOnDown: {fileID: 5168091095608654091}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 5168091095577224142}
@@ -21623,6 +21625,8 @@ MonoBehaviour:
   WeaponUI: {fileID: 5168091096407985849}
   FloorContact: {fileID: 5168091094925895870}
   BlackBodyParticles: {fileID: 5168091096186893668}
+  Skull: {fileID: 5168091094611556245}
+  burp: {fileID: 2131111454805731970, guid: 29941e7b2ad0b4a4db835734305be9a8, type: 3}
   skullRB2D: {fileID: 5168091096666874156}
   deathParticles: {fileID: 1736637759948417562, guid: 68bfdf05a67942f478f1a4e3a491a762,
     type: 3}
@@ -29850,6 +29854,7 @@ GameObject:
   - component: {fileID: 5168091095114252382}
   - component: {fileID: 5168091095114252383}
   - component: {fileID: 5168091095114252384}
+  - component: {fileID: 2145638253}
   m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
@@ -29875,10 +29880,10 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 0, y: -300}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 530}
+  m_SizeDelta: {x: 0, y: 420}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5168091095114252382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29946,6 +29951,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2145638253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168091095114252386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 50
+  displacementVal: {x: 0, y: -30, z: 0}
+  m_templateScrollRect: {fileID: 5168091095114252384}
+  m_templateViewportTransform: {fileID: 5168091095911741998}
+  m_ContentRectTransform: {fileID: 5168091094528984966}
+  buttonIsChild: 1
 --- !u!1 &5168091095122950291
 GameObject:
   m_ObjectHideFlags: 0
@@ -31601,9 +31624,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 50
+  displacementVal: {x: 0, y: 0, z: 0}
   m_templateScrollRect: {fileID: 5168091095252170471}
   m_templateViewportTransform: {fileID: 5168091096092259594}
   m_ContentRectTransform: {fileID: 5168091095946500259}
+  buttonIsChild: 0
 --- !u!1 &5168091095288170353
 GameObject:
   m_ObjectHideFlags: 0
@@ -39723,6 +39748,7 @@ MonoBehaviour:
   icon: {fileID: 5168091096358698536}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 1
 --- !u!1 &5168091095655721818
 GameObject:
@@ -39776,6 +39802,7 @@ MonoBehaviour:
   icon: {fileID: 5168091095608839561}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 2
 --- !u!1 &5168091095657628802
 GameObject:
@@ -40997,6 +41024,7 @@ MonoBehaviour:
   icon: {fileID: 5168091096140917861}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 8
 --- !u!1 &5168091095799576568
 GameObject:
@@ -41651,6 +41679,7 @@ MonoBehaviour:
   icon: {fileID: 5168091094664760070}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 5
 --- !u!1 &5168091095846083974
 GameObject:
@@ -41704,6 +41733,7 @@ MonoBehaviour:
   icon: {fileID: 5168091095085858771}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 3
 --- !u!1 &5168091095883904866
 GameObject:
@@ -42135,6 +42165,7 @@ MonoBehaviour:
   icon: {fileID: 5168091095465452406}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 7
 --- !u!1 &5168091095940022358
 GameObject:
@@ -48107,7 +48138,7 @@ GameObject:
   - component: {fileID: 5168091096101286482}
   - component: {fileID: 5168091096101286483}
   m_Layer: 5
-  m_Name: open Blackout fade to black (1)
+  m_Name: open Blackout fade to clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48424,6 +48455,7 @@ GameObject:
   - component: {fileID: 5168091096128807730}
   - component: {fileID: 5168091096128807731}
   - component: {fileID: 5168091096128807732}
+  - component: {fileID: 807594034}
   m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
@@ -48449,9 +48481,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -190}
-  m_SizeDelta: {x: 0, y: -300}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 530}
+  m_SizeDelta: {x: 0, y: 420}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5168091096128807730
 CanvasRenderer:
@@ -48520,6 +48552,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &807594034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168091096128807734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 50
+  displacementVal: {x: 0, y: -30, z: 0}
+  m_templateScrollRect: {fileID: 5168091096128807732}
+  m_templateViewportTransform: {fileID: 5168091094789543721}
+  m_ContentRectTransform: {fileID: 5168091094899253198}
+  buttonIsChild: 1
 --- !u!1 &5168091096136340238
 GameObject:
   m_ObjectHideFlags: 0
@@ -55106,6 +55156,7 @@ MonoBehaviour:
   icon: {fileID: 5168091096495373413}
   textField: {fileID: 0}
   item: {fileID: 0}
+  tooltipTrigger: {fileID: 0}
   slot: 0
 --- !u!1 &5168091096310707121
 GameObject:
@@ -73895,7 +73946,7 @@ GameObject:
   - component: {fileID: 4715266967377247068}
   - component: {fileID: 7427841799504589200}
   m_Layer: 5
-  m_Name: open Blackout fade to black (2)
+  m_Name: RAYCAST BLOCKS INVENTORY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74340,6 +74391,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527919735601009 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091094623811796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426836936959819 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -74352,12 +74409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527919735601009 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091094623811796}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898098486829194 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -74380,7 +74431,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Stick [Xbox Controller]
+      value: Left Stick [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -74530,6 +74581,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527919791219971 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091094625692326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426836889597241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -74542,12 +74599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527919791219971 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091094625692326}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091094700951986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74558,7 +74609,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: J [Keyboard]
+      value: Button South [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -74723,7 +74774,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Bumper [Xbox Controller]
+      value: Left Shoulder [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -74878,7 +74929,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Select [Xbox Controller]
+      value: Select [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -75044,7 +75095,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Bumper [Xbox Controller]
+      value: Right Shoulder [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -75587,9 +75638,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095063054284}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898097885896594 stripped
+--- !u!114 &6752426836452415571 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095063054284}
   m_PrefabAsset: {fileID: 0}
@@ -75599,9 +75650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6752426836452415571 stripped
+--- !u!114 &2437898097885896594 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095063054284}
   m_PrefabAsset: {fileID: 0}
@@ -75828,12 +75879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527920280460602 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095152677535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426836408864000 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -75846,6 +75891,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4096527920280460602 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095152677535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095172227739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75856,7 +75907,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Start [Xbox Controller]
+      value: Start [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -76006,9 +76057,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898097927961285 stripped
+--- !u!114 &6752426836342471940 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095172227739}
   m_PrefabAsset: {fileID: 0}
@@ -76018,9 +76069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6752426836342471940 stripped
+--- !u!114 &2437898097927961285 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095172227739}
   m_PrefabAsset: {fileID: 0}
@@ -76242,7 +76293,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 6752426836370157877}
+      objectReference: {fileID: 6752426838284668411}
     - target: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -76267,7 +76318,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 2437898097904400116}
+      objectReference: {fileID: 2437898097672374842}
     - target: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -76471,7 +76522,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Y [Xbox Controller]
+      value: Button North [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -76993,6 +77044,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!114 &2437898098155332634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095332502596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6752426836723983323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -77011,18 +77074,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095332502596}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898098155332634 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095332502596}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095364292902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77228,24 +77279,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527920530087555 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095364292902}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6752426836687589049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095364292902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2437898098120149368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -77258,6 +77291,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6752426836687589049 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095364292902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &4096527920530087555 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095364292902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095488682825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77268,7 +77319,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Trigger [Xbox Controller]
+      value: Left Trigger [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -77629,18 +77680,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898097978596354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!224 &4096527920371747833 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095524721756}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6752426836560714691 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -77653,12 +77698,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527920371747833 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!114 &2437898097978596354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095524721756}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095572508638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77669,7 +77720,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: X [Xbox Controller]
+      value: Button West [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -78035,18 +78086,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898098048908746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095595165076}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6752426836499069451 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -78065,6 +78104,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095595165076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2437898098048908746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095595165076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095615398665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78540,7 +78591,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: A [Xbox Controller]
+      value: Button South [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -78901,6 +78952,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527918584734354 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095834340663}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898097248023913 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -78925,12 +78982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527918584734354 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095834340663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095879576010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79131,6 +79182,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527918881367663 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095879576010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426838327998037 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -79155,12 +79212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527918881367663 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095879576010}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095920264082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79836,9 +79887,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &6752426838203346239 stripped
+--- !u!114 &2437898097489472254 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096008684192}
   m_PrefabAsset: {fileID: 0}
@@ -79848,9 +79899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2437898097489472254 stripped
+--- !u!114 &6752426838203346239 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096008684192}
   m_PrefabAsset: {fileID: 0}
@@ -80066,9 +80117,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898097473525918 stripped
+--- !u!114 &6752426838206439263 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096026415296}
   m_PrefabAsset: {fileID: 0}
@@ -80078,9 +80129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6752426838206439263 stripped
+--- !u!114 &2437898097473525918 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096026415296}
   m_PrefabAsset: {fileID: 0}
@@ -80106,7 +80157,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad Y [Xbox Controller]
+      value: D-Pad/Y [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -80277,7 +80328,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad X [Xbox Controller]
+      value: D-Pad/X [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -81049,9 +81100,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &6752426837315805148 stripped
+--- !u!114 &2437898096753809437 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096346886211}
   m_PrefabAsset: {fileID: 0}
@@ -81067,9 +81118,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091096346886211}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898096753809437 stripped
+--- !u!114 &6752426837315805148 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096346886211}
   m_PrefabAsset: {fileID: 0}
@@ -81089,7 +81140,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Trigger [Xbox Controller]
+      value: Right Trigger [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -81261,7 +81312,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 6752426836342471940}
+      objectReference: {fileID: 6752426836723983323}
     - target: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -81286,7 +81337,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 2437898097927961285}
+      objectReference: {fileID: 2437898098155332634}
     - target: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -81445,18 +81496,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898096699036134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091096392780216}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6752426837311329831 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -81475,6 +81514,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091096392780216}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2437898096699036134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091096392780216}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091096440521708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81485,7 +81536,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: B [Xbox Controller]
+      value: Button East [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -82149,7 +82200,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Stick [Xbox Controller]
+      value: Right Stick [Gamepad]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
