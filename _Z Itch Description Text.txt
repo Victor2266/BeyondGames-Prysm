@@ -1,18 +1,18 @@
 <p style="text-align:center"><b>The web demo may be outdated, slow, or prone to bugs and problems, and the mouse won't lock to the window, try downloading it instead.</b></p>
 
 <pre>
-<b>You escape into your dreams. Into a world beyond your imagination.
+<b>Enter a world of ethereal beauty and treacherous danger as you journey through a series of difficult, action-packed levels as a Shinigami tasked with collecting souls.
 
-Struggle and fight with your own hands.
-Decide how to swing your sword, parry incoming projectiles, and precisely aim magic spells.
+Armed with an arsenal of powerful weapons and magic spells, you'll need to use your skills and strategic thinking to overcome a host of formidable foes and emerge victorious.
 
-Wield the weapons pried from the hands of your enemies.
+Along the way, you'll gather powerful equipment that will help you on your quest, and uncover an overarching narrative that ties everything together. 
 
-Compete to collect the most souls.
+Whether you prefer to unleash devastating blows with your trusty blade or devastating arcane magic, you'll find plenty of exciting challenges waiting for you in this immersive, linear sidescroller. 
 
-And defeat foe after foe until your reach the end of your journey.</b></pre>
+So strap on your armor and sharpen your blade - your journey begins now!
+</b></pre>
 
-<pre>Beyond is a difficult, action-driven, linear sidescroller with unique combat mechanics. Each level is tied together by an overarching narrative element and progression accumulates in the form of equipment gathered after each completed level. The game is set in an ethereal world filled with magical beasts, warriors, and weapons. The player begins as a Shinigami who needs to collect souls from the inhabitants of said world. Along their quest, they will face off against others with the very same goal.</pre>
+<pre>Beyond is an intense and challenging action-driven sidescroller set in an ethereal world filled with magical beasts and powerful warriors. You'll journey through a series of beautifully crafted levels, facing off against other soul collectors and battling a variety of formidable foes. With unique combat mechanics that allow you to finely control a wide range of weapons and magic spells, you'll need quick reflexes and strategic thinking to emerge victorious. As you progress through the game, you'll gather powerful equipment that will help you on your quest, and uncover an overarching narrative that ties everything together. Get ready to embark on a journey through a dreamlike world filled with danger and adventure at every turn.</pre>
 
 <pre>
 Programming and Art: Me
