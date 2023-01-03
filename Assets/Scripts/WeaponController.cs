@@ -313,6 +313,8 @@ public class WeaponController : damageController
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
             float calcDMG = (int)(DMG * multiplier);
+            float calcDMGSize = DMGTextSize;
+
 
             if (MG == null)
             {
@@ -323,16 +325,18 @@ public class WeaponController : damageController
                 if (MG.WeaknessTo == ElementType)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
+                    calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
                 else if (MG.ImmunityTo == ElementType)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
+                    calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
                 }
 
                 MG.TakeDamage(calcDMG);
             }
 
-            ShowDMGText((int)calcDMG, DMGTextSize);
+            ShowDMGText((int)calcDMG, calcDMGSize);
             Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         }
         totalDistance = 0f;//resets dmg calc for next hit
@@ -347,6 +351,7 @@ public class WeaponController : damageController
             collision.collider.SendMessage("SetCollision", collision.point);
             MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
             float calcDMG = (int)(DMG * multiplier);
+            float calcDMGSize = DMGTextSize;
 
             if (MG == null)
             {
@@ -357,16 +362,18 @@ public class WeaponController : damageController
                 if (MG.WeaknessTo == ElementType)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
+                    calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
                 else if (MG.ImmunityTo == ElementType)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
+                    calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
                 }
                 MG.TakeDamage(calcDMG);
                 
             }
 
-            ShowDMGText((int)calcDMG, DMGTextSize);
+            ShowDMGText((int)calcDMG, calcDMGSize);
             Instantiate(pop, collision.point, transform.rotation);
         }
         totalDistance = 0f;

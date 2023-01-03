@@ -154,6 +154,8 @@ MonoBehaviour:
   rapid_fire: 1
   power_control: 1
   inaccuracy: 0
+  DontTouchPlayer: 0
+  ElementalType: 1
 --- !u!114 &173205788146175641
 MonoBehaviour:
   m_ObjectHideFlags: 0

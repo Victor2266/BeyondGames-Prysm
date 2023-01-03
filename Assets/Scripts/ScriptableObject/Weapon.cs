@@ -35,6 +35,7 @@ public class Weapon : Equipment
     public bool oneSidedSwing;
     public bool swingOtherSide;
 
+    public ElementType ElementalType = ElementType.None;
     public override void Use()
     {
         base.Use();

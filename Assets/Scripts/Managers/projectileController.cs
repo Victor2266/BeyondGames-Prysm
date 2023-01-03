@@ -25,6 +25,8 @@ public class projectileController : damageController
 
     public bool DontTouchPlayer;
 
+    public Equipment.ElementType ElementalType = Equipment.ElementType.None;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -51,34 +53,51 @@ public class projectileController : damageController
             BurstIfPrimed();
         }
 
+        MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+        float calcDMG = (DMG);
+        float calcDMGSize = DMGTextSize;
+        if (MG != null)
+        {
+            if (MG.WeaknessTo == ElementalType)
+            {
+                calcDMG = calcDMG * MG.WeaknessMultiplier;
+                calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
+            }
+            else if (MG.ImmunityTo == ElementalType)
+            {
+                calcDMG = calcDMG * MG.ImmunityMultiplier;
+                calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
+            }
+        }
+
         if (collision.gameObject.tag == "enemy")
         {
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            collision.gameObject.SendMessage("TakeDamage", DMG);
+            collision.gameObject.SendMessage("TakeDamage", calcDMG);
             BurstIfPrimed();
-            ShowDMGText(DMG, DMGTextSize);
+            ShowDMGText((int)calcDMG, calcDMGSize);
         }
 
         if (collision.gameObject.tag == "boss")
         {
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            collision.gameObject.SendMessage("TakeDamage", DMG / 2f);
+            collision.gameObject.SendMessage("TakeDamage", calcDMG / 2f);
             BurstIfPrimed();
-            ShowDMGText((DMG / 2), DMGTextSize);
+            ShowDMGText(((int)calcDMG / 2), calcDMGSize);
         }
         if (collision.gameObject.tag == "CritBox")
         {
 
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            collision.gameObject.SendMessage("TakeDamage", DMG * 2);
+            collision.gameObject.SendMessage("TakeDamage", calcDMG * 2);
             BurstIfPrimed();
-            ShowDMGText((DMG * 2), DMGTextSize * 2);
+            ShowDMGText(((int)calcDMG * 2), calcDMGSize * 2);
         }
         if (collision.gameObject.tag == "EnemyPlayer")
         {
-            collision.gameObject.SendMessage("CmdTakeDamage", DMG);
+            collision.gameObject.SendMessage("CmdTakeDamage", calcDMG);
             BurstIfPrimed();
-            ShowDMGText(DMG, DMGTextSize);
+            ShowDMGText((int)calcDMG, calcDMGSize);
         }
 
         if (Bouncy == false && (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground"))

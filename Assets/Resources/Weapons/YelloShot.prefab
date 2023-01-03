@@ -177,6 +177,7 @@ MonoBehaviour:
   power_control: 0
   inaccuracy: 0
   DontTouchPlayer: 0
+  ElementalType: 2
 --- !u!82 &5930077227752740639
 AudioSource:
   m_ObjectHideFlags: 0

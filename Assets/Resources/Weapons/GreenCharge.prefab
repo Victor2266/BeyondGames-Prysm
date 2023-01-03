@@ -271,6 +271,7 @@ MonoBehaviour:
   power_control: 0
   inaccuracy: 0.1
   DontTouchPlayer: 0
+  ElementalType: 3
 --- !u!58 &58222758247822518
 CircleCollider2D:
   m_ObjectHideFlags: 0
