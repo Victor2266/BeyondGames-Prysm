@@ -8,6 +8,9 @@ public class Equipment : Item
     public EquipmentSlot equipSlot;
     public Color color;
 
+    public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None }
+    public ElementType ElementalType = ElementType.None;
+
     public override void Use()
     {
         base.Use();

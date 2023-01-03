@@ -18,8 +18,10 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 2
+  desc: 
   equipSlot: 7
   color: {r: 0.5, g: 0.25, b: 1, a: 1}
+  ElementalType: 5
   SpellPrefab: {fileID: 1346022673198726, guid: cfa1310ed9a67b242aa0c6bf71c1569d,
     type: 3}
   ChargedSpellPrefab: {fileID: 1346022673198726, guid: b473aef6c59d62c429002796e7acf5de,

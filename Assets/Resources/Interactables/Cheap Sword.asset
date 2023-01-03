@@ -22,6 +22,7 @@ MonoBehaviour:
     to slash and thrust.
   equipSlot: 0
   color: {r: 0.4056604, g: 0.18043432, b: 0, a: 0.54509807}
+  ElementalType: 9
   ReachLength: 1.5
   DMG_Scaling: 5
   MaxDamage: 50

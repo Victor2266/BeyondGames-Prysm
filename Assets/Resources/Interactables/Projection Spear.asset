@@ -23,6 +23,7 @@ MonoBehaviour:
     a ton of mama.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  ElementalType: 3
   ReachLength: 1.5
   DMG_Scaling: 12
   MaxDamage: 45
@@ -34,6 +35,7 @@ MonoBehaviour:
   angle_offset: -90
   CapsuleColliderOffset: {x: 0, y: 0.65}
   CapsuleColliderSize: {x: 0.35, y: 0.3}
+  SpriteOffset: {x: 0, y: 0}
   handReachMultiplier: 0.5
   projectileAttack: {fileID: 7953202150918435326, guid: b34db3c275c64e24c9a7d97dd8c1a08c,
     type: 3}

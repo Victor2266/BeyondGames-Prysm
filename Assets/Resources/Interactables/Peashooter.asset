@@ -22,6 +22,7 @@ MonoBehaviour:
     Can be used to enhance jumping capabilities.
   equipSlot: 5
   color: {r: 0, g: 1, b: 0, a: 1}
+  ElementalType: 3
   SpellPrefab: {fileID: 1346022673198726, guid: 68e18870fc4151a446e6738563237644,
     type: 3}
   ChargedSpellPrefab: {fileID: 1726419301950544, guid: aac48c9d6a59d995474acae3321a486d,

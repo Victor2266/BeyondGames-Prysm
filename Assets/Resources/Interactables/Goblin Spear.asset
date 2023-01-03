@@ -22,6 +22,7 @@ MonoBehaviour:
     Capable of projecting a medium range attack.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  ElementalType: 9
   ReachLength: 1.5
   DMG_Scaling: 10
   MaxDamage: 35
@@ -33,6 +34,7 @@ MonoBehaviour:
   angle_offset: -90
   CapsuleColliderOffset: {x: 0, y: 0.53}
   CapsuleColliderSize: {x: 0.3, y: 0.35}
+  SpriteOffset: {x: 0, y: 0}
   handReachMultiplier: 0.5
   projectileAttack: {fileID: 7953202150918435326, guid: 1e295b2129dd5b44ab8ac87c2c9c05ff,
     type: 3}

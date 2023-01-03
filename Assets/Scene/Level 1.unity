@@ -365,6 +365,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1882747856576304, guid: 3669bee65946da342a5cddce0914b7f9,
         type: 3}
+    - target: {fileID: 8270485886848469727, guid: 3cdefaa3e15c5a148b0a42657f19e593,
+        type: 3}
+      propertyPath: ImmunityTo
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270485886848469727, guid: 3cdefaa3e15c5a148b0a42657f19e593,
+        type: 3}
+      propertyPath: WeaknessTo
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270485886848469727, guid: 3cdefaa3e15c5a148b0a42657f19e593,
+        type: 3}
+      propertyPath: ImmunityMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270485886848469727, guid: 3cdefaa3e15c5a148b0a42657f19e593,
+        type: 3}
+      propertyPath: WeaknessMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8270485886848469729, guid: 3cdefaa3e15c5a148b0a42657f19e593,
         type: 3}
       propertyPath: m_RootOrder

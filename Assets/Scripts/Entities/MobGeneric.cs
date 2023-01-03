@@ -18,6 +18,11 @@ public class MobGeneric : MonoBehaviour
 
     public BloodSplatterer BSplat;
 
+    public Equipment.ElementType WeaknessTo;
+    public float WeaknessMultiplier = 1;
+    public Equipment.ElementType ImmunityTo;
+    public float ImmunityMultiplier = 1;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -31,7 +36,7 @@ public class MobGeneric : MonoBehaviour
         return Physics2D.Raycast(origin, -Vector2.up, 0.005f);
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         Health -= amount;
         anim.SetTrigger("hurt");
@@ -43,6 +48,7 @@ public class MobGeneric : MonoBehaviour
             Death();
         }
     }
+
 
     public virtual void SetCollision()
     {

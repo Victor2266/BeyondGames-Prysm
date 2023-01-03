@@ -53,6 +53,7 @@ public class WeaponController : damageController
     private float thrustDashDist;
     private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     private bool projAsChild;
+    private Equipment.ElementType ElementType;
 
     public Text DamageCounter;
 
@@ -97,7 +98,7 @@ public class WeaponController : damageController
     }
     void HeldInHandStatus(bool status)
     {
-        if (status == false)
+        if (status == false)// is spell
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0f);
@@ -113,7 +114,7 @@ public class WeaponController : damageController
             ReachLength = 1.5f;
             Destroy(Trail);
         }
-        else
+        else // is weapon
         {
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             isInHand = true;
@@ -128,6 +129,7 @@ public class WeaponController : damageController
             activeTimeLimit = equippedWeapon.activeTimeLimit;
             cooldownTime = equippedWeapon.cooldownTime;
             projAsChild = equippedWeapon.projAsChild;
+            ElementType = equippedWeapon.ElementalType;
 
             thrustResetTime = equippedWeapon.thrustResetTime;
             thrustDashDist = equippedWeapon.thrustDashDist;
@@ -309,8 +311,28 @@ public class WeaponController : damageController
         if (DMG > 0)
         {
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            collision.gameObject.SendMessage("TakeDamage", (int)(DMG * multiplier));
-            ShowDMGText((int)(DMG * multiplier), DMGTextSize);
+            MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+            float calcDMG = (int)(DMG * multiplier);
+
+            if (MG == null)
+            {
+                collision.gameObject.SendMessage("TakeDamage", (int)calcDMG);
+            }
+            else
+            {
+                if (MG.WeaknessTo == ElementType)
+                {
+                    calcDMG = calcDMG * MG.WeaknessMultiplier;
+                }
+                else if (MG.ImmunityTo == ElementType)
+                {
+                    calcDMG = calcDMG * MG.ImmunityMultiplier;
+                }
+
+                MG.TakeDamage(calcDMG);
+            }
+
+            ShowDMGText((int)calcDMG, DMGTextSize);
             Instantiate(pop, collision.GetContact(0).point, transform.rotation);
         }
         totalDistance = 0f;//resets dmg calc for next hit
@@ -323,8 +345,28 @@ public class WeaponController : damageController
         if(DMG > 0)
         {
             collision.collider.SendMessage("SetCollision", collision.point);
-            collision.collider.SendMessage("TakeDamage", (int)(DMG * multiplier));
-            ShowDMGText((int)(DMG * multiplier), DMGTextSize);
+            MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+            float calcDMG = (int)(DMG * multiplier);
+
+            if (MG == null)
+            {
+                collision.collider.SendMessage("TakeDamage", (int)calcDMG);
+            }
+            else
+            {
+                if (MG.WeaknessTo == ElementType)
+                {
+                    calcDMG = calcDMG * MG.WeaknessMultiplier;
+                }
+                else if (MG.ImmunityTo == ElementType)
+                {
+                    calcDMG = calcDMG * MG.ImmunityMultiplier;
+                }
+                MG.TakeDamage(calcDMG);
+                
+            }
+
+            ShowDMGText((int)calcDMG, DMGTextSize);
             Instantiate(pop, collision.point, transform.rotation);
         }
         totalDistance = 0f;

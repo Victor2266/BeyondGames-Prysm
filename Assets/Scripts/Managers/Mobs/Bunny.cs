@@ -44,7 +44,7 @@ public class Bunny : MobGeneric
         
 
     }
-    new public void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         Health -= amount;
         anim.SetTrigger("hurt");
