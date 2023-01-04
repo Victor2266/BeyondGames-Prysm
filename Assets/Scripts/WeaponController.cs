@@ -225,9 +225,6 @@ public class WeaponController : damageController
         playerController.UpdateMouseInput();
 
         clickBehavior();
-
-        //defaultLeftClicking();
-        //rightClicking();
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -635,6 +632,10 @@ public class WeaponController : damageController
         if(LCS == Equipment.leftClickStrat.Default)
         {
             clickBehavior += defaultLeftClicking;
+        }
+        else if (LCS == Equipment.leftClickStrat.Anchor)
+        {
+
         }
 
         if(RCS == Equipment.rightClickStrat.Default)
