@@ -10,6 +10,10 @@ public class Equipment : Item
 
     public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None }
 
+    public enum leftClickStrat { Default, Anchor }
+    public enum rightClickStrat { Default, Dashing }
+
+
     public override void Use()
     {
         base.Use();

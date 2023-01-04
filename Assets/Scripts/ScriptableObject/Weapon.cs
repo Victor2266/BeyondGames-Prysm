@@ -36,6 +36,9 @@ public class Weapon : Equipment
     public bool swingOtherSide;
 
     public ElementType ElementalType = ElementType.None;
+
+    public leftClickStrat leftClickStrategy = leftClickStrat.Default;
+    public rightClickStrat rightClickStrategy = rightClickStrat.Default;
     public override void Use()
     {
         base.Use();

@@ -67,6 +67,9 @@ public class WeaponController : damageController
     private Transform spriteTransform;
     private float xySize;
 
+    delegate void ClickBehavior();
+    ClickBehavior clickBehavior;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -130,6 +133,8 @@ public class WeaponController : damageController
             cooldownTime = equippedWeapon.cooldownTime;
             projAsChild = equippedWeapon.projAsChild;
             ElementType = equippedWeapon.ElementalType;
+
+            SetClickStrat(equippedWeapon.leftClickStrategy, equippedWeapon.rightClickStrategy);
 
             thrustResetTime = equippedWeapon.thrustResetTime;
             thrustDashDist = equippedWeapon.thrustDashDist;
@@ -218,8 +223,11 @@ public class WeaponController : damageController
         arrowColor.color = new Color(1f, 1f, 1f, alphaVal);
 
         playerController.UpdateMouseInput();
-        leftClicking();
-        rightClicking();
+
+        clickBehavior();
+
+        //defaultLeftClicking();
+        //rightClicking();
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -397,7 +405,7 @@ public class WeaponController : damageController
     float zAngle;
     private float lastZAngle;
 
-    private void leftClicking()//sword strategy/sling weapon/heavysword
+    private void defaultLeftClicking()//sword strategy/sling weapon/heavysword
     {
         if (PlayerController.startLeft && timeStamp <= Time.time && !WeaponEnabled)//left click that enables weapon
         {
@@ -506,11 +514,7 @@ public class WeaponController : damageController
     }
     float remainingCooldown;
 
-    private void rightClicking()
-    {
-        shootSpecialAttack();
-    }
-    private void shootSpecialAttack()
+    private void defaultRightClicking()
     {
         if (timeStamp <= Time.time)
         {
@@ -625,4 +629,17 @@ public class WeaponController : damageController
     private float alphaVelo;
     private float alphaVal;
 
+    private void SetClickStrat(Equipment.leftClickStrat LCS, Equipment.rightClickStrat RCS)
+    {
+        clickBehavior = null;
+        if(LCS == Equipment.leftClickStrat.Default)
+        {
+            clickBehavior += defaultLeftClicking;
+        }
+
+        if(RCS == Equipment.rightClickStrat.Default)
+        {
+            clickBehavior += defaultRightClicking;
+        }
+    }
 }
