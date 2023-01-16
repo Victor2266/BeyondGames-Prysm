@@ -26699,8 +26699,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26721,7 +26720,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -26753,13 +26752,13 @@ ParticleSystem:
   m_GameObject: {fileID: 1189847145}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -28007,7 +28006,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -28015,16 +28014,16 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 1, b: 0.13333334, a: 1}
-        key1: {r: 0, g: 1, b: 0.13333334, a: 0.2901961}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 0.2901961}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
+        ctime1: 19853
         ctime2: 0
         ctime3: 0
         ctime4: 0
@@ -28033,7 +28032,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 0
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -30589,7 +30588,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -30650,7 +30649,7 @@ ParticleSystem:
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
-    dieWithParticles: 1
+    dieWithParticles: 0
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 1
     inheritParticleColor: 1
@@ -30731,30 +30730,21 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 10.440092
-          outSlope: 10.440092
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.23642923
-        - serializedVersion: 3
-          time: 0.42155427
-          value: 1
-          inSlope: 1.3740398
-          outSlope: 1.3740398
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -11.815278
-          outSlope: -11.815278
+          value: 1
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.12061227
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -31885,13 +31875,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424373777}
-  m_LocalRotation: {x: -0, y: -0, z: 0.13013402, w: 0.99149644}
+  m_LocalRotation: {x: -0, y: -0, z: -0.17947637, w: 0.9837624}
   m_LocalPosition: {x: 0.5588679, y: -0.03068323, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2047654933}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 3794.955}
+  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 3759.321}
 --- !u!1 &1428146276
 GameObject:
   m_ObjectHideFlags: 0
@@ -32173,8 +32163,8 @@ MonoBehaviour:
   - {fileID: 72559040}
   - {fileID: 2047654933}
   m_Bounds:
-    m_Center: {x: -0.27521062, y: -0.12838292, z: 0}
-    m_Extent: {x: 1.7613575, y: 2.4852526, z: 0}
+    m_Center: {x: -0.30915427, y: -0.09979582, z: 0}
+    m_Extent: {x: 1.7953012, y: 2.5138397, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &1474931157
@@ -35455,7 +35445,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497283366}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9826759, w: 0.18533266}
+  m_LocalRotation: {x: 0, y: 0, z: 0.8909255, w: 0.45414954}
   m_LocalPosition: {x: 0.7064056, y: 0.14162166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -46839,14 +46829,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970603184}
-  m_LocalRotation: {x: -0, y: -0, z: -0.09248449, w: 0.9957142}
+  m_LocalRotation: {x: -0, y: -0, z: -0.680528, w: 0.73272216}
   m_LocalPosition: {x: 0.55354047, y: 0.031019121, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 319756668995312945}
   m_Father: {fileID: 72559040}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 169.387}
+  m_LocalEulerAnglesHint: {x: -180, y: 180, z: 94.229996}
 --- !u!1 &1970944275
 GameObject:
   m_ObjectHideFlags: 0
@@ -47229,7 +47219,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047654932}
-  m_LocalRotation: {x: 0, y: 0, z: -0.37571618, w: 0.9267348}
+  m_LocalRotation: {x: 0, y: 0, z: -0.51914227, w: 0.8546878}
   m_LocalPosition: {x: 0.6933174, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -48611,7 +48601,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114383365}
-  m_LocalRotation: {x: 0, y: 0, z: 0.99642795, w: 0.08444728}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9907786, w: -0.13549112}
   m_LocalPosition: {x: 0.5214847, y: -0.3766184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
