@@ -173,6 +173,7 @@ public class WeaponController : damageController
             Trail = Instantiate(equippedWeapon.trail, transform);
             Trail.SetActive(false);
             pop = equippedWeapon.popSpawn;
+            DMGText = equippedWeapon.dmgTextObj;
             oneSided = equippedWeapon.oneSidedSwing;
             flipSide = equippedWeapon.swingOtherSide;
         }

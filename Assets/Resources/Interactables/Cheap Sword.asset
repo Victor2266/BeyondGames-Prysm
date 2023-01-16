@@ -22,7 +22,6 @@ MonoBehaviour:
     to slash and thrust.
   equipSlot: 0
   color: {r: 0.4056604, g: 0.18043432, b: 0, a: 0.54509807}
-  ElementalType: 9
   ReachLength: 1.5
   DMG_Scaling: 5
   MaxDamage: 50
@@ -47,5 +46,10 @@ MonoBehaviour:
   soundPitch: 1
   movementDelay: 0
   popSpawn: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
+    type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
+  ElementalType: 9
+  leftClickStrategy: 0
+  rightClickStrategy: 0

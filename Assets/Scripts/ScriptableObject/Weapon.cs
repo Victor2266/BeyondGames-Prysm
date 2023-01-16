@@ -32,6 +32,7 @@ public class Weapon : Equipment
     public float soundPitch;
     public float movementDelay;
     public GameObject popSpawn;
+    public GameObject dmgTextObj; 
     public bool oneSidedSwing;
     public bool swingOtherSide;
 

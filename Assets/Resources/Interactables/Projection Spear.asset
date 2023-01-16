@@ -47,6 +47,10 @@ MonoBehaviour:
   soundPitch: 1
   movementDelay: 0
   popSpawn: {fileID: 154529244681351670, guid: 3bc5bea3a3a6be1408b688ea138f8437, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
+    type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
   ElementalType: 3
+  leftClickStrategy: 0
+  rightClickStrategy: 0
