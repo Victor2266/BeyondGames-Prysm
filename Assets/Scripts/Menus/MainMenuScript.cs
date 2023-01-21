@@ -32,7 +32,7 @@ public class MainMenuScript : MonoBehaviour
 
     public Slider BGM_Slider;
     public Slider UI_Slider;
-
+    public Slider CONTROL_Slider;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +79,8 @@ public class MainMenuScript : MonoBehaviour
 
         float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
         BGM_Slider.value = volume;
+
+        CONTROL_Slider.value = PlayerPrefs.GetFloat("controlSize", 0);
 
         if (volume > 0)
         {
@@ -210,5 +212,10 @@ public class MainMenuScript : MonoBehaviour
     {
         GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * size);
         PlayerPrefs.SetFloat("UISize", size);
+    }
+
+    public void setControlSize(float size)
+    {
+        PlayerPrefs.SetFloat("controlSize", size);
     }
 }

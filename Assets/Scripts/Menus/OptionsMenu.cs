@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
@@ -14,11 +15,13 @@ public class OptionsMenu : MonoBehaviour
     public Toggle cameraLockToggle;
     public Slider BGM_Slider;
     public Slider UI_Slider;
+    public Slider CONTROL_Slider;
 
     // Callback which is triggered when
     // Camera lock setting is changed
     public delegate void OnCameraLockChanged();
     public static OnCameraLockChanged onCameraLockChangedCallback;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,7 @@ public class OptionsMenu : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
+
     }
 
     private void SetStartingSliders()
@@ -60,6 +64,9 @@ public class OptionsMenu : MonoBehaviour
 
         float volume = PlayerPrefs.GetFloat("BGM_Volume", 1f);
         BGM_Slider.value = volume;
+
+        //clear delegate
+        CONTROL_Slider.value = PlayerPrefs.GetFloat("controlSize", 0);
 
         if (volume > 0)
         {
@@ -111,5 +118,13 @@ public class OptionsMenu : MonoBehaviour
         }
 
         onCameraLockChangedCallback.Invoke();
+    }
+
+    public delegate void OnControlChange();
+    public static event OnControlChange onControlChange;
+    public void setControlSize(float size)
+    {
+        PlayerPrefs.SetFloat("controlSize", size);
+        onControlChange.Invoke();
     }
 }
