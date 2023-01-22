@@ -274,7 +274,7 @@ public class WeaponUI : MonoBehaviour
         }
 
 
-        if (!unequipAll)
+        if (!unequipAll && !toggleWeapSpecial)
         {
             if (playerInput.actions["Change Weapon"].WasPerformedThisFrame())
             {
