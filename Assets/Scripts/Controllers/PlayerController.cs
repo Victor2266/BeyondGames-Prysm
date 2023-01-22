@@ -447,10 +447,7 @@ public class PlayerController : MonoBehaviour
                 }
             }*/
 
-            if (liftRight)
-            {
-                UnChargeWeapon();
-            }
+
 
             else if (playerEntity.timeStamp + 2f <= Time.time)//RETURNS HAND ORB TO MIDDLE POSITION
             {
@@ -458,7 +455,10 @@ public class PlayerController : MonoBehaviour
                 playerEntity.OrbPosition.offsetY = 0.05f;
             }
         }
-
+        if (liftRight)
+        {
+            UnChargeWeapon();
+        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
