@@ -114,7 +114,7 @@ public partial class WeaponController
     }
 
 
-    private void defaultRightClicking()
+    private void defaultRightClicking()//shoots a projectile rapid-fire style
     {
         if (timeStamp <= Time.time)
         {
