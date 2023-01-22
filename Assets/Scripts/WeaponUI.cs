@@ -53,6 +53,8 @@ public class WeaponUI : MonoBehaviour
     private float scrollVal;
 
     private float selectWeapon;
+
+    public bool toggleWeapSpecial = false;
     /*
     private void Awake() //NETWORKING AWAKE
     {
@@ -342,7 +344,7 @@ public class WeaponUI : MonoBehaviour
         
 
 
-        if (playerScript.weapon > 7)
+        if (playerScript.weapon > 7 || toggleWeapSpecial)
         {
             sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 96, ref sizeRefVelo, cooldowntime / 2f);
             sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 96, ref ParentsizeRefVelo, cooldowntime / 16f);

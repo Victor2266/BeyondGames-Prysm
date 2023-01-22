@@ -204,14 +204,16 @@ public class PlayerController : MonoBehaviour
     public void ChargeEvent(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0) { return; }
-        if (playerEntity.weapon < 1)
-        {
-            return;
-        }
+
 
         if (context.started)
         {
-            ToggleChargeWeapon();
+            if (playerEntity.weapon < 1)//toggle charge for weapon
+            {
+                playerEntity.WeaponUI.toggleWeapSpecial = !playerEntity.WeaponUI.toggleWeapSpecial;
+                return;
+            }
+            ToggleChargeWeapon();//else toggle for magic
         }
     }
 
@@ -221,13 +223,13 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.ChargeIndicator.SetActive(true);
             playerEntity.weapon += 7;
-            Debug.Log("chrge up");
+            //Debug.Log("chrge up");
         }
         else if (playerEntity.weapon >= 8)
         {
             playerEntity.ChargeIndicator.SetActive(false);
             playerEntity.weapon -= 7;
-            Debug.Log("chrge down");
+            //Debug.Log("chrge down");
         }
         playerManager.SetWeap();
     }
@@ -237,7 +239,7 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.ChargeIndicator.SetActive(true);
             playerEntity.weapon += 7;
-            Debug.Log("chrge up");
+            //Debug.Log("chrge up");
         }
         playerManager.SetWeap();
     }
@@ -248,12 +250,29 @@ public class PlayerController : MonoBehaviour
         {
             playerEntity.ChargeIndicator.SetActive(false);
             playerEntity.weapon -= 7;
-            Debug.Log("chrge down");
+            //Debug.Log("chrge down");
+        }
+        else if(playerEntity.weapon < 1)
+        {
+            playerEntity.WeaponUI.toggleWeapSpecial = false;
+            Debug.Log("WEAPON TOGGLE OFF");
         }
         playerManager.SetWeap();
     }
     public void UpdateMouseInput()
     {
+        if (playerEntity.WeaponUI.toggleWeapSpecial)
+        {
+            startLeft = playerInput.actions["Secondary Attack"].WasPressedThisFrame();
+            holdingLeft = playerInput.actions["Secondary Attack"].IsPressed();
+            liftLeft = playerInput.actions["Secondary Attack"].WasReleasedThisFrame();
+
+            startRight = playerInput.actions["Primary Attack"].WasPressedThisFrame();
+            holdingRight = playerInput.actions["Primary Attack"].IsPressed();
+            liftRight = playerInput.actions["Primary Attack"].WasReleasedThisFrame();
+
+            return;
+        }
         startLeft = playerInput.actions["Primary Attack"].WasPressedThisFrame();
         holdingLeft = playerInput.actions["Primary Attack"].IsPressed();
         liftLeft = playerInput.actions["Primary Attack"].WasReleasedThisFrame();
@@ -262,17 +281,15 @@ public class PlayerController : MonoBehaviour
         holdingRight = playerInput.actions["Secondary Attack"].IsPressed();
         liftRight = playerInput.actions["Secondary Attack"].WasReleasedThisFrame();
     }
-    public void JoyStickMovementEvent()
-    {
-
-    }
 
     public void Shooting()
     {
-
-
         if (playerEntity.weapon < 1)
         {
+            if (liftLeft)
+            {
+                UnChargeWeapon();
+            }
             return;
         }
 
