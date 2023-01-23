@@ -274,11 +274,15 @@ public class WeaponUI : MonoBehaviour
         }
 
 
-        if (!unequipAll && !toggleWeapSpecial)
+        if (!unequipAll && playerScript.charges == 1)//if wearing equipment and not holding an active magic spell
         {
             if (playerInput.actions["Change Weapon"].WasPerformedThisFrame())
             {
                 scrollVal = playerInput.actions["Change Weapon"].ReadValue<float>();
+                if (scrollVal != 0)
+                {
+                    UnChargeWeapon();
+                }
             }
 
             if (scrollVal > 0.09f) // forward
@@ -338,6 +342,8 @@ public class WeaponUI : MonoBehaviour
                     playerManager.SetWeap();
                 }
             }
+            
+            
 
             scrollVal = 0f;
         }
@@ -362,7 +368,21 @@ public class WeaponUI : MonoBehaviour
         }
         SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
     }
-
+    public void UnChargeWeapon()
+    {
+        if (playerScript.weapon >= 8)
+        {
+            playerScript.ChargeIndicator.SetActive(false);
+            playerScript.weapon -= 7;
+            //Debug.Log("chrge down");
+        }
+        else if (playerScript.weapon < 1)
+        {
+            toggleWeapSpecial = false;
+            Debug.Log("WEAPON TOGGLE OFF");
+        }
+        playerManager.SetWeap();
+    }
     public void ScaleDown(float r_cooldowntime)
     {
         SliderUI.sizeDelta = new Vector2(30, 0);
