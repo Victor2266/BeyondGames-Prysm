@@ -343,8 +343,6 @@ public class WeaponUI : MonoBehaviour
                 }
             }
             
-            
-
             scrollVal = 0f;
         }
         
