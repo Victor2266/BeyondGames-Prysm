@@ -79,7 +79,7 @@ public class ImperialKnightLongSword : MobGeneric
                     lastMode = closeRange;
                 }
             }
-            else//SWING UP continuously <<<<<<<<<<<<<<<<<<<<<<<<<
+            else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
             {
 
                 thrusting = false;
