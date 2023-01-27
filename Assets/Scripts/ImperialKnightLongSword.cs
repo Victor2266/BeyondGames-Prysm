@@ -9,8 +9,14 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool LookingLeft;
     public float jumpForce;
-    public Transform player, dash1, dash2;
+    public Transform player, dash1, dash2, triangle;
     private float distToPlayer;
+
+    private float lastMode;
+    public enemyWeapon enemyWeap;
+
+    public bool thrusting;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,29 +33,57 @@ public class ImperialKnightLongSword : MobGeneric
 
             if (distToPlayer > longRange)//LONG RANGE DASHING
             {
-                anim.SetTrigger("LongpointWalk");
+                anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
-            }
-            else if (distToPlayer > mediumRange)//PROJECTILE SHOOT
-            {
-                anim.SetTrigger("LongpointWalk");
-                Speed = 1.5f;
-            }
-            else if (distToPlayer > closeRange)//DASH + SWING DOWN
-            {
-                Speed = 0f;
-                if (2 == Random.Range(1, 50))
+                enemyWeap.knockbackX = 50f;
+                enemyWeap.knockbackY = 8;
+
+                if (lastMode == mediumRange)
                 {
-                    anim.SetTrigger("Downswing");
-                    if(!LookingLeft)
-                        rb2d.AddForce(new Vector2(4f, 0f) , ForceMode2D.Impulse);
+                    anim.SetTrigger("Thrusting");
+                    thrusting = true;
+                    if (!LookingLeft)
+                        rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
                     else
-                        rb2d.AddForce(new Vector2(-4f, 0f), ForceMode2D.Impulse);
+                        rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
+                }
+
+                lastMode = longRange;
+            }
+            else if (distToPlayer > mediumRange)// long range dash on enter
+            {
+                anim.SetTrigger("HangWalk");
+                Speed = 1.5f;
+              
+                lastMode = mediumRange;
+            }
+            else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval
+            {
+                if (!thrusting)
+                {
+                    anim.SetTrigger("LongpointWalk");
+                    Speed = 1f;
+                    enemyWeap.knockbackX = 50f;
+                    enemyWeap.knockbackY = 8;
+
+                    //idle walk standard
+
+                    if (lastMode == mediumRange)
+                    {
+                        anim.SetTrigger("Downswing");
+                        if (!LookingLeft)
+                            rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
+                        else
+                            rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
+                    }
+                    lastMode = closeRange;
                 }
             }
             else//SWING UP
             {
 
+                thrusting = false;
+                Speed = 0f;
             }
 
             if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false)
@@ -70,6 +104,7 @@ public class ImperialKnightLongSword : MobGeneric
                 transform.localScale = new Vector3(-1f * size, size, base.transform.localScale.z);
                 dash1.localScale = new Vector3(-2, 1, 2);
                 dash2.transform.localScale = new Vector3(-2, 1, 2);
+                triangle.transform.localScale = new Vector3(-1f, 1f, 1f);
                 healthBar.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
             else if (LookingLeft)
@@ -77,6 +112,7 @@ public class ImperialKnightLongSword : MobGeneric
                 base.transform.localScale = new Vector3(1f * size, size, base.transform.localScale.z);
                 dash1.localScale = new Vector3(2, 1, 2);
                 dash2.transform.localScale = new Vector3(2, 1, 2);
+                triangle.transform.localScale = new Vector3(1f, 1f, 1f);
                 healthBar.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             }
             if (Mathf.Abs(rb2d.velocity.x) < Speed)
@@ -125,14 +161,20 @@ public class ImperialKnightLongSword : MobGeneric
     {
         if (collision.gameObject.tag == "Player" && !isDead)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, rb2d.velocity.y * 2f);
-
+            //PLAY UPWARDS SWING
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb2d.velocity.x * 10f * size, 10f);
             player.SendMessage("TakeDamage", 1);
+
+
             TouchingPlayer = true;
             Speed = 0f;
 
             return;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
