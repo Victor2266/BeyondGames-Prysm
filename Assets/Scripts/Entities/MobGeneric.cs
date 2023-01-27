@@ -7,7 +7,8 @@ public class MobGeneric : MonoBehaviour
     public float Health;
     public float MaxHealth;
     public float Speed;
-    public float Height, Width;//used to check if grounded
+    public float Height, Width, rayLenX;//used to check if grounded
+
     public bool isDead = false;
     public GameObject DeathItem;
     protected GameObject clone;
@@ -33,13 +34,7 @@ public class MobGeneric : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
     }
-    protected bool IsGrounded()
-    {
-        Vector2 origin = base.transform.position;
-        origin.y -= Height;
-        //Debug.DrawRay(origin, new Vector3(0f, -1f, 0f), Color.red);
-        return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
-    }
+
 
     public virtual void TakeDamage(float amount)
     {
@@ -70,7 +65,13 @@ public class MobGeneric : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         //Destroy(healthBar.gameObject);
     }
-
+    protected bool IsGrounded()
+    {
+        Vector2 origin = base.transform.position;
+        origin.y -= Height;
+        //Debug.DrawRay(origin, new Vector3(0f, -1f, 0f), Color.red);
+        return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
+    }
     protected bool IsTouchingCieling()
     {
         Vector2 origin = base.transform.position;
@@ -83,26 +84,26 @@ public class MobGeneric : MonoBehaviour
         Vector2 origin = base.transform.position;
         origin.x -= Width;
 
-        //Debug.DrawRay(origin, new Vector3(-0.1f, 0f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(-rayLenX, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(-0.01f, 0f, 0f), hit2);
         if (hit2[0].collider.name == "Player")
         {
             return false;
         }*/
-        return Physics2D.Raycast(origin, Vector2.left, 0.01f * size);
+        return Physics2D.Raycast(origin, Vector2.left, rayLenX * size);
     }
     protected bool IsTouchingRightWall()
     {
         Vector2 origin = base.transform.position;
         origin.x += Width;
 
-        //Debug.DrawRay(origin, new Vector3(0.1f, 0f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(rayLenX, 0f, 0f), Color.red);
         /*Physics2D.RaycastNonAlloc(origin, new Vector3(0.01f, 0f, 0f), hit2);
         if (hit2[0].collider.name == "Player")
         {
             return false;
         }*/
-        return Physics2D.Raycast(origin, Vector2.right, 0.01f * size);
+        return Physics2D.Raycast(origin, Vector2.right, rayLenX * size);
     }
     protected IEnumerator FreezeInPlace()
     {

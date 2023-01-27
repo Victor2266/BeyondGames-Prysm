@@ -9,18 +9,19 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool LookingLeft;
     public float jumpForce;
-    public Transform player, dash1, dash2, triangle;
+    public Transform player, dash1, dash2, triangle, dash3;
     private float distToPlayer;
 
     private float lastMode;
     public enemyWeapon enemyWeap;
 
     public bool thrusting;
-
-
+    public Rope hair;
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), player.gameObject.GetComponents<CapsuleCollider2D>()[0], true);
+        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), player.gameObject.GetComponents<CapsuleCollider2D>()[1], true);
     }
 
     // Update is called once per frame
@@ -37,15 +38,15 @@ public class ImperialKnightLongSword : MobGeneric
                 Speed = 1.5f;
                 enemyWeap.knockbackX = 50f;
                 enemyWeap.knockbackY = 8;
-
                 if (lastMode == mediumRange)
                 {
                     anim.SetTrigger("Thrusting");
                     thrusting = true;
+                    rb2d.velocity = Vector3.zero;
                     if (!LookingLeft)
-                        rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
+                        rb2d.velocity = (new Vector2(20f, 0f));
                     else
-                        rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
+                        rb2d.velocity = (new Vector2(-20f, 0f));
                 }
 
                 lastMode = longRange;
@@ -82,11 +83,10 @@ public class ImperialKnightLongSword : MobGeneric
             else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
             {
 
-                thrusting = false;
                 Speed = 0f;
             }
 
-            if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false)
+            if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false && !thrusting)
             {
                 if (rb2d.position.x > player.position.x)
                 {
@@ -104,7 +104,9 @@ public class ImperialKnightLongSword : MobGeneric
                 transform.localScale = new Vector3(-1f * size, size, base.transform.localScale.z);
                 dash1.localScale = new Vector3(-2, 1, 2);
                 dash2.transform.localScale = new Vector3(-2, 1, 2);
+                dash3.transform.localScale = new Vector3(-1, 1, 1);
                 triangle.transform.localScale = new Vector3(-1f, 1f, 1f);
+                hair.forceGravity = new Vector3(-0.4f,-0.2f,0f);
                 healthBar.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
             else if (LookingLeft)
@@ -112,7 +114,9 @@ public class ImperialKnightLongSword : MobGeneric
                 base.transform.localScale = new Vector3(1f * size, size, base.transform.localScale.z);
                 dash1.localScale = new Vector3(2, 1, 2);
                 dash2.transform.localScale = new Vector3(2, 1, 2);
+                dash3.transform.localScale = new Vector3(1, 1, 1);
                 triangle.transform.localScale = new Vector3(1f, 1f, 1f);
+                hair.forceGravity = new Vector3(0.4f, -0.2f, 0f);
                 healthBar.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             }
             if (Mathf.Abs(rb2d.velocity.x) < Speed)
@@ -145,11 +149,17 @@ public class ImperialKnightLongSword : MobGeneric
         if (IsTouchingLeftWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = false;
+            thrusting = false;
+
+            anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
         else if (IsTouchingRightWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = true;
+            thrusting = false;
+
+            anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
         else if (IsTouchingCieling() && !isDead)
