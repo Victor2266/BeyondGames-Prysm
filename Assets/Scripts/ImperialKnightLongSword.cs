@@ -50,14 +50,14 @@ public class ImperialKnightLongSword : MobGeneric
 
                 lastMode = longRange;
             }
-            else if (distToPlayer > mediumRange)// long range dash on enter
+            else if (distToPlayer > mediumRange)//chance to shoot proj <<<<<<<<<<<<<<<<<<<<<<<<<
             {
                 anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
               
                 lastMode = mediumRange;
             }
-            else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval
+            else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
             {
                 if (!thrusting)
                 {
@@ -79,7 +79,7 @@ public class ImperialKnightLongSword : MobGeneric
                     lastMode = closeRange;
                 }
             }
-            else//SWING UP
+            else//SWING UP continuously <<<<<<<<<<<<<<<<<<<<<<<<<
             {
 
                 thrusting = false;
@@ -174,7 +174,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        //swing upwards to block projctiles 50% of time <<<<<<<<<<<<<<<<<<<<<<<<<
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
