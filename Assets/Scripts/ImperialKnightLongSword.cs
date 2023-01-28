@@ -41,7 +41,8 @@ public class ImperialKnightLongSword : MobGeneric
                 if (lastMode == mediumRange)
                 {
                     if(2 == Random.Range(1, 3))
-                        ThrustAttack();
+                        if(IsGrounded())
+                            ThrustAttack();
                 }
 
                 lastMode = longRange;
@@ -63,10 +64,10 @@ public class ImperialKnightLongSword : MobGeneric
             }
             else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
             {
+                Speed = 1f;
                 if (!thrusting)
                 {
                     anim.SetTrigger("LongpointWalk");
-                    Speed = 1f;
                     enemyWeap.knockbackX = 50f;
                     enemyWeap.knockbackY = 8;
 
@@ -81,7 +82,18 @@ public class ImperialKnightLongSword : MobGeneric
             }
             else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
             {
+                if (!thrusting)
+                {
+                    anim.SetTrigger("LongpointWalk");
+                    enemyWeap.knockbackX = 50f;
+                    enemyWeap.knockbackY = 8;
 
+                    if (lastMode == closeRange)
+                    {
+                        UpswingAttack();
+                    }
+                    lastMode = 0;
+                }
                 Speed = 0f;
             }
 
@@ -218,5 +230,10 @@ public class ImperialKnightLongSword : MobGeneric
             rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
         else
             rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
+    }
+    private void UpswingAttack()
+    {
+        rb2d.velocity = Vector3.zero;
+        anim.SetTrigger("Upswing");
     }
 }
