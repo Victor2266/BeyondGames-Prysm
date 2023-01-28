@@ -40,13 +40,9 @@ public class ImperialKnightLongSword : MobGeneric
                 enemyWeap.knockbackY = 8;
                 if (lastMode == mediumRange)
                 {
-                    anim.SetTrigger("Thrusting");
-                    thrusting = true;
-                    rb2d.velocity = Vector3.zero;
-                    if (!LookingLeft)
-                        rb2d.velocity = (new Vector2(20f, 0f));
-                    else
-                        rb2d.velocity = (new Vector2(-20f, 0f));
+                    ThrustAttack();
+                    
+
                 }
 
                 lastMode = longRange;
@@ -71,11 +67,7 @@ public class ImperialKnightLongSword : MobGeneric
 
                     if (lastMode == mediumRange)
                     {
-                        anim.SetTrigger("Downswing");
-                        if (!LookingLeft)
-                            rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
-                        else
-                            rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
+                        DownswingAttack();
                     }
                     lastMode = closeRange;
                 }
@@ -151,6 +143,7 @@ public class ImperialKnightLongSword : MobGeneric
             LookingLeft = false;
             thrusting = false;
 
+            rb2d.velocity = (new Vector2(10f, 10f));
             anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
@@ -159,6 +152,7 @@ public class ImperialKnightLongSword : MobGeneric
             LookingLeft = true;
             thrusting = false;
 
+            rb2d.velocity = (new Vector2(-10f, 10f));
             anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
@@ -198,5 +192,24 @@ public class ImperialKnightLongSword : MobGeneric
         Gizmos.DrawWireSphere(this.transform.position, closeRange);
         Gizmos.DrawWireSphere(this.transform.position, mediumRange);
         Gizmos.DrawWireSphere(this.transform.position, longRange);
+    }
+
+    private void ThrustAttack()
+    {
+        anim.SetTrigger("Thrusting");
+        thrusting = true;
+        rb2d.velocity = Vector3.zero;
+        if (!LookingLeft)
+            rb2d.velocity = (new Vector2(20f, 0f));
+        else
+            rb2d.velocity = (new Vector2(-20f, 0f));
+    }
+    private void DownswingAttack()
+    {
+        anim.SetTrigger("Downswing");
+        if (!LookingLeft)
+            rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
+        else
+            rb2d.AddForce(new Vector2(-140f, 0f), ForceMode2D.Impulse);
     }
 }
