@@ -55,10 +55,12 @@ public class ImperialKnightLongSword : MobGeneric
                 if(lastMode == closeRange)
                 {
                     //3 shots forwards
+                    ThreeStrike();
                 }
                 else if(lastMode == longRange)
                 {
                     //4 shot arc
+                    FourStrike();
                 }
                 lastMode = mediumRange;
             }
@@ -76,6 +78,14 @@ public class ImperialKnightLongSword : MobGeneric
                     if (lastMode == mediumRange)
                     {
                         DownswingAttack();
+                    }
+                    else
+                    {
+                        int i = Random.Range(1, 50);
+                        if (i == 2)
+                            ThreeStrike();
+                        else if (i == 3)
+                            FourStrike();
                     }
                     lastMode = closeRange;
                 }
@@ -235,5 +245,13 @@ public class ImperialKnightLongSword : MobGeneric
     {
         rb2d.velocity = Vector3.zero;
         anim.SetTrigger("Upswing");
+    }
+    private void ThreeStrike()
+    {
+        anim.SetTrigger("ThreeStrike");
+    }
+    private void FourStrike()
+    {
+        anim.SetTrigger("ThreeStrike");
     }
 }
