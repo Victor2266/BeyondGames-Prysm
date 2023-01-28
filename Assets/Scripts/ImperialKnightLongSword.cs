@@ -18,7 +18,6 @@ public class ImperialKnightLongSword : MobGeneric
     public bool thrusting;
     public Rope hair;
 
-    public bool spawningProj;
     public GameObject projAttack;
 
     // Start is called before the first frame update
@@ -55,16 +54,19 @@ public class ImperialKnightLongSword : MobGeneric
             {
                 anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
-                
-                if(lastMode == closeRange)
+
+                if (2 == Random.Range(1, 3))
                 {
-                    //3 shots forwards
-                    ThreeStrike();
-                }
-                else if(lastMode == longRange)
-                {
-                    //4 shot arc
-                    FourStrike();
+                    if (lastMode == closeRange)
+                    {
+                        //3 shots forwards
+                        ThreeStrike();
+                    }
+                    else if (lastMode == longRange)
+                    {
+                        //4 shot arc
+                        FourStrike();
+                    }
                 }
                 lastMode = mediumRange;
             }
@@ -190,11 +192,6 @@ public class ImperialKnightLongSword : MobGeneric
             rb2d.gravityScale = 3f;
         }
 
-        if (spawningProj)
-        {
-            spawningProj = false;
-            Instantiate(projAttack, heldWeapon.position, heldWeapon.rotation);
-        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -255,6 +252,17 @@ public class ImperialKnightLongSword : MobGeneric
     private void ThreeStrike()
     {
         anim.SetTrigger("ThreeStrike");
+    }
+    public float speedOfProj;
+    private void ThreeStrikeProjection()
+    {
+        clone = Instantiate(projAttack, heldWeapon.position, heldWeapon.rotation);
+        float SpearAngle = heldWeapon.eulerAngles.z -90f;
+        Vector3 v = new Vector3(speedOfProj*Mathf.Cos(Mathf.Deg2Rad * (SpearAngle)), speedOfProj*Mathf.Sin(Mathf.Deg2Rad * (SpearAngle)), 0f);
+        clone.GetComponent<Rigidbody2D>().velocity = v;
+
+        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<CapsuleCollider2D>(), true);
+
     }
     private void FourStrike()
     {

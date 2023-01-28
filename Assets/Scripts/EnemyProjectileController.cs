@@ -47,7 +47,19 @@ public class EnemyProjectileController : MonoBehaviour
             Burst();
         }
     }
-  
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "box")
+        {
+            Burst();
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            player.SendMessage("TakeDamage", DMG);
+            Burst();
+        }
+    }
+
     private void Burst()
     {
         //this.gameObject.SetActive(false);
