@@ -9,7 +9,7 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool LookingLeft;
     public float jumpForce;
-    public Transform player, dash1, dash2, triangle, dash3;
+    public Transform player, dash1, dash2, triangle, dash3, heldWeapon;
     private float distToPlayer;
 
     private float lastMode;
@@ -17,6 +17,10 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool thrusting;
     public Rope hair;
+
+    public bool spawningProj;
+    public GameObject projAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,11 +85,7 @@ public class ImperialKnightLongSword : MobGeneric
                     }
                     else
                     {
-                        int i = Random.Range(1, 50);
-                        if (i == 2)
-                            ThreeStrike();
-                        else if (i == 3)
-                            FourStrike();
+                        int i = Random.Range(1, 500);
                     }
                     lastMode = closeRange;
                 }
@@ -188,6 +188,12 @@ public class ImperialKnightLongSword : MobGeneric
         else if (IsTouchingCieling() && !isDead)
         {
             rb2d.gravityScale = 3f;
+        }
+
+        if (spawningProj)
+        {
+            spawningProj = false;
+            Instantiate(projAttack, heldWeapon.position, heldWeapon.rotation);
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
