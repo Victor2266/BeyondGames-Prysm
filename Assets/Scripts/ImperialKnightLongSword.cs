@@ -40,9 +40,8 @@ public class ImperialKnightLongSword : MobGeneric
                 enemyWeap.knockbackY = 8;
                 if (lastMode == mediumRange)
                 {
-                    ThrustAttack();
-                    
-
+                    if(2 == Random.Range(1, 3))
+                        ThrustAttack();
                 }
 
                 lastMode = longRange;
@@ -51,7 +50,15 @@ public class ImperialKnightLongSword : MobGeneric
             {
                 anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
-              
+                
+                if(lastMode == closeRange)
+                {
+                    //3 shots forwards
+                }
+                else if(lastMode == longRange)
+                {
+                    //4 shot arc
+                }
                 lastMode = mediumRange;
             }
             else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
