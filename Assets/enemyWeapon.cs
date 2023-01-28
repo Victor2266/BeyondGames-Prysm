@@ -9,6 +9,7 @@ public class enemyWeapon : MonoBehaviour
     public float knockbackX;
     public float knockbackY;
     public GameObject blowbackParticles;
+    public float DMG;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +25,7 @@ public class enemyWeapon : MonoBehaviour
             }
 
             SetCollision(IKLS.player.position);
-            IKLS.player.SendMessage("TakeDamage", 1);
+            IKLS.player.SendMessage("TakeDamage", DMG);
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0.1f, 1f);
 
             return;
