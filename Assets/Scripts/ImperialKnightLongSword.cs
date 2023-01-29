@@ -15,10 +15,11 @@ public class ImperialKnightLongSword : MobGeneric
     private float lastMode;
     public enemyWeapon enemyWeap;
 
-    public bool thrusting;
+    public bool thrusting, upswinging;
     public Rope hair;
 
     public GameObject projAttack;
+    private int hits;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,7 @@ public class ImperialKnightLongSword : MobGeneric
                 anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
 
-                if (2 == Random.Range(1, 3))
+                if (2 == Random.Range(1, 4))
                 {
                     if (lastMode == closeRange)
                     {
@@ -87,7 +88,10 @@ public class ImperialKnightLongSword : MobGeneric
                     }
                     else
                     {
-                        int i = Random.Range(1, 500);
+                        if (hits == 3)
+                        {
+                            JumpAway();
+                        }
                     }
                     lastMode = closeRange;
                 }
@@ -104,9 +108,27 @@ public class ImperialKnightLongSword : MobGeneric
                     {
                         UpswingAttack();
                     }
+                    else if(lastMode == 0)
+                    {
+                        if (!upswinging)
+                        {
+                            if (distToPlayer < 1.5f)
+                            {
+                                JumpAway();
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        if (hits == 3)
+                        {
+                            JumpAway();
+                        }
+                    }
                     lastMode = 0;
                 }
-                Speed = 0f;
+                Speed = 0.5f;
             }
 
             if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false && !thrusting)
@@ -174,7 +196,8 @@ public class ImperialKnightLongSword : MobGeneric
             LookingLeft = false;
             thrusting = false;
 
-            rb2d.velocity = (new Vector2(10f, 10f));
+            rb2d.velocity = (new Vector2(10f, Random.RandomRange(2, 10)));
+            hits = 0;
             anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
@@ -183,7 +206,8 @@ public class ImperialKnightLongSword : MobGeneric
             LookingLeft = true;
             thrusting = false;
 
-            rb2d.velocity = (new Vector2(-10f, 10f));
+            rb2d.velocity = (new Vector2(-10f, Random.RandomRange(2, 10)));
+            hits = 0;
             anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
@@ -207,10 +231,6 @@ public class ImperialKnightLongSword : MobGeneric
 
             return;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //swing upwards to block projctiles 50% of time <<<<<<<<<<<<<<<<<<<<<<<<<
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
@@ -262,10 +282,36 @@ public class ImperialKnightLongSword : MobGeneric
         clone.GetComponent<Rigidbody2D>().velocity = v;
 
         Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<CapsuleCollider2D>(), true);
-
     }
     private void FourStrike()
     {
-        anim.SetTrigger("ThreeStrike");
+        anim.SetTrigger("FourStrike");
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        Health -= amount;
+        hits++;
+        healthBar.UpdateHealthBar(Health, MaxHealth);
+
+        BSplat.Spray((int)amount / 3);
+        if (Health <= 0f && !isDead)
+        {
+            Death();
+            return;
+        }
+    }
+
+    private void JumpAway()
+    {
+        if (LookingLeft)
+        {
+            rb2d.velocity = (new Vector2(10f, Random.RandomRange(2,10)));
+        }
+        else
+        {
+            rb2d.velocity = (new Vector2(-10f, Random.RandomRange(2, 10)));
+        }
+        hits = 0;
     }
 }

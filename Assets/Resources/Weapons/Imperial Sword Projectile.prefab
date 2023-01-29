@@ -324,6 +324,7 @@ MonoBehaviour:
   power_control: 0
   inaccuracy: 0
   DontTouchPlayer: 1
+  ElementalType: 9
 --- !u!70 &480822074103896553
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ TagManager:
   - enemyProj
   - Ground
   - DefaultOption
+  - playerProj
   layers:
   - Default
   - TransparentFX
