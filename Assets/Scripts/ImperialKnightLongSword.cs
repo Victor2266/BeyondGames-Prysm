@@ -21,6 +21,8 @@ public class ImperialKnightLongSword : MobGeneric
     public GameObject projAttack;
     private int hits;
 
+    public GameObject DeathItem2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -248,6 +250,7 @@ public class ImperialKnightLongSword : MobGeneric
 
     private void ThrustAttack()
     {
+        enemyWeap.DMG = 20;
         anim.SetTrigger("Thrusting");
         thrusting = true;
         rb2d.velocity = Vector3.zero;
@@ -258,6 +261,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void DownswingAttack()
     {
+        enemyWeap.DMG = 20;
         anim.SetTrigger("Downswing");
         if (!LookingLeft)
             rb2d.AddForce(new Vector2(140f, 0f), ForceMode2D.Impulse);
@@ -266,11 +270,13 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void UpswingAttack()
     {
+        enemyWeap.DMG = 10f;
         rb2d.velocity = Vector3.zero;
         anim.SetTrigger("Upswing");
     }
     private void ThreeStrike()
     {
+        enemyWeap.DMG = 10f;
         anim.SetTrigger("ThreeStrike");
     }
     public float speedOfProj;
@@ -285,6 +291,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void FourStrike()
     {
+        enemyWeap.DMG = 10f;
         anim.SetTrigger("FourStrike");
     }
 
@@ -301,7 +308,17 @@ public class ImperialKnightLongSword : MobGeneric
             return;
         }
     }
-
+    protected override void Death()
+    {
+        isDead = true;
+        Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        Instantiate(DeathItem2, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        //base.gameObject.GetComponentInChildren<Light>().enabled = false;
+        anim.SetTrigger("dead");
+        anim.SetBool("FullyDead", true);
+        healthBar.gameObject.SetActive(false);
+        //Destroy(healthBar.gameObject);
+    }
     private void JumpAway()
     {
         if (LookingLeft)
