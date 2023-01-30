@@ -11,10 +11,10 @@ public class InGameTextMessage : MonoBehaviour
     {
         if (lastMSG != null)
         {
-            if(followThis == null)
+            if (followThis == null)
                 lastMSG.transform.localPosition = new Vector3(lastMSG.transform.localPosition.x, lastMSG.transform.localPosition.y + 0.3f, lastMSG.transform.localPosition.z);
             else
-                lastMSG.transform.position = new Vector3(lastMSG.transform.position.x, lastMSG.transform.position.y + 0.3f, lastMSG.transform.position.z);
+                textYOffset += 0.3f;
         }
         if (lastMSG.GetComponent<InGameTextMessage>().lastMSG != null)
         {

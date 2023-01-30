@@ -302,19 +302,7 @@ public class ImperialKnightLongSword : MobGeneric
             Health -= amount;
         else
         {
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
-
-            ShowText(2f, "<color=red>BLOCKED", 2f);
+            ShowText(0.5f, "<color=red>BLOCKED", 2f);
             audioSource.PlayOneShot(blockedSound, 1f);
         }
         hits++;
