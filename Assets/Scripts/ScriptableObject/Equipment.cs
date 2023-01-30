@@ -8,7 +8,7 @@ public class Equipment : Item
     public EquipmentSlot equipSlot;
     public Color color;
 
-    public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None }
+    public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None, All }
 
     public enum leftClickStrat { Default, Anchor }
     public enum rightClickStrat { Default, Dashing }

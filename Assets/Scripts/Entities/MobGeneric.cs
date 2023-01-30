@@ -123,7 +123,7 @@ public class MobGeneric : MonoBehaviour
     public float textYOffset;
     private GameObject nextMsg;
     private GameObject thisMsg = null;
-    public void ShowText(float waitForAmount, string txt, float size)
+    public virtual void ShowText(float waitForAmount, string txt, float size, bool flipX = false)//add color parameter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     {
         if(TextObject == null)
         {
@@ -135,6 +135,8 @@ public class MobGeneric : MonoBehaviour
         }
         nextMsg = Instantiate(TextObject, transform);
         nextMsg.transform.localPosition = new Vector3(nextMsg.transform.localPosition.x, nextMsg.transform.localPosition .y, textYOffset);
+        if (flipX)
+            nextMsg.transform.localScale = new Vector3(-1, 1, 1);
         nextMsg.GetComponent<InGameTextMessage>().lastMSG = thisMsg;
 
         if (thisMsg != null)

@@ -58,12 +58,12 @@ public class projectileController : damageController
         float calcDMGSize = DMGTextSize;
         if (MG != null)
         {
-            if (MG.WeaknessTo == ElementalType)
+            if (MG.WeaknessTo == ElementalType || MG.WeaknessTo == Equipment.ElementType.All)
             {
                 calcDMG = calcDMG * MG.WeaknessMultiplier;
                 calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
             }
-            else if (MG.ImmunityTo == ElementalType)
+            else if (MG.ImmunityTo == ElementalType || MG.ImmunityTo == Equipment.ElementType.All)
             {
                 calcDMG = calcDMG * MG.ImmunityMultiplier;
                 calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
