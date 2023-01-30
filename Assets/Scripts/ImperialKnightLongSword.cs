@@ -252,7 +252,6 @@ public class ImperialKnightLongSword : MobGeneric
     private void ThrustAttack()
     {
         enemyWeap.DMG = 20;
-        WeaknessMultiplier = 0f;
         anim.SetTrigger("Thrusting");
         thrusting = true;
         rb2d.velocity = Vector3.zero;
@@ -303,10 +302,19 @@ public class ImperialKnightLongSword : MobGeneric
             Health -= amount;
         else
         {
-            if(LookingLeft)
-                ShowText(2f, "<color=red>BLOCKED", 2f);
-            else
-                ShowText(2f, "<color=red>BLOCKED", 2f, true);
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
+
+            ShowText(2f, "<color=red>BLOCKED", 2f);
             audioSource.PlayOneShot(blockedSound, 1f);
         }
         hits++;

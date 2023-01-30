@@ -123,7 +123,7 @@ public class MobGeneric : MonoBehaviour
     public float textYOffset;
     private GameObject nextMsg;
     private GameObject thisMsg = null;
-    public virtual void ShowText(float waitForAmount, string txt, float size, bool flipX = false)
+    public virtual void ShowText(float waitForAmount, string txt, float size)
     {
         if(TextObject == null)
         {
@@ -133,11 +133,10 @@ public class MobGeneric : MonoBehaviour
         {
             thisMsg = nextMsg;
         }
-        nextMsg = Instantiate(TextObject, transform);
-        nextMsg.transform.localPosition = new Vector3(nextMsg.transform.localPosition.x, nextMsg.transform.localPosition .y, textYOffset);
-        if (flipX)
-            nextMsg.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+        nextMsg = Instantiate(TextObject);
         InGameTextMessage IGTM = nextMsg.GetComponent<InGameTextMessage>();
+        IGTM.followThis = transform;
+        IGTM.textYOffset = textYOffset;
         IGTM.lastMSG = thisMsg;
 
         if (thisMsg != null)

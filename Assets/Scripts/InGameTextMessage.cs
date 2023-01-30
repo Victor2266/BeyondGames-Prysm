@@ -5,16 +5,28 @@ using UnityEngine;
 public class InGameTextMessage : MonoBehaviour
 {
     public GameObject lastMSG;
-
+    public Transform followThis;
+    public float textYOffset;
     public void moveLastMSG()
     {
         if (lastMSG != null)
         {
-            lastMSG.transform.localPosition = new Vector3(lastMSG.transform.localPosition.x, lastMSG.transform.localPosition.y + 0.3f, lastMSG.transform.localPosition.z);
+            if(followThis == null)
+                lastMSG.transform.localPosition = new Vector3(lastMSG.transform.localPosition.x, lastMSG.transform.localPosition.y + 0.3f, lastMSG.transform.localPosition.z);
+            else
+                lastMSG.transform.position = new Vector3(lastMSG.transform.position.x, lastMSG.transform.position.y + 0.3f, lastMSG.transform.position.z);
         }
         if (lastMSG.GetComponent<InGameTextMessage>().lastMSG != null)
         {
             lastMSG.GetComponent<InGameTextMessage>().moveLastMSG();
+        }
+    }
+
+    public void Update()
+    {
+        if (followThis != null)
+        {
+            transform.position = new Vector3(followThis.transform.localPosition.x, followThis.transform.localPosition.y + textYOffset, transform.position.z);
         }
     }
 }
