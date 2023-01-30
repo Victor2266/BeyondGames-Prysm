@@ -123,7 +123,7 @@ public class MobGeneric : MonoBehaviour
     public float textYOffset;
     private GameObject nextMsg;
     private GameObject thisMsg = null;
-    public virtual void ShowText(float waitForAmount, string txt, float size, Color col, bool flipX = false)
+    public virtual void ShowText(float waitForAmount, string txt, float size, bool flipX = false)
     {
         if(TextObject == null)
         {
@@ -142,7 +142,7 @@ public class MobGeneric : MonoBehaviour
 
         if (thisMsg != null)
         {
-            nextMsg.GetComponent<InGameTextMessage>().moveLastMSG();
+            IGTM.moveLastMSG();
             //lastMsg.transform.localPosition = new Vector3(0f, 0.4f, 0f);
             //lastMsg.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 1.4f, 0f);
         }
@@ -151,7 +151,6 @@ public class MobGeneric : MonoBehaviour
         TMPro.TextMeshPro NM_TMPRO = nextMsg.GetComponent<TMPro.TextMeshPro>();
         NM_TMPRO.text = txt;
         NM_TMPRO.fontSize = size;
-        NM_TMPRO.color = col;
         nextMsg.GetComponent<DeathTimer>().tickLimit = waitForAmount * 1.1f;
         //NetworkServer.Spawn(gameObject2);
     }
