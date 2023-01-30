@@ -67,6 +67,8 @@ public class projectileController : damageController
             {
                 calcDMG = calcDMG * MG.ImmunityMultiplier;
                 calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
+                if (MG.ImmunityTo == Equipment.ElementType.All)
+                    calcDMGSize = DMGTextSize;
             }
         }
 
