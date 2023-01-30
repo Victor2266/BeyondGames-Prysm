@@ -14,6 +14,7 @@ public class MobGeneric : MonoBehaviour
     protected GameObject clone;
 
     public Animator anim;
+    public AudioSource audioSource;
     public Rigidbody2D rb2d;
     public HealthBar healthBar;
 
@@ -33,6 +34,7 @@ public class MobGeneric : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -115,5 +117,36 @@ public class MobGeneric : MonoBehaviour
             rb2d.velocity = new Vector2(0f, 0f);
         }
         yield break;
+    }
+
+    public GameObject TextObject;
+    public float textYOffset;
+    private GameObject nextMsg;
+    private GameObject thisMsg = null;
+    public void ShowText(float waitForAmount, string txt, float size)
+    {
+        if(TextObject == null)
+        {
+            return;
+        }
+        if (nextMsg != null)
+        {
+            thisMsg = nextMsg;
+        }
+        nextMsg = Instantiate(TextObject, transform);
+        nextMsg.transform.localPosition = new Vector3(nextMsg.transform.localPosition.x, nextMsg.transform.localPosition .y, textYOffset);
+        nextMsg.GetComponent<InGameTextMessage>().lastMSG = thisMsg;
+
+        if (thisMsg != null)
+        {
+            nextMsg.GetComponent<InGameTextMessage>().moveLastMSG();
+            //lastMsg.transform.localPosition = new Vector3(0f, 0.4f, 0f);
+            //lastMsg.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 1.4f, 0f);
+        }
+        nextMsg.transform.localPosition = new Vector3(0f, 0.2f, 0f);
+        nextMsg.GetComponent<TMPro.TextMeshPro>().text = txt;
+        nextMsg.GetComponent<TMPro.TextMeshPro>().fontSize = size;
+        nextMsg.GetComponent<DeathTimer>().tickLimit = waitForAmount * 1.1f;
+        //NetworkServer.Spawn(gameObject2);
     }
 }

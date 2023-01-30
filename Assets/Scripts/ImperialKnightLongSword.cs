@@ -22,6 +22,7 @@ public class ImperialKnightLongSword : MobGeneric
     private int hits;
 
     public GameObject DeathItem2;
+    public AudioClip blockedSound, speakSound;
 
     // Start is called before the first frame update
     void Start()
@@ -297,7 +298,13 @@ public class ImperialKnightLongSword : MobGeneric
 
     public override void TakeDamage(float amount)
     {
-        Health -= amount;
+        if (!thrusting)
+            Health -= amount;
+        else
+        {
+            ShowText(5f, "BLOCKED", 1f);
+            audioSource.PlayOneShot(blockedSound, 1f);
+        }
         hits++;
         healthBar.UpdateHealthBar(Health, MaxHealth);
 
