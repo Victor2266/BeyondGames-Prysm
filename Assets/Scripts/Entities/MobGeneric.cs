@@ -123,7 +123,7 @@ public class MobGeneric : MonoBehaviour
     public float textYOffset;
     private GameObject nextMsg;
     private GameObject thisMsg = null;
-    public virtual void ShowText(float waitForAmount, string txt, float size, bool flipX = false)//add color parameter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    public virtual void ShowText(float waitForAmount, string txt, float size, Color col, bool flipX = false)
     {
         if(TextObject == null)
         {
@@ -137,7 +137,8 @@ public class MobGeneric : MonoBehaviour
         nextMsg.transform.localPosition = new Vector3(nextMsg.transform.localPosition.x, nextMsg.transform.localPosition .y, textYOffset);
         if (flipX)
             nextMsg.transform.localScale = new Vector3(-1, 1, 1);
-        nextMsg.GetComponent<InGameTextMessage>().lastMSG = thisMsg;
+        InGameTextMessage IGTM = nextMsg.GetComponent<InGameTextMessage>();
+        IGTM.lastMSG = thisMsg;
 
         if (thisMsg != null)
         {
@@ -146,8 +147,11 @@ public class MobGeneric : MonoBehaviour
             //lastMsg.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 1.4f, 0f);
         }
         nextMsg.transform.localPosition = new Vector3(0f, 0.2f, 0f);
-        nextMsg.GetComponent<TMPro.TextMeshPro>().text = txt;
-        nextMsg.GetComponent<TMPro.TextMeshPro>().fontSize = size;
+
+        TMPro.TextMeshPro NM_TMPRO = nextMsg.GetComponent<TMPro.TextMeshPro>();
+        NM_TMPRO.text = txt;
+        NM_TMPRO.fontSize = size;
+        NM_TMPRO.color = col;
         nextMsg.GetComponent<DeathTimer>().tickLimit = waitForAmount * 1.1f;
         //NetworkServer.Spawn(gameObject2);
     }
