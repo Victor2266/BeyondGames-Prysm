@@ -136,7 +136,7 @@ public class MobGeneric : MonoBehaviour
         nextMsg = Instantiate(TextObject, transform);
         nextMsg.transform.localPosition = new Vector3(nextMsg.transform.localPosition.x, nextMsg.transform.localPosition .y, textYOffset);
         if (flipX)
-            nextMsg.transform.localScale = new Vector3(-1, 1, 1);
+            nextMsg.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
         InGameTextMessage IGTM = nextMsg.GetComponent<InGameTextMessage>();
         IGTM.lastMSG = thisMsg;
 

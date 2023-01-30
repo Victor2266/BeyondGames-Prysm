@@ -304,9 +304,9 @@ public class ImperialKnightLongSword : MobGeneric
         else
         {
             if(LookingLeft)
-                ShowText(5f, "BLOCKED", 20f);
+                ShowText(2f, "<color=red>BLOCKED", 2f);
             else
-                ShowText(5f, "BLOCKED", 20f, true);
+                ShowText(2f, "<color=red>BLOCKED", 2f, true);
             audioSource.PlayOneShot(blockedSound, 1f);
         }
         hits++;
