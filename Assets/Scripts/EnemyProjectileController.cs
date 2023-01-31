@@ -27,6 +27,8 @@ public class EnemyProjectileController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log(collision.gameObject + "< GAME OBJ, TAG > " + collision.gameObject.tag);
+
         if (collision.gameObject.tag == "box")
         {
             Burst();
@@ -42,7 +44,7 @@ public class EnemyProjectileController : MonoBehaviour
             //collision.gameObject.GetComponent<MobGeneric>().SendMessage("TakeDamage", DMG);
             //Burst();
         //}
-        if (Bouncy == false && collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground")
+        if (Bouncy == false && (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground"))
         {
             Burst();
         }

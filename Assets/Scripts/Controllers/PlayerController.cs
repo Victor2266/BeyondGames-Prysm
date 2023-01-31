@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
         else if(playerEntity.weapon < 1)
         {
             playerEntity.WeaponUI.toggleWeapSpecial = false;
-            Debug.Log("WEAPON TOGGLE OFF");
+            //Debug.Log("WEAPON TOGGLE OFF");
         }
         playerManager.SetWeap();
     }

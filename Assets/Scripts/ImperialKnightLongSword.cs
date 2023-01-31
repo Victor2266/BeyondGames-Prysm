@@ -24,11 +24,14 @@ public class ImperialKnightLongSword : MobGeneric
     public GameObject DeathItem2;
     public AudioClip blockedSound, speakSound;
 
+    private CapsuleCollider2D thisColider;
+
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), player.gameObject.GetComponents<CapsuleCollider2D>()[0], true);
-        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), player.gameObject.GetComponents<CapsuleCollider2D>()[1], true);
+        thisColider = GetComponent<CapsuleCollider2D>();
+        Physics2D.IgnoreCollision(thisColider, player.gameObject.GetComponents<CapsuleCollider2D>()[0], true);
+        Physics2D.IgnoreCollision(thisColider, player.gameObject.GetComponents<CapsuleCollider2D>()[1], true);
     }
 
     // Update is called once per frame
@@ -288,7 +291,7 @@ public class ImperialKnightLongSword : MobGeneric
         Vector3 v = new Vector3(speedOfProj*Mathf.Cos(Mathf.Deg2Rad * (SpearAngle)), speedOfProj*Mathf.Sin(Mathf.Deg2Rad * (SpearAngle)), 0f);
         clone.GetComponent<Rigidbody2D>().velocity = v;
 
-        Physics2D.IgnoreCollision(GetComponent<CapsuleCollider2D>(), clone.GetComponent<CapsuleCollider2D>(), true);
+        Physics2D.IgnoreCollision(thisColider, clone.GetComponent<CapsuleCollider2D>(), true);
     }
     private void FourStrike()
     {

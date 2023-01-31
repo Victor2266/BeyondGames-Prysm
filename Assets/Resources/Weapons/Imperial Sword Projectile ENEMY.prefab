@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4826422870533856}
   - component: {fileID: 6011992355060488296}
   - component: {fileID: 3937182246121374071}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 1790984958390527308}
   - component: {fileID: 480822074103896553}
   - component: {fileID: 3009587181989678993}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Imperial Sword Projectile ENEMY
   m_TagString: enemyProj
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -436,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4971579167621838}
   - component: {fileID: 108797240214666595}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 5247957155951733812}
   - component: {fileID: 201472378661978894}
   - component: {fileID: 5385400854854731240}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5331,7 +5331,7 @@ GameObject:
   - component: {fileID: 1028446647915893956}
   - component: {fileID: 7000874633468000531}
   - component: {fileID: 3185379468481170697}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10086,7 +10086,7 @@ GameObject:
   - component: {fileID: 2217430611054266516}
   - component: {fileID: 4026858744159631623}
   - component: {fileID: 3173267436745545464}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
