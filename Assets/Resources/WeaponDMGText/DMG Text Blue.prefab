@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5225875635278696588}
-  - component: {fileID: 5225875635263731412}
   - component: {fileID: 5225875635264697364}
   - component: {fileID: 5225875635273785140}
   - component: {fileID: 5225875635278328536}
@@ -43,14 +42,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3.498, y: 38.765}
   m_SizeDelta: {x: 20, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!33 &5225875635263731412
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225875635266693844}
-  m_Mesh: {fileID: 0}
 --- !u!23 &5225875635264697364
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -131,13 +122,12 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
   m_fontSize: 2
   m_fontSizeBase: 2
   m_fontWeight: 400
@@ -145,7 +135,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 514
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -155,10 +147,8 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
-  m_isLinkedTextComponent: 0
-  m_isTextTruncated: 0
+  parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -166,50 +156,23 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 0
   m_isCullingEnabled: 0
-  m_ignoreRectMaskCulling: 0
-  m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0.3
   m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 1
-  m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 0
   m_margin: {x: 9.618328, y: 1.6415405, z: 9.748138, w: 2.0796928}
-  m_textInfo:
-    textComponent: {fileID: 5225875635273785140}
-    characterCount: 2
-    spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
-    linkCount: 0
-    lineCount: 1
-    pageCount: 1
-    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5225875635264697364}
-  m_subTextObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!222 &5225875635278328536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -356,6 +319,7 @@ MonoBehaviour:
   widthOfBullet: 0
   timeOfBullet: 0
   diesRightAfter: 1
+  affectZ: 0
 --- !u!114 &1249301974470653466
 MonoBehaviour:
   m_ObjectHideFlags: 0
