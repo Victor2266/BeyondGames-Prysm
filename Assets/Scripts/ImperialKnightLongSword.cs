@@ -50,7 +50,8 @@ public class ImperialKnightLongSword : MobGeneric
                 enemyWeap.knockbackY = 8;
                 if (lastMode == mediumRange)
                 {
-                    if(2 == Random.Range(1, 3))
+                    ShowText(2f, "enguard", 1f);
+                    if (2 == Random.Range(1, 3))
                         if(IsGrounded())
                             ThrustAttack();
                 }
@@ -90,6 +91,7 @@ public class ImperialKnightLongSword : MobGeneric
 
                     if (lastMode == mediumRange)
                     {
+                        ShowText(2f, "DIE.", 1f);
                         DownswingAttack();
                     }
                     else
@@ -112,6 +114,7 @@ public class ImperialKnightLongSword : MobGeneric
 
                     if (lastMode == closeRange)
                     {
+                        ShowText(2f, "begone", 1f);
                         UpswingAttack();
                     }
                     else if(lastMode == 0)

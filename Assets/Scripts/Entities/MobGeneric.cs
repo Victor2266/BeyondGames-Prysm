@@ -123,6 +123,7 @@ public class MobGeneric : MonoBehaviour
     public float textYOffset;
     private GameObject nextMsg;
     private GameObject thisMsg = null;
+    public Transform SpeakingArea;
     public virtual void ShowText(float waitForAmount, string txt, float size)
     {
         if(TextObject == null)
@@ -135,7 +136,10 @@ public class MobGeneric : MonoBehaviour
         }
         nextMsg = Instantiate(TextObject);
         InGameTextMessage IGTM = nextMsg.GetComponent<InGameTextMessage>();
-        IGTM.followThis = transform;
+        if (SpeakingArea == null)
+            IGTM.followThis = transform;
+        else
+            IGTM.followThis = SpeakingArea;
         IGTM.textYOffset = textYOffset;
         IGTM.lastMSG = thisMsg;
 

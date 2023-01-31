@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6487517401422450446}
   - component: {fileID: 7472575538752034449}
   m_Layer: 0
-  m_Name: NPC TEXT NO SOUND
+  m_Name: NPC TEXT NO SOUND NO SHRINKING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,3 +259,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastMSG: {fileID: 0}
+  followThis: {fileID: 0}
+  textYOffset: 0

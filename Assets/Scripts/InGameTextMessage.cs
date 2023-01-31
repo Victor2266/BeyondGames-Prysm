@@ -26,7 +26,7 @@ public class InGameTextMessage : MonoBehaviour
     {
         if (followThis != null)
         {
-            transform.position = new Vector3(followThis.transform.localPosition.x, followThis.transform.localPosition.y + textYOffset, transform.position.z);
+            transform.position = new Vector3(followThis.transform.position.x, followThis.transform.position.y + textYOffset, transform.position.z);
         }
     }
 }
