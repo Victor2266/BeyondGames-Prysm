@@ -21,12 +21,19 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public GameObject KnightMusic, UndeadMusic, ShinigamiMusic;
     public GameObject ImperialKnight;
     private ImperialKnightLongSword IKLS;
-    public GameObject blackBossExplosion;
+    public GameObject blackBossExplosion, hillPosObj;
+    public DelayedCameraController cameraParent;
 
+    private NewBoss2AI boss2AI;
+
+    public GameObject boss2;
+
+    public Sprite DamagedKnightSprite;
 
     private void Start()
     {
         IKLS = ImperialKnight.GetComponent<ImperialKnightLongSword>();
+        boss2AI = boss2.GetComponent<NewBoss2AI>();
     }
     public void Update()
     {
@@ -53,8 +60,34 @@ public class Level2Manager : LevelManager// inherets winlevel function
             if (IKLS.isDead)
             {
                 blackBossExplosion.SetActive(true);
+                boss2.SetActive(true);
+                cameraParent.TargetOverride = hillPosObj;
+                index++;
             }
         }
+        else if (index == 6)
+        {
+            StartCoroutine(ShinigamiDelaySentence(3f, "", 1f));
+        }
+        else if (index == 8)
+        {
+            StartCoroutine(ShinigamiDelaySentence(1f, "Finally!\nHe's gone!", 1f));
+        }
+        else if (index == 10)
+        {
+            StartCoroutine(ShinigamiDelaySentence(4f, "Now that I can add the hero of catan to my collection\nI'll be unstoppable.", 1f));
+        }
+        else if (index == 12)
+        {
+            StartCoroutine(ShinigamiDelaySentence(4f, "It's time for me to seige the seaside kingdom.\n All there is to do now is get rid of a single <color=red>PEST</color>", 1f));
+        }
+        else if (index == 14)
+        {
+            cameraParent.TargetOverride = null;
+            ImperialKnight.GetComponent<SpriteRenderer>().sprite = DamagedKnightSprite;
+            index++;
+        }
+
         if (index == 100)
         {
             if (bossSoul == null)
@@ -69,12 +102,20 @@ public class Level2Manager : LevelManager// inherets winlevel function
         if(IKLS.Health < IKLS.MaxHealth && index < 4)
         {
             index = 4;
+            StopAllCoroutines();
         }
     }
 
     private IEnumerator IKLSDelaySentence(float WaitForAmount, string sentence, float size)
     {
         IKLS.ShowText(WaitForAmount, sentence, size);
+        index++;//this stops the index in update loop
+        yield return new WaitForSeconds(WaitForAmount);
+        index++;//this moves onto next index if statement
+    }
+    private IEnumerator ShinigamiDelaySentence(float WaitForAmount, string sentence, float size)
+    {
+        boss2AI.ShowText(WaitForAmount, sentence, size);
         index++;//this stops the index in update loop
         yield return new WaitForSeconds(WaitForAmount);
         index++;//this moves onto next index if statement

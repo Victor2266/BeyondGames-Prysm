@@ -31,6 +31,8 @@ public class DelayedCameraController : MonoBehaviour
 
     public bool active;
 
+    public GameObject TargetOverride;
+
     private void Awake() //NETWORKING AWAKE
     {
         PlayerUpdated(ClientScene.localPlayer);
@@ -72,26 +74,36 @@ public class DelayedCameraController : MonoBehaviour
         }
         ToggleButtonDown = playerInput.actions["Toggle Camera Lock"].IsPressed();
 
-        if (PlayerPrefs.GetInt("CameraLock", 0) == 1)
+        if (TargetOverride == null)
         {
-            if(ToggleButtonDown)
+            if (PlayerPrefs.GetInt("CameraLock", 0) == 1)
             {
-                cameraTarget = mouseTarget;
-            }else if(!ToggleButtonDown)
+                if (ToggleButtonDown)
+                {
+                    cameraTarget = mouseTarget;
+                }
+                else if (!ToggleButtonDown)
+                {
+                    cameraTarget = truePlayer;
+                }
+            }
+            else
             {
-                cameraTarget = truePlayer;
+                if (ToggleButtonDown)
+                {
+                    cameraTarget = truePlayer;
+                }
+                else if (!ToggleButtonDown)
+                {
+                    cameraTarget = mouseTarget;
+                }
             }
         }
-        else {
-            if (ToggleButtonDown)
-            {
-                cameraTarget = truePlayer;
-            }
-            else if (!ToggleButtonDown)
-            {
-                cameraTarget = mouseTarget;
-            }
+        else
+        {
+            cameraTarget = TargetOverride;
         }
+
     }
 
     private IEnumerator DelayCamera(float WaitForAmount)
