@@ -33,7 +33,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         {
             if(IKLS.distToPlayer < 8)
             {
-
+                IKLS.agression = true;
             }
         }
         if (index == 100)

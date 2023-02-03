@@ -26,6 +26,8 @@ public class ImperialKnightLongSword : MobGeneric
 
     private CapsuleCollider2D thisColider;
 
+    public bool agression = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,11 @@ public class ImperialKnightLongSword : MobGeneric
     // Update is called once per frame
     void Update()
     {
+        if (!agression)
+        {
+            distToPlayer = Vector2.Distance(transform.position, player.position);
+            return;
+        }
         if (!isDead)
         {
             distToPlayer = Vector2.Distance(transform.position, player.position);
