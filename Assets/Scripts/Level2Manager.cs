@@ -25,7 +25,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public DelayedCameraController cameraParent;
 
     private NewBoss2AI boss2AI;
-
+    private Animator boss2Anim;
     public GameObject boss2;
 
     public Sprite DamagedKnightSprite;
@@ -34,6 +34,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     {
         IKLS = ImperialKnight.GetComponent<ImperialKnightLongSword>();
         boss2AI = boss2.GetComponent<NewBoss2AI>();
+        boss2Anim = boss2.GetComponent<Animator>();
     }
     public void Update()
     {
@@ -59,32 +60,37 @@ public class Level2Manager : LevelManager// inherets winlevel function
         {
             if (IKLS.isDead)
             {
-                blackBossExplosion.SetActive(true);
-                boss2.SetActive(true);
-                cameraParent.TargetOverride = hillPosObj;
-                index++;
+                StartCoroutine(IKLSDelaySentence(2.5f, "no way", 0.7f));
+                ImperialKnight.GetComponent<SpriteRenderer>().sprite = DamagedKnightSprite;
             }
         }
-        else if (index == 6)
+        else if (index == 7)
         {
-            StartCoroutine(ShinigamiDelaySentence(3f, "", 1f));
+            blackBossExplosion.SetActive(true);
+            boss2.SetActive(true);
+            cameraParent.TargetOverride = hillPosObj;
+            index++;
         }
         else if (index == 8)
         {
-            StartCoroutine(ShinigamiDelaySentence(1f, "Finally!\nHe's gone!", 1f));
+            StartCoroutine(ShinigamiDelaySentence(3f, "", 1f));
         }
         else if (index == 10)
         {
-            StartCoroutine(ShinigamiDelaySentence(4f, "Now that I can add the hero of catan to my collection\nI'll be unstoppable.", 1f));
+            StartCoroutine(ShinigamiDelaySentence(1f, "Finally!\nHe's gone!", 1f));
         }
         else if (index == 12)
         {
-            StartCoroutine(ShinigamiDelaySentence(4f, "It's time for me to seige the seaside kingdom.\n All there is to do now is get rid of a single <color=red>PEST</color>", 1f));
+            StartCoroutine(ShinigamiDelaySentence(4f, "Now that I can add the hero of catan to my collection\nI'll be unstoppable.", 1f));
         }
         else if (index == 14)
         {
+            StartCoroutine(ShinigamiDelaySentence(4f, "It's time for me to seige the seaside kingdom.\n All there is to do now is get rid of a single <color=red>PEST</color>", 1f));
+            boss2Anim.SetTrigger("Claws");
+        }
+        else if (index == 16)
+        {
             cameraParent.TargetOverride = null;
-            ImperialKnight.GetComponent<SpriteRenderer>().sprite = DamagedKnightSprite;
             index++;
         }
 
