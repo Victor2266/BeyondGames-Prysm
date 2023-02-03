@@ -5,12 +5,12 @@ using UnityEngine;
 public class ImperialKnightLongSword : MobGeneric
 {
     [SerializeField]
-    private float closeRange, mediumRange, longRange;
+    private float closeRange, mediumRange, longRange, longestRange;
 
     public bool LookingLeft;
     public float jumpForce;
     public Transform player, dash1, dash2, triangle, dash3, heldWeapon;
-    private float distToPlayer;
+    public float distToPlayer;
 
     private float lastMode;
     public enemyWeapon enemyWeap;
@@ -37,15 +37,25 @@ public class ImperialKnightLongSword : MobGeneric
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ShowText(2f, "test.", 1f);
-        }
         if (!isDead)
         {
             distToPlayer = Vector2.Distance(transform.position, player.position);
 
-            if (distToPlayer > longRange)//LONG RANGE DASHING
+            if(distToPlayer > longestRange)
+            {
+                anim.SetTrigger("HangWalk");
+                Speed = 3.5f;
+                enemyWeap.knockbackX = 50f;
+                enemyWeap.knockbackY = 8;
+                if (lastMode == longRange && transform.position.y < player.position.y - 1f)
+                {
+                    ShowText(2f, "GET BACK HERE", 1f);
+                    ThrustAttack2();
+                }
+
+                lastMode = longestRange;
+            }
+            else  if (distToPlayer > longRange)//LONG RANGE DASHING
             {
                 anim.SetTrigger("HangWalk");
                 Speed = 1.5f;
@@ -211,7 +221,7 @@ public class ImperialKnightLongSword : MobGeneric
             rb2d.velocity = (new Vector2(10f, Random.RandomRange(2, 10)));
             hits = 0;
             anim.SetTrigger("HangWalk");
-            //jump over obstacle
+            
         }
         else if (IsTouchingRightWall() && TouchingPlayer == false && !isDead)
         {
@@ -268,6 +278,17 @@ public class ImperialKnightLongSword : MobGeneric
             rb2d.velocity = (new Vector2(20f, 0f));
         else
             rb2d.velocity = (new Vector2(-20f, 0f));
+    }
+    private void ThrustAttack2()
+    {
+        enemyWeap.DMG = 20;
+        anim.SetTrigger("Thrusting");
+        thrusting = true;
+        rb2d.velocity = Vector3.zero;
+        if (!LookingLeft)
+            rb2d.velocity = (new Vector2(20f, 10f));
+        else
+            rb2d.velocity = (new Vector2(-20f, 10f));
     }
     private void DownswingAttack()
     {

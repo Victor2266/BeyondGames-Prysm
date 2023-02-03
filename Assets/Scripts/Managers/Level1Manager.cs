@@ -417,9 +417,9 @@ public class Level1Manager : LevelManager// inherets winlevel function
     private IEnumerator DelaySentence(float WaitForAmount, string sentence, float size)
     {
         ShowText(WaitForAmount, sentence, size);
-        index++;
+        index++;//this stops the index in update loop
         yield return new WaitForSeconds(WaitForAmount);
-        index++;
+        index++;//this moves onto next index if statement
     }
 
     public Rigidbody2D TreeBlockingPath;

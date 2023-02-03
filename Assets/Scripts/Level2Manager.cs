@@ -8,7 +8,6 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public int index = 0;
     public GameObject player;
 
-    private bool completedLevel = false;
     float ShakeMagnitude = 2f;
     [SerializeField]
     float ShakeRoughness = 3f;
@@ -17,18 +16,35 @@ public class Level2Manager : LevelManager// inherets winlevel function
     [SerializeField]
     float ShakeFadeOut = 8f;
 
+    public GameObject bossSoul;
+    public GameObject deathInstructions;
+    public GameObject KnightMusic, UndeadMusic, ShinigamiMusic;
+    public GameObject ImperialKnight;
+    private ImperialKnightLongSword IKLS;
+
+
     private void Start()
     {
-
+        IKLS = ImperialKnight.GetComponent<ImperialKnightLongSword>();
     }
     public void Update()
     {
-        if(player.transform.position.x < -38.4f && !completedLevel)
+        if(index == 0)
         {
-            completedLevel = true;
-            player.SendMessage("TakeDamage", 100);
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(15f, 15f);
-            WinLevel();
+            if(IKLS.distToPlayer < 8)
+            {
+
+            }
+        }
+        if (index == 100)
+        {
+            if (bossSoul == null)
+            {
+                deathInstructions.SetActive(false);
+                CreditTextGameObject.SetActive(true);
+                WinLevel();
+                index++;
+            }
         }
     }
 }
