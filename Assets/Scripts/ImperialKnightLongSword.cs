@@ -28,6 +28,8 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool agression = false;
 
+    private bool puppetMode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,116 +50,120 @@ public class ImperialKnightLongSword : MobGeneric
         {
             distToPlayer = Vector2.Distance(transform.position, player.position);
 
-            if(distToPlayer > longestRange)
+            if (!puppetMode)
             {
-                anim.SetTrigger("HangWalk");
-                Speed = 3.5f;
-                enemyWeap.knockbackX = 50f;
-                enemyWeap.knockbackY = 8;
-                if (lastMode == longRange && transform.position.y < player.position.y - 1f)
-                {
-                    ShowText(2f, "GET BACK HERE", 1f);
-                    ThrustAttack2();
-                }
 
-                lastMode = longestRange;
-            }
-            else  if (distToPlayer > longRange)//LONG RANGE DASHING
-            {
-                anim.SetTrigger("HangWalk");
-                Speed = 1.5f;
-                enemyWeap.knockbackX = 50f;
-                enemyWeap.knockbackY = 8;
-                if (lastMode == mediumRange)
+                if (distToPlayer > longestRange)
                 {
-                    ShowText(2f, "enguard", 1f);
-                    if (2 == Random.Range(1, 3))
-                        if(IsGrounded())
-                            ThrustAttack();
-                }
-
-                lastMode = longRange;
-            }
-            else if (distToPlayer > mediumRange)//chance to shoot proj <<<<<<<<<<<<<<<<<<<<<<<<<
-            {
-                anim.SetTrigger("HangWalk");
-                Speed = 1.5f;
-
-                if (2 == Random.Range(1, 4))
-                {
-                    if (lastMode == closeRange)
-                    {
-                        //3 shots forwards
-                        ThreeStrike();
-                    }
-                    else if (lastMode == longRange)
-                    {
-                        //4 shot arc
-                        FourStrike();
-                    }
-                }
-                lastMode = mediumRange;
-            }
-            else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
-            {
-                Speed = 1f;
-                if (!thrusting)
-                {
-                    anim.SetTrigger("LongpointWalk");
+                    anim.SetTrigger("HangWalk");
+                    Speed = 3.5f;
                     enemyWeap.knockbackX = 50f;
                     enemyWeap.knockbackY = 8;
+                    if (lastMode == longRange && transform.position.y < player.position.y - 1f)
+                    {
+                        ShowText(2f, "GET BACK HERE", 1f);
+                        ThrustAttack2();
+                    }
 
-                    //idle walk standard
-
+                    lastMode = longestRange;
+                }
+                else if (distToPlayer > longRange)//LONG RANGE DASHING
+                {
+                    anim.SetTrigger("HangWalk");
+                    Speed = 1.5f;
+                    enemyWeap.knockbackX = 50f;
+                    enemyWeap.knockbackY = 8;
                     if (lastMode == mediumRange)
                     {
-                        ShowText(2f, "DIE.", 1f);
-                        DownswingAttack();
+                        ShowText(2f, "enguard", 1f);
+                        if (2 == Random.Range(1, 3))
+                            if (IsGrounded())
+                                ThrustAttack();
                     }
-                    else
+
+                    lastMode = longRange;
+                }
+                else if (distToPlayer > mediumRange)//chance to shoot proj <<<<<<<<<<<<<<<<<<<<<<<<<
+                {
+                    anim.SetTrigger("HangWalk");
+                    Speed = 1.5f;
+
+                    if (2 == Random.Range(1, 4))
                     {
-                        if (hits >= 3)
+                        if (lastMode == closeRange)
                         {
-                            JumpAway();
+                            //3 shots forwards
+                            ThreeStrike();
+                        }
+                        else if (lastMode == longRange)
+                        {
+                            //4 shot arc
+                            FourStrike();
                         }
                     }
-                    lastMode = closeRange;
+                    lastMode = mediumRange;
                 }
-            }
-            else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
-            {
-                if (!thrusting)
+                else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
                 {
-                    anim.SetTrigger("LongpointWalk");
-                    enemyWeap.knockbackX = 50f;
-                    enemyWeap.knockbackY = 8;
+                    Speed = 1f;
+                    if (!thrusting)
+                    {
+                        anim.SetTrigger("LongpointWalk");
+                        enemyWeap.knockbackX = 50f;
+                        enemyWeap.knockbackY = 8;
 
-                    if (lastMode == closeRange)
-                    {
-                        ShowText(2f, "begone", 1f);
-                        UpswingAttack();
-                    }
-                    else if(lastMode == 0)
-                    {
-                        if (!upswinging)
+                        //idle walk standard
+
+                        if (lastMode == mediumRange)
                         {
-                            if (distToPlayer < 1.5f)
+                            ShowText(2f, "DIE.", 1f);
+                            DownswingAttack();
+                        }
+                        else
+                        {
+                            if (hits >= 3)
                             {
                                 JumpAway();
                             }
-
                         }
+                        lastMode = closeRange;
                     }
-                    else
-                    {
-                        if (hits >= 3)
-                        {
-                            JumpAway();
-                        }
-                    }
-                    lastMode = 0;
                 }
-                Speed = 0.5f;
+                else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
+                {
+                    if (!thrusting)
+                    {
+                        anim.SetTrigger("LongpointWalk");
+                        enemyWeap.knockbackX = 50f;
+                        enemyWeap.knockbackY = 8;
+
+                        if (lastMode == closeRange)
+                        {
+                            ShowText(2f, "begone", 1f);
+                            UpswingAttack();
+                        }
+                        else if (lastMode == 0)
+                        {
+                            if (!upswinging)
+                            {
+                                if (distToPlayer < 1.5f)
+                                {
+                                    JumpAway();
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            if (hits >= 3)
+                            {
+                                JumpAway();
+                            }
+                        }
+                        lastMode = 0;
+                    }
+                    Speed = 0.5f;
+                }
             }
 
             if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false && !thrusting)
@@ -380,4 +386,15 @@ public class ImperialKnightLongSword : MobGeneric
         hits = 0;
     }
 
+    public void ActivatePuppetMode()
+    {
+        puppetMode = true;
+        Health = 500f;
+        isDead = false;
+        anim.SetTrigger("idle2");
+        base.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+        rb2d.isKinematic = false;
+        healthBar.gameObject.SetActive(true);
+
+    }
 }

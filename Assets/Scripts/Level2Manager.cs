@@ -91,6 +91,8 @@ public class Level2Manager : LevelManager// inherets winlevel function
         else if (index == 16)
         {
             cameraParent.TargetOverride = null;
+            boss2AI.ActivatePuppetWarrior();
+            IKLS.ActivatePuppetMode();
             index++;
         }
 
@@ -126,4 +128,6 @@ public class Level2Manager : LevelManager// inherets winlevel function
         yield return new WaitForSeconds(WaitForAmount);
         index++;//this moves onto next index if statement
     }
+
+
 }
