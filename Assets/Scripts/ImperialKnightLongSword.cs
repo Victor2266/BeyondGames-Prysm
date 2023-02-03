@@ -116,7 +116,7 @@ public class ImperialKnightLongSword : MobGeneric
                     }
                     else
                     {
-                        if (hits == 3)
+                        if (hits >= 3)
                         {
                             JumpAway();
                         }
@@ -150,7 +150,7 @@ public class ImperialKnightLongSword : MobGeneric
                     }
                     else
                     {
-                        if (hits == 3)
+                        if (hits >= 3)
                         {
                             JumpAway();
                         }
@@ -297,7 +297,7 @@ public class ImperialKnightLongSword : MobGeneric
         else
             rb2d.velocity = (new Vector2(-20f, 10f));
     }
-    private void DownswingAttack()
+    public void DownswingAttack()
     {
         enemyWeap.DMG = 20;
         anim.SetTrigger("Downswing");
@@ -343,6 +343,10 @@ public class ImperialKnightLongSword : MobGeneric
             audioSource.PlayOneShot(blockedSound, 1f);
         }
         hits++;
+        if(amount > 25f)
+        {
+            hits++;
+        }
         healthBar.UpdateHealthBar(Health, MaxHealth);
 
         BSplat.Spray((int)amount / 3);
