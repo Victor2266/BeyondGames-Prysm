@@ -165,6 +165,11 @@ public class ImperialKnightLongSword : MobGeneric
                     Speed = 0.5f;
                 }
             }
+            else
+            {
+
+            }
+
 
             if (TouchingPlayer == false && IsTouchingLeftWall() == false && IsTouchingRightWall() == false && !thrusting)
             {
@@ -390,6 +395,7 @@ public class ImperialKnightLongSword : MobGeneric
     {
         puppetMode = true;
         Health = 500f;
+        MaxHealth = 500f;
         isDead = false;
         anim.SetTrigger("idle2");
         base.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
