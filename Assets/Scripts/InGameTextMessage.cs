@@ -14,7 +14,7 @@ public class InGameTextMessage : MonoBehaviour
             if (followThis == null)
                 lastMSG.transform.localPosition = new Vector3(lastMSG.transform.localPosition.x, lastMSG.transform.localPosition.y + 0.3f, lastMSG.transform.localPosition.z);
             else
-                textYOffset += 0.3f;
+                lastMSG.GetComponent<InGameTextMessage>().textYOffset += 0.3f;
         }
         if (lastMSG.GetComponent<InGameTextMessage>().lastMSG != null)
         {

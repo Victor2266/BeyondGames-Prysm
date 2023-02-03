@@ -37,7 +37,10 @@ public class ImperialKnightLongSword : MobGeneric
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ShowText(2f, "test.", 1f);
+        }
         if (!isDead)
         {
             distToPlayer = Vector2.Distance(transform.position, player.position);
