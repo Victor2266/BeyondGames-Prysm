@@ -167,7 +167,7 @@ public class ImperialKnightLongSword : MobGeneric
             }
             else
             {
-
+                Speed = 2f;
             }
 
 
