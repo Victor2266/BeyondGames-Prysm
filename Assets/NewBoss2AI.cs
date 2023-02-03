@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewBoss2AI : MobGeneric
 {
 
-    public GameObject puppetStrings, redEyeSFX;
+    public GameObject puppetStrings, redEyeSFX, bodyParticles;
     public bool puppetMode;
     public OscillateUpDown Oscilater;
 
@@ -31,6 +31,7 @@ public class NewBoss2AI : MobGeneric
     public void ActivatePuppetWarrior()
     {
         puppetMode = true;
+        bodyParticles.GetComponent<ParticleSystem>().gravityModifier = 0.1f;
         redEyeSFX.SetActive(true);
         puppetStrings.SetActive(true);
     }

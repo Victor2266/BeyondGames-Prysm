@@ -30,6 +30,9 @@ public class Level2Manager : LevelManager// inherets winlevel function
 
     public Sprite DamagedKnightSprite;
 
+    public ParticleSystem[] FOGEmitters;
+    public Color PuppetSmoke, ShinigamiBlood;
+
     private void Start()
     {
         IKLS = ImperialKnight.GetComponent<ImperialKnightLongSword>();
@@ -91,6 +94,11 @@ public class Level2Manager : LevelManager// inherets winlevel function
         else if (index == 16)
         {
             cameraParent.TargetOverride = null;
+            foreach(ParticleSystem p in FOGEmitters)
+            {
+                p.startColor = PuppetSmoke;
+            }
+
             boss2AI.ActivatePuppetWarrior();
             IKLS.ActivatePuppetMode();
             index++;

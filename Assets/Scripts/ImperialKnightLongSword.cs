@@ -49,10 +49,10 @@ public class ImperialKnightLongSword : MobGeneric
         if (!isDead)
         {
             distToPlayer = Vector2.Distance(transform.position, player.position);
+            
 
             if (!puppetMode)
             {
-
                 if (distToPlayer > longestRange)
                 {
                     anim.SetTrigger("HangWalk");
