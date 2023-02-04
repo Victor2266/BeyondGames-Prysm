@@ -18,7 +18,9 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
-  desc: hefty with great chopping power
+  desc: Unearthed from the grave at the top of the hill, this thick machete cutlass
+    lends itself well to hacking and slashing. Carry the momentum from previous swings
+    to cut down opponents.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7
@@ -49,6 +51,6 @@ MonoBehaviour:
     type: 3}
   oneSidedSwing: 1
   swingOtherSide: 1
-  ElementalType: 9
+  ElementalType: 8
   leftClickStrategy: 0
   rightClickStrategy: 0
