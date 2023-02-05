@@ -42,7 +42,7 @@ MonoBehaviour:
   thrustResetTime: 0.1
   thrustDashDist: 12
   thrustShortReach: 0.5
-  projAsChild: 0
+  projAsChild: 1
   trail: {fileID: 2300350798725474172, guid: 87b90aefc577a1245be2ddf63ccbe8c4, type: 3}
   soundPitch: 0.9
   movementDelay: 0.05

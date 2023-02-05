@@ -34,7 +34,7 @@ MonoBehaviour:
   CapsuleColliderSize: {x: 0.3, y: 2.6}
   SpriteOffset: {x: 0, y: 0}
   handReachMultiplier: 0.35
-  projectileAttack: {fileID: 1310705855610197, guid: 0ae3da987f1794e4083d0c21705a11a0,
+  projectileAttack: {fileID: 1310705855610197, guid: bfbe84977ab5cc642ba876cd30f2e585,
     type: 3}
   projectileOffset: 0.1
   thrustResetTime: 0.1
