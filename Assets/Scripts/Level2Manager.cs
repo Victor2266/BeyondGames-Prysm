@@ -104,6 +104,14 @@ public class Level2Manager : LevelManager// inherets winlevel function
             IKLS.ActivatePuppetMode();
             index++;
         }
+        else if (index == 17)
+        {
+            if (IKLS.isDead)
+            {
+                boss2AI.DeactivatePuppetWarrior();
+                StartCoroutine(ShinigamiDelaySentence(4f, "Goddamnit,\nYou just detroyed my new puppet", 1f));
+            }
+        }
 
         if (index == 100)
         {
