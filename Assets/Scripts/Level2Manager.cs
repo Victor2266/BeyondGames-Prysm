@@ -54,7 +54,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         }
         else if(index == 4)
         {
-            IKLS.ShowText(2f, "What is something like you doing here?", 1f);
+            IKLS.ShowText(2f, "Something like you doesn't belong here,\nGo back to the forest or DIE.", 1f);
             IKLS.agression = true;
 
             index++;
@@ -111,6 +111,11 @@ public class Level2Manager : LevelManager// inherets winlevel function
                 boss2AI.DeactivatePuppetWarrior();
                 StartCoroutine(ShinigamiDelaySentence(4f, "Goddamnit,\nYou just detroyed my new puppet", 1f));
             }
+        }
+        else if (index == 19)
+        {
+            StartCoroutine(ShinigamiDelaySentence(2f, "If you want something done\nyou have to do it yourself", 1f));
+            boss2Anim.SetTrigger("TakeOutScythe");
         }
 
         if (index == 100)
