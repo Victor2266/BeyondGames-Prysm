@@ -21,7 +21,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public GameObject KnightMusic, UndeadMusic, ShinigamiMusic;
     public GameObject ImperialKnight;
     private ImperialKnightLongSword IKLS;
-    public GameObject blackBossExplosion, hillPosObj;
+    public GameObject blackBossExplosion, hillPosObj, bossHealthBar;
     public DelayedCameraController cameraParent;
 
     private NewBoss2AI boss2AI;
@@ -115,6 +115,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         else if (index == 19)
         {
             StartCoroutine(ShinigamiDelaySentence(2f, "If you want something done\nyou have to do it yourself", 1f));
+            bossHealthBar.SetActive(true);
             boss2Anim.SetTrigger("TakeOutScythe");
         }
 

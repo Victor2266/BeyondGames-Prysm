@@ -22,7 +22,8 @@ public class ImperialKnightLongSword : MobGeneric
     private int hits;
 
     public GameObject DeathItem2;
-    public AudioClip blockedSound, speakSound;
+    public AudioClip blockedSound;
+    public AudioClip[] speakSound;
 
     private CapsuleCollider2D thisColider;
 
@@ -150,7 +151,8 @@ public class ImperialKnightLongSword : MobGeneric
                             {
                                 if (distToPlayer < 1.5f)
                                 {
-                                    JumpAway();
+                                    if(rb2d.velocity.magnitude < 1f)
+                                        JumpAway();
                                 }
 
                             }
@@ -348,7 +350,6 @@ public class ImperialKnightLongSword : MobGeneric
         {
             LookingLeft = false;
             thrusting = false;
-
             rb2d.velocity = (new Vector2(10f, Random.RandomRange(2, 10)));
             hits = 0;
             if(!puppetMode)
@@ -443,7 +444,8 @@ public class ImperialKnightLongSword : MobGeneric
     }
     public void DownswingAttack()
     {
-        audioSource.PlayOneShot(speakSound, 1f);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(speakSound[Random.Range(0, speakSound.Length)], Random.Range(0.1f, 0.3f));
         enemyWeap.DMG = 20;
         anim.SetTrigger("Downswing");
         if (!LookingLeft)

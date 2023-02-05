@@ -71,7 +71,7 @@ public class MobGeneric : MonoBehaviour
     {
         Vector2 origin = base.transform.position;
         origin.y -= Height;
-        Debug.DrawRay(origin, new Vector3(0f, -1f, 0f), Color.red);
+        //Debug.DrawRay(origin, new Vector3(0f, -1f, 0f), Color.red);
         return Physics2D.Raycast(origin, -Vector2.up, 0.05f);
     }
     protected bool IsTouchingCieling()
