@@ -443,6 +443,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     public void DownswingAttack()
     {
+        audioSource.PlayOneShot(speakSound, 1f);
         enemyWeap.DMG = 20;
         anim.SetTrigger("Downswing");
         if (!LookingLeft)
@@ -464,7 +465,7 @@ public class ImperialKnightLongSword : MobGeneric
     public float speedOfProj;
     private void ThreeStrikeProjection()
     {
-        clone = Instantiate(projAttack, heldWeapon.position, heldWeapon.rotation);
+        clone = Instantiate(projAttack, heldWeapon.position - Vector3.forward, heldWeapon.rotation);
         float SpearAngle = heldWeapon.eulerAngles.z -90f;
         Vector3 v = new Vector3(speedOfProj*Mathf.Cos(Mathf.Deg2Rad * (SpearAngle)), speedOfProj*Mathf.Sin(Mathf.Deg2Rad * (SpearAngle)), 0f);
         clone.GetComponent<Rigidbody2D>().velocity = v;
