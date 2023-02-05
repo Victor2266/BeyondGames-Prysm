@@ -46,7 +46,7 @@ MonoBehaviour:
   trail: {fileID: 2300350798725474172, guid: 87b90aefc577a1245be2ddf63ccbe8c4, type: 3}
   soundPitch: 0.9
   movementDelay: 0.05
-  popSpawn: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
+  popSpawn: {fileID: 154529244681351670, guid: 6b501a66dbdca7445be99baf9e07eed5, type: 3}
   dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
     type: 3}
   oneSidedSwing: 1

@@ -69,6 +69,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         }
         else if (index == 7)
         {
+            CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 5f);
             blackBossExplosion.SetActive(true);
             boss2.SetActive(true);
             cameraParent.TargetOverride = hillPosObj;

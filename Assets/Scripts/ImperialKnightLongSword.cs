@@ -30,6 +30,8 @@ public class ImperialKnightLongSword : MobGeneric
 
     private bool puppetMode;
 
+    public GameObject CutlassDropItem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -167,7 +169,118 @@ public class ImperialKnightLongSword : MobGeneric
             }
             else
             {
-                Speed = 2f;
+                if (distToPlayer > longestRange)
+                {
+                    anim.SetTrigger("idle2");
+                    Speed = 3.5f;
+                    enemyWeap.knockbackX = 50f;
+                    enemyWeap.knockbackY = 8;
+                    if (lastMode == longRange && transform.position.y < player.position.y - 1f)
+                    {
+                        //ShowText(2f, "GET BACK HERE", 1f);
+                        enemyWeap.DMG = 20f;
+                        anim.SetTrigger("Overhead");
+                        DashForwards(30f);
+                        JumpUpwards(10f);
+                    }
+
+                    lastMode = longestRange;
+                }
+                else if (distToPlayer > longRange)//LONG RANGE DASHING
+                {
+                    anim.SetTrigger("idle2");
+                    Speed = 2.5f;
+                    enemyWeap.knockbackX = 50f;
+                    enemyWeap.knockbackY = 8;
+                    if (lastMode == mediumRange)
+                    {
+                        if (2 == Random.Range(1, 3))
+                        {
+                            enemyWeap.DMG = 20f;
+                            anim.SetTrigger("Overhead");
+                            DashForwards(20f);
+                        }
+                    }
+
+                    lastMode = longRange;
+                }
+                else if (distToPlayer > mediumRange)//chance to shoot proj <<<<<<<<<<<<<<<<<<<<<<<<<
+                {
+                    anim.SetTrigger("idle2");
+                    Speed = 1.5f;
+
+
+                    lastMode = mediumRange;
+                }
+                else if (distToPlayer > closeRange)//DASH + SWING DOWN on enter and then proj shot random interval <<<<<<<<<<<<<<<<<<<<<<<<<
+                {
+                    Speed = 3f;
+                    if (!thrusting)
+                    {
+                        anim.SetTrigger("idle2");
+                        enemyWeap.knockbackX = 50f;
+                        enemyWeap.knockbackY = 8;
+
+                        //idle walk standard
+
+                        if (lastMode == mediumRange)
+                        {
+                            if (IsGrounded())
+                            {
+                                if (2 == Random.Range(1, 4))
+                                {
+                                    anim.SetTrigger("Cresent");
+                                    DashForwards(45f);
+                                    JumpUpwards(10f);
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (hits >= 3)
+                            {
+                                JumpAway();
+                            }
+                        }
+                        lastMode = closeRange;
+                    }
+                }
+                else//SWING UP continuously if not currently swining downwards <<<<<<<<<<<<<<<<<<<<<<<<<
+                {
+                    if (!thrusting)
+                    {
+                        anim.SetTrigger("idle2");
+                        enemyWeap.knockbackX = 50f;
+                        enemyWeap.knockbackY = 8;
+
+                        if (lastMode == closeRange)
+                        {
+                            enemyWeap.DMG = 10f;
+                            anim.SetTrigger("HackSlash");
+                        }
+                        else if (lastMode == 0)
+                        {
+                            if (!upswinging)
+                            {
+                                if (distToPlayer < 1.5f)
+                                {
+                                    JumpAway();
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            if (hits >= 3)
+                            {
+                                JumpAway();
+                            }
+                        }
+                        lastMode = 0;
+                    }
+                    Speed = 0.5f;
+                }
             }
 
 
@@ -238,7 +351,8 @@ public class ImperialKnightLongSword : MobGeneric
 
             rb2d.velocity = (new Vector2(10f, Random.RandomRange(2, 10)));
             hits = 0;
-            anim.SetTrigger("HangWalk");
+            if(!puppetMode)
+                anim.SetTrigger("HangWalk");
             
         }
         else if (IsTouchingRightWall() && TouchingPlayer == false && !isDead)
@@ -248,7 +362,9 @@ public class ImperialKnightLongSword : MobGeneric
 
             rb2d.velocity = (new Vector2(-10f, Random.RandomRange(2, 10)));
             hits = 0;
-            anim.SetTrigger("HangWalk");
+
+            if (!puppetMode)
+                anim.SetTrigger("HangWalk");
             //jump over obstacle
         }
         else if (IsTouchingCieling() && !isDead)
@@ -296,6 +412,23 @@ public class ImperialKnightLongSword : MobGeneric
             rb2d.velocity = (new Vector2(20f, 0f));
         else
             rb2d.velocity = (new Vector2(-20f, 0f));
+    }
+    private void DashForwards(float power)
+    {
+        enemyWeap.DMG = 20;
+        thrusting = true;
+        rb2d.velocity = Vector3.zero;
+        if (!LookingLeft)
+            rb2d.velocity = (new Vector2(power, 0f));
+        else
+            rb2d.velocity = (new Vector2(-power, 0f));
+    }
+    private void JumpUpwards(float power)
+    {
+        enemyWeap.DMG = 20;
+        thrusting = true;
+        rb2d.velocity = Vector3.zero;
+        rb2d.velocity = (new Vector2(0f, power));
     }
     private void ThrustAttack2()
     {
@@ -370,8 +503,15 @@ public class ImperialKnightLongSword : MobGeneric
     protected override void Death()
     {
         isDead = true;
-        Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
-        Instantiate(DeathItem2, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        if (!puppetMode)
+        {
+            Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+            Instantiate(DeathItem2, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        }
+        else
+        {
+            Instantiate(CutlassDropItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+        }
         //base.gameObject.GetComponentInChildren<Light>().enabled = false;
         anim.SetTrigger("dead");
         anim.SetBool("FullyDead", true);
@@ -397,10 +537,12 @@ public class ImperialKnightLongSword : MobGeneric
         Health = 500f;
         MaxHealth = 500f;
         isDead = false;
+        anim.SetBool("FullyDead", false);
         anim.SetTrigger("idle2");
         base.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
         rb2d.isKinematic = false;
         healthBar.gameObject.SetActive(true);
+        healthBar.UpdateHealthBar(Health, MaxHealth);
 
     }
 }
