@@ -5,15 +5,52 @@ using UnityEngine;
 public class SkeletonSpawner : MonoBehaviour
 {
 
+    public Vector3[] spawnPositions;
+    public Vector3[] spawnSmokePositions;
+    public GameObject skeleton;
+    public GameObject spawnParticle;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject skeleInst;
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Spawn();
+        }
     }
-
     public void Spawn()
     {
+        int rand = Random.Range(0, spawnPositions.Length);
+        skeleInst = Instantiate(skeleton, spawnPositions[rand], transform.rotation);
+        Instantiate(spawnParticle, spawnSmokePositions[rand], transform.rotation);
 
+        StartCoroutine(RiseFromGround(skeleInst));
+    }
+
+    public void SpawnAll()
+    {
+        for(int i = 0; i < spawnPositions.Length; i++)
+        {
+            skeleInst = Instantiate(skeleton, spawnPositions[i], transform.rotation);
+            Instantiate(spawnParticle, spawnSmokePositions[i], transform.rotation);
+
+            StartCoroutine(RiseFromGround(skeleInst));
+        }
+    }
+
+    private IEnumerator RiseFromGround(GameObject skeleton)
+    {
+        Rigidbody2D rb2d = skeleton.GetComponent<Rigidbody2D>();
+
+        rb2d.isKinematic = true;
+        rb2d.velocity = Vector2.up;
+        skeleton.GetComponent<CircleCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(3f);
+
+        rb2d.isKinematic = false;
+        skeleton.transform.position = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y, -1f);
+
+        skeleton.GetComponent<CircleCollider2D>().enabled = true;
     }
 }

@@ -156,7 +156,7 @@ public class SkeletonBehavior : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, transform.position, transform.rotation);
+        clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, transform.position + Vector3.forward, transform.rotation);
         anim.SetBool("alive", false);
         anim.SetTrigger("dead");
 

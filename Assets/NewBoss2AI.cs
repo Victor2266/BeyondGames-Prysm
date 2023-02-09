@@ -68,7 +68,11 @@ public class NewBoss2AI : MobGeneric
                 eyeRightPointer.turn_speed = 2f;
 
                 if(indicatorLights[0].activeSelf == false)
+                {
+
                     StartCoroutine(activateLaser(10f));
+                    skeletonSpawner.Spawn();
+                }
             }
             else if (activeLaser)
             {
