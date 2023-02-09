@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleDamagePlayer : MonoBehaviour
 {
     public ParticleSystem part;
+    public float minSize;
     public float DMG = 1f;
 
     void Start()
@@ -14,7 +15,10 @@ public class ParticleDamagePlayer : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "Player")
-            other.GetComponent<PlayerManager>().TakeDamage(DMG);
+        if (part.startSize > minSize)
+        {
+            if (other.tag == "Player")
+                other.GetComponent<PlayerManager>().TakeDamage(DMG);
+        }
     }
 }
