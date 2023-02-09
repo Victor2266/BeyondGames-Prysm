@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SkeletonBehavior : MonoBehaviour
 {
+
+    [SerializeField]
+    private float distToPlayer;
     private void Start()
     {
         healthScript = GetComponent<HealthBarHealth>();
@@ -17,6 +20,7 @@ public class SkeletonBehavior : MonoBehaviour
     {
         if (!isDead)
         {
+
             if (!LookingLeft)
             {
                 transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);
@@ -57,6 +61,10 @@ public class SkeletonBehavior : MonoBehaviour
         if (IsGrounded() && isDead)
         {
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            if (rb2d.isKinematic == false)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.1f, gameObject.transform.position.z);
+            }
             rb2d.isKinematic = true;
             rb2d.velocity = new Vector2(0f, 0f);
         }
@@ -100,6 +108,17 @@ public class SkeletonBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !isDead)
+        {
+            distToPlayer = Vector3.Distance(player.gameObject.transform.position, transform.position);
+
+            if(distToPlayer < 0.5f)
+                anim.SetTrigger("attack");
+        }
+    }
+
     private IEnumerator Delay(Collision2D collision)
     {
         collision.gameObject.SendMessage("Flinching");
@@ -116,9 +135,15 @@ public class SkeletonBehavior : MonoBehaviour
         return Physics2D.Raycast(origin, -Vector2.up, 0.005f);
     }
 
+    public HealthBar healthBar;
+    public BloodSplatterer BSplat;
     public void TakeDamage(float amount)
     {
         healthScript.health-= amount;
+
+        healthBar.UpdateHealthBar(healthScript.health, 50f);
+        BSplat.Spray((int)amount / 3);
+
         anim.SetTrigger("hurt");
         rb2d.velocity = Vector2.up * 3f;
         if (healthScript.health<= 0f && !isDead)
@@ -127,12 +152,16 @@ public class SkeletonBehavior : MonoBehaviour
         }
     }
 
+    public GameObject light;
     private void Death()
     {
         isDead = true;
         clone = UnityEngine.Object.Instantiate<GameObject>(HealOrb, transform.position, transform.rotation);
         anim.SetBool("alive", false);
         anim.SetTrigger("dead");
+
+        healthBar.gameObject.SetActive(false);
+        light.SetActive(false);
     }
 
     public float speed;
