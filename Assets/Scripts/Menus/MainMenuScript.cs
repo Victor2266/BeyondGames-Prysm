@@ -14,6 +14,7 @@ public class MainMenuScript : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreentoggle;
     public Toggle cameraLockToggle;
+    public Toggle mouseVisibilityToggle;
 
     public GameObject MainCamera;
     public GameObject SceneManager;
@@ -70,6 +71,7 @@ public class MainMenuScript : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
+        mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 0) == 1 ? true : false;
     }
 
     private void SetStartingSliders()
@@ -207,7 +209,17 @@ public class MainMenuScript : MonoBehaviour
             PlayerPrefs.SetInt("CameraLock", 0);
         }
     }
-
+    public void SetMouseVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            PlayerPrefs.SetInt("mouseVisibility", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("mouseVisibility", 0);
+        }
+    }
     public void SetUiSize(float size)
     {
         GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * size);
