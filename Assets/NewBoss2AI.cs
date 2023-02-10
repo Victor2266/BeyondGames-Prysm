@@ -17,8 +17,8 @@ public class NewBoss2AI : MobGeneric
     public bool followPlayer;
     public GameObject player;
 
-    private int laserCounter, skeletonCounter;
-    private bool activeLaser, waitingForLaser;
+    private int laserCounter, skeletonCounter, dragCounter;
+    private bool isSwinging, activeLaser, waitingForLaser, isDragging;
 
     public GameObject eyeLeft, eyeRight;
 
@@ -67,7 +67,6 @@ public class NewBoss2AI : MobGeneric
             {
                 if (!activeLaser)
                 {
-                    playerFollowSpeed = 2f;
                     laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 0f, ref _refLazerSize, 0.5f);
                     laserPart2.startSize = laserPart1.startSize;
 
@@ -75,17 +74,51 @@ public class NewBoss2AI : MobGeneric
                     eyeLeftPointer.turn_speed = 2f;
                     eyeRightPointer.turn_speed = 2f;
 
-                    if (indicatorLights[0].activeSelf == false)
+                    if (laserCounter == 15)
                     {
-
                         StartCoroutine(activateLaser(10f));
+                        laserCounter = 0;
+                    }
+                    else if(skeletonCounter == 2)
+                    {
                         skeletonSpawner.Spawn();
+                        skeletonCounter = 0;
+                    }
+                    else if(dragCounter == 10)
+                    {
+                        isDragging = true;
+                        dragCounter = 0;
+                        if(Random.Range(0,2) == 1)
+                        {
+                            anim.SetTrigger("Dragging");
+                            playerFollowSpeed = 0.5f;
+                            if (weapon.LookingLeft == true)
+                            {
+                                transform.localScale = new Vector3(-1, 1, 1);
+                                offsetFollow = new Vector3(5f, 3f, -2f);
+                            }
+                            else
+                            {
+                                transform.localScale = new Vector3(1, 1, 1);
+                                offsetFollow = new Vector3(-5f, 3f, -2f);
+                            }
+                        }
                     }
                 }
                 else if (activeLaser)
                 {
                     ShootingLaser();
                 }
+
+                if(transform.position.x > player.transform.position.x)
+                {
+                    weapon.LookingLeft = true;
+                }
+                else
+                {
+                    weapon.LookingLeft = false;
+                }
+
             }
             
 
@@ -99,7 +132,6 @@ public class NewBoss2AI : MobGeneric
     private float orbitalSize;
     private void ShootingLaser()
     {
-        playerFollowSpeed = 3.5f;
 
         if (Health <= 100f)
         {
@@ -163,6 +195,7 @@ public class NewBoss2AI : MobGeneric
         activeLaser = true;
 
         orbitalSizeTarget = 8f;
+        playerFollowSpeed = 3.5f;
 
         yield return new WaitForSeconds(seconds);
         activeLaser = false;
@@ -171,12 +204,14 @@ public class NewBoss2AI : MobGeneric
         indicatorLights[1].SetActive(false);
 
         orbitalSizeTarget = 0.1f;
+        playerFollowSpeed = 2f;
     }
 
     public void TakeDamage(float amount)
     {
         laserCounter++;
         skeletonCounter++;
+        dragCounter++;
 
         if (skeletonCounter > 5)
         {
@@ -208,5 +243,37 @@ public class NewBoss2AI : MobGeneric
         followPlayer = true;
         textYOffset = -0.93f;
         offsetFollow = new Vector3(offsetFollow.x, offsetFollow.y, -2f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isSwinging && !activeLaser && agression)
+        {
+            if(collision.tag == "Player")
+            {
+                if(player.transform.position.y - transform.position.y < -4.5f && !isDragging)
+                {
+                    isSwinging = true;
+                    offsetFollow = new Vector3(0, 3f, -2f);
+                    anim.SetTrigger("QuickOneTwo");
+                    playerFollowSpeed = 1f;
+
+                    skeletonCounter++;
+                    laserCounter++;
+                    dragCounter++;
+                }
+                else
+                {
+                    isDragging = false;
+                }
+            }
+        }
+    }
+
+    public void DoneSwinging()
+    {
+        isSwinging = false;
+        offsetFollow = new Vector3(0, 5f, -2f);
+        playerFollowSpeed = 2f;
     }
 }

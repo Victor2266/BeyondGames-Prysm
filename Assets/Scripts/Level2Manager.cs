@@ -23,6 +23,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     private ImperialKnightLongSword IKLS;
     public GameObject blackBossExplosion, hillPosObj, bossHealthBar;
     public DelayedCameraController cameraParent;
+    public CircleCollider2D boss2headColider;
 
     private NewBoss2AI boss2AI;
     private Animator boss2Anim;
@@ -115,17 +116,27 @@ public class Level2Manager : LevelManager// inherets winlevel function
         }
         else if (index == 19)
         {
-            StartCoroutine(ShinigamiDelaySentence(2f, "If you want something done\nyou have to do it yourself", 1f));
+            StartCoroutine(ShinigamiDelaySentence(2f, "If you want something DONE RIGHT\nyou have to do it yourself", 1f));
             boss2Anim.SetTrigger("TakeOutScythe");
             scytheSprt.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
         else if (index == 21)
         {
-            StartCoroutine(ShinigamiDelaySentence(3f, "A TRUE SHINIGAMI COMMANDS LIFE AND <color=red>DEATH</color>\n<color=#6603fc><size=2>ARISE.", 1f));
+            StartCoroutine(ShinigamiDelaySentence(2f, "BEHOLD", 1f));
+        }
+        else if (index == 23)
+        {
+            StartCoroutine(ShinigamiDelaySentence(6f, "HOW A TRUE SHINIGAMI CAN COMMAND LIFE AND <color=red>DEATH</color>\n<color=#6603fc><size=2>ARISE.", 1f));
+            boss2headColider.enabled = true;
             bossHealthBar.SetActive(true);
             boss2AI.skeletonSpawner.SpawnAll();
 
             scytheSprt.maskInteraction = SpriteMaskInteraction.None;
+        }
+        else if (index == 25)
+        {
+            boss2AI.agression = true;
+            index++;
         }
 
         if (index == 100)
