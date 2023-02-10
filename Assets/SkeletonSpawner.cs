@@ -13,13 +13,7 @@ public class SkeletonSpawner : MonoBehaviour
     public GameObject spawnParticle;
 
     private GameObject skeleInst;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SpawnAll();
-        }
-    }
+
     public void Spawn()
     {
         int rand = Random.Range(0, spawnPositions.Length);

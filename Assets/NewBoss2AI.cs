@@ -74,6 +74,7 @@ public class NewBoss2AI : MobGeneric
                     eyeLeftPointer.turn_speed = 2f;
                     eyeRightPointer.turn_speed = 2f;
 
+
                     if (laserCounter == 15)
                     {
                         StartCoroutine(activateLaser(10f));
@@ -84,26 +85,38 @@ public class NewBoss2AI : MobGeneric
                         skeletonSpawner.Spawn();
                         skeletonCounter = 0;
                     }
-                    else if(dragCounter == 10)
+                    else if(dragCounter == 3 && !isSwinging)
                     {
                         isDragging = true;
                         dragCounter = 0;
-                        if(Random.Range(0,2) == 1)
+                        if(Random.Range(0,2) > -1)
                         {
-                            anim.SetTrigger("Dragging");
                             playerFollowSpeed = 0.5f;
                             if (weapon.LookingLeft == true)
                             {
-                                transform.localScale = new Vector3(-1, 1, 1);
-                                offsetFollow = new Vector3(5f, 3f, -2f);
+                                anim.SetTrigger("DraggingRight");
+                                StartCoroutine(DragScythe(true));
                             }
                             else
                             {
-                                transform.localScale = new Vector3(1, 1, 1);
-                                offsetFollow = new Vector3(-5f, 3f, -2f);
+
+                                anim.SetTrigger("DraggingLeft");
+                                StartCoroutine(DragScythe(false));
                             }
                         }
                     }
+                    else if (isDragging)
+                    {
+                        if (weapon.LookingLeft == true)
+                        {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(1, 1, 1);
+                        }
+                    }
+                    
                 }
                 else if (activeLaser)
                 {
@@ -207,6 +220,37 @@ public class NewBoss2AI : MobGeneric
         playerFollowSpeed = 2f;
     }
 
+    private IEnumerator DragScythe(bool lookingLeft)
+    {
+        playerFollowSpeed = 0.5f;
+        if (lookingLeft) {
+            offsetFollow = new Vector3(5f, 3f, -2f);
+            Debug.Log("stand to right");
+        }
+        else
+        {
+            offsetFollow = new Vector3(-5f, 3f, -2f);
+        }
+        yield return new WaitForSeconds(2f);
+        if (lookingLeft)
+        {
+            offsetFollow = new Vector3(-6f, 3f, -2f);
+
+            Debug.Log("stand to left");
+        }
+        else
+        {
+            offsetFollow = new Vector3(6f, 3f, -2f);
+        }
+
+        yield return new WaitForSeconds(1f);
+        isDragging = false;
+        offsetFollow = new Vector3(0, 5f, -2f);
+
+        anim.SetTrigger("Idle");
+
+    }
+
     public void TakeDamage(float amount)
     {
         laserCounter++;
@@ -262,10 +306,6 @@ public class NewBoss2AI : MobGeneric
                     laserCounter++;
                     dragCounter++;
                 }
-                else
-                {
-                    isDragging = false;
-                }
             }
         }
     }
@@ -273,7 +313,10 @@ public class NewBoss2AI : MobGeneric
     public void DoneSwinging()
     {
         isSwinging = false;
-        offsetFollow = new Vector3(0, 5f, -2f);
-        playerFollowSpeed = 2f;
+        if (!isDragging)
+        {
+            offsetFollow = new Vector3(0, 5f, -2f);
+            playerFollowSpeed = 2f;
+        }
     }
 }

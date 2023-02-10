@@ -10,4 +10,8 @@ public class EnemyBodyPart : MonoBehaviour
     {
         parentAI.TakeDamage(amount);
     }
+    public void SetCollision()
+    {
+
+    }
 }
