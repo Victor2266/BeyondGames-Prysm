@@ -24,8 +24,8 @@ MonoBehaviour:
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7
-  DMG_Scaling: 400
-  MaxDamage: 300
+  DMG_Scaling: 4
+  MaxDamage: 30
   MinDamage: 1
   DMGTextSize: 2
   activeTimeLimit: 1.5

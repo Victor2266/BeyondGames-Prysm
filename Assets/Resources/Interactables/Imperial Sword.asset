@@ -30,7 +30,7 @@ MonoBehaviour:
   MinDamage: 1
   DMGTextSize: 2
   activeTimeLimit: 1
-  cooldownTime: 1.8
+  cooldownTime: 1.7
   XYSize: 0.9
   angle_offset: 0
   CapsuleColliderOffset: {x: 0, y: 0.4}

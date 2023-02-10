@@ -33,6 +33,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public ParticleSystem[] FOGEmitters;
     public Color PuppetSmoke, ShinigamiBlood;
 
+    public SpriteRenderer scytheSprt;
     private void Start()
     {
         IKLS = ImperialKnight.GetComponent<ImperialKnightLongSword>();
@@ -117,8 +118,15 @@ public class Level2Manager : LevelManager// inherets winlevel function
             StartCoroutine(ShinigamiDelaySentence(2f, "If you want something done\nyou have to do it yourself", 1f));
             bossHealthBar.SetActive(true);
             boss2Anim.SetTrigger("TakeOutScythe");
+            scytheSprt.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
+        else if (index == 21)
+        {
+            StartCoroutine(ShinigamiDelaySentence(2f, "A true shinigami can command life and death", 1f));
+            boss2AI.skeletonSpawner.SpawnAll();
 
+            scytheSprt.maskInteraction = SpriteMaskInteraction.None;
+        }
         if (index == 100)
         {
             if (bossSoul == null)

@@ -34,6 +34,11 @@ public class NewBoss2AI : MobGeneric
 
     ParticleSystem.VelocityOverLifetimeModule lPV1;
     ParticleSystem.VelocityOverLifetimeModule lPV2;
+    public bool agression;
+
+    public enemyWeapon weapon;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,27 +62,31 @@ public class NewBoss2AI : MobGeneric
         else if (followPlayer)
         {
 
-            if (!activeLaser)
+            if (agression)
             {
-                transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 2f);
-                laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 0f, ref _refLazerSize, 0.5f);
-                laserPart2.startSize = laserPart1.startSize;
-
-
-                eyeLeftPointer.turn_speed = 2f;
-                eyeRightPointer.turn_speed = 2f;
-
-                if(indicatorLights[0].activeSelf == false)
+                if (!activeLaser)
                 {
+                    transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 2f);
+                    laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 0f, ref _refLazerSize, 0.5f);
+                    laserPart2.startSize = laserPart1.startSize;
 
-                    StartCoroutine(activateLaser(10f));
-                    skeletonSpawner.Spawn();
+
+                    eyeLeftPointer.turn_speed = 2f;
+                    eyeRightPointer.turn_speed = 2f;
+
+                    if (indicatorLights[0].activeSelf == false)
+                    {
+
+                        StartCoroutine(activateLaser(10f));
+                        skeletonSpawner.Spawn();
+                    }
+                }
+                else if (activeLaser)
+                {
+                    ShootingLaser();
                 }
             }
-            else if (activeLaser)
-            {
-                ShootingLaser();
-            }
+            
 
             //set laser orbital size
             orbitalSize = Mathf.SmoothDamp(orbitalSize, orbitalSizeTarget, ref _orbitalSize, 1f);
@@ -90,7 +99,7 @@ public class NewBoss2AI : MobGeneric
     private void ShootingLaser()
     {
 
-        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 1f);
+        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 4f);
 
 
         if (Health <= 100f)
@@ -146,7 +155,7 @@ public class NewBoss2AI : MobGeneric
         indicatorLights[0].SetActive(true);
         indicatorLights[1].SetActive(true);
 
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(7.1f);
 
         eyeLeftPointer.turn_speed = 0.5f;
         eyeRightPointer.turn_speed = 0.5f;

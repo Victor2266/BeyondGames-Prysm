@@ -5,17 +5,17 @@ using EZCameraShake;
 
 public class enemyWeapon : MonoBehaviour
 {
-    public ImperialKnightLongSword IKLS;
     public float knockbackX;
     public float knockbackY;
     public GameObject blowbackParticles;
     public float DMG;
+    public bool LookingLeft;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (IKLS.LookingLeft)
+            if (LookingLeft)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockbackX, knockbackY);
             }
@@ -24,8 +24,8 @@ public class enemyWeapon : MonoBehaviour
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockbackX, knockbackY);
             }
 
-            SetCollision(IKLS.player.position);
-            IKLS.player.SendMessage("TakeDamage", DMG);
+            SetCollision(collision.gameObject.transform.position);
+            collision.SendMessage("TakeDamage", DMG);
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0.1f, 1f);
 
             return;

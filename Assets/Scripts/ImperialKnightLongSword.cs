@@ -9,7 +9,7 @@ public class ImperialKnightLongSword : MobGeneric
 
     public bool LookingLeft;
     public float jumpForce;
-    public Transform player, dash1, dash2, triangle, dash3, heldWeapon;
+    public Transform player, dash1, dash2, triangle, dash3, heldWeapon, cresent1, cresent2;
     public float distToPlayer;
 
     private float lastMode;
@@ -33,6 +33,8 @@ public class ImperialKnightLongSword : MobGeneric
 
     public GameObject CutlassDropItem;
 
+    public enemyWeapon weapon;
+    public enemyWeapon weapon2;
     // Start is called before the first frame update
     void Start()
     {
@@ -199,6 +201,7 @@ public class ImperialKnightLongSword : MobGeneric
                         if (2 == Random.Range(1, 3))
                         {
                             enemyWeap.DMG = 20f;
+
                             anim.SetTrigger("Overhead");
                             DashForwards(20f);
                         }
@@ -231,6 +234,8 @@ public class ImperialKnightLongSword : MobGeneric
                             {
                                 if (2 == Random.Range(1, 4))
                                 {
+                                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                                    audioSource.PlayOneShot(speakSound[Random.Range(0, speakSound.Length)], Random.Range(0.1f, 0.3f));
                                     anim.SetTrigger("Cresent");
                                     DashForwards(45f);
                                     JumpUpwards(10f);
@@ -291,11 +296,17 @@ public class ImperialKnightLongSword : MobGeneric
                 if (rb2d.position.x > player.position.x)
                 {
                     LookingLeft = true;
+                    cresent1.localScale = new Vector3(4, 4, 1);
+                    cresent2.localScale = new Vector3(4, 4, 1);
+                    weapon.LookingLeft = true;
                     moveHorizontal = -1f * Speed;
                 }
                 else
                 {
                     LookingLeft = false;
+                    cresent1.localScale = new Vector3(-4, 4, 1);
+                    cresent2.localScale = new Vector3(-4, 4, 1);
+                    weapon.LookingLeft = false;
                     moveHorizontal = 1f * Speed;
                 }
             }
@@ -349,6 +360,7 @@ public class ImperialKnightLongSword : MobGeneric
         if (IsTouchingLeftWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = false;
+            weapon.LookingLeft = false;
             thrusting = false;
             rb2d.velocity = (new Vector2(10f, Random.RandomRange(2, 10)));
             hits = 0;
@@ -359,6 +371,7 @@ public class ImperialKnightLongSword : MobGeneric
         else if (IsTouchingRightWall() && TouchingPlayer == false && !isDead)
         {
             LookingLeft = true;
+            weapon.LookingLeft = false;
             thrusting = false;
 
             rb2d.velocity = (new Vector2(-10f, Random.RandomRange(2, 10)));
@@ -546,6 +559,7 @@ public class ImperialKnightLongSword : MobGeneric
         rb2d.isKinematic = false;
         healthBar.gameObject.SetActive(true);
         healthBar.UpdateHealthBar(Health, MaxHealth);
+        weapon = weapon2;
 
     }
 }
