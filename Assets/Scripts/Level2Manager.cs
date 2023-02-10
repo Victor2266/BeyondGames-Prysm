@@ -126,7 +126,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         }
         else if (index == 23)
         {
-            StartCoroutine(ShinigamiDelaySentence(6f, "HOW A TRUE SHINIGAMI CAN COMMAND LIFE AND <color=red>DEATH</color>\n<color=#6603fc><size=2>ARISE.", 1f));
+            StartCoroutine(ShinigamiDelaySentence(4f, "HOW A TRUE SHINIGAMI CAN COMMAND LIFE AND <color=red>DEATH</color>", 1f));
             boss2headColider.enabled = true;
             bossHealthBar.SetActive(true);
             boss2AI.skeletonSpawner.SpawnAll();
@@ -134,6 +134,15 @@ public class Level2Manager : LevelManager// inherets winlevel function
             scytheSprt.maskInteraction = SpriteMaskInteraction.None;
         }
         else if (index == 25)
+        {
+            StartCoroutine(ShinigamiDelaySentence(4f, "<color=#6603fc><size=2>ARISE.", 1f));
+            foreach (ParticleSystem p in FOGEmitters)
+            {
+                p.startColor = ShinigamiBlood;
+            }
+
+        }
+        else if (index == 27)
         {
             boss2AI.agression = true;
             index++;
