@@ -116,17 +116,18 @@ public class Level2Manager : LevelManager// inherets winlevel function
         else if (index == 19)
         {
             StartCoroutine(ShinigamiDelaySentence(2f, "If you want something done\nyou have to do it yourself", 1f));
-            bossHealthBar.SetActive(true);
             boss2Anim.SetTrigger("TakeOutScythe");
             scytheSprt.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
         else if (index == 21)
         {
-            StartCoroutine(ShinigamiDelaySentence(2f, "A true shinigami can command life and death", 1f));
+            StartCoroutine(ShinigamiDelaySentence(3f, "A TRUE SHINIGAMI COMMANDS LIFE AND <color=red>DEATH</color>\n<color=#6603fc><size=2>ARISE.", 1f));
+            bossHealthBar.SetActive(true);
             boss2AI.skeletonSpawner.SpawnAll();
 
             scytheSprt.maskInteraction = SpriteMaskInteraction.None;
         }
+
         if (index == 100)
         {
             if (bossSoul == null)

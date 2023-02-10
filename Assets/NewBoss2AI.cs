@@ -37,6 +37,7 @@ public class NewBoss2AI : MobGeneric
     public bool agression;
 
     public enemyWeapon weapon;
+    public float playerFollowSpeed;
 
 
     // Start is called before the first frame update
@@ -61,12 +62,12 @@ public class NewBoss2AI : MobGeneric
         }
         else if (followPlayer)
         {
-
+            transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, playerFollowSpeed);
             if (agression)
             {
                 if (!activeLaser)
                 {
-                    transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 2f);
+                    playerFollowSpeed = 2f;
                     laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 0f, ref _refLazerSize, 0.5f);
                     laserPart2.startSize = laserPart1.startSize;
 
@@ -98,9 +99,7 @@ public class NewBoss2AI : MobGeneric
     private float orbitalSize;
     private void ShootingLaser()
     {
-
-        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offsetFollow, ref velo, 4f);
-
+        playerFollowSpeed = 3.5f;
 
         if (Health <= 100f)
         {
@@ -201,6 +200,7 @@ public class NewBoss2AI : MobGeneric
     }
     public void DeactivatePuppetWarrior()
     {
+        playerFollowSpeed = 2f;
         puppetMode = false;
         bodyParticles.GetComponent<ParticleSystem>().gravityModifier = 0f;
         redEyeSFX.SetActive(false);
