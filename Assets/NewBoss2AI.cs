@@ -276,7 +276,7 @@ public class NewBoss2AI : MobGeneric
         }
     }
 
-    private void Death()
+    protected override void Death()
     {
         isDead = true;
         clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
@@ -287,7 +287,7 @@ public class NewBoss2AI : MobGeneric
         healthBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
 
-        CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 5f);
+        CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 10f);
         //Destroy(healthBar.gameObject);
     }
 
