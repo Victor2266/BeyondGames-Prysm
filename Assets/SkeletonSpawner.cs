@@ -8,6 +8,8 @@ public class SkeletonSpawner : MonoBehaviour
     public Vector3[] spawnPositions;
     public Vector3[] spawnSmokePositions;
     public GameObject skeleton;
+    public GameObject bigSkeleton;
+
     public GameObject spawnParticle;
 
     private GameObject skeleInst;
@@ -15,12 +17,13 @@ public class SkeletonSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Spawn();
+            SpawnAll();
         }
     }
     public void Spawn()
     {
         int rand = Random.Range(0, spawnPositions.Length);
+
         skeleInst = Instantiate(skeleton, spawnPositions[rand], transform.rotation);
         Instantiate(spawnParticle, spawnSmokePositions[rand], transform.rotation);
 
@@ -31,7 +34,15 @@ public class SkeletonSpawner : MonoBehaviour
     {
         for(int i = 0; i < spawnPositions.Length; i++)
         {
-            skeleInst = Instantiate(skeleton, spawnPositions[i], transform.rotation);
+            if (i == 6)
+            {
+                skeleInst = Instantiate(bigSkeleton, spawnPositions[i], transform.rotation);
+            }
+            else
+            {
+                skeleInst = Instantiate(skeleton, spawnPositions[i], transform.rotation);
+            }
+
             Instantiate(spawnParticle, spawnSmokePositions[i], transform.rotation);
 
             StartCoroutine(RiseFromGround(skeleInst));

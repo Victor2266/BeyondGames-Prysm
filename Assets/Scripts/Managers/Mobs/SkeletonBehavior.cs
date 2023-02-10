@@ -137,11 +137,12 @@ public class SkeletonBehavior : MonoBehaviour
 
     public HealthBar healthBar;
     public BloodSplatterer BSplat;
+    public float maxHealth;
     public void TakeDamage(float amount)
     {
         healthScript.health-= amount;
 
-        healthBar.UpdateHealthBar(healthScript.health, 50f);
+        healthBar.UpdateHealthBar(healthScript.health, maxHealth);
         BSplat.Spray((int)amount / 3);
 
         anim.SetTrigger("hurt");
