@@ -234,13 +234,13 @@ public class NewBoss2AI : MobGeneric
         yield return new WaitForSeconds(2f);
         if (lookingLeft)
         {
-            offsetFollow = new Vector3(-6f, 3f, -2f);
+            offsetFollow = new Vector3(-7f, 3f, -2f);
 
             Debug.Log("stand to left");
         }
         else
         {
-            offsetFollow = new Vector3(6f, 3f, -2f);
+            offsetFollow = new Vector3(7f, 3f, -2f);
         }
 
         yield return new WaitForSeconds(1f);
