@@ -60,6 +60,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
             IKLS.agression = true;
 
             index++;
+            KnightMusic.SetActive(true);
         }
         else if (index == 5)
         {
@@ -67,6 +68,8 @@ public class Level2Manager : LevelManager// inherets winlevel function
             {
                 StartCoroutine(IKLSDelaySentence(2.5f, "no way", 0.7f));
                 ImperialKnight.GetComponent<SpriteRenderer>().sprite = DamagedKnightSprite;
+
+                KnightMusic.SetActive(false);
             }
         }
         else if (index == 7)
@@ -101,7 +104,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
             {
                 p.startColor = PuppetSmoke;
             }
-
+            UndeadMusic.SetActive(true);
             boss2AI.ActivatePuppetWarrior();
             IKLS.ActivatePuppetMode();
             index++;
@@ -112,6 +115,8 @@ public class Level2Manager : LevelManager// inherets winlevel function
             {
                 boss2AI.DeactivatePuppetWarrior();
                 StartCoroutine(ShinigamiDelaySentence(4f, "Goddamnit,\nYou just detroyed my new puppet", 1f));
+
+                UndeadMusic.SetActive(false);
             }
         }
         else if (index == 19)
@@ -119,10 +124,12 @@ public class Level2Manager : LevelManager// inherets winlevel function
             StartCoroutine(ShinigamiDelaySentence(2f, "If you want something DONE RIGHT\nyou have to do it yourself", 1f));
             boss2Anim.SetTrigger("TakeOutScythe");
             scytheSprt.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+
         }
         else if (index == 21)
         {
             StartCoroutine(ShinigamiDelaySentence(2f, "BEHOLD", 1f));
+            ShinigamiMusic.SetActive(true);
         }
         else if (index == 23)
         {

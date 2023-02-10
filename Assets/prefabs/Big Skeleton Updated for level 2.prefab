@@ -482,7 +482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf30a67df1f19d54f9f32cb65c740d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaknessTo: 8
+  WeaknessMultiplier: 1.2
+  ImmunityTo: 9
+  ImmunityMultiplier: 1
   distToPlayer: 0
+  DMG: 20
   healthBar: {fileID: 1442321201701851636}
   BSplat: {fileID: 2386259860777579135}
   maxHealth: 100

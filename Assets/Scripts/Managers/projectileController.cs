@@ -53,7 +53,7 @@ public class projectileController : damageController
             BurstIfPrimed();
         }
 
-        MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+        HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
         float calcDMG = (DMG);
         float calcDMGSize = DMGTextSize;
         if (MG != null)

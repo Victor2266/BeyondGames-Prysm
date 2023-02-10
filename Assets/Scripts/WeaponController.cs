@@ -317,7 +317,7 @@ public partial class WeaponController : damageController
         if (DMG > 0)
         {
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+            HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
             float calcDMGSize = DMGTextSize;
 
@@ -328,12 +328,12 @@ public partial class WeaponController : damageController
             }
             else
             {
-                if (MG.WeaknessTo == ElementType)
+                if (MG.WeaknessTo == ElementType || MG.WeaknessTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
                     calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
-                else if (MG.ImmunityTo == ElementType)
+                else if (MG.ImmunityTo == ElementType || MG.ImmunityTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
                     calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
@@ -355,7 +355,7 @@ public partial class WeaponController : damageController
         if(DMG > 0)
         {
             collision.collider.SendMessage("SetCollision", collision.point);
-            MobGeneric MG = collision.collider.GetComponent<MobGeneric>();
+            HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
             float calcDMGSize = DMGTextSize;
 
@@ -365,12 +365,12 @@ public partial class WeaponController : damageController
             }
             else
             {
-                if (MG.WeaknessTo == ElementType)
+                if (MG.WeaknessTo == ElementType || MG.WeaknessTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
                     calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
-                else if (MG.ImmunityTo == ElementType)
+                else if (MG.ImmunityTo == ElementType || MG.ImmunityTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
                     calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;

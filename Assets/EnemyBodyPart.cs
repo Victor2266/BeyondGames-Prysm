@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBodyPart : MonoBehaviour
+public class EnemyBodyPart : HasWeakness
 {
     public MobGeneric parentAI;
 
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         parentAI.TakeDamage(amount);
     }

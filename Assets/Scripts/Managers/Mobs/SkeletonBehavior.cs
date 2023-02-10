@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SkeletonBehavior : MonoBehaviour
+public class SkeletonBehavior : HasWeakness
 {
 
     [SerializeField]
     private float distToPlayer;
+    public float DMG;
     private void Start()
     {
         healthScript = GetComponent<HealthBarHealth>();
@@ -102,7 +103,7 @@ public class SkeletonBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !isDead)
         {
             StartCoroutine(Delay(collision));
-            player.SendMessage("TakeDamage", 20);
+            player.SendMessage("TakeDamage", DMG);
             anim.SetTrigger("attack");
             return;
         }
@@ -138,7 +139,7 @@ public class SkeletonBehavior : MonoBehaviour
     public HealthBar healthBar;
     public BloodSplatterer BSplat;
     public float maxHealth;
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         healthScript.health-= amount;
 

@@ -182,7 +182,7 @@ public class ImperialKnightLongSword : MobGeneric
                     if (lastMode == longRange && transform.position.y < player.position.y - 1f)
                     {
                         //ShowText(2f, "GET BACK HERE", 1f);
-                        enemyWeap.DMG = 20f;
+                        enemyWeap.DMG = 15f;
                         anim.SetTrigger("Overhead");
                         DashForwards(30f);
                         JumpUpwards(10f);
@@ -200,7 +200,7 @@ public class ImperialKnightLongSword : MobGeneric
                     {
                         if (2 == Random.Range(1, 3))
                         {
-                            enemyWeap.DMG = 20f;
+                            enemyWeap.DMG = 15f;
 
                             anim.SetTrigger("Overhead");
                             DashForwards(20f);
@@ -560,6 +560,8 @@ public class ImperialKnightLongSword : MobGeneric
         healthBar.gameObject.SetActive(true);
         healthBar.UpdateHealthBar(Health, MaxHealth);
         weapon = weapon2;
+        WeaknessTo = Equipment.ElementType.White;
+        WeaknessMultiplier = 1.2f;
 
     }
 }

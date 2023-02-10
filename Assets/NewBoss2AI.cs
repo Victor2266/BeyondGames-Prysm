@@ -79,7 +79,7 @@ public class NewBoss2AI : MobGeneric
                     eyeRightPointer.turn_speed = 2f;
 
 
-                    if (laserCounter == 15)
+                    if (laserCounter == 10)
                     {
                         StartCoroutine(activateLaser(10f));
                         laserCounter = 0;
@@ -170,7 +170,7 @@ public class NewBoss2AI : MobGeneric
         }
         else if (Health <= 200f)
         {
-            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 1.5f);
+            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 2f);
             laserPart2.startSize = laserPart1.startSize;
             if (!waitingForLaser)
             {
@@ -184,7 +184,7 @@ public class NewBoss2AI : MobGeneric
         }
         else
         {
-            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 1f);
+            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 2f);
             laserPart2.startSize = laserPart1.startSize;
             if (!waitingForLaser)
             {

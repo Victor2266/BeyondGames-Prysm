@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobGeneric : MonoBehaviour
+public class MobGeneric : HasWeakness
 {
     public float Health;
     public float MaxHealth;
@@ -20,10 +20,6 @@ public class MobGeneric : MonoBehaviour
 
     public BloodSplatterer BSplat;
 
-    public Equipment.ElementType WeaknessTo;
-    public float WeaknessMultiplier = 1;
-    public Equipment.ElementType ImmunityTo;
-    public float ImmunityMultiplier = 1;
     public float size; //used to find collision
     [SerializeField]
     protected float moveHorizontal;
@@ -38,7 +34,7 @@ public class MobGeneric : MonoBehaviour
     }
 
 
-    public virtual void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         Health -= amount;
         anim.SetTrigger("hurt");
