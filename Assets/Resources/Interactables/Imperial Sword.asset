@@ -18,10 +18,11 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
-  desc: A longsword with holy properties. Obtained by defeating the hero of ... The
-    weapon is elegant and highly manuverable. While activated the sword emits a radiant
-    white glow. The sword's effectiveness is highly dependent on the skill of its
-    wielder. It can generate a sharp blast of air when thrust with minimal mana usage.
+  desc: A longsword with holy properties. Obtained by defeating the hero of Giha.
+    The weapon is elegant and highly manuverable. While activated the sword emits
+    a radiant white glow. The sword's effectiveness is highly dependent on the skill
+    of its wielder. It can generate a sharp blast of air when thrust with minimal
+    mana usage.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 2

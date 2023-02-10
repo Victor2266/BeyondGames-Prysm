@@ -19,8 +19,9 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 1
   desc: Unearthed from the grave at the top of the hill, this thick machete cutlass
-    lends itself well to hacking and slashing. Carry the momentum from previous swings
-    to cut down opponents.
+    lends itself well to hacking and slashing. With its antique construction style,
+    this sword is not just a weapon but also a testament to a bygone era. Carry the
+    momentum from previous swings to cut down opponents.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7

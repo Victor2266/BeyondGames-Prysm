@@ -90,7 +90,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         }
         else if (index == 12)
         {
-            StartCoroutine(ShinigamiDelaySentence(4f, "Now that I can add the hero of catan to my collection\nI'll be unstoppable.", 1f));
+            StartCoroutine(ShinigamiDelaySentence(4f, "Now that I can add the hero of Giha to my collection\nI'll be unstoppable.", 1f));
         }
         else if (index == 14)
         {
@@ -153,6 +153,13 @@ public class Level2Manager : LevelManager// inherets winlevel function
         {
             boss2AI.agression = true;
             index++;
+        }
+        else if(index == 28)
+        {
+            if (boss2AI.isDead)
+            {
+                ShinigamiMusic.SetActive(false);
+            }
         }
 
         if (index == 100)
