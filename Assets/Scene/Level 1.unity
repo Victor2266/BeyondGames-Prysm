@@ -117434,6 +117434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 0}
+  minSize: 0
+  DMG: 1
 --- !u!82 &911071601264141626
 AudioSource:
   m_ObjectHideFlags: 0
@@ -122755,16 +122757,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 130363536194225464, guid: 183cad2a4a224974491568da4081552a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943531591128196772, guid: 183cad2a4a224974491568da4081552a,
-        type: 3}
-      propertyPath: m_text
-      value: TOGGLE
-      objectReference: {fileID: 0}
     - target: {fileID: 5168091094577955167, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -122935,16 +122927,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5168091096101286485, guid: 183cad2a4a224974491568da4081552a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5168091096552982897, guid: 183cad2a4a224974491568da4081552a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5168091096618937122, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -122954,11 +122936,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968646856915172413, guid: 183cad2a4a224974491568da4081552a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183cad2a4a224974491568da4081552a, type: 3}

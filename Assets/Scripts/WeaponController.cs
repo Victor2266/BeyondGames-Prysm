@@ -70,6 +70,8 @@ public partial class WeaponController : damageController
     delegate void ClickBehavior();
     ClickBehavior clickBehavior;
 
+    public float heldColor = 0f;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -97,6 +99,8 @@ public partial class WeaponController : damageController
         {
             camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
+        OptionsMenu.onMouseVisibilityChangedCallback += changeMouseVisibility;
+        changeMouseVisibility();
 
     }
     void HeldInHandStatus(bool status)
@@ -220,7 +224,7 @@ public partial class WeaponController : damageController
             ReachLength = Mathf.SmoothDamp(ReachLength, ItemReachLength, ref itemVelo, thrustResetTime);
         }
 
-        alphaVal = Mathf.SmoothDamp(arrowColor.color.a, 0f, ref alphaVelo, 0.25f);
+        alphaVal = Mathf.SmoothDamp(arrowColor.color.a, heldColor, ref alphaVelo, 0.25f);
         arrowColor.color = new Color(1f, 1f, 1f, alphaVal);
 
         playerController.UpdateMouseInput();
@@ -448,6 +452,22 @@ public partial class WeaponController : damageController
         if(RCS == Equipment.rightClickStrat.Default)
         {
             clickBehavior += defaultRightClicking;
+        }
+    }
+
+    private void changeMouseVisibility()
+    {
+        if (PlayerPrefs.GetInt("mouseVisibility", 0) == 0)
+        {
+            heldColor = 0f;
+        }
+        else if (PlayerPrefs.GetInt("mouseVisibility", 0) == 1)
+        {
+            heldColor = 0.16f;
+        }
+        else
+        {
+            heldColor = 0f;
         }
     }
 }

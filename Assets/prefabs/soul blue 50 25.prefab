@@ -4809,7 +4809,7 @@ MonoBehaviour:
   ticks: 0
   glowsBright: 0
   lightObject: {fileID: 0}
-  tickLimit: 32
+  tickLimit: 48
   shrinks: 1
   trail: 0
   startSize: 0.7

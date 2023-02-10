@@ -13,6 +13,7 @@ public class OptionsMenu : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreentoggle;
     public Toggle cameraLockToggle;
+    public Toggle mouseVisibilityToggle;
     public Slider BGM_Slider;
     public Slider UI_Slider;
     public Slider CONTROL_Slider;
@@ -21,7 +22,10 @@ public class OptionsMenu : MonoBehaviour
     // Camera lock setting is changed
     public delegate void OnCameraLockChanged();
     public static OnCameraLockChanged onCameraLockChangedCallback;
-
+    // Callback which is triggered when
+    // mosue show setting is changed
+    public delegate void OnMouseVisibility();
+    public static OnMouseVisibility onMouseVisibilityChangedCallback;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +58,7 @@ public class OptionsMenu : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
-
+        mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 0) == 1 ? true : false;
     }
 
     private void SetStartingSliders()
@@ -118,6 +122,20 @@ public class OptionsMenu : MonoBehaviour
         }
 
         onCameraLockChangedCallback.Invoke();
+    }
+
+    public void SetMouseVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            PlayerPrefs.SetInt("mouseVisibility", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("mouseVisibility", 0);
+        }
+
+        onMouseVisibilityChangedCallback.Invoke();
     }
 
     public delegate void OnControlChange();
