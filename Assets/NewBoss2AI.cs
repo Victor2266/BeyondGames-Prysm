@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EZCameraShake;
 public class NewBoss2AI : MobGeneric
 {
 
@@ -39,7 +39,6 @@ public class NewBoss2AI : MobGeneric
     public enemyWeapon weapon;
     public float playerFollowSpeed;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +54,11 @@ public class NewBoss2AI : MobGeneric
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (puppetMode)
         {
             transform.position = Vector3.SmoothDamp(transform.position, puppetStrings.transform.position + offsetFollow, ref velo, 1f);
@@ -92,6 +96,7 @@ public class NewBoss2AI : MobGeneric
                         if(Random.Range(0,2) > -1)
                         {
                             playerFollowSpeed = 0.5f;
+                            audioSource.Play();
                             if (weapon.LookingLeft == true)
                             {
                                 anim.SetTrigger("DraggingRight");
@@ -225,7 +230,6 @@ public class NewBoss2AI : MobGeneric
         playerFollowSpeed = 0.5f;
         if (lookingLeft) {
             offsetFollow = new Vector3(5f, 3f, -2f);
-            Debug.Log("stand to right");
         }
         else
         {
@@ -235,8 +239,6 @@ public class NewBoss2AI : MobGeneric
         if (lookingLeft)
         {
             offsetFollow = new Vector3(-7f, 3f, -2f);
-
-            Debug.Log("stand to left");
         }
         else
         {
@@ -267,6 +269,26 @@ public class NewBoss2AI : MobGeneric
         audioSource.Play();
 
         BSplat.Spray((int)amount / 2);
+
+        if(Health <= 0f && !isDead)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        isDead = true;
+        clone = Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+       
+        //base.gameObject.GetComponentInChildren<Light>().enabled = false;
+        anim.SetTrigger("dead");
+        anim.SetBool("FullyDead", true);
+        healthBar.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+
+        CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 5f);
+        //Destroy(healthBar.gameObject);
     }
 
 
