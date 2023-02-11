@@ -8,10 +8,13 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
     RawImage rawImage;
     SpriteRenderer sprtRend;
     Image image;
+    UnityEngine.Video.VideoPlayer video;
 
     public bool UseRawImage = true;
     public bool UseSpriteRend;
     public bool UseImage;
+    public bool UseVideo;
+
     public bool ResetAlphaToZeroOnAwake;
 
     public float ticks;
@@ -26,6 +29,7 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
         rawImage = GetComponent<RawImage>();
         sprtRend = GetComponent<SpriteRenderer>();
         image = GetComponent<Image>();
+        video = GetComponent<UnityEngine.Video.VideoPlayer>();
 
         if (ResetAlphaToZeroOnAwake)
         {
@@ -40,6 +44,9 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
             else if (UseImage)
             {
                 image.color = new Vector4(image.color.r, image.color.g, image.color.b, 0f);
+            }else if (UseVideo)
+            {
+                video.targetCameraAlpha = 0f;
             }
         }
 
@@ -74,6 +81,13 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
                 if (image.color.a < 1)
                 {
                     image.color = new Vector4(image.color.r, image.color.g, image.color.b, 1 * ((ticks - startValue) / (tickLimit)));
+                }
+            }
+            else if (UseVideo)
+            {
+                if (video.targetCameraAlpha < 1)
+                {
+                    video.targetCameraAlpha = ((ticks - startValue) / (tickLimit));
                 }
             }
         }

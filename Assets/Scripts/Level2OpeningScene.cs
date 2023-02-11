@@ -24,7 +24,7 @@ public class Level2OpeningScene : DialogTrigger
     public AudioClip CutSceneSong;
     private bool playedSong = false;
     public GameObject hands, RHand, LHand;
-    public GameObject spikyEdges, soulOrb, soulLight;
+    public GameObject spikyEdges, soulOrb, soulLight, graveVideo;
 
     public Animator eye;
 
@@ -90,7 +90,7 @@ public class Level2OpeningScene : DialogTrigger
             }
 
         }
-        if (DialogManager.instance.index == 5)
+        if (DialogManager.instance.index == 5)//before you hunt any big targets you're gonna need some better weapons.
         {
             //fade in an image of the map within the orb
             if (!notTriggeredYet)
@@ -100,24 +100,41 @@ public class Level2OpeningScene : DialogTrigger
                 targetPosition = new Vector3(-1.046757f, -16.69f, -10f);
                 LeanTween.value(mainCamera, setCameraSize, 7f, 0.3f, 4f).setEase(LeanTweenType.easeOutQuad);
 
+                graveVideo.SetActive(true);
+
             }
         }
-        if (DialogManager.instance.index == 6)
+        if (DialogManager.instance.index == 6)//There's a graveyard in the forest outskirts that holds the graves of many former heros.
         {
             //move around graveyard section but dont show hero
 
         }
-        if (DialogManager.instance.index == 7)
+        if (DialogManager.instance.index == 7)//You're gonna pillage those graves for the weapons buried within them.
         {
             //fade to black
+            if (notTriggeredYet)
+            {
+                notTriggeredYet = false;
+
+                LeanTween.value(mainCamera, setVideoAlpha, 1f, 0f, 8f).setEase(LeanTweenType.easeOutQuad);
+
+            }
             audioSource.volume = Mathf.SmoothDamp(audioSource.volume, 0f, ref audioVelo, 1f);  //change 0.01f to something else to adjust the rate of the volume dropping
+
         }
 
-        if (DialogManager.instance.index == 8 && notTriggeredYet)//element 15
+        if (DialogManager.instance.index == 8)//element 15 The only problem is that the hero of Giha has been at the graveyard for the past 5 days.
         {
             //knight hype excalibur pose and particle effects while panning and tilting downwards
             //hype music
-            notTriggeredYet = true;
+            if (!notTriggeredYet)
+            {
+                notTriggeredYet = true;
+
+
+                graveVideo.SetActive(false);
+
+            }
 
 
         }
@@ -178,8 +195,13 @@ public class Level2OpeningScene : DialogTrigger
         soulLight.GetComponent<ArtificialLightFlicker>().limit = s / 2.55f;
 
     }
+    
     public void setSoulcolor(float s)
     {
         soulOrb.GetComponent<ParticleSystem>().startColor = new Color(61f/255f, 133f/255f, 245f/255f, s/255f);
+    }
+    public void setVideoAlpha(float s)
+    {
+        graveVideo.GetComponent<UnityEngine.Video.VideoPlayer>().targetCameraAlpha = s;
     }
 }

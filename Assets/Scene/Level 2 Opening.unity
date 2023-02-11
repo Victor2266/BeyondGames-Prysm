@@ -280,7 +280,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 708508588}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -302,6 +302,7 @@ MonoBehaviour:
   UseRawImage: 1
   UseSpriteRend: 0
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
   tickLimit: 4
@@ -5832,7 +5833,7 @@ RectTransform:
   - {fileID: 1823803026}
   - {fileID: 233862021}
   m_Father: {fileID: 708508588}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -11221,6 +11222,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1032812158}
   - {fileID: 448231765}
   - {fileID: 57910967}
   m_Father: {fileID: 0}
@@ -16566,10 +16568,14 @@ MonoBehaviour:
     - You're gonna pillage those graves for the weapons buried within them.
     - The only problem is that the hero of Giha has been at the graveyard for the
       past 5 days.
-    - He's a former peasant turned swordsman and hero. They say he single handedly
-      wiped out a wyvern den and that he once fought off 100 goblins alone. He's
+    - 'He''s a former peasant turned swordsman and hero.
+
+      They say he single
+      handedly wiped out a wyvern den and that he once fought off 100 goblins alone.
+
+      He''s
       also responsible for guarding the kingdom against any monsters that emerge
-      from the east side of the forest of death.
+      from the east side of the forest of death.'
     - I'm not sure why he's there.
     - But there's no way he is going to let you pillage the graves in front of him.
     - So, defeat him and consume his soul as well.
@@ -16589,6 +16595,7 @@ MonoBehaviour:
   spikyEdges: {fileID: 1872368298}
   soulOrb: {fileID: 1716032962}
   soulLight: {fileID: 1069691955}
+  graveVideo: {fileID: 1032812157}
   eye: {fileID: 321751473}
 --- !u!4 &899003683
 Transform:
@@ -16615,7 +16622,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6545337eff5c6234c85377ad0cffcc2e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 886137eb2fd5fca48bb9137d5b22b1c9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -30981,6 +30988,96 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1032812157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032812158}
+  - component: {fileID: 1032812159}
+  - component: {fileID: 1032812160}
+  m_Layer: 5
+  m_Name: Video Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1032812158
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032812157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 708508588}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!328 &1032812159
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032812157}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 357117196e4455e4ab6ce70dbf02e580, type: 3}
+  m_TargetCameraAlpha: 0
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1947762707}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 0
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+--- !u!114 &1032812160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032812157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db53f3476b7c3b45a53535c0a2b2278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseRawImage: 0
+  UseSpriteRend: 0
+  UseImage: 0
+  UseVideo: 1
+  ResetAlphaToZeroOnAwake: 1
+  ticks: 0
+  tickLimit: 8
 --- !u!1 &1069691955
 GameObject:
   m_ObjectHideFlags: 0
