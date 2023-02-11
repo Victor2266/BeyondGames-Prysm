@@ -38,6 +38,7 @@ public class NewBoss2AI : MobGeneric
 
     public enemyWeapon weapon;
     public float playerFollowSpeed;
+    private float orbitalSizeTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +80,7 @@ public class NewBoss2AI : MobGeneric
                     eyeRightPointer.turn_speed = 2f;
 
 
-                    if (laserCounter == 10)
+                    if (laserCounter == 5)
                     {
                         StartCoroutine(activateLaser(10f));
                         laserCounter = 0;
@@ -141,7 +142,7 @@ public class NewBoss2AI : MobGeneric
             
 
             //set laser orbital size
-            orbitalSize = Mathf.SmoothDamp(orbitalSize, orbitalSizeTarget, ref _orbitalSize, 1f);
+            orbitalSize = Mathf.SmoothDamp(orbitalSize, orbitalSizeTarget, ref _orbitalSize, orbitalSizeTime);
             lPV1.orbitalX = orbitalSize;
             lPV2.orbitalX = lPV1.orbitalX;
         }
@@ -154,51 +155,38 @@ public class NewBoss2AI : MobGeneric
         if (Health <= 100f)
         {
             laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize,2f);
-            laserPart2.startSize = laserPart1.startSize;
-
-
-            if (!waitingForLaser)
-            {
-                eyeLeftPointer.turn_speed = 0.5f;
-                eyeRightPointer.turn_speed = 0.5f;
-                waitingForLaser = true;
-                GetComponent<AudioSource>().Play();
-                laserAudio.volume = 0.5f;
-                laserAudio.Play();
-            }
+            orbitalSizeTime = 2f;
+            laserProtocol();
 
         }
         else if (Health <= 200f)
         {
-            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 2f);
-            laserPart2.startSize = laserPart1.startSize;
-            if (!waitingForLaser)
-            {
-                eyeLeftPointer.turn_speed = 0.5f;
-                eyeRightPointer.turn_speed = 0.5f;
-                waitingForLaser = true;
-                GetComponent<AudioSource>().Play();
-                laserAudio.volume = 0.5f;
-                laserAudio.Play();
-            }
+            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 1.5f);
+            orbitalSizeTime = 1.5f;
+            laserProtocol();
         }
         else
         {
-            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 2f);
-            laserPart2.startSize = laserPart1.startSize;
-            if (!waitingForLaser)
-            {
-                eyeLeftPointer.turn_speed = 0.5f;
-                eyeRightPointer.turn_speed = 0.5f;
-                waitingForLaser = true;
-                GetComponent<AudioSource>().Play();
-                laserAudio.volume = 0.5f;
-                laserAudio.Play();
-            }
+            laserPart1.startSize = Mathf.SmoothDamp(laserPart1.startSize, 1f, ref _refLazerSize, 1f);
+            orbitalSizeTime = 1f;
+            laserProtocol();
         }
         
     }
 
+    private void laserProtocol()
+    {
+        laserPart2.startSize = laserPart1.startSize;
+        if (!waitingForLaser)
+        {
+            eyeLeftPointer.turn_speed = 0.5f;
+            eyeRightPointer.turn_speed = 0.5f;
+            waitingForLaser = true;
+            GetComponent<AudioSource>().Play();
+            laserAudio.volume = 0.5f;
+            laserAudio.Play();
+        }
+    }
     private IEnumerator activateLaser(float seconds)
     {
         indicatorLights[0].SetActive(true);
@@ -287,7 +275,7 @@ public class NewBoss2AI : MobGeneric
         healthBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
 
-        CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 10f);
+        CameraShaker.Instance.ShakeOnce(25f, 15f, 0f, 10f);
         //Destroy(healthBar.gameObject);
     }
 
