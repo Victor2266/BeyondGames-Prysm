@@ -24,7 +24,7 @@ public class Level2OpeningScene : DialogTrigger
     public AudioClip CutSceneSong;
     private bool playedSong = false;
     public GameObject hands, RHand, LHand;
-    public GameObject spikyEdges, soulOrb, soulLight, graveVideo, fullGlow, ArcLight, CenterSpiral, eyemask;
+    public GameObject spikyEdges, soulOrb, soulLight, graveVideo, fullGlow, ArcLight, CenterSpiral, eyemask, smile;
 
     public Animator eye;
 
@@ -169,31 +169,40 @@ public class Level2OpeningScene : DialogTrigger
         {
             //renka smile
 
+            if (notTriggeredYet)
+            {
+                LeanTween.move(hands, new Vector3(0, -1.4f, 0), 2f).setEase(LeanTweenType.easeOutQuad);
+                LeanTween.scale(smile, new Vector3(1f, 0.75f, 1f), 2f).setEase(LeanTweenType.easeOutElastic);
+                fullGlow.SetActive(true);
+
+                notTriggeredYet = false;
+
+            }
+
         }
         else if (DialogManager.instance.index == 12)//So, defeat him and consume his soul as well.
         {
             //activate glowing spikes full
-            if (notTriggeredYet)
+            if (!notTriggeredYet)
             {
-                notTriggeredYet = false;
+                notTriggeredYet = true;
 
-                fullGlow.SetActive(true);
 
+                ArcLight.SetActive(true);
+                LeanTween.value(mainCamera, setArclightArc, 1f, 360f, 2f).setEase(LeanTweenType.easeOutQuad);
             }
 
         }
         else if (DialogManager.instance.index == 13)//Two birds with one stone! Good Luck!
         {
             //end
-            if (!notTriggeredYet)
+            if (notTriggeredYet)
             {
-                notTriggeredYet = true;
+                notTriggeredYet = false;
 
-                ArcLight.SetActive(true);
                 CenterSpiral.SetActive(true);
 
 
-                LeanTween.value(mainCamera, setArclightArc, 1f, 360f, 4f).setEase(LeanTweenType.easeOutQuad);
                 LeanTween.value(mainCamera, setArclightSpeed, 0.2f, 2f, 4f).setEase(LeanTweenType.easeOutQuad);
 
                 StartCoroutine(waitThenIndex(4f));
@@ -203,9 +212,9 @@ public class Level2OpeningScene : DialogTrigger
         else if (DialogManager.instance.index == 14)
         {
             //end
-            if (notTriggeredYet)
+            if (!notTriggeredYet)
             {
-                notTriggeredYet = false;
+                notTriggeredYet = true;
 
                 FadeToBlack.SetActive(true);
                 DialogManager.instance.EndDialog();
