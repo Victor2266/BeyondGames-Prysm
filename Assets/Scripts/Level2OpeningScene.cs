@@ -24,7 +24,7 @@ public class Level2OpeningScene : DialogTrigger
     public AudioClip CutSceneSong;
     private bool playedSong = false;
     public GameObject hands, RHand, LHand;
-    public GameObject spikyEdges, soulOrb, soulLight, graveVideo;
+    public GameObject spikyEdges, soulOrb, soulLight, graveVideo, fullGlow, ArcLight, CenterSpiral, eyemask;
 
     public Animator eye;
 
@@ -82,7 +82,7 @@ public class Level2OpeningScene : DialogTrigger
             {
                 notTriggeredYet = false;
                 spikyEdges.SetActive(true);
-
+                eyemask.SetActive(false);
                 LeanTween.move(soulOrb, new Vector3(-0.9643354f, -17.96564f, 2.823045f), 2f).setEase(LeanTweenType.easeOutQuad);
                 soulOrb.transform.SetParent(hands.transform, true);
                 LeanTween.value(soulOrb, setSoulSize, 1.5f, 11.5f, 6f).setEase(LeanTweenType.easeOutQuad);
@@ -116,7 +116,7 @@ public class Level2OpeningScene : DialogTrigger
             {
                 notTriggeredYet = false;
 
-                LeanTween.value(mainCamera, setVideoAlpha, 1f, 0f, 8f).setEase(LeanTweenType.easeOutQuad);
+                LeanTween.value(mainCamera, setVideoAlpha, 1f, 0f, 4f).setEase(LeanTweenType.easeOutQuad);
 
             }
             audioSource.volume = Mathf.SmoothDamp(audioSource.volume, 0f, ref audioVelo, 1f);  //change 0.01f to something else to adjust the rate of the volume dropping
@@ -125,48 +125,96 @@ public class Level2OpeningScene : DialogTrigger
 
         if (DialogManager.instance.index == 8)//element 15 The only problem is that the hero of Giha has been at the graveyard for the past 5 days.
         {
-            //knight hype excalibur pose and particle effects while panning and tilting downwards
-            //hype music
+            //cut music
             if (!notTriggeredYet)
             {
                 notTriggeredYet = true;
-
+                audioSource.Stop();
+                audioSource.volume = 1f;
 
                 graveVideo.SetActive(false);
-
             }
 
 
         }
         if (DialogManager.instance.index == 9 && notTriggeredYet)
         {
-            //fade to black
+            //knight hype excalibur pose and particle effects while panning and tilting downwards
+            //hype music
+            if (notTriggeredYet)
+            {
+
+                LeanTween.value(mainCamera, setCameraSize, 0.3f, 1.2f, 4f).setEase(LeanTweenType.easeOutQuad);
+                targetPosition = new Vector3(0.4f, -32.97f, -10f);
+                notTriggeredYet = false;
+                audioSource.clip = CutSceneSong;
+                audioSource.Play();
+
+            }
 
         }
-        else if (DialogManager.instance.index == 10)
+        else if (DialogManager.instance.index == 10)//I'm not sure why he's there.
         {
             //fade back to renka
+            if (!notTriggeredYet)
+            {
+                LeanTween.value(mainCamera, setCameraSize, 1.2f, 5f, 4f).setEase(LeanTweenType.easeOutQuad);
+                targetPosition = new Vector3(-0.23f, -10, -10f);
+                notTriggeredYet = true;
+
+            }
 
         }
-        if (DialogManager.instance.index == 11)
+        else if (DialogManager.instance.index == 11)//But there's no way he is going to let you pillage the graves in front of him.
         {
             //renka smile
 
         }
-        if (DialogManager.instance.index == 12)
+        else if (DialogManager.instance.index == 12)//So, defeat him and consume his soul as well.
         {
             //activate glowing spikes full
+            if (notTriggeredYet)
+            {
+                notTriggeredYet = false;
+
+                fullGlow.SetActive(true);
+
+            }
 
         }
-        if (DialogManager.instance.index == 13)
+        else if (DialogManager.instance.index == 13)//Two birds with one stone! Good Luck!
         {
             //end
-            FadeToBlack.SetActive(true);
-            DialogManager.instance.EndDialog();
-            StartCoroutine(MySceneManager.instance.SelectLevel("Level 2"));
+            if (!notTriggeredYet)
+            {
+                notTriggeredYet = true;
+
+                ArcLight.SetActive(true);
+                CenterSpiral.SetActive(true);
+
+
+                LeanTween.value(mainCamera, setArclightArc, 1f, 360f, 4f).setEase(LeanTweenType.easeOutQuad);
+                LeanTween.value(mainCamera, setArclightSpeed, 0.2f, 2f, 4f).setEase(LeanTweenType.easeOutQuad);
+
+                StartCoroutine(waitThenIndex(4f));
+            }
 
         }
- 
+        else if (DialogManager.instance.index == 14)
+        {
+            //end
+            if (notTriggeredYet)
+            {
+                notTriggeredYet = false;
+
+                FadeToBlack.SetActive(true);
+                DialogManager.instance.EndDialog();
+                StartCoroutine(MySceneManager.instance.SelectLevel("Level 2"));
+            }
+
+
+        }
+
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
@@ -203,5 +251,22 @@ public class Level2OpeningScene : DialogTrigger
     public void setVideoAlpha(float s)
     {
         graveVideo.GetComponent<UnityEngine.Video.VideoPlayer>().targetCameraAlpha = s;
+    }
+    public void setArclightArc(float s)
+    {
+        ParticleSystem.ShapeModule sm = ArcLight.GetComponent<ParticleSystem>().shape;
+
+        sm.arc = s;
+
+    }
+    public void setArclightSpeed(float s)
+    {
+        ArcLight.GetComponent<ParticleSystem>().startSpeed = s;
+    }
+
+    private IEnumerator waitThenIndex(float f)
+    {
+        yield return new WaitForSeconds(f);
+        DialogManager.instance.index++;
     }
 }
