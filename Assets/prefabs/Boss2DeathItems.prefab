@@ -10221,6 +10221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: soul red tear shaped 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1736637759948417562, guid: 57af3e07b2ec3b1479a0d7e5eb39ee62,
+        type: 3}
+      propertyPath: m_TagString
+      value: CritBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57af3e07b2ec3b1479a0d7e5eb39ee62, type: 3}
 --- !u!4 &51878717862757636 stripped
