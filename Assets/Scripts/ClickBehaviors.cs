@@ -30,6 +30,7 @@ public partial class WeaponController
             }
 
             totalDistance += distance;
+
             DMG = (int)(totalDistance * DMG_Scaling);
             if (DMG > MaxDamage)
             {
@@ -44,7 +45,6 @@ public partial class WeaponController
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
 
-            zAngle = transform.localEulerAngles.z;
             if (distance > capsuleColider.size.x * 2f)//capsule checking
             {
                 worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
@@ -71,27 +71,7 @@ public partial class WeaponController
                 }
             }
 
-            if (oneSided)
-            {
-                if (zAngle - lastZAngle > 0)
-                {
-                    if (!flipSide)
-                        transform.localScale = new Vector3(-xySize, xySize, 1f);
-                    else
-                        transform.localScale = new Vector3(xySize, xySize, 1f);
-                }
-                else
-                {
-                    if (!flipSide)
-                        transform.localScale = new Vector3(xySize, xySize, 1f);
-                    else
-                        transform.localScale = new Vector3(-xySize, xySize, 1f);
-                }
-            }
-
-
             lastPosition = currPos;
-            lastZAngle = zAngle;
         }
         if ((PlayerController.liftLeft && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
         {
@@ -110,6 +90,8 @@ public partial class WeaponController
 
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
+
+            trueMD = movementDelay;
         }
     }
 
@@ -199,6 +181,134 @@ public partial class WeaponController
                 }
                 sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             }
+        }
+    }
+
+    private bool drainsMana;
+    private float lastTotalDist;
+    private void doubleStateRightClicking()//spawns the projectile object as a trail to use like default left click, can set to manadrain or one time mana use
+    {
+        if (PlayerController.startRight && timeStamp <= Time.time && !WeaponEnabled2 && (!drainsMana ? playerEntity.currentMana - playerEntity.ManaCost >= 0 : (playerEntity.currentMana - (playerEntity.ManaCost * (totalDistance - lastTotalDist)) >= 0)))//right click that enables weapon
+        {
+            lastPosition = transform.position;
+            lastZAngle = zAngle;
+            weaponUI.flashWhite();
+            enableWeapon2();
+            audioSource.Play();
+            totalDistance = MinDamage / DMG_Scaling2;
+            lastHit = null;
+
+            arrowColor.color = new Color(0f, 0f, 0f, 0f);
+
+            trueMD = movementDelay2;
+            if (!drainsMana)
+            {
+                playerEntity.setMana(playerEntity.currentMana - playerEntity.ManaCost);
+            }
+
+            lastTotalDist = 0;
+        }
+        if (PlayerController.holdingRight && timeStamp <= Time.time && WeaponEnabled2)//while holding right click
+        {
+            currPos = transform.position;
+            distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
+
+            if (distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
+            {
+                audioSource.Play();
+            }
+
+            totalDistance += distance;
+            DMG = (int)(totalDistance * DMG_Scaling2);
+
+            if (DMG > MaxDamage2)
+            {
+                DMG = MaxDamage2;
+            }
+            if (totalDistance > MaxDamage2 / DMG_Scaling2)
+            {
+                totalDistance = MaxDamage2 / DMG_Scaling2;
+            }
+
+            if (drainsMana)
+            {
+                if (playerEntity.ManaCost * (totalDistance - lastTotalDist) >= 1f)
+                {
+                    if (playerEntity.currentMana - (playerEntity.ManaCost * (totalDistance - lastTotalDist)) >= 0)
+                    {
+                        playerEntity.setMana(playerEntity.currentMana - (int)(playerEntity.ManaCost * (totalDistance - lastTotalDist)));
+                    }
+                    else
+                    {
+                        PlayerController.liftRight = true;
+                    }
+
+                    lastTotalDist = totalDistance;
+                }
+
+            }
+
+            DamageCounter.text = DMG.ToString();
+
+            if (MaxDamage2 > 0)
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / MaxDamage2);
+            else
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
+
+            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit2) * StaminaBar.maxValue;
+
+            if (distance > capsuleColider.size.x * 2f)//capsule checking
+            {
+                worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
+                hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
+                //Debug.DrawRay((Vector2)currPos + worldSpaceOffset, lastPosition - currPos, Color.red, 10.0f);
+
+                foreach (RaycastHit2D hit in hits)
+                {
+
+                    if (capsuleColider.IsTouching(hit.collider))//if weapon is in colider, no need for casting
+                    {
+                        lastHit = hit.collider.gameObject;
+                    }
+                    if (lastHit == null)
+                    {
+                        DoubleCheckingCollision(hit);
+                    }
+                    else if (lastHit != (hit.collider.gameObject))
+                    {
+                        //Debug.Log(lastHit.name);
+                        DoubleCheckingCollision(hit);
+                    }
+
+                }
+            }
+
+
+
+
+            lastPosition = currPos;
+        }
+        if ((PlayerController.liftRight && WeaponEnabled2) || (Time.time > startTime + activeTimeLimit2 && WeaponEnabled2))//released right click
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
+
+            totalDistance = 0f;
+
+            remainingCooldown = cooldownTime2 - (1f - (Time.time - startTime) / activeTimeLimit2) * cooldownTime2;
+            timeStamp = Time.time + remainingCooldown;
+            weaponUI.ScaleDown(remainingCooldown);
+            StaminaBar.value = 0f;
+            WeaponEnabled2 = false;
+            Trail2.SetActive(false);
+            DamageCounter.text = "";
+
+            arrowColor.color = new Color(0f, 0f, 0f, 0f);
+            whiteArrow.SetActive(true);
+
+            trueMD = movementDelay;
+
+            lastTotalDist = totalDistance;
         }
     }
 }

@@ -29,7 +29,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
-            Debug.Log("Pausing Game");
+            //Debug.Log("Pausing Game");
 
             if (isPaused)
             {

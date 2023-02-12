@@ -7,15 +7,15 @@ public partial class WeaponController : damageController
     [SerializeField] private GameObject whiteArrow;
     [SerializeField] private SpriteRenderer arrowColor;
 
-    public GameObject pop;
+    public GameObject pop, pop2;
 
     private SpriteRenderer sprtrend;
     private float handReachMultiplier;
 
     public float ReachLength;
     private int DMG;// this is just the running total accumulated while dam_scalign is adding up
-    public float DMG_Scaling;
-    public int MaxDamage;
+    public float DMG_Scaling, DMG_Scaling2;
+    public int MaxDamage, MaxDamage2;
     public int MinDamage;
     public float DMGTextSize;
 
@@ -25,16 +25,16 @@ public partial class WeaponController : damageController
     public Camera camera = null;
     private float timeStamp;
     private float startTime;
-    public float activeTimeLimit;
-    public float cooldownTime;
+    public float activeTimeLimit, activeTimeLimit2;
+    public float cooldownTime, cooldownTime2;
 
-    private bool WeaponEnabled;
+    private bool WeaponEnabled, WeaponEnabled2;
     public bool isInHand;
 
     public Slider StaminaBar;
     private RectTransform rectTrans;
 
-    private GameObject Trail;
+    private GameObject Trail, Trail2;
     public GameObject player;
     public PlayerController playerController;
     public delegate void OnHeldInHand(bool isHeld);
@@ -59,7 +59,7 @@ public partial class WeaponController : damageController
 
     AudioSource audioSource;
 
-    public float movementDelay;
+    public float trueMD, movementDelay, movementDelay2;
     private Vector3 _velocity;
 
     public bool oneSided;
@@ -120,6 +120,7 @@ public partial class WeaponController : damageController
             DamageCounter.text = "";
             ReachLength = 1.5f;
             Destroy(Trail);
+            Destroy(Trail2);
         }
         else // is weapon
         {
@@ -130,11 +131,15 @@ public partial class WeaponController : damageController
             ReachLength = equippedWeapon.ReachLength;
             ItemReachLength = equippedWeapon.ReachLength;
             DMG_Scaling = equippedWeapon.DMG_Scaling;
+            DMG_Scaling2 = equippedWeapon.DMG_Scaling2;
             MaxDamage = equippedWeapon.MaxDamage;
+            MaxDamage2 = equippedWeapon.MaxDamage2;
             MinDamage = equippedWeapon.MinDamage;
             DMGTextSize = equippedWeapon.DMGTextSize;
             activeTimeLimit = equippedWeapon.activeTimeLimit;
+            activeTimeLimit2 = equippedWeapon.activeTimeLimit2;
             cooldownTime = equippedWeapon.cooldownTime;
+            cooldownTime2 = equippedWeapon.cooldownTime2;
             projAsChild = equippedWeapon.projAsChild;
             ElementType = equippedWeapon.ElementalType;
 
@@ -156,6 +161,8 @@ public partial class WeaponController : damageController
             handReachMultiplier = equippedWeapon.handReachMultiplier;
             projectileOffset = equippedWeapon.projectileOffset;
             movementDelay = equippedWeapon.movementDelay;
+            movementDelay2 = equippedWeapon.movementDelay2;
+            trueMD = movementDelay;
 
             playerEntity.attack = equippedWeapon.projectileAttack;
             
@@ -172,11 +179,21 @@ public partial class WeaponController : damageController
             {
                 Destroy(Trail);
             }
+            if(Trail2 != null)
+            {
+                Destroy(Trail2);
+            }
 
             //GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(0,0, equippedWeapon.angle_offset);
             Trail = Instantiate(equippedWeapon.trail, transform);
             Trail.SetActive(false);
+            if(equippedWeapon.rightClickStrategy == Equipment.rightClickStrat.DoubleStateCost || equippedWeapon.rightClickStrategy == Equipment.rightClickStrat.DoubleStateDrains)
+            {
+                Trail2 = Instantiate(equippedWeapon.projectileAttack, transform);
+                Trail2.SetActive(false);
+            }
             pop = equippedWeapon.popSpawn;
+            pop2 = equippedWeapon.popSpawn2;
             DMGText = equippedWeapon.dmgTextObj;
             oneSided = equippedWeapon.oneSidedSwing;
             flipSide = equippedWeapon.swingOtherSide;
@@ -198,7 +215,7 @@ public partial class WeaponController : damageController
         //Vector2 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
         Vector2 mouseWorldPosition = whiteArrow.transform.position - player.transform.position;
 
-        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, mouseWorldPosition, ref _velocity, movementDelay);
+        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, mouseWorldPosition, ref _velocity, trueMD);
         //transform.localPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0f);
 
         if (transform.localPosition.magnitude > ReachLength)
@@ -229,7 +246,36 @@ public partial class WeaponController : damageController
 
         playerController.UpdateMouseInput();
 
+        zAngle = transform.localEulerAngles.z;
+
         clickBehavior();
+
+
+        if (oneSided && playerEntity.bullet == null)
+        {
+            if (Mathf.Abs(zAngle - lastZAngle) > 0.1f)
+            {
+                if (zAngle - lastZAngle > 0)
+                {
+                    if (!flipSide)
+                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                    else
+                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                }
+                else
+                {
+                    if (!flipSide)
+                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                    else
+                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                }
+
+                Trail2.transform.localScale = transform.localScale;
+            }
+
+        }
+
+        lastZAngle = zAngle;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -347,7 +393,14 @@ public partial class WeaponController : damageController
             }
 
             ShowDMGText((int)calcDMG, calcDMGSize);
-            Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            if (WeaponEnabled)
+            {
+                Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+            }
+            if (WeaponEnabled2)
+            {
+                Instantiate(pop2, collision.GetContact(0).point, transform.rotation);
+            }
         }
         totalDistance = 0f;//resets dmg calc for next hit
         DMG = 0;//resets dmg value for double hits in quick succession 
@@ -384,7 +437,14 @@ public partial class WeaponController : damageController
             }
 
             ShowDMGText((int)calcDMG, calcDMGSize);
-            Instantiate(pop, collision.point, transform.rotation);
+            if (WeaponEnabled)
+            {
+                Instantiate(pop, collision.point, transform.rotation);
+            }
+            if (WeaponEnabled2)
+            {
+                Instantiate(pop2, collision.point, transform.rotation);
+            }
         }
         totalDistance = 0f;
         DMG = 0;
@@ -398,6 +458,15 @@ public partial class WeaponController : damageController
         WeaponEnabled = true;
         Trail.SetActive(true);
     }
+    private void enableWeapon2()
+    {
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
+        startTime = Time.time;
+        WeaponEnabled2 = true;
+        Trail2.SetActive(true);
+    }
+
 
     RaycastHit2D[] hits;
     Vector3 currPos;
@@ -444,14 +513,15 @@ public partial class WeaponController : damageController
         {
             clickBehavior += defaultLeftClicking;
         }
-        else if (LCS == Equipment.leftClickStrat.Anchor)
-        {
-
-        }
 
         if(RCS == Equipment.rightClickStrat.Default)
         {
             clickBehavior += defaultRightClicking;
+        }
+        else if (RCS == Equipment.rightClickStrat.DoubleStateDrains)
+        {
+            clickBehavior += doubleStateRightClicking;
+            drainsMana = true;
         }
     }
 
@@ -463,7 +533,7 @@ public partial class WeaponController : damageController
         }
         else if (PlayerPrefs.GetInt("mouseVisibility", 0) == 1)
         {
-            heldColor = 0.16f;
+            heldColor = 0.2f;
         }
         else
         {

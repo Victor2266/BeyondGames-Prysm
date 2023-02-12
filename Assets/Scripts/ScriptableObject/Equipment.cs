@@ -10,8 +10,8 @@ public class Equipment : Item
 
     public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None, All }
 
-    public enum leftClickStrat { Default, Anchor }
-    public enum rightClickStrat { Default, Dashing }
+    public enum leftClickStrat { Default, Anchor, Dashing }//anchor, dashing, mana drain, etc
+    public enum rightClickStrat { Default, DoubleStateDrains, DoubleStateCost }
 
 
     public override void Use()
