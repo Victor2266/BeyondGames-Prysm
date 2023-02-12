@@ -269,8 +269,8 @@ public partial class WeaponController : damageController
                     else
                         transform.localScale = new Vector3(-xySize, xySize, 1f);
                 }
-
-                Trail2.transform.localScale = transform.localScale;
+                if(Trail2 != null)
+                    Trail2.transform.localScale = transform.localScale;
             }
 
         }

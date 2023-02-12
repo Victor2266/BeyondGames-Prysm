@@ -10152,6 +10152,7 @@ Transform:
   - {fileID: 7931700203791099841}
   - {fileID: 1276201141840278350}
   - {fileID: 51878717862757636}
+  - {fileID: 8833623783762227422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10321,7 +10322,7 @@ PrefabInstance:
     - target: {fileID: 1736637759948417562, guid: 57af3e07b2ec3b1479a0d7e5eb39ee62,
         type: 3}
       propertyPath: m_TagString
-      value: CritBox
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57af3e07b2ec3b1479a0d7e5eb39ee62, type: 3}
@@ -10330,4 +10331,84 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1736637759948417543, guid: 57af3e07b2ec3b1479a0d7e5eb39ee62,
     type: 3}
   m_PrefabInstance: {fileID: 1774851169594486531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4705857470621217311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7215354804351552529}
+    m_Modifications:
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262915, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_Name
+      value: Crescent Bell Scythe Item Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312696270535262915, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+        type: 3}
+      propertyPath: m_TagString
+      value: CritBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e188f3f8c78bf3344a1b9d015c051ea7, type: 3}
+--- !u!4 &8833623783762227422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4312696270535262913, guid: e188f3f8c78bf3344a1b9d015c051ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4705857470621217311}
   m_PrefabAsset: {fileID: 0}

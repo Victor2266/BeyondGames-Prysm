@@ -12,7 +12,7 @@ public class Equipment : Item
 
     public enum leftClickStrat { Default, Anchor, Dashing }//anchor, dashing, mana drain, etc
     public enum rightClickStrat { Default, DoubleStateDrains, DoubleStateCost }
-
+    //DoubleStateDrains: Uses the mana cost from the projectile controller script to drain mana
 
     public override void Use()
     {
