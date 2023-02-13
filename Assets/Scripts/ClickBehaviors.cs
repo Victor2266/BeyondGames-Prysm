@@ -197,7 +197,7 @@ public partial class WeaponController
             audioSource.Play();
             totalDistance = MinDamage / DMG_Scaling2;
             lastHit = null;
-
+            activeElement = ElementType2;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
 
             trueMD = movementDelay2;
@@ -309,6 +309,8 @@ public partial class WeaponController
             trueMD = movementDelay;
 
             lastTotalDist = totalDistance;
+
+            activeElement = ElementType;
         }
     }
 }
