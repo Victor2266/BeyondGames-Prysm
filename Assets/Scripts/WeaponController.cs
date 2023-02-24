@@ -53,7 +53,8 @@ public partial class WeaponController : damageController
     private float thrustDashDist;
     private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
     private bool projAsChild;
-    private Equipment.ElementType ElementType;
+
+    private Equipment.ElementType activeElement, ElementType, ElementType2;
 
     public Text DamageCounter;
 
@@ -142,6 +143,8 @@ public partial class WeaponController : damageController
             cooldownTime2 = equippedWeapon.cooldownTime2;
             projAsChild = equippedWeapon.projAsChild;
             ElementType = equippedWeapon.ElementalType;
+            ElementType2 = equippedWeapon.ElementalType2;
+            activeElement = ElementType;
 
             SetClickStrat(equippedWeapon.leftClickStrategy, equippedWeapon.rightClickStrategy);
 
@@ -378,12 +381,12 @@ public partial class WeaponController : damageController
             }
             else
             {
-                if (MG.WeaknessTo == ElementType || MG.WeaknessTo == Equipment.ElementType.All)
+                if (MG.WeaknessTo == activeElement || MG.WeaknessTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
                     calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
-                else if (MG.ImmunityTo == ElementType || MG.ImmunityTo == Equipment.ElementType.All)
+                else if (MG.ImmunityTo == activeElement || MG.ImmunityTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
                     calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
@@ -422,12 +425,12 @@ public partial class WeaponController : damageController
             }
             else
             {
-                if (MG.WeaknessTo == ElementType || MG.WeaknessTo == Equipment.ElementType.All)
+                if (MG.WeaknessTo == activeElement || MG.WeaknessTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.WeaknessMultiplier;
                     calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
                 }
-                else if (MG.ImmunityTo == ElementType || MG.ImmunityTo == Equipment.ElementType.All)
+                else if (MG.ImmunityTo == activeElement || MG.ImmunityTo == Equipment.ElementType.All)
                 {
                     calcDMG = calcDMG * MG.ImmunityMultiplier;
                     calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;

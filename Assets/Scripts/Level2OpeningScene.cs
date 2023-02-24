@@ -205,22 +205,17 @@ public class Level2OpeningScene : DialogTrigger
 
                 LeanTween.value(mainCamera, setArclightSpeed, 0.2f, 2f, 4f).setEase(LeanTweenType.easeOutQuad);
 
-                StartCoroutine(waitThenIndex(4f));
+                //StartCoroutine(waitThenIndex(4f));
             }
 
         }
         else if (DialogManager.instance.index == 14)
         {
             //end
-            if (!notTriggeredYet)
-            {
-                notTriggeredYet = true;
-
-                FadeToBlack.SetActive(true);
-                DialogManager.instance.EndDialog();
-                StartCoroutine(MySceneManager.instance.SelectLevel("Level 2"));
-            }
-
+            FadeToBlack.SetActive(true);
+            DialogManager.instance.EndDialog();
+            StartCoroutine(MySceneManager.instance.SelectLevel("Level 2"));
+            DialogManager.instance.index++;
 
         }
 
