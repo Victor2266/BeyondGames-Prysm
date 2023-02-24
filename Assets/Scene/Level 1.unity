@@ -12162,6 +12162,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 1
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 216.12697
   tickLimit: 2
@@ -43699,6 +43700,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 1
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 97.277756
   tickLimit: 2
@@ -60752,6 +60754,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 1
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 219.54733
   tickLimit: 2
@@ -88419,6 +88422,11 @@ PrefabInstance:
       propertyPath: BSplat
       value: 
       objectReference: {fileID: 2142111270}
+    - target: {fileID: 1641011862, guid: b76161a2055b1bd459db004a39499ef8, type: 3}
+      propertyPath: HealOrb
+      value: 
+      objectReference: {fileID: 6065498769456397255, guid: 7b1bf3fec7787ae42b1db752aca870ea,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76161a2055b1bd459db004a39499ef8, type: 3}
 --- !u!4 &1359116502 stripped
@@ -100098,6 +100106,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 1
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 2.0023968
   tickLimit: 2
@@ -115887,6 +115896,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 1
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 216.12697
   tickLimit: 2
