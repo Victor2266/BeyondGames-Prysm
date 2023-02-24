@@ -27,7 +27,7 @@ MonoBehaviour:
   DMG_Scaling: 4
   DMG_Scaling2: 8
   MaxDamage: 60
-  MaxDamage2: 120
+  MaxDamage2: 150
   MinDamage: 6
   DMGTextSize: 2
   activeTimeLimit: 2

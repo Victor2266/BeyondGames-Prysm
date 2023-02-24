@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 7345502183800919183}
   - component: {fileID: 5171064261303423562}
   m_Layer: 0
-  m_Name: soul green 50
+  m_Name: soul green 30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5466,8 +5466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2f37d19a0681f48b95b790548e9d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealAmount: 50
-  ManaAmount: 50
+  HealAmount: 30
+  ManaAmount: 30
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
 --- !u!114 &3690798953072332048
