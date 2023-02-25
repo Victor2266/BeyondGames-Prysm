@@ -32251,6 +32251,7 @@ GameObject:
   - component: {fileID: 5168091095106411500}
   - component: {fileID: 5168091095106411501}
   - component: {fileID: 6647549374872101663}
+  - component: {fileID: 5114388624464734129}
   m_Layer: 5
   m_Name: Item ScrollView
   m_TagString: Untagged
@@ -32346,6 +32347,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5114388624464734129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168091095106411504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb488615714d74948b87ed66fcd30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displacementVal: {x: 0, y: -336, z: 0}
+  m_templateScrollRect: {fileID: 6647549374872101663}
+  m_templateViewportTransform: {fileID: 5168091095362966630}
+  m_ContentRectTransform: {fileID: 5168091095239964244}
+  buttonIsChild: 1
 --- !u!1 &5168091095107010786
 GameObject:
   m_ObjectHideFlags: 0
