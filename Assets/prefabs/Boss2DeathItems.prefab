@@ -9999,7 +9999,7 @@ GameObject:
   - component: {fileID: 667904285944030785}
   m_Layer: 2
   m_Name: Head
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10412,7 +10412,7 @@ PrefabInstance:
     - target: {fileID: 4312696270535262915, guid: e188f3f8c78bf3344a1b9d015c051ea7,
         type: 3}
       propertyPath: m_TagString
-      value: CritBox
+      value: NoExplosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e188f3f8c78bf3344a1b9d015c051ea7, type: 3}

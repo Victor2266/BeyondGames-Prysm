@@ -159,7 +159,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
             if (boss2AI.isDead)
             {
                 ShinigamiMusic.SetActive(false);
-                bossSoul = GameObject.FindGameObjectWithTag("CritBox");
+                bossSoul = GameObject.FindGameObjectWithTag("NoExplosion");
                 StartCoroutine(ShinigamiDelaySentence(4f, "<color=red>I don't believe it . . .", 1f));
             }
         }
