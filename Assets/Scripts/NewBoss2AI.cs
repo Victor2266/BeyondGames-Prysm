@@ -81,17 +81,17 @@ public class NewBoss2AI : MobGeneric
                     eyeRightPointer.turn_speed = 2f;
 
 
-                    if (laserCounter == 5)
+                    if (laserCounter >= 8)
                     {
                         StartCoroutine(activateLaser(10f));
                         laserCounter = 0;
                     }
-                    else if(skeletonCounter == 2)
+                    else if(skeletonCounter >= 2)
                     {
                         skeletonSpawner.Spawn();
                         skeletonCounter = 0;
                     }
-                    else if(dragCounter == 3 && !isSwinging)
+                    else if(dragCounter >= 3 && !isSwinging)
                     {
                         isDragging = true;
                         dragCounter = 0;
