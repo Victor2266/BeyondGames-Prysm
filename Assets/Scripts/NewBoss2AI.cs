@@ -17,6 +17,7 @@ public class NewBoss2AI : MobGeneric
     public bool followPlayer;
     public GameObject player;
 
+    [SerializeField]
     private int laserCounter, skeletonCounter, dragCounter;
     private bool isSwinging, activeLaser, waitingForLaser, isDragging;
 
@@ -241,7 +242,7 @@ public class NewBoss2AI : MobGeneric
 
     }
 
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         laserCounter++;
         skeletonCounter++;
