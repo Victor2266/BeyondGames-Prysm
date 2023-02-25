@@ -21,7 +21,7 @@ public class ImperialKnightLongSword : MobGeneric
     public GameObject projAttack;
     private int hits;
 
-    public GameObject DeathItem2;
+    public GameObject DeathItem2, DeathItem1;
     public AudioClip blockedSound;
     public AudioClip[] speakSound;
 
@@ -522,6 +522,7 @@ public class ImperialKnightLongSword : MobGeneric
         if (!puppetMode)
         {
             Instantiate(DeathItem, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
+            Instantiate(DeathItem1, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
             Instantiate(DeathItem2, new Vector3(transform.position.x, transform.position.y, -1f), base.transform.rotation);
         }
         else
