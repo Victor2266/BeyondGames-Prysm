@@ -32250,7 +32250,7 @@ GameObject:
   - component: {fileID: 5168091095106411503}
   - component: {fileID: 5168091095106411500}
   - component: {fileID: 5168091095106411501}
-  - component: {fileID: 5168091095106411502}
+  - component: {fileID: 6647549374872101663}
   m_Layer: 5
   m_Name: Item ScrollView
   m_TagString: Untagged
@@ -32316,7 +32316,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5168091095106411502
+--- !u!114 &6647549374872101663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32325,7 +32325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5168091095106411504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b32f42b28c5b1a4989f21d3485bc174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 5168091095239964244}
@@ -32335,14 +32335,14 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 10
+  m_ScrollSensitivity: 6
   m_Viewport: {fileID: 5168091095362966630}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 5168091096099584594}
   m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0
-  m_VerticalScrollbarSpacing: -8
+  m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -36028,14 +36028,19 @@ MonoBehaviour:
   whiteArrow: {fileID: 5168091096063484725}
   arrowColor: {fileID: 5168091096063484723}
   pop: {fileID: 154529244681351670, guid: 3d34bd798ef2d0a4ab93aa9a2fdbeb1b, type: 3}
+  pop2: {fileID: 0}
   ReachLength: 2
   DMG_Scaling: 4
+  DMG_Scaling2: 0
   MaxDamage: 0
+  MaxDamage2: 0
   MinDamage: 0
   DMGTextSize: 2
   camera: {fileID: 0}
   activeTimeLimit: 1
+  activeTimeLimit2: 0
   cooldownTime: 0.8
+  cooldownTime2: 0
   isInHand: 0
   StaminaBar: {fileID: 5168091096300408067}
   player: {fileID: 5168091094779617406}
@@ -36045,7 +36050,9 @@ MonoBehaviour:
   playerEntity: {fileID: 5168091094779617394}
   projectileOffset: 0
   DamageCounter: {fileID: 5168091096606203308}
+  trueMD: 0
   movementDelay: 0
+  movementDelay2: 0
   oneSided: 0
   flipSide: 0
   heldColor: 0
@@ -65070,6 +65077,7 @@ MonoBehaviour:
   UseRawImage: 1
   UseSpriteRend: 0
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 0
   ticks: 0
   tickLimit: 3
@@ -78005,6 +78013,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 0
   UseImage: 1
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
   tickLimit: 2
@@ -78313,6 +78322,7 @@ MonoBehaviour:
   UseRawImage: 0
   UseSpriteRend: 0
   UseImage: 1
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
   tickLimit: 2
