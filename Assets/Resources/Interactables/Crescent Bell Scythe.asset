@@ -19,8 +19,8 @@ MonoBehaviour:
   isDefaultItem: 0
   WeaponType: 1
   desc: A true shinigami's weapon. A death scythe suitable for reaping the souls
-    of mortal beings. With both red and white elements, this weapon is effective
-    against both undead monsters and holy knights.
+    of mortal beings. Despite being quite top heavy, with both red and white elements
+    this weapon is effective against both undead monsters and holy knights.
   equipSlot: 0
   color: {r: 0.3490566, g: 0, b: 0, a: 1}
   ReachLength: 2
