@@ -29,7 +29,7 @@ MonoBehaviour:
   MaxDamage: 60
   MaxDamage2: 150
   MinDamage: 6
-  DMGTextSize: 2
+  DMGTextSize: 3
   activeTimeLimit: 2
   activeTimeLimit2: 3
   cooldownTime: 3
@@ -54,7 +54,7 @@ MonoBehaviour:
   popSpawn: {fileID: 154529244681351670, guid: 4a173c0630e89c34ab503833cfe7a7a7, type: 3}
   popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
     type: 3}
-  dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
+  dmgTextObj: {fileID: 5225875635266693844, guid: 69ddbbdf9a512e64c8b6dbe109fa2b38,
     type: 3}
   oneSidedSwing: 1
   swingOtherSide: 1

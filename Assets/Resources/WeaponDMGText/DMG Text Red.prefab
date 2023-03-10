@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 5225875635266693847}
   - component: {fileID: 7183798019008177865}
   - component: {fileID: 4110368503775749097}
-  - component: {fileID: 8187946469557291915}
   m_Layer: 0
-  m_Name: DMG Text Orange 1
+  m_Name: DMG Text Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,8 +111,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278229247
-  m_fontColor: {r: 1, g: 0.59607846, b: 0, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -216,7 +215,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 957862d914fab1345a0631274e5e28a1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 08dbfef2a10d30b4db75042fc5fb8512, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -322,19 +321,3 @@ MonoBehaviour:
   timeOfBullet: 0
   diesRightAfter: 1
   affectZ: 0
---- !u!114 &8187946469557291915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225875635266693844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
