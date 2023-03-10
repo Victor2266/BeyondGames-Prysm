@@ -6,6 +6,7 @@ public class OnlyInRange : MonoBehaviour
 {
     public GameObject RangeConstrained;
     public bool PersistWhenExitRange;
+    public bool destroyOnExit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +23,10 @@ public class OnlyInRange : MonoBehaviour
             {
                 RangeConstrained.SetActive(false);
             }
+        }
+        if (destroyOnExit)
+        {
+            Destroy(this);
         }
         
     }
