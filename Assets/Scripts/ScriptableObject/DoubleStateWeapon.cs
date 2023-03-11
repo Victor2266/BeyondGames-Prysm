@@ -6,7 +6,8 @@ using UnityEngine;
 public class DoubleStateWeapon : Weapon
 {
     public float DMG_Scaling2;
-    public int MaxDamage2;
+    public int MaxDamage2, MinDamage2;
+    public int MinManaCost;
     public float activeTimeLimit2;
     public float cooldownTime2;
 

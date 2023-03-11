@@ -12,48 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
   m_Name: Crescent Bell Scythe
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  iconRotation: 90
-  iconSize: 1
+  name: <color=red>Crescent Bell Scythe</color>
+  icon: {fileID: 21300000, guid: a1fd2b75653cc104db5d173afcebc429, type: 3}
+  iconRotation: 45
+  iconSize: 0.6
   isDefaultItem: 0
   WeaponType: 1
-  desc: 
+  desc: A true shinigami's weapon. A death scythe suitable for reaping the souls
+    of mortal beings. Despite being quite top heavy, with both red and white elements
+    this weapon is effective against both undead monsters and holy knights.
   equipSlot: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
-  ReachLength: 0
-  DMG_Scaling: 0
-  MaxDamage: 0
-  MinDamage: 0
-  DMGTextSize: 0
-  activeTimeLimit: 0
-  cooldownTime: 0
-  XYSize: 0
-  angle_offset: 0
-  CapsuleColliderOffset: {x: 0, y: 0}
-  CapsuleColliderSize: {x: 0, y: 0}
-  SpriteOffset: {x: 0, y: 0}
-  handReachMultiplier: 0
-  projectileAttack: {fileID: 0}
+  color: {r: 0.3490566, g: 0, b: 0, a: 1}
+  ReachLength: 2
+  DMG_Scaling: 4
+  MaxDamage: 60
+  MinDamage: 6
+  DMGTextSize: 3
+  activeTimeLimit: 2
+  cooldownTime: 3
+  XYSize: 1
+  angle_offset: -45
+  CapsuleColliderOffset: {x: -0.35, y: 1.56}
+  CapsuleColliderSize: {x: 1.5, y: 1.5}
+  SpriteOffset: {x: -0.175, y: 0}
+  handReachMultiplier: 0.5
+  projectileAttack: {fileID: 1310705855610197, guid: 2c739b826d272044f8769d8d98443312,
+    type: 3}
   projectileOffset: 0
   thrustResetTime: 0
   thrustDashDist: 0
   thrustShortReach: 0
   projAsChild: 0
-  trail: {fileID: 0}
+  trail: {fileID: 2300350798725474172, guid: 72a7b4d9c1a5cf0409ebe070d858a613, type: 3}
   soundPitch: 0
-  movementDelay: 0
-  popSpawn: {fileID: 0}
-  dmgTextObj: {fileID: 0}
-  oneSidedSwing: 0
-  swingOtherSide: 0
-  ElementalType: 9
+  movementDelay: 0.2
+  popSpawn: {fileID: 154529244681351670, guid: 4a173c0630e89c34ab503833cfe7a7a7, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: 69ddbbdf9a512e64c8b6dbe109fa2b38,
+    type: 3}
+  oneSidedSwing: 1
+  swingOtherSide: 1
+  ElementalType: 0
   leftClickStrategy: 0
-  rightClickStrategy: 0
-  DMG_Scaling2: 0
-  MaxDamage2: 0
-  activeTimeLimit2: 0
-  cooldownTime2: 0
-  movementDelay2: 0
-  popSpawn2: {fileID: 0}
-  ElementalType2: 9
+  rightClickStrategy: 1
+  DMG_Scaling2: 8
+  MaxDamage2: 150
+  activeTimeLimit2: 3
+  cooldownTime2: 1
+  movementDelay2: 0.4
+  popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
+    type: 3}
+  ElementalType2: 8

@@ -195,7 +195,7 @@ public partial class WeaponController
             weaponUI.flashWhite();
             enableWeapon2();
             audioSource.Play();
-            totalDistance = equippedDoubleStateWeapon.MinDamage / equippedDoubleStateWeapon.DMG_Scaling2;
+            totalDistance = equippedDoubleStateWeapon.MinDamage2 / equippedDoubleStateWeapon.DMG_Scaling2;
             lastHit = null;
             activeElement = equippedDoubleStateWeapon.ElementalType2;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
