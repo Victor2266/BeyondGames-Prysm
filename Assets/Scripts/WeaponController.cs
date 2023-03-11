@@ -194,7 +194,7 @@ public partial class WeaponController : damageController
             if (StaminaBar.value != StaminaBar.maxValue)
             {
                 arrowColor.color = new Color(1f, 1f, 1f, 1f);
-                //show text ready to attack again
+                //show text ready to attack again when option is selected
                 ShowText("ready", 2, Color.white);
             }
             StaminaBar.value = StaminaBar.maxValue;
