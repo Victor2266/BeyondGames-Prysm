@@ -15,6 +15,7 @@ public class DoubleStateWeapon : Weapon
 
     public ElementType ElementalType2 = ElementType.None;
 
+
     public override void Use()
     {
         base.Use();

@@ -11,8 +11,9 @@ public class Equipment : Item
     public enum ElementType { Red, Orange, Yellow, Green, Blue, Indigo, Violet, Black, White, None, All }
 
     public enum leftClickStrat { Default, Anchor, Dashing }//anchor, dashing, mana drain, etc
-    public enum rightClickStrat { Default, DoubleStateDrains, DoubleStateCost }
-    //DoubleStateDrains: Uses the mana cost from the projectile controller script to drain mana
+    public new enum rightClickStrat { Default, DoubleStateDrains, DoubleStateCost }
+    //DoubleStateDrains (DoubleStateWeapon only): Uses the mana cost from the projectile controller script to drain mana
+    //DoubleStateCost (DoubleStateWeapon only): Spawns proj with upfront cost
 
     public override void Use()
     {

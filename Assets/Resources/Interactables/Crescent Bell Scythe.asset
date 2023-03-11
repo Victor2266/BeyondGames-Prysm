@@ -56,8 +56,9 @@ MonoBehaviour:
   rightClickStrategy: 1
   DMG_Scaling2: 8
   MaxDamage2: 150
+  MinDamage2: 20
   activeTimeLimit2: 3
-  cooldownTime2: 1
+  cooldownTime2: 2
   movementDelay2: 0.4
   popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
     type: 3}

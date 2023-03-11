@@ -115,6 +115,13 @@ public partial class WeaponController : damageController
             {
                 equippedDoubleStateWeapon = (DoubleStateWeapon)equippedWeapon;
                 pop2 = equippedDoubleStateWeapon.popSpawn2;
+
+                if (Trail2 != null)
+                {
+                    Destroy(Trail2);
+                }
+                Trail2 = Instantiate(equippedWeapon.projectileAttack, transform);
+                Trail2.SetActive(false);
             }
             ReachLength = equippedWeapon.ReachLength;
 
@@ -146,19 +153,11 @@ public partial class WeaponController : damageController
             {
                 Destroy(Trail);
             }
-            if(Trail2 != null)
-            {
-                Destroy(Trail2);
-            }
 
             //GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(0,0, equippedWeapon.angle_offset);
             Trail = Instantiate(equippedWeapon.trail, transform);
             Trail.SetActive(false);
-            if(equippedWeapon.rightClickStrategy == Equipment.rightClickStrat.DoubleStateCost || equippedWeapon.rightClickStrategy == Equipment.rightClickStrat.DoubleStateDrains)
-            {
-                Trail2 = Instantiate(equippedWeapon.projectileAttack, transform);
-                Trail2.SetActive(false);
-            }
+
             DMGText = equippedWeapon.dmgTextObj;
         }
     }
