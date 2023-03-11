@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
-  m_Name: Crescent Bell Scythe
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Name: Old Crescent Bell Scythe
   m_EditorClassIdentifier: 
   name: <color=red>Crescent Bell Scythe</color>
   icon: {fileID: 21300000, guid: a1fd2b75653cc104db5d173afcebc429, type: 3}
@@ -25,11 +25,15 @@ MonoBehaviour:
   color: {r: 0.3490566, g: 0, b: 0, a: 1}
   ReachLength: 2
   DMG_Scaling: 4
+  DMG_Scaling2: 8
   MaxDamage: 60
+  MaxDamage2: 150
   MinDamage: 6
   DMGTextSize: 3
   activeTimeLimit: 2
+  activeTimeLimit2: 3
   cooldownTime: 3
+  cooldownTime2: 1
   XYSize: 1
   angle_offset: -45
   CapsuleColliderOffset: {x: -0.35, y: 1.56}
@@ -46,19 +50,15 @@ MonoBehaviour:
   trail: {fileID: 2300350798725474172, guid: 72a7b4d9c1a5cf0409ebe070d858a613, type: 3}
   soundPitch: 0
   movementDelay: 0.2
+  movementDelay2: 0.4
   popSpawn: {fileID: 154529244681351670, guid: 4a173c0630e89c34ab503833cfe7a7a7, type: 3}
+  popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
+    type: 3}
   dmgTextObj: {fileID: 5225875635266693844, guid: 69ddbbdf9a512e64c8b6dbe109fa2b38,
     type: 3}
   oneSidedSwing: 1
   swingOtherSide: 1
   ElementalType: 0
+  ElementalType2: 8
   leftClickStrategy: 0
   rightClickStrategy: 1
-  DMG_Scaling2: 8
-  MaxDamage2: 150
-  activeTimeLimit2: 3
-  cooldownTime2: 1
-  movementDelay2: 0.4
-  popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
-    type: 3}
-  ElementalType2: 8

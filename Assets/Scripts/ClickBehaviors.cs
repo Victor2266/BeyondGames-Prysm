@@ -14,7 +14,7 @@ public partial class WeaponController
             weaponUI.flashWhite();
             enableWeapon();
             audioSource.Play();
-            totalDistance = MinDamage / DMG_Scaling;
+            totalDistance = equippedWeapon.MinDamage / equippedWeapon.DMG_Scaling;
             lastHit = null;
 
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
@@ -24,26 +24,26 @@ public partial class WeaponController
             currPos = transform.position;
             distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
 
-            if (distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
+            if (distance > ReachLength * 1.3f && DMG > equippedWeapon.MaxDamage * 0.1)
             {
                 audioSource.Play();
             }
 
             totalDistance += distance;
 
-            DMG = (int)(totalDistance * DMG_Scaling);
-            if (DMG > MaxDamage)
+            DMG = (int)(totalDistance * equippedWeapon.DMG_Scaling);
+            if (DMG > equippedWeapon.MaxDamage)
             {
-                DMG = MaxDamage;
+                DMG = equippedWeapon.MaxDamage;
             }
             DamageCounter.text = DMG.ToString();
 
-            if (MaxDamage > 0)
-                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / MaxDamage);
+            if (equippedWeapon.MaxDamage > 0)
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / equippedWeapon.MaxDamage);
             else
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
 
-            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit) * StaminaBar.maxValue;
+            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / equippedWeapon.activeTimeLimit) * StaminaBar.maxValue;
 
             if (distance > capsuleColider.size.x * 2f)//capsule checking
             {
@@ -73,14 +73,14 @@ public partial class WeaponController
 
             lastPosition = currPos;
         }
-        if ((PlayerController.liftLeft && WeaponEnabled) || (Time.time > startTime + activeTimeLimit && WeaponEnabled))//released left click
+        if ((PlayerController.liftLeft && WeaponEnabled) || (Time.time > startTime + equippedWeapon.activeTimeLimit && WeaponEnabled))//released left click
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
 
             totalDistance = 0f;
 
-            remainingCooldown = cooldownTime - (1f - (Time.time - startTime) / activeTimeLimit) * cooldownTime;
+            remainingCooldown = equippedWeapon.cooldownTime - (1f - (Time.time - startTime) / equippedWeapon.activeTimeLimit) * equippedWeapon.cooldownTime;
             timeStamp = Time.time + remainingCooldown;
             weaponUI.ScaleDown(remainingCooldown);
             StaminaBar.value = 0f;
@@ -91,7 +91,7 @@ public partial class WeaponController
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
 
-            trueMD = movementDelay;
+            trueMD = equippedWeapon.movementDelay;
         }
     }
 
@@ -107,7 +107,7 @@ public partial class WeaponController
                 whiteArrow.SetActive(false);
                 sprtrend.color = new Vector4(1f, 1f, 1f, 1f);
                 StaminaBar.value = 0f;
-                if (projAsChild == true)
+                if (equippedWeapon.projAsChild == true)
                 {
                     playerEntity.bullet = Instantiate(playerEntity.attack, transform.position, transform.rotation, transform);
                 }
@@ -117,7 +117,7 @@ public partial class WeaponController
                 }
                 playerEntity.setMana(playerEntity.currentMana - playerEntity.ManaCost);
                 playerEntity.charges = 0;
-                ReachLength = thrustShortReach;
+                ReachLength = equippedWeapon.thrustShortReach;
                 Dash();
                 if (playerEntity.weapon < 8)
                 {
@@ -131,7 +131,7 @@ public partial class WeaponController
                     if (playerEntity.bullet != null)
                     {
                         Vector3 TransNorm = transform.localPosition.normalized;
-                        playerEntity.bullet.transform.position = transform.position - TransNorm * projectileOffset;
+                        playerEntity.bullet.transform.position = transform.position - TransNorm * equippedWeapon.projectileOffset;
                         playerEntity.bullet.transform.eulerAngles = transform.localEulerAngles + spriteTransform.localEulerAngles;
 
                         if (playerEntity.power_control == false && playerEntity.inaccuracy == 0)
@@ -195,12 +195,12 @@ public partial class WeaponController
             weaponUI.flashWhite();
             enableWeapon2();
             audioSource.Play();
-            totalDistance = MinDamage / DMG_Scaling2;
+            totalDistance = equippedDoubleStateWeapon.MinDamage2 / equippedDoubleStateWeapon.DMG_Scaling2;
             lastHit = null;
-            activeElement = ElementType2;
+            activeElement = equippedDoubleStateWeapon.ElementalType2;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
 
-            trueMD = movementDelay2;
+            trueMD = equippedDoubleStateWeapon.movementDelay2;
             if (!drainsMana)
             {
                 playerEntity.setMana(playerEntity.currentMana - playerEntity.ManaCost);
@@ -213,21 +213,21 @@ public partial class WeaponController
             currPos = transform.position;
             distance = Vector3.Distance(lastPosition, currPos);//USED IN DAMAGE CALC
 
-            if (distance > ReachLength * 1.3f && DMG > MaxDamage * 0.1)
+            if (distance > ReachLength * 1.3f && DMG > equippedDoubleStateWeapon.MaxDamage2 * 0.1)
             {
                 audioSource.Play();
             }
 
             totalDistance += distance;
-            DMG = (int)(totalDistance * DMG_Scaling2);
+            DMG = (int)(totalDistance * equippedDoubleStateWeapon.DMG_Scaling2);
 
-            if (DMG > MaxDamage2)
+            if (DMG > equippedDoubleStateWeapon.MaxDamage2)
             {
-                DMG = MaxDamage2;
+                DMG = equippedDoubleStateWeapon.MaxDamage2;
             }
-            if (totalDistance > MaxDamage2 / DMG_Scaling2)
+            if (totalDistance > equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2)
             {
-                totalDistance = MaxDamage2 / DMG_Scaling2;
+                totalDistance = equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2;
             }
 
             if (drainsMana)
@@ -250,12 +250,12 @@ public partial class WeaponController
 
             DamageCounter.text = DMG.ToString();
 
-            if (MaxDamage2 > 0)
-                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / MaxDamage2);
+            if (equippedDoubleStateWeapon.MaxDamage2 > 0)
+                DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / equippedDoubleStateWeapon.MaxDamage2);
             else
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
 
-            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / activeTimeLimit2) * StaminaBar.maxValue;
+            StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / equippedDoubleStateWeapon.activeTimeLimit2) * StaminaBar.maxValue;
 
             if (distance > capsuleColider.size.x * 2f)//capsule checking
             {
@@ -288,14 +288,14 @@ public partial class WeaponController
 
             lastPosition = currPos;
         }
-        if ((PlayerController.liftRight && WeaponEnabled2) || (Time.time > startTime + activeTimeLimit2 && WeaponEnabled2))//released right click
+        if ((PlayerController.liftRight && WeaponEnabled2) || (Time.time > startTime + equippedDoubleStateWeapon.activeTimeLimit2 && WeaponEnabled2))//released right click
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
 
             totalDistance = 0f;
 
-            remainingCooldown = cooldownTime2 - (1f - (Time.time - startTime) / activeTimeLimit2) * cooldownTime2;
+            remainingCooldown = equippedDoubleStateWeapon.cooldownTime2 - (1f - (Time.time - startTime) / equippedDoubleStateWeapon.activeTimeLimit2) * equippedDoubleStateWeapon.cooldownTime2;
             timeStamp = Time.time + remainingCooldown;
             weaponUI.ScaleDown(remainingCooldown);
             StaminaBar.value = 0f;
@@ -306,11 +306,11 @@ public partial class WeaponController
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
 
-            trueMD = movementDelay;
+            trueMD = equippedDoubleStateWeapon.movementDelay;
 
             lastTotalDist = totalDistance;
 
-            activeElement = ElementType;
+            activeElement = equippedDoubleStateWeapon.ElementalType;
         }
     }
 }
