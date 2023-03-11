@@ -6,12 +6,12 @@ using UnityEngine;
 public class Weapon : Equipment
 {
     public float ReachLength;
-    public float DMG_Scaling, DMG_Scaling2;
-    public int MaxDamage, MaxDamage2;
+    public float DMG_Scaling;
+    public int MaxDamage;
     public int MinDamage;
     public float DMGTextSize;
-    public float activeTimeLimit, activeTimeLimit2;
-    public float cooldownTime, cooldownTime2;
+    public float activeTimeLimit;
+    public float cooldownTime;
     public float XYSize;
     public float angle_offset;
 
@@ -29,14 +29,13 @@ public class Weapon : Equipment
     public bool projAsChild;
     public GameObject trail;
     public float soundPitch;
-    public float movementDelay, movementDelay2;//movement delay 2 is used for alternate right click abilities,
-    public GameObject popSpawn, popSpawn2;
+    public float movementDelay;//movement delay 2 is used for alternate right click abilities,
+    public GameObject popSpawn;
     public GameObject dmgTextObj; 
     public bool oneSidedSwing;
     public bool swingOtherSide;
 
     public ElementType ElementalType = ElementType.None;
-    public ElementType ElementalType2 = ElementType.None;
 
     public leftClickStrat leftClickStrategy = leftClickStrat.Default;
     public rightClickStrat rightClickStrategy = rightClickStrat.Default;

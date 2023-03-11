@@ -7,26 +7,15 @@ public partial class WeaponController : damageController
     [SerializeField] private GameObject whiteArrow;
     [SerializeField] private SpriteRenderer arrowColor;
 
-    public GameObject pop, pop2;
-
+    public GameObject pop2;
     private SpriteRenderer sprtrend;
-    private float handReachMultiplier;
-
-    public float ReachLength;
-    private int DMG;// this is just the running total accumulated while dam_scalign is adding up
-    public float DMG_Scaling, DMG_Scaling2;
-    public int MaxDamage, MaxDamage2;
-    public int MinDamage;
-    public float DMGTextSize;
-
     private Vector3 lastPosition;
+    private float DMG;
     private float totalDistance;
 
     public Camera camera = null;
     private float timeStamp;
     private float startTime;
-    public float activeTimeLimit, activeTimeLimit2;
-    public float cooldownTime, cooldownTime2;
 
     private bool WeaponEnabled, WeaponEnabled2;
     public bool isInHand;
@@ -45,34 +34,26 @@ public partial class WeaponController : damageController
     private CapsuleCollider2D capsuleColider;
     public WeaponUI weaponUI;
     public PlayerEntity playerEntity;
-    public float projectileOffset;
-    private float ItemReachLength;
-    private float itemVelo;
 
-    private float thrustResetTime;
-    private float thrustDashDist;
-    private float thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
-    private bool projAsChild;
-
-    private Equipment.ElementType activeElement, ElementType, ElementType2;
+    private Equipment.ElementType activeElement;
 
     public Text DamageCounter;
 
     AudioSource audioSource;
 
-    public float trueMD, movementDelay, movementDelay2;
+    public float trueMD;
     private Vector3 _velocity;
 
-    public bool oneSided;
-    public bool flipSide;
     private Transform spriteTransform;
-    private float xySize;
 
     delegate void ClickBehavior();
     ClickBehavior clickBehavior;
 
     public float heldColor = 0f;
+    public float ReachLength;
 
+    Weapon equippedWeapon;
+    DoubleStateWeapon equippedDoubleStateWeapon;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -119,7 +100,7 @@ public partial class WeaponController : damageController
             OrbPosition.offsetX = 0f;
             OrbPosition.offsetY = 0.05f;
             DamageCounter.text = "";
-            ReachLength = 1.5f;
+            ReachLength = 1.5f;// delete if unused later
             Destroy(Trail);
             Destroy(Trail2);
         }
@@ -128,32 +109,19 @@ public partial class WeaponController : damageController
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             isInHand = true;
 
-            Weapon equippedWeapon = EquipmentManager.instance.getMeleeWeapon();
+            equippedWeapon = EquipmentManager.instance.getMeleeWeapon();
+
+            if(equippedWeapon is DoubleStateWeapon)
+            {
+                equippedDoubleStateWeapon = (DoubleStateWeapon)equippedWeapon;
+                pop2 = equippedDoubleStateWeapon.popSpawn2;
+            }
             ReachLength = equippedWeapon.ReachLength;
-            ItemReachLength = equippedWeapon.ReachLength;
-            DMG_Scaling = equippedWeapon.DMG_Scaling;
-            DMG_Scaling2 = equippedWeapon.DMG_Scaling2;
-            MaxDamage = equippedWeapon.MaxDamage;
-            MaxDamage2 = equippedWeapon.MaxDamage2;
-            MinDamage = equippedWeapon.MinDamage;
-            DMGTextSize = equippedWeapon.DMGTextSize;
-            activeTimeLimit = equippedWeapon.activeTimeLimit;
-            activeTimeLimit2 = equippedWeapon.activeTimeLimit2;
-            cooldownTime = equippedWeapon.cooldownTime;
-            cooldownTime2 = equippedWeapon.cooldownTime2;
-            projAsChild = equippedWeapon.projAsChild;
-            ElementType = equippedWeapon.ElementalType;
-            ElementType2 = equippedWeapon.ElementalType2;
-            activeElement = ElementType;
+
 
             SetClickStrat(equippedWeapon.leftClickStrategy, equippedWeapon.rightClickStrategy);
 
-            thrustResetTime = equippedWeapon.thrustResetTime;
-            thrustDashDist = equippedWeapon.thrustDashDist;
-            thrustShortReach = equippedWeapon.thrustShortReach;//set this equal to the reach length for no recoil when shooting right click
-
-            xySize = equippedWeapon.XYSize;
-            transform.localScale = new Vector3(xySize, xySize, 1f);
+            transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
 
             pointerScript.offset = 90;
             spriteTransform.localEulerAngles = new Vector3(0, 0, equippedWeapon.angle_offset);
@@ -161,11 +129,7 @@ public partial class WeaponController : damageController
             capsuleColider.offset = equippedWeapon.CapsuleColliderOffset;
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
             sprtrend.sprite = equippedWeapon.icon;
-            handReachMultiplier = equippedWeapon.handReachMultiplier;
-            projectileOffset = equippedWeapon.projectileOffset;
-            movementDelay = equippedWeapon.movementDelay;
-            movementDelay2 = equippedWeapon.movementDelay2;
-            trueMD = movementDelay;
+            trueMD = equippedWeapon.movementDelay;
 
             playerEntity.attack = equippedWeapon.projectileAttack;
             
@@ -195,11 +159,7 @@ public partial class WeaponController : damageController
                 Trail2 = Instantiate(equippedWeapon.projectileAttack, transform);
                 Trail2.SetActive(false);
             }
-            pop = equippedWeapon.popSpawn;
-            pop2 = equippedWeapon.popSpawn2;
             DMGText = equippedWeapon.dmgTextObj;
-            oneSided = equippedWeapon.oneSidedSwing;
-            flipSide = equippedWeapon.swingOtherSide;
         }
     }
     // Update is called once per frame
@@ -225,10 +185,10 @@ public partial class WeaponController : damageController
         {
             transform.localPosition = transform.localPosition.normalized * ReachLength;
         }
-        OrbPosition.offsetX = transform.localPosition.x * handReachMultiplier;
-        OrbPosition.offsetY = transform.localPosition.y * handReachMultiplier;
-        rectTrans.sizeDelta = new Vector2(activeTimeLimit * 100f, 4f);
-        StaminaBar.maxValue = activeTimeLimit * 100f;
+        OrbPosition.offsetX = transform.localPosition.x * equippedWeapon.handReachMultiplier;
+        OrbPosition.offsetY = transform.localPosition.y * equippedWeapon.handReachMultiplier;
+        rectTrans.sizeDelta = new Vector2(equippedWeapon.activeTimeLimit * 100f, 4f);
+        StaminaBar.maxValue = equippedWeapon.activeTimeLimit * 100f;
 
         if (timeStamp <= Time.time && !WeaponEnabled)
         {
@@ -239,9 +199,9 @@ public partial class WeaponController : damageController
             StaminaBar.value = StaminaBar.maxValue;
  
         }
-        if (ReachLength < ItemReachLength)
+        if (ReachLength < equippedWeapon.ReachLength)
         {
-            ReachLength = Mathf.SmoothDamp(ReachLength, ItemReachLength, ref itemVelo, thrustResetTime);
+            ReachLength = Mathf.SmoothDamp(ReachLength, equippedWeapon.ReachLength, ref itemVelo, equippedWeapon.thrustResetTime);
         }
 
         alphaVal = Mathf.SmoothDamp(arrowColor.color.a, heldColor, ref alphaVelo, 0.25f);
@@ -254,23 +214,23 @@ public partial class WeaponController : damageController
         clickBehavior();
 
 
-        if (oneSided && playerEntity.bullet == null)
+        if (equippedWeapon.oneSidedSwing && playerEntity.bullet == null)
         {
             if (Mathf.Abs(zAngle - lastZAngle) > 0.1f)
             {
                 if (zAngle - lastZAngle > 0)
                 {
-                    if (!flipSide)
-                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                    if (!equippedWeapon.swingOtherSide)
+                        transform.localScale = new Vector3(-equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
                     else
-                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                        transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
                 }
                 else
                 {
-                    if (!flipSide)
-                        transform.localScale = new Vector3(xySize, xySize, 1f);
+                    if (!equippedWeapon.swingOtherSide)
+                        transform.localScale = new Vector3(equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
                     else
-                        transform.localScale = new Vector3(-xySize, xySize, 1f);
+                        transform.localScale = new Vector3(-equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
                 }
                 if(Trail2 != null)
                     Trail2.transform.localScale = transform.localScale;
@@ -294,7 +254,7 @@ public partial class WeaponController : damageController
 
             if (DMG > 0)
             {
-                Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
             }
             DMG = 0;//resets dmg value for double hits in quick succession 
         }
@@ -346,7 +306,7 @@ public partial class WeaponController : damageController
             lastHit = collision.collider.gameObject;
             if(DMG > 0)
             {
-                Instantiate(pop, collision.point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.point, transform.rotation);
             }
             DMG = 0;//resets dmg value for double hits in quick succession 
         }
@@ -372,7 +332,7 @@ public partial class WeaponController : damageController
             collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
             HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
-            float calcDMGSize = DMGTextSize;
+            float calcDMGSize = equippedWeapon.DMGTextSize;
 
 
             if (MG == null)
@@ -398,7 +358,7 @@ public partial class WeaponController : damageController
             ShowDMGText((int)calcDMG, calcDMGSize);
             if (WeaponEnabled)
             {
-                Instantiate(pop, collision.GetContact(0).point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
             }
             if (WeaponEnabled2)
             {
@@ -417,7 +377,7 @@ public partial class WeaponController : damageController
             collision.collider.SendMessage("SetCollision", collision.point);
             HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
-            float calcDMGSize = DMGTextSize;
+            float calcDMGSize = equippedWeapon.DMGTextSize;
 
             if (MG == null)
             {
@@ -442,7 +402,7 @@ public partial class WeaponController : damageController
             ShowDMGText((int)calcDMG, calcDMGSize);
             if (WeaponEnabled)
             {
-                Instantiate(pop, collision.point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.point, transform.rotation);
             }
             if (WeaponEnabled2)
             {
@@ -489,7 +449,7 @@ public partial class WeaponController : damageController
 
         //playerEntity.Flinch = true;
 
-        playerEntity.rb2d.velocity = new Vector2(thrustDashDist * transform.localPosition.normalized.x, 0.6f * thrustDashDist * transform.localPosition.normalized.y);
+        playerEntity.rb2d.velocity = new Vector2(equippedWeapon.thrustDashDist * transform.localPosition.normalized.x, 0.6f * equippedWeapon.thrustDashDist * transform.localPosition.normalized.y);
         //playerEntity.rb2d.AddForce(new Vector2(thrustDashDist * transform.localPosition.x, 0.6f * thrustDashDist * transform.localPosition.y), ForceMode2D.Impulse);
         
         /*
@@ -508,6 +468,7 @@ public partial class WeaponController : damageController
 
     private float alphaVelo;
     private float alphaVal;
+    private float itemVelo;
 
     private void SetClickStrat(Equipment.leftClickStrat LCS, Equipment.rightClickStrat RCS)
     {
