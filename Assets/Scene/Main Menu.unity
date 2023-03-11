@@ -25313,6 +25313,7 @@ MonoBehaviour:
   UseRawImage: 1
   UseSpriteRend: 0
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 0
   ticks: 0
   tickLimit: 0.9
@@ -32577,7 +32578,7 @@ GameObject:
   - component: {fileID: 561895311}
   - component: {fileID: 561895310}
   m_Layer: 5
-  m_Name: Options Title
+  m_Name: Settings Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32621,7 +32622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83802a99befcb6648b2e5d75de0e2794, type: 2}
   m_sharedMaterial: {fileID: 21290951584543668, guid: 83802a99befcb6648b2e5d75de0e2794,
@@ -88545,7 +88546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edit Controls
+  m_Text: Edit Options & Controls
 --- !u!222 &1683271817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101017,7 +101018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Settings / Options
 --- !u!222 &1916392696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -112234,6 +112235,7 @@ MonoBehaviour:
   leftBosoter: {fileID: 0}
   rightBooster: {fileID: 0}
   audioSource: {fileID: 0}
+  RegenManaIndicator: {fileID: 0}
 --- !u!4 &5772261638752735153
 Transform:
   m_ObjectHideFlags: 0

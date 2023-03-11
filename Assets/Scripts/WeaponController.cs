@@ -189,11 +189,13 @@ public partial class WeaponController : damageController
         rectTrans.sizeDelta = new Vector2(equippedWeapon.activeTimeLimit * 100f, 4f);
         StaminaBar.maxValue = equippedWeapon.activeTimeLimit * 100f;
 
-        if (timeStamp <= Time.time && !WeaponEnabled)
+        if (timeStamp <= Time.time && !WeaponEnabled && !WeaponEnabled2)
         {
             if (StaminaBar.value != StaminaBar.maxValue)
             {
                 arrowColor.color = new Color(1f, 1f, 1f, 1f);
+                //show text ready to attack again
+                ShowText("ready", 2, Color.white);
             }
             StaminaBar.value = StaminaBar.maxValue;
  
@@ -502,5 +504,15 @@ public partial class WeaponController : damageController
         {
             heldColor = 0f;
         }
+    }
+
+    private void ShowText(string text, float size, Color colour)
+    {
+        Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
+        GameObject gameObject2 = Instantiate(playerEntity.TextPopUp, position, transform.rotation);
+        gameObject2.GetComponent<TMPro.TextMeshPro>().text = text;
+        gameObject2.GetComponent<TMPro.TextMeshPro>().fontSize = size;
+        gameObject2.GetComponent<RectTransform>().transform.eulerAngles = new Vector3(0f, 0f, Random.Range(-30.0f, 30.0f));
+        gameObject2.GetComponent<TMPro.TextMeshPro>().color = colour;
     }
 }

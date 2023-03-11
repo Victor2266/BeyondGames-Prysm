@@ -27804,7 +27804,7 @@ GameObject:
   - component: {fileID: 5168091094595974576}
   - component: {fileID: 5168091096213421045}
   m_Layer: 5
-  m_Name: Controls
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28790,7 +28790,7 @@ GameObject:
   - component: {fileID: 5168091094703366686}
   - component: {fileID: 5168091094703366687}
   m_Layer: 5
-  m_Name: Options Title
+  m_Name: Settings Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28842,7 +28842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83802a99befcb6648b2e5d75de0e2794, type: 2}
   m_sharedMaterial: {fileID: 21290951584543668, guid: 83802a99befcb6648b2e5d75de0e2794,
@@ -28926,7 +28926,7 @@ GameObject:
   - component: {fileID: 5168091094761814597}
   - component: {fileID: 5168091096213421034}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35817,7 +35817,7 @@ GameObject:
   - component: {fileID: 5168091094929935747}
   - component: {fileID: 5168091094929935745}
   m_Layer: 5
-  m_Name: Options Menu
+  m_Name: Settings Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36591,7 +36591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83802a99befcb6648b2e5d75de0e2794, type: 2}
   m_sharedMaterial: {fileID: 21290951584543668, guid: 83802a99befcb6648b2e5d75de0e2794,
@@ -37114,9 +37114,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Options
-
-'
+  m_Text: Settings
 --- !u!1 &5168091095103694740
 GameObject:
   m_ObjectHideFlags: 0
@@ -64146,7 +64144,7 @@ GameObject:
   - component: {fileID: 5168091096480212599}
   - component: {fileID: 5168091096480212597}
   m_Layer: 0
-  m_Name: Controls Menu
+  m_Name: Options Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64387,9 +64385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Controls
-
-'
+  m_Text: Options
 --- !u!1 &5168091096489521491
 GameObject:
   m_ObjectHideFlags: 0
