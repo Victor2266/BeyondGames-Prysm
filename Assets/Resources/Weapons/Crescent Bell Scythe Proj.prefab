@@ -108,7 +108,7 @@ MonoBehaviour:
     type: 3}
   DMGTextSize: 4
   attackVelo: 38
-  ManaCost: 9
+  ManaCost: 10
   coolDownPeriod: 1
   rapid_fire: 0
   power_control: 0

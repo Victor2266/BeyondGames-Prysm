@@ -118,6 +118,7 @@ public class PlayerEntity : MonoBehaviour
     public ParticleSystem leftBosoter;
     public ParticleSystem rightBooster;
     public AudioSource audioSource;
+    public GameObject RegenManaIndicator;
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;

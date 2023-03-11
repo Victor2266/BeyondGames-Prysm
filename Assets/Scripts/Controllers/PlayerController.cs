@@ -55,7 +55,27 @@ public class PlayerController : MonoBehaviour
         {
             if (playerEntity.currentMana < (float)playerEntity.MaxMana && playerEntity.currentHealth - 0.5f > 0)
             {
+
+                playerEntity.RegenManaIndicator.SetActive(true);
                 playerEntity.setHealthAndMana(playerEntity.currentHealth - 0.5f, playerEntity.currentMana + 2);
+            }
+            else
+            {
+                if (playerEntity.RegenManaIndicator.activeSelf)
+                {
+                    //Spawn Done Regen Prefab
+                    ShowText("+Full Mana", 3, Color.cyan);
+                    playerEntity.RegenManaIndicator.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            if (playerEntity.RegenManaIndicator.activeSelf)
+            {
+                //Spawn Done Regen Prefab
+                ShowText("+", 3, Color.cyan);
+                playerEntity.RegenManaIndicator.SetActive(false);
             }
         }
     }
