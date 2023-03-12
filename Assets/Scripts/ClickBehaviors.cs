@@ -16,7 +16,7 @@ public partial class WeaponController
             audioSource.Play();
             totalDistance = equippedWeapon.MinDamage / equippedWeapon.DMG_Scaling;
             lastHit = null;
-
+            activeElement = equippedWeapon.ElementalType;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
         }
         if (PlayerController.holdingLeft && timeStamp <= Time.time && WeaponEnabled)//while holding left click
@@ -90,7 +90,7 @@ public partial class WeaponController
 
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
-
+            activeElement = equippedWeapon.ElementalType;
             trueMD = equippedWeapon.movementDelay;
         }
     }
