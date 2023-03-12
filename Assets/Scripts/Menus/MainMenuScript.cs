@@ -15,6 +15,7 @@ public class MainMenuScript : MonoBehaviour
     public Toggle fullScreentoggle;
     public Toggle cameraLockToggle;
     public Toggle mouseVisibilityToggle;
+    public Toggle weapVisibilityToggle;
 
     public GameObject MainCamera;
     public GameObject SceneManager;
@@ -72,6 +73,7 @@ public class MainMenuScript : MonoBehaviour
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
         mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 0) == 1 ? true : false;
+        weapVisibilityToggle.isOn = PlayerPrefs.GetInt("weapIndicator", 0) == 1 ? true : false;
     }
 
     private void SetStartingSliders()
@@ -218,6 +220,17 @@ public class MainMenuScript : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("mouseVisibility", 0);
+        }
+    }
+    public void SetWeapVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            PlayerPrefs.SetInt("weapIndicator", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("weapIndicator", 0);
         }
     }
     public void SetUiSize(float size)
