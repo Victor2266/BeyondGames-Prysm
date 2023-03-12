@@ -26,15 +26,11 @@ MonoBehaviour:
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   ReachLength: 1.7
   DMG_Scaling: 4
-  DMG_Scaling2: 0
   MaxDamage: 30
-  MaxDamage2: 0
   MinDamage: 1
   DMGTextSize: 2.5
   activeTimeLimit: 1.5
-  activeTimeLimit2: 0
-  cooldownTime: 1.8
-  cooldownTime2: 0
+  cooldownTime: 1.4
   XYSize: 0.8
   angle_offset: 9
   CapsuleColliderOffset: {x: -0.1, y: 0.4}
@@ -51,14 +47,11 @@ MonoBehaviour:
   trail: {fileID: 2300350798725474172, guid: 87b90aefc577a1245be2ddf63ccbe8c4, type: 3}
   soundPitch: 0.9
   movementDelay: 0.05
-  movementDelay2: 0
   popSpawn: {fileID: 154529244681351670, guid: 6b501a66dbdca7445be99baf9e07eed5, type: 3}
-  popSpawn2: {fileID: 0}
   dmgTextObj: {fileID: 5225875635266693844, guid: 835e1a6ea1f56554b83152e451deb237,
     type: 3}
   oneSidedSwing: 1
   swingOtherSide: 1
   ElementalType: 8
-  ElementalType2: 9
   leftClickStrategy: 0
   rightClickStrategy: 0

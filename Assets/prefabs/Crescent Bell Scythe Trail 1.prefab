@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DMGText: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28, type: 3}
-  DMG: 100
+  DMG: 120
   Primed: 1
   Bouncy: 0
   pop: {fileID: 6708209246093052786, guid: 8ff9ff1db0b06ee44a6ecb45c2343e63, type: 3}
@@ -259,7 +259,7 @@ MonoBehaviour:
   DMGTextSize: 4
   attackVelo: 38
   ManaCost: 10
-  coolDownPeriod: 1
+  coolDownPeriod: 4
   rapid_fire: 0
   power_control: 0
   inaccuracy: 0
@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5737243715463241702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: -0.45, z: -1}
+  m_LocalPosition: {x: -0.4, y: -0.45, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5731896264327995517}
