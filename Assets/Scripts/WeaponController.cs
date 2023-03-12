@@ -49,6 +49,8 @@ public partial class WeaponController : damageController
     delegate void ClickBehavior();
     ClickBehavior clickBehavior;
 
+    private bool showWeapIndicator;
+
     public float heldColor = 0f;
     public float ReachLength;
 
@@ -83,6 +85,9 @@ public partial class WeaponController : damageController
         }
         OptionsMenu.onMouseVisibilityChangedCallback += changeMouseVisibility;
         changeMouseVisibility();
+
+        OptionsMenu.onWeapVisibilityChangedCallback += changeWeapVisibility;
+        changeWeapVisibility();
 
     }
     void HeldInHandStatus(bool status)
@@ -195,7 +200,8 @@ public partial class WeaponController : damageController
             {
                 arrowColor.color = new Color(1f, 1f, 1f, 1f);
                 //show text ready to attack again when option is selected
-                ShowText("ready", 2, Color.white);
+                if(showWeapIndicator)
+                    ShowText("ready", 2, Color.white);
             }
             StaminaBar.value = StaminaBar.maxValue;
  
@@ -233,8 +239,8 @@ public partial class WeaponController : damageController
                     else
                         transform.localScale = new Vector3(-equippedWeapon.XYSize, equippedWeapon.XYSize, 1f);
                 }
-                if(Trail2 != null)
-                    Trail2.transform.localScale = transform.localScale;
+                //if(Trail2 != null)
+                    //Trail2.transform.localScale = transform.localScale;
             }
 
         }
@@ -503,6 +509,21 @@ public partial class WeaponController : damageController
         else
         {
             heldColor = 0f;
+        }
+    }
+    private void changeWeapVisibility()
+    {
+        if (PlayerPrefs.GetInt("weapIndicator", 0) == 0)
+        {
+            showWeapIndicator = false;
+        }
+        else if (PlayerPrefs.GetInt("weapIndicator", 0) == 1)
+        {
+            showWeapIndicator = true;
+        }
+        else
+        {
+            showWeapIndicator = false;
         }
     }
 

@@ -36,7 +36,7 @@ MonoBehaviour:
   CapsuleColliderSize: {x: 1.5, y: 1.5}
   SpriteOffset: {x: -0.175, y: 0}
   handReachMultiplier: 0.5
-  projectileAttack: {fileID: 1310705855610197, guid: 2c739b826d272044f8769d8d98443312,
+  projectileAttack: {fileID: 2300350798725474172, guid: 5ca1d6ab32a01a24b9ba2f4e7fbbf9ff,
     type: 3}
   projectileOffset: 0
   thrustResetTime: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   MaxDamage2: 150
   MinDamage2: 20
   activeTimeLimit2: 3
-  cooldownTime2: 4
+  cooldownTime2: 0.4
   movementDelay2: 0.4
   popSpawn2: {fileID: 154529244681351670, guid: aabe15ed412634045ae4523a2a3f973e,
     type: 3}

@@ -14,6 +14,7 @@ public class OptionsMenu : MonoBehaviour
     public Toggle fullScreentoggle;
     public Toggle cameraLockToggle;
     public Toggle mouseVisibilityToggle;
+    public Toggle weapIndicatorToggle;
     public Slider BGM_Slider;
     public Slider UI_Slider;
     public Slider CONTROL_Slider;
@@ -26,6 +27,10 @@ public class OptionsMenu : MonoBehaviour
     // mosue show setting is changed
     public delegate void OnMouseVisibility();
     public static OnMouseVisibility onMouseVisibilityChangedCallback;
+    // Callback which is triggered when
+    // weap show setting is changed
+    public delegate void OnWeapVisibility();
+    public static OnWeapVisibility onWeapVisibilityChangedCallback;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +63,7 @@ public class OptionsMenu : MonoBehaviour
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("CameraLock", 0) == 1);
         mouseVisibilityToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("mouseVisibility", 0) == 1);
+        weapIndicatorToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("weapIndicator", 0) == 1);
     }
 
     private void SetStartingSliders()
@@ -135,6 +141,20 @@ public class OptionsMenu : MonoBehaviour
         }
 
         onMouseVisibilityChangedCallback.Invoke();
+    }
+
+    public void SetWeapIndicatorVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            PlayerPrefs.SetInt("weapIndicator", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("weapIndicator", 0);
+        }
+
+        onWeapVisibilityChangedCallback.Invoke();
     }
 
     public delegate void OnControlChange();
