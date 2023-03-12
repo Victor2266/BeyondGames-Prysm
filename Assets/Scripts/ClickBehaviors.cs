@@ -288,7 +288,7 @@ public partial class WeaponController
 
             lastPosition = currPos;
         }
-        if ((PlayerController.liftRight && WeaponEnabled2) || (Time.time > startTime + equippedDoubleStateWeapon.activeTimeLimit2 && WeaponEnabled2))//released right click
+        if (((PlayerController.liftRight || PlayerController.liftLeft) && WeaponEnabled2) || (Time.time > startTime + equippedDoubleStateWeapon.activeTimeLimit2 && WeaponEnabled2))//released right click
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);

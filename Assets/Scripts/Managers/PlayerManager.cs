@@ -311,8 +311,9 @@ public class PlayerManager : MonoBehaviour
         yield break;
     }
 
-    private float TiltAngle =0f;
-    private float TiltTargetAngle =0f;
+    private float TiltAngle = 0f;
+    private float CTiltAngle = 0f;
+    private float TiltTargetAngle = 0f;
     private float currVelo = 0f;
 
     public void setTiltTargetAngle(float value)
@@ -321,8 +322,8 @@ public class PlayerManager : MonoBehaviour
     }
     private void TiltCharacter()
     {
-        TiltAngle = playerEntity.BlackBodyParticles.localEulerAngles.z;
-        TiltAngle = Mathf.SmoothDampAngle(TiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
+        CTiltAngle = playerEntity.BlackBodyParticles.localEulerAngles.z;
+        TiltAngle = Mathf.SmoothDampAngle(CTiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
         if (TiltAngle != float.NaN)
             playerEntity.BlackBodyParticles.localEulerAngles = new Vector3(0f, 0f, TiltAngle);
     }
