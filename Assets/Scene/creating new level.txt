@@ -1,0 +1,5 @@
+Change these when making new level
+- Game Manager
+- Level Credits
+- Instruction prompts
+- (references to player within mobs)

@@ -68,7 +68,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
             {
                 StartCoroutine(IKLSDelaySentence(2.5f, "no way", 0.7f));
                 ImperialKnight.GetComponent<SpriteRenderer>().sprite = DamagedKnightSprite;
-                CameraShaker.Instance.ShakeOnce(10f, 5f, 0f, 2f);
+                CameraShaker.Instance.ShakeOnce(15f, 5f, 0f, 2f);
                 KnightMusic.SetActive(false);
             }
         }
@@ -116,7 +116,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
                 boss2AI.DeactivatePuppetWarrior();
                 StartCoroutine(ShinigamiDelaySentence(4f, "Goddamnit,\nYou just detroyed my new puppet", 1f));
 
-                CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, 2.5f);
+                CameraShaker.Instance.ShakeOnce(15f, 10f, 0f, 2.5f);
                 UndeadMusic.SetActive(false);
             }
         }
