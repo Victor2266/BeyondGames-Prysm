@@ -38,6 +38,7 @@ public partial class WeaponController : damageController
     private Equipment.ElementType activeElement;
 
     public Text DamageCounter;
+    public Text MaxDMGText;
 
     AudioSource audioSource;
 
