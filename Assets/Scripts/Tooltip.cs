@@ -34,7 +34,14 @@ public class Tooltip : MonoBehaviour
         statField.text = "";
         foreach (float stat in stats)
         {
-            statField.text += Math.Round(stat, 2).ToString() + "\n";
+            if (stat == -1f)
+            {
+                statField.text += "???\n";
+            }
+            else
+            {
+                statField.text += Math.Round(stat, 2).ToString() + "\n";
+            }
         }
 
         statNamesField.text = statNames;
