@@ -201,6 +201,10 @@ public partial class WeaponController
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
 
             MaxDMGText.text = equippedDoubleStateWeapon.MaxDamage2.ToString();
+            if(equippedDoubleStateWeapon.MaxDamage2 == -1)
+            {
+                MaxDMGText.text = "???";
+            }
 
             trueMD = equippedDoubleStateWeapon.movementDelay2;
             if (!drainsMana)
@@ -223,15 +227,18 @@ public partial class WeaponController
             totalDistance += distance;
             DMG = (int)(totalDistance * equippedDoubleStateWeapon.DMG_Scaling2);
 
-            if (DMG > equippedDoubleStateWeapon.MaxDamage2 && equippedDoubleStateWeapon.MaxDamage2 > -1)
+            if(equippedDoubleStateWeapon.MaxDamage2 > -1)
             {
-                DMG = equippedDoubleStateWeapon.MaxDamage2;
+                if (DMG > equippedDoubleStateWeapon.MaxDamage2)
+                {
+                    DMG = equippedDoubleStateWeapon.MaxDamage2;
+                }
+                if (totalDistance > equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2)//why does total dist need to be capped? its not in default left click
+                {
+                    totalDistance = equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2;
+                }
             }
-            if (totalDistance > equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2)
-            {
-                totalDistance = equippedDoubleStateWeapon.MaxDamage2 / equippedDoubleStateWeapon.DMG_Scaling2;
-            }
-
+            
             if (drainsMana)
             {
                 if (playerEntity.ManaCost * (totalDistance - lastTotalDist) >= 1f)
@@ -306,6 +313,10 @@ public partial class WeaponController
             DamageCounter.text = "0";
             DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
             MaxDMGText.text = equippedWeapon.MaxDamage.ToString();
+            if(equippedWeapon.MaxDamage == -1)
+            {
+                MaxDMGText.text = "???";
+            }
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
 
