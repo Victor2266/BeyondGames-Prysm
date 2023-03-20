@@ -32,7 +32,7 @@ public partial class WeaponController
             totalDistance += distance;
 
             DMG = (int)(totalDistance * equippedWeapon.DMG_Scaling);
-            if (DMG > equippedWeapon.MaxDamage)
+            if (DMG > equippedWeapon.MaxDamage && equippedWeapon.MaxDamage > -1)
             {
                 DMG = equippedWeapon.MaxDamage;
             }
@@ -86,8 +86,8 @@ public partial class WeaponController
             StaminaBar.value = 0f;
             WeaponEnabled = false;
             Trail.SetActive(false);
-            DamageCounter.text = "";
-
+            DamageCounter.text = "0";
+            DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
             activeElement = equippedWeapon.ElementalType;
@@ -200,6 +200,8 @@ public partial class WeaponController
             activeElement = equippedDoubleStateWeapon.ElementalType2;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
 
+            MaxDMGText.text = equippedDoubleStateWeapon.MaxDamage2.ToString();
+
             trueMD = equippedDoubleStateWeapon.movementDelay2;
             if (!drainsMana)
             {
@@ -221,7 +223,7 @@ public partial class WeaponController
             totalDistance += distance;
             DMG = (int)(totalDistance * equippedDoubleStateWeapon.DMG_Scaling2);
 
-            if (DMG > equippedDoubleStateWeapon.MaxDamage2)
+            if (DMG > equippedDoubleStateWeapon.MaxDamage2 && equippedDoubleStateWeapon.MaxDamage2 > -1)
             {
                 DMG = equippedDoubleStateWeapon.MaxDamage2;
             }
@@ -301,8 +303,9 @@ public partial class WeaponController
             StaminaBar.value = 0f;
             WeaponEnabled2 = false;
             Trail2.SetActive(false);
-            DamageCounter.text = "";
-
+            DamageCounter.text = "0";
+            DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
+            MaxDMGText.text = equippedWeapon.MaxDamage.ToString();
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);
 

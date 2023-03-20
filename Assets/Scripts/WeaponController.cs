@@ -106,18 +106,27 @@ public partial class WeaponController : damageController
             OrbPosition.offsetX = 0f;
             OrbPosition.offsetY = 0.05f;
             DamageCounter.text = "";
+            MaxDMGText.text = "";
             ReachLength = 1.5f;// delete if unused later
             Destroy(Trail);
             Destroy(Trail2);
         }
         else // is weapon
         {
+
             sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             isInHand = true;
 
             equippedWeapon = EquipmentManager.instance.getMeleeWeapon();
 
-            if(equippedWeapon is DoubleStateWeapon)
+            DamageCounter.text = "0";
+            DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
+            MaxDMGText.text = equippedWeapon.MaxDamage.ToString();
+            if(equippedWeapon.MaxDamage == -1)
+            {
+                MaxDMGText.text = "???";
+            }
+            if (equippedWeapon is DoubleStateWeapon)
             {
                 equippedDoubleStateWeapon = (DoubleStateWeapon)equippedWeapon;
                 pop2 = equippedDoubleStateWeapon.popSpawn2;
