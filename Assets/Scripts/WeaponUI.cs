@@ -207,7 +207,7 @@ public class WeaponUI : MonoBehaviour
 
     }
 
-
+    private float DistToFinalPos;
     private void Update()
     {
         if (Time.timeScale == 0)
@@ -215,9 +215,12 @@ public class WeaponUI : MonoBehaviour
             return;
         }
 
-        if (Mathf.Abs(SliderUI.anchoredPosition.x - (float)TruePosition) > 0.01f)
+        DistToFinalPos = Mathf.Abs(SliderUI.anchoredPosition.x - (float)TruePosition);
+
+        if (DistToFinalPos > 0.01f)
         {
             posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.1f);
+
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
             SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
             //playerScript.ChargeIndicator.SetActive(false);
@@ -230,6 +233,15 @@ public class WeaponUI : MonoBehaviour
         {
             Debug.Log(playerInput.actions["Select Weapon"].ReadValue<float>());
             selectWeapon = playerInput.actions["Select Weapon"].ReadValue<float>();
+
+            if (selectWeapon > playerScript.weapon + 2)
+            {
+                StretchRight();
+            }
+            else if (selectWeapon < playerScript.weapon + 2)
+            {
+                StretchLeft();
+            }
         }
         else
         {
@@ -290,6 +302,8 @@ public class WeaponUI : MonoBehaviour
                 if (playerScript.weapon > -1 && playerScript.weapon < 8)//from weapons -1 [0 1234567]
                 {
                     playerScript.weapon--;
+
+                    StretchLeft();
                 }
 
 
@@ -319,6 +333,8 @@ public class WeaponUI : MonoBehaviour
                 if (playerScript.weapon > -2 && playerScript.weapon < 7)//from weapons [-1 0 123456]7
                 {
                     playerScript.weapon++;
+
+                    StretchRight();
                 }
 
 
@@ -353,18 +369,19 @@ public class WeaponUI : MonoBehaviour
             sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 96, ref sizeRefVelo, cooldowntime / 2f);
             sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 96, ref ParentsizeRefVelo, cooldowntime / 16f);
 
-            SliderUI.sizeDelta = new Vector2(30, sliderYSize);
-            SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
+            SliderUI.sizeDelta = new Vector2(30 + DistToFinalPos /2f, sliderYSize);
+            SliderParentUI.sizeDelta = new Vector2(30 + DistToFinalPos / 2f, sliderParentYSize);
         }
         else if (playerScript.weapon < 8)
         {
             sliderYSize = Mathf.SmoothDamp(SliderUI.sizeDelta.y, 64, ref sizeRefVelo, cooldowntime / 2f);
             sliderParentYSize = Mathf.SmoothDamp(SliderParentUI.sizeDelta.y, 64, ref ParentsizeRefVelo, cooldowntime /16f);
 
-            SliderUI.sizeDelta = new Vector2(30, sliderYSize);
-            SliderParentUI.sizeDelta = new Vector2(30, sliderParentYSize);
+            SliderUI.sizeDelta = new Vector2(30 + DistToFinalPos / 2f, sliderYSize);
+            SliderParentUI.sizeDelta = new Vector2(30 + DistToFinalPos / 2f, sliderParentYSize);
         }
         SliderColour.color = Color.Lerp(SliderColour.color, CurrentColor, 0.1f);
+  
     }
     public void UnChargeWeapon()
     {
@@ -385,6 +402,18 @@ public class WeaponUI : MonoBehaviour
     {
         SliderUI.sizeDelta = new Vector2(30, 0);
         cooldowntime = r_cooldowntime;
+    }
+    public void StretchRight()
+    {
+        SliderUI.pivot = new Vector2(0, 1f);
+        SliderParentUI.pivot = new Vector2(0, 1f);
+        xAdjustment = -43;
+    }
+    public void StretchLeft()
+    {
+        SliderUI.pivot = new Vector2(1f, 1f);
+        SliderParentUI.pivot = new Vector2(1f, 1f);
+        xAdjustment = -13;
     }
     public void flashWhite()
     {
