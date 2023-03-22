@@ -23,6 +23,7 @@ public class WeaponUI : MonoBehaviour
     public GameObject SliderParent;
     private RectTransform SliderParentUI;
     private RectTransform SliderUI;
+    public RectTransform InstaSliderUI;
     private RawImage SliderColour;
     public Vector2 velocity;
     public int TruePosition;
@@ -220,7 +221,7 @@ public class WeaponUI : MonoBehaviour
         if (DistToFinalPos > 0.01f)
         {
             posX = Mathf.SmoothDamp(SliderUI.anchoredPosition.x, (float)TruePosition, ref velocity.y, 0.1f);
-
+            InstaSliderUI.anchoredPosition = new Vector2(TruePosition, 0f);
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
             SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
             //playerScript.ChargeIndicator.SetActive(false);
@@ -407,6 +408,7 @@ public class WeaponUI : MonoBehaviour
     {
         SliderUI.pivot = new Vector2(0, 1f);
         SliderParentUI.pivot = new Vector2(0, 1f);
+        InstaSliderUI.pivot = new Vector2(0, 1f);
         if (xAdjustment == -13)
         {
             SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x - 30, SliderUI.anchoredPosition.y);
@@ -419,6 +421,7 @@ public class WeaponUI : MonoBehaviour
     {
         SliderUI.pivot = new Vector2(1f, 1f);
         SliderParentUI.pivot = new Vector2(1f, 1f);
+        InstaSliderUI.pivot = new Vector2(1f, 1f);
         if (xAdjustment == -43)
         {
             SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x + 30, SliderUI.anchoredPosition.y);
