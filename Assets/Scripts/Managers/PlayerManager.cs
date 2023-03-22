@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
         //playerEntity.currentHealth = MySceneManager.StartingHealth;
         //playerEntity.currentMana = MySceneManager.StartingMana;
 
-        playerEntity.HealthBarScalingLength = 881;
+        playerEntity.HealthBarScalingLength = 880;
 
         if(playerEntity.health != null)
         {
