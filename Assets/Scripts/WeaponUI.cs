@@ -407,12 +407,23 @@ public class WeaponUI : MonoBehaviour
     {
         SliderUI.pivot = new Vector2(0, 1f);
         SliderParentUI.pivot = new Vector2(0, 1f);
+        if (xAdjustment == -13)
+        {
+            SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x - 30, SliderUI.anchoredPosition.y);
+            SliderParentUI.anchoredPosition = new Vector2(SliderParentUI.anchoredPosition.x - 30, SliderParentUI.anchoredPosition.y);
+        }
         xAdjustment = -43;
+
     }
     public void StretchLeft()
     {
         SliderUI.pivot = new Vector2(1f, 1f);
         SliderParentUI.pivot = new Vector2(1f, 1f);
+        if (xAdjustment == -43)
+        {
+            SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x + 30, SliderUI.anchoredPosition.y);
+            SliderParentUI.anchoredPosition = new Vector2(SliderParentUI.anchoredPosition.x + 30, SliderParentUI.anchoredPosition.y);
+        }
         xAdjustment = -13;
     }
     public void flashWhite()
