@@ -103,7 +103,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetUiSize(float size)
     {
-        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280 + 560 * size, 720);
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280 + 636 * size, 720);
         PlayerPrefs.SetFloat("UISize", size);
     }
 
