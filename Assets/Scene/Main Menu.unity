@@ -10346,7 +10346,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 47710991}
-        m_MethodName: Singleplayer_startgame
+        m_MethodName: PreStartWarningScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -112543,6 +112543,7 @@ MonoBehaviour:
   HealthBarScalingLength: 0
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
+  TextPopUp2: {fileID: 0}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
   customLocalPlayerCheck: 1

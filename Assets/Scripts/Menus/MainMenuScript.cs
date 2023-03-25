@@ -182,6 +182,10 @@ public class MainMenuScript : MonoBehaviour
         Resolution resolution = resolutions[resolutions.Length -1 - resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+    public void PreStartWarningScene()
+    {
+        SceneManager.GetComponent<MySceneManager>().PreStartWarning();
+    }
     public void Singleplayer_startgame()
     {
         SceneManager.GetComponent<MySceneManager>().StartNewSingleplayerGame();

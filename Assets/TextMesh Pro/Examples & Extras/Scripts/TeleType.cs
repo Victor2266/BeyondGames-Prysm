@@ -11,7 +11,7 @@ namespace TMPro.Examples
 
         //[Range(0, 100)]
         //public int RevealSpeed = 50;
-
+        [TextArea]
         public string DisplayText;
 
         private TMP_Text m_textMeshPro;

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 22262664}
   - component: {fileID: 22262666}
   - component: {fileID: 22262665}
+  - component: {fileID: 22262667}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -267,6 +268,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22262663}
   m_CullTransparentMesh: 0
+--- !u!114 &22262667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22262663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32c266ee6204b21a427753cb0694c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayText: 'Thank you for playing my game!
+
+
+    <size=18>If you get bored, or
+    its too difficult, but you want to see the game content press <color=green>[G]</color>
+    for extra health.
+
+
+    There are only 2 levels "completed" right now.
+
+    <align=right>-
+    Awasete'
+  nonReactive: 1
+  delay: 0.01
+  disableWrapping: 0
 --- !u!1 &38366420
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +416,7 @@ GameObject:
   - component: {fileID: 195177519}
   - component: {fileID: 195177518}
   - component: {fileID: 195177517}
+  - component: {fileID: 195177520}
   m_Layer: 5
   m_Name: Button
   m_TagString: DefaultOption
@@ -441,7 +470,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2509804}
     m_PressedColor: {r: 0, g: 0.55506897, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.5019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -460,7 +489,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 195177518}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 195177520}
+        m_MethodName: Singleplayer_startgame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &195177518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +538,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195177515}
   m_CullTransparentMesh: 0
+--- !u!114 &195177520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195177515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbfd63f3c58ba74591ca1036f89be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneManager: {fileID: 0}
 --- !u!1 &436472561
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: START NEW GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5984,6 +6037,7 @@ RectTransform:
   - {fileID: 2045984076}
   - {fileID: 1978985094}
   - {fileID: 22262664}
+  - {fileID: 1962024637}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11044,6 +11098,7 @@ MonoBehaviour:
   HealthBarScalingLength: 0
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
+  TextPopUp2: {fileID: 0}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
   customLocalPlayerCheck: 1
@@ -16635,6 +16690,97 @@ Transform:
   m_Father: {fileID: 1077803540}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1962024636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962024637}
+  - component: {fileID: 1962024640}
+  - component: {fileID: 1962024639}
+  - component: {fileID: 1962024638}
+  m_Layer: 5
+  m_Name: Ending Blackout fade to black
+  m_TagString: Transition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1962024637
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962024636}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 976542878}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1962024638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962024636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db53f3476b7c3b45a53535c0a2b2278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseRawImage: 1
+  UseSpriteRend: 0
+  UseImage: 0
+  UseVideo: 0
+  ResetAlphaToZeroOnAwake: 0
+  ticks: 0
+  tickLimit: 0.2
+--- !u!114 &1962024639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962024636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1962024640
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962024636}
+  m_CullTransparentMesh: 0
 --- !u!1 &1978985093
 GameObject:
   m_ObjectHideFlags: 0

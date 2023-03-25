@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scene/Main Menu.unity
     guid: 332415bbaf7095c4ebdb774a141c0199
   - enabled: 1
+    path: Assets/Scene/NewGameNote.unity
+    guid: 3d62965f42e1a0343a0130293935633a
+  - enabled: 1
     path: Assets/Scene/OpeningSequence.unity
     guid: 3dccc451abefa7347a0d4e4fad49ce85
   - enabled: 1

@@ -52,7 +52,10 @@ public class MySceneManager : MonoBehaviour
                 //SaveSystem.SavePlayerEntity(playerEntity);
         }
     }
-
+    public void PreStartWarning()
+    {
+        base.StartCoroutine(SlowSelectLevel("NewGameNote"));
+    }
     public void StartNewSingleplayerGame()
     {
         //CLEAR EVERYTHING
@@ -60,6 +63,7 @@ public class MySceneManager : MonoBehaviour
        
         base.StartCoroutine(SelectLevelScreen(true));
     }
+
     public void ContinueSingleplayerGame()
     {
         //LOAD EVERYTHING
@@ -70,7 +74,7 @@ public class MySceneManager : MonoBehaviour
         }
         else
         {
-            StartNewSingleplayerGame();
+            PreStartWarning();
         }
     }
 
@@ -101,6 +105,21 @@ public class MySceneManager : MonoBehaviour
         transition.SetActive(true);
 
         yield return new WaitForSeconds(0.2f);//temp lowered
+
+        //LOAD EVERYTHING
+        LoadData();
+
+        yield return new WaitForSeconds(0.2f);//temp lowered
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelname, LoadSceneMode.Single);
+
+        yield break;
+    }
+    public IEnumerator SlowSelectLevel(string levelname)
+    {
+        transition.SetActive(true);
+
+        yield return new WaitForSeconds(2f);//temp lowered
 
         //LOAD EVERYTHING
         LoadData();
