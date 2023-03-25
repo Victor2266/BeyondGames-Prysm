@@ -94648,6 +94648,9 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 6.1
   shrinks: 0
+  grows: 0
+  growSize: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -128083,6 +128086,9 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 9
   shrinks: 0
+  grows: 0
+  growSize: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0

@@ -14,8 +14,6 @@ public class DeathTimer : MonoBehaviour
     public float tickLimit;
 
     public bool shrinks;
-    public bool grows;
-    public float growSize;
     public bool TMPFades;
 
     public bool trail;
