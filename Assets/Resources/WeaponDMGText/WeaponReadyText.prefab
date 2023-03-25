@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6487517401422450446}
   - component: {fileID: 7472575538752034449}
   m_Layer: 0
-  m_Name: NPC Text 1
+  m_Name: WeaponReadyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   tickLimit: 5
   shrinks: 0
   grows: 0
-  growSpeed: 1
+  growSize: 0
   TMPFades: 1
   trail: 0
   startSize: 1
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ticks: 0
-  tickLimit: 0.2
+  tickLimit: 0.1
   grows: 1
   EndSize: 1
   widthOfBullet: 0
@@ -238,11 +238,10 @@ AudioSource:
   m_GameObject: {fileID: 5225875635266693844}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f2334e979e35e2e4f91eedc86365c889,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8a4ed46eec7af114f92c1bdc0b744e37, type: 3}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 08dbfef2a10d30b4db75042fc5fb8512, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

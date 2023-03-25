@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/DoubleStateWeapon")]
 public class DoubleStateWeapon : Weapon
 {
+    [TextArea]
+    public string SpecialAttackName;
     public float DMG_Scaling2;
     public int MaxDamage2, MinDamage2;
     public float activeTimeLimit2;

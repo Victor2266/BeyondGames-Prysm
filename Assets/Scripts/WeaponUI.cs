@@ -413,6 +413,7 @@ public class WeaponUI : MonoBehaviour
         {
             SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x - 30, SliderUI.anchoredPosition.y);
             SliderParentUI.anchoredPosition = new Vector2(SliderParentUI.anchoredPosition.x - 30, SliderParentUI.anchoredPosition.y);
+            InstaSliderUI.anchoredPosition = new Vector2(InstaSliderUI.anchoredPosition.x - 30, InstaSliderUI.anchoredPosition.y);
         }
         xAdjustment = -43;
 
@@ -426,6 +427,7 @@ public class WeaponUI : MonoBehaviour
         {
             SliderUI.anchoredPosition = new Vector2(SliderUI.anchoredPosition.x + 30, SliderUI.anchoredPosition.y);
             SliderParentUI.anchoredPosition = new Vector2(SliderParentUI.anchoredPosition.x + 30, SliderParentUI.anchoredPosition.y);
+            InstaSliderUI.anchoredPosition = new Vector2(InstaSliderUI.anchoredPosition.x + 30, InstaSliderUI.anchoredPosition.y);
         }
         xAdjustment = -13;
     }

@@ -24,6 +24,7 @@ MonoBehaviour:
     momentum from previous swings to cut down opponents.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
+  AttackName: <b>W</b>
   ReachLength: 1.7
   DMG_Scaling: 4
   MaxDamage: 30

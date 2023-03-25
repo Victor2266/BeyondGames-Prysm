@@ -121,7 +121,7 @@ public partial class WeaponController : damageController
 
             DamageCounter.text = "0";
             DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
-            MaxDMGText.text = equippedWeapon.MaxDamage.ToString();
+            MaxDMGText.text = equippedWeapon.MaxDamage.ToString() + "\n" + equippedWeapon.AttackName;
             if(equippedWeapon.MaxDamage == -1)
             {
                 MaxDMGText.text = "???";
@@ -211,7 +211,7 @@ public partial class WeaponController : damageController
                 arrowColor.color = new Color(1f, 1f, 1f, 1f);
                 //show text ready to attack again when option is selected
                 if(showWeapIndicator)
-                    ShowText("ready", 2, Color.white);
+                    ShowText("ready", 1f, 1f, Color.white);
             }
             StaminaBar.value = StaminaBar.maxValue;
  
@@ -537,13 +537,15 @@ public partial class WeaponController : damageController
         }
     }
 
-    private void ShowText(string text, float size, Color colour)
+    private void ShowText(string text, float lifeSpan, float size, Color colour)
     {
         Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
-        GameObject gameObject2 = Instantiate(playerEntity.TextPopUp, position, transform.rotation);
-        gameObject2.GetComponent<TMPro.TextMeshPro>().text = text;
-        gameObject2.GetComponent<TMPro.TextMeshPro>().fontSize = size;
-        gameObject2.GetComponent<RectTransform>().transform.eulerAngles = new Vector3(0f, 0f, Random.Range(-30.0f, 30.0f));
-        gameObject2.GetComponent<TMPro.TextMeshPro>().color = colour;
+        GameObject gameObject2 = Instantiate(playerEntity.TextPopUp2, position, transform.rotation);
+        TMPro.TextMeshPro txtTMPRO = gameObject2.GetComponent<TMPro.TextMeshPro>();
+        gameObject2.GetComponent<DeathTimer>().tickLimit = lifeSpan;
+        txtTMPRO.text = text;
+        txtTMPRO.fontSize = size;
+        txtTMPRO.transform.eulerAngles = new Vector3(0f, 0f, Random.Range(-30.0f, 30.0f));
+        txtTMPRO.color = colour;
     }
 }

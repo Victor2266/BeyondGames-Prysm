@@ -322,10 +322,13 @@ public class PlayerManager : MonoBehaviour
     }
     private void TiltCharacter()
     {
-        CTiltAngle = playerEntity.BlackBodyParticles.localEulerAngles.z;
-        TiltAngle = Mathf.SmoothDampAngle(CTiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
-        if (TiltAngle != float.NaN)
-            playerEntity.BlackBodyParticles.localEulerAngles = new Vector3(0f, 0f, TiltAngle);
+        if(Time.timeScale != 0)
+        {
+            CTiltAngle = playerEntity.BlackBodyParticles.localEulerAngles.z;
+            TiltAngle = Mathf.SmoothDampAngle(CTiltAngle, TiltTargetAngle, ref currVelo, 0.1f);
+            if (TiltAngle != float.NaN)
+                playerEntity.BlackBodyParticles.localEulerAngles = new Vector3(0f, 0f, TiltAngle);
+        }
     }
 
 }

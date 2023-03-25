@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName= "Inventory/Weapon")]
 public class Weapon : Equipment
 {
+    public string AttackName;
     public float ReachLength;
     public float DMG_Scaling;
     public int MaxDamage;

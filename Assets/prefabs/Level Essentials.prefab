@@ -7338,6 +7338,9 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  grows: 0
+  growSize: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -7903,7 +7906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 22}
+  m_AnchoredPosition: {x: -7, y: 32}
   m_SizeDelta: {x: 60, y: 28}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &2684551501623326480
@@ -29636,6 +29639,8 @@ MonoBehaviour:
   HealthBarScalingLength: 0
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
+  TextPopUp2: {fileID: 5225875635266693844, guid: 21f55d31b88ca5840bc6bb68ae40f4b3,
+    type: 3}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
   customLocalPlayerCheck: 1
@@ -38893,6 +38898,9 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 0
+  grows: 0
+  growSize: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -70713,7 +70721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -65, y: 20}
+  m_AnchoredPosition: {x: -72, y: 30}
   m_SizeDelta: {x: 120, y: 36}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &5168091096606203307
@@ -87042,6 +87050,9 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  grows: 0
+  growSize: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -95057,7 +95068,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Stick [Gamepad]
+      value: Left Stick [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -95235,7 +95246,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Shoulder [Gamepad]
+      value: Left Bumper [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -95400,7 +95411,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Stick/Up [Gamepad]
+      value: Left Stick Up [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -95555,7 +95566,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Select [Gamepad]
+      value: Select [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -95721,7 +95732,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Shoulder [Gamepad]
+      value: Right Bumper [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -96533,7 +96544,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Start [Gamepad]
+      value: Start [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -97148,7 +97159,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button North [Gamepad]
+      value: Y [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -97945,7 +97956,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Trigger [Gamepad]
+      value: Left Trigger [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -98346,7 +98357,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button West [Gamepad]
+      value: X [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -99217,7 +99228,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button South [Gamepad]
+      value: A [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -100783,7 +100794,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad/Y [Gamepad]
+      value: D-Pad Y [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -100954,7 +100965,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad/X [Gamepad]
+      value: D-Pad X [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -101766,7 +101777,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Trigger [Gamepad]
+      value: Right Trigger [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -102162,7 +102173,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button East [Gamepad]
+      value: B [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -102826,7 +102837,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Stick [Gamepad]
+      value: Right Stick [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}

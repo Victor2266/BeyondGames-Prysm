@@ -23,6 +23,7 @@ MonoBehaviour:
     this weapon is effective against both undead monsters and holy knights.
   equipSlot: 0
   color: {r: 0.3490566, g: 0, b: 0, a: 1}
+  AttackName: <color=red>R</color>
   ReachLength: 2
   DMG_Scaling: 4
   MaxDamage: 60
@@ -54,6 +55,9 @@ MonoBehaviour:
   ElementalType: 0
   leftClickStrategy: 0
   rightClickStrategy: 1
+  SpecialAttackName: '<color=red>DEMON</color>
+
+    HUNTER'
   DMG_Scaling2: 8
   MaxDamage2: 120
   MinDamage2: 20

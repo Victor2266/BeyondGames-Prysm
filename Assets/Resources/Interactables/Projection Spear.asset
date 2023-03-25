@@ -23,6 +23,7 @@ MonoBehaviour:
     a ton of mama.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  AttackName: <color=#26FF00>G</color>
   ReachLength: 1.5
   DMG_Scaling: 12
   MaxDamage: 45

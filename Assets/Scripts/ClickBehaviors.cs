@@ -200,10 +200,10 @@ public partial class WeaponController
             activeElement = equippedDoubleStateWeapon.ElementalType2;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
 
-            MaxDMGText.text = equippedDoubleStateWeapon.MaxDamage2.ToString();
+            MaxDMGText.text = equippedDoubleStateWeapon.MaxDamage2.ToString() + "\n" + equippedDoubleStateWeapon.SpecialAttackName;
             if(equippedDoubleStateWeapon.MaxDamage2 == -1)
             {
-                MaxDMGText.text = "???";
+                MaxDMGText.text = "???" + "\n" + equippedDoubleStateWeapon.SpecialAttackName;
             }
 
             trueMD = equippedDoubleStateWeapon.movementDelay2;
@@ -312,10 +312,10 @@ public partial class WeaponController
             Trail2.SetActive(false);
             DamageCounter.text = "0";
             DamageCounter.color = new Vector4(1f, 1f, 1f, 0.5f);
-            MaxDMGText.text = equippedWeapon.MaxDamage.ToString();
-            if(equippedWeapon.MaxDamage == -1)
+            MaxDMGText.text = equippedWeapon.MaxDamage.ToString() + "\n" + equippedWeapon.AttackName;
+            if (equippedWeapon.MaxDamage == -1)
             {
-                MaxDMGText.text = "???";
+                MaxDMGText.text = "???" + "\n" + equippedWeapon.AttackName;
             }
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
             whiteArrow.SetActive(true);

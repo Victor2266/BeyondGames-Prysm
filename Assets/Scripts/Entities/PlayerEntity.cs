@@ -94,6 +94,7 @@ public class PlayerEntity : MonoBehaviour
     public int HealthBarScalingLength;
 
     public GameObject TextPopUp;
+    public GameObject TextPopUp2;
 
     public RectTransform healthRect;//health slider rect transform
     public RectTransform manaRect;//mana slider rect transform
