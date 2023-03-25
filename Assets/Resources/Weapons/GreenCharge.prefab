@@ -217,6 +217,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DMGText: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071, type: 3}
-  DMG: 50
+  DMG: 500
   Primed: 1
   Bouncy: 0
   pop: {fileID: 4243457265752490857, guid: 057b865550c716947b1320bc62089efb, type: 3}
@@ -481,6 +482,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  TMPFades: 0
   trail: 1
   startSize: 1
   widthOfBullet: 0.6
@@ -5313,6 +5315,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0.2
@@ -5474,6 +5477,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  TMPFades: 0
   trail: 1
   startSize: 1
   widthOfBullet: 0.2
@@ -10389,6 +10393,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 10
   shrinks: 1
+  TMPFades: 0
   trail: 1
   startSize: 1
   widthOfBullet: 0.2

@@ -199,6 +199,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 5
   shrinks: 0
+  TMPFades: 1
   trail: 0
   startSize: 1
   widthOfBullet: 0
