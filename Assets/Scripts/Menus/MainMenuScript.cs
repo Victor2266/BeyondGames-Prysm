@@ -239,7 +239,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void SetUiSize(float size)
     {
-        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720 + 560 * size);
+        GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280 + 636 * size, 720);
         PlayerPrefs.SetFloat("UISize", size);
     }
 

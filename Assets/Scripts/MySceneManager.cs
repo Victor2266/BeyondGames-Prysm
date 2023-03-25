@@ -182,5 +182,9 @@ public class MySceneManager : MonoBehaviour
 
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("levelReached", 1);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            PlayerPrefs.SetFloat("UISize", 1280 + 636/2f);
+        }
     }
 }
