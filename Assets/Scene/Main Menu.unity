@@ -18927,6 +18927,7 @@ GameObject:
   - component: {fileID: 326774172}
   - component: {fileID: 326774171}
   - component: {fileID: 326774170}
+  - component: {fileID: 326774168}
   m_Layer: 0
   m_Name: BeyondTitle-01
   m_TagString: Untagged
@@ -18934,6 +18935,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &326774168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326774167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d99278282bbc254d85d43f4c567d3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 61.5, z: 0}
+  hoverSpeed: 1.5
+  hoverHeightAmp: 0.2
+  isChild: 0
 --- !u!50 &326774170
 Rigidbody2D:
   serializedVersion: 4

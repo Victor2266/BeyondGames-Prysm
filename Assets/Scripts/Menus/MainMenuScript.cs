@@ -72,7 +72,7 @@ public class MainMenuScript : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
-        mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 0) == 1 ? true : false;
+        mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 1) == 1 ? true : false;
         weapVisibilityToggle.isOn = PlayerPrefs.GetInt("weapIndicator", 0) == 1 ? true : false;
     }
 

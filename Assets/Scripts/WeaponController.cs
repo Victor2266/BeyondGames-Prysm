@@ -508,11 +508,11 @@ public partial class WeaponController : damageController
 
     private void changeMouseVisibility()
     {
-        if (PlayerPrefs.GetInt("mouseVisibility", 0) == 0)
+        if (PlayerPrefs.GetInt("mouseVisibility", 1) == 0)
         {
             heldColor = 0f;
         }
-        else if (PlayerPrefs.GetInt("mouseVisibility", 0) == 1)
+        else if (PlayerPrefs.GetInt("mouseVisibility", 1) == 1)
         {
             heldColor = 0.2f;
         }

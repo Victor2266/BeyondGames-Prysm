@@ -62,7 +62,7 @@ public class OptionsMenu : MonoBehaviour
 
         fullScreentoggle.isOn = Screen.fullScreen;
         cameraLockToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("CameraLock", 0) == 1);
-        mouseVisibilityToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("mouseVisibility", 0) == 1);
+        mouseVisibilityToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("mouseVisibility", 1) == 1);
         weapIndicatorToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("weapIndicator", 0) == 1);
     }
 
