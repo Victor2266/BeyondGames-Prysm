@@ -200,6 +200,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 5
   shrinks: 0
+  TMPFades: 1
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3b615929496ac42a90eecca584b8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 5225875635273785140}
   ticks: 0
   tickLimit: 0.2
   grows: 1
@@ -226,6 +228,8 @@ MonoBehaviour:
   timeOfBullet: 0
   diesRightAfter: 1
   affectZ: 0
+  FadeInText: 1
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!82 &3442794675359709661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -357,3 +361,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastMSG: {fileID: 0}
+  followThis: {fileID: 0}
+  textYOffset: 0
