@@ -180,8 +180,10 @@ public class MySceneManager : MonoBehaviour
         //Clears equipments and inventory below
         SaveSystem.deleteInventoryAndEquipment();
 
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("levelReached", 1);
+        PlayerPrefs.SetFloat("BGM_Volume", 1f);
+
         if (Application.platform == RuntimePlatform.Android)
         {
             PlayerPrefs.SetFloat("UISize", 1280 + 636/2f);
