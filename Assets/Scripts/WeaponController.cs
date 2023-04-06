@@ -456,7 +456,7 @@ public partial class WeaponController : damageController
     float zAngle;
     private float lastZAngle;
 
-    float remainingCooldown;
+    public float remainingCooldown;
 
     private void Dash()
     {

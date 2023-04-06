@@ -225,9 +225,6 @@ public class WeaponUI : MonoBehaviour
             SliderUI.anchoredPosition = new Vector2(posX, 0f);
             SliderParentUI.anchoredPosition = new Vector2(posX, 0f);
             //playerScript.ChargeIndicator.SetActive(false);
-
-            manaFillColor.color = SliderColour.color;
-
         }
 
         if (playerInput.actions["Select Weapon"].IsPressed())
@@ -477,6 +474,9 @@ public class WeaponUI : MonoBehaviour
             handheld_weapon.onHeldInHand.Invoke(inHand);
             playerManager.SetWeap();
         }
+
+        LeanTween.cancel(manaFillColor.gameObject);
+        LeanTween.value(manaFillColor.gameObject, manaFillColor.color, col, 0.2f).setOnUpdate((Color val) => { manaFillColor.color = val; }).setEaseInOutSine();
     }
 
     /// <summary>

@@ -98,6 +98,8 @@ public class PlayerEntity : MonoBehaviour
 
     public RectTransform healthRect;//health slider rect transform
     public RectTransform manaRect;//mana slider rect transform
+    public RectTransform ActiveManaRect;//mana slider rect transform
+    private Image ActiveManaImage;
 
     public bool customLocalPlayerCheck = true;
     public bool lookingLeft;
@@ -120,6 +122,7 @@ public class PlayerEntity : MonoBehaviour
     public ParticleSystem rightBooster;
     public AudioSource audioSource;
     public GameObject RegenManaIndicator;
+
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;
@@ -152,7 +155,8 @@ public class PlayerEntity : MonoBehaviour
         HealthBarScalingLength = player.HealthBarScalingLength;
         customLocalPlayerCheck = player.customLocalPlayerCheck;
         lookingLeft = player.lookingLeft;
-
+        if(ActiveManaRect != null)
+            ActiveManaImage = ActiveManaRect.gameObject.GetComponent<Image>();
         //CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
 
@@ -180,6 +184,8 @@ public class PlayerEntity : MonoBehaviour
 
     public void UpdateHealth()
     {
+        LeanTween.cancel(redHealth);
+
         if (currentHealth < 0)
         {
             currentHealth = 0;
@@ -190,17 +196,28 @@ public class PlayerEntity : MonoBehaviour
         //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
         
         LTSeq sequence = LeanTween.sequence();
-        sequence.append(LeanTween.value(gameObject, health.value, currentHealth, 0.1f).setOnUpdate((float val) => { health.value = val; }));
-        sequence.append(LeanTween.scale(redHealth, new Vector3(currentHealth / MaxHealth, 1f, 1f), 1f));
+        sequence.append(LeanTween.value(gameObject, health.value, currentHealth, 0.1f).setOnUpdate((float val) => { health.value = val; }).setEaseInOutSine());
+        sequence.append(LeanTween.scale(redHealth, new Vector3(currentHealth / MaxHealth, 1f, 1f), 1f).setEaseInOutSine());
     }
     public void UpdateMana()
     {
+        LeanTween.cancel(ActiveManaRect);
+        LeanTween.cancel(whiteMana);
+
         ManaUIText.text = currentMana.ToString() + "/" + MaxMana.ToString();
         //playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
 
+        ActiveManaImage.color = new Color(0f, 0.7342432f, 1f, 1f);
         LTSeq sequence = LeanTween.sequence();
-        sequence.append(LeanTween.value(gameObject, mana.value, currentMana, 0.1f).setOnUpdate((float val) => { mana.value = val; }));
-
-        sequence.append(LeanTween.scale(whiteMana, new Vector3((float)currentMana / MaxMana, 1f, 1f), 1f));
+        sequence.append(LeanTween.value(gameObject, mana.value, currentMana, 0.1f).setOnUpdate((float val) => { mana.value = val; }).setEaseInOutSine());
+        if(weapon >= 1)
+        {
+            sequence.append(LeanTween.alpha(ActiveManaRect, 0f, coolDownPeriod).setEase(LeanTweenType.easeInOutSine));
+        }
+        else
+        {
+            sequence.append(LeanTween.alpha(ActiveManaRect, 0f, 0.2f).setEase(LeanTweenType.easeInOutSine));
+        }
+        sequence.append(LeanTween.scale(whiteMana, new Vector3((float)currentMana / MaxMana, 1f, 1f), .5f).setEaseInOutSine());
     }
 }
