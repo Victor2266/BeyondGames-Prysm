@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour//rewrote for canvas world space health ba
 
     public void UpdateHealthBar(float newHealth, float maxHealth)
     {
+        LeanTween.cancel(whiteBar);
         if (newHealth >= 0)
         {
             LTSeq sequence = LeanTween.sequence();
