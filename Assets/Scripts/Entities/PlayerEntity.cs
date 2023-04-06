@@ -100,6 +100,8 @@ public class PlayerEntity : MonoBehaviour
     public RectTransform manaRect;//mana slider rect transform
     public RectTransform ActiveManaRect;//mana slider rect transform
     private Image ActiveManaImage;
+    public RectTransform ActiveDMGRect;//mana slider rect transform
+    private Image ActiveDMGImage;
 
     public bool customLocalPlayerCheck = true;
     public bool lookingLeft;
@@ -157,6 +159,8 @@ public class PlayerEntity : MonoBehaviour
         lookingLeft = player.lookingLeft;
         if(ActiveManaRect != null)
             ActiveManaImage = ActiveManaRect.gameObject.GetComponent<Image>();
+        if (ActiveDMGRect != null)
+            ActiveDMGImage = ActiveDMGRect.gameObject.GetComponent<Image>();
         //CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
 
@@ -184,6 +188,7 @@ public class PlayerEntity : MonoBehaviour
 
     public void UpdateHealth()
     {
+        LeanTween.cancel(ActiveDMGRect);
         LeanTween.cancel(redHealth);
 
         if (currentHealth < 0)
@@ -195,8 +200,11 @@ public class PlayerEntity : MonoBehaviour
         HealthUIText.text = currentHealth.ToString() + "/" + MaxHealth.ToString();
         //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
         
+        ActiveDMGImage.color = new Color(1f, 0f, 0f, 1f);
+
         LTSeq sequence = LeanTween.sequence();
         sequence.append(LeanTween.value(gameObject, health.value, currentHealth, 0.1f).setOnUpdate((float val) => { health.value = val; }).setEaseInOutSine());
+        sequence.append(LeanTween.alpha(ActiveDMGRect, 0f, 0.2f).setEase(LeanTweenType.easeInOutSine));
         sequence.append(LeanTween.scale(redHealth, new Vector3(currentHealth / MaxHealth, 1f, 1f), 1f).setEaseInOutSine());
     }
     public void UpdateMana()
@@ -208,6 +216,7 @@ public class PlayerEntity : MonoBehaviour
         //playerEntity.ManaUIText.rectTransform.position = new Vector3(playerEntity.manaRect.sizeDelta.x + 2, playerEntity.ManaUIText.rectTransform.position.y, playerEntity.ManaUIText.rectTransform.position.z);
 
         ActiveManaImage.color = new Color(0f, 0.7342432f, 1f, 1f);
+
         LTSeq sequence = LeanTween.sequence();
         sequence.append(LeanTween.value(gameObject, mana.value, currentMana, 0.1f).setOnUpdate((float val) => { mana.value = val; }).setEaseInOutSine());
         if(weapon >= 1)
