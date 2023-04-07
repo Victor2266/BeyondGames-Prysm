@@ -21,6 +21,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     public GameObject KnightMusic, UndeadMusic, ShinigamiMusic;
     public GameObject ImperialKnight;
     private ImperialKnightLongSword IKLS;
+    public GameObject knightHealthBar;
     public GameObject blackBossExplosion, hillPosObj, bossHealthBar;
     public DelayedCameraController cameraParent;
     public CircleCollider2D boss2headColider;
@@ -58,7 +59,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
         {
             IKLS.ShowText(2f, "Something like you doesn't belong here,\nGo back to the forest or DIE.", 1f);
             IKLS.agression = true;
-
+            knightHealthBar.SetActive(true);
             index++;
             KnightMusic.SetActive(true);
         }
