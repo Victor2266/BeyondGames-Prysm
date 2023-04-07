@@ -526,7 +526,7 @@ public class ImperialKnightLongSword : MobGeneric
         LeanTween.cancel(healthText.gameObject);
         LTSeq sequence = LeanTween.sequence();
         sequence.append(LeanTween.scale(healthText.gameObject, Vector3.one * 0.2f + Vector3.one * amount / 80f, 0.1f).setEaseInOutBounce());
-        sequence.append(LeanTween.scale(healthText.gameObject, Vector3.one * 0.2f, 0.25f).setEaseInOutBounce());
+        sequence.append(LeanTween.scale(healthText.gameObject, Vector3.one * 0.2f, 0.3f).setEaseInOutCubic());
         healthText.color = Color.Lerp(Color.white, Color.red, 1f - Health / MaxHealth);
         healthText.text = Mathf.Round(Health).ToString();
     }
