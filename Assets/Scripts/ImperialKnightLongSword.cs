@@ -578,6 +578,6 @@ public class ImperialKnightLongSword : MobGeneric
         weapon = weapon2;
         WeaknessTo = Equipment.ElementType.White;
         WeaknessMultiplier = 1.2f;
-
+        UpdateHealthText(0f);
     }
 }
