@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ImperialKnightLongSword : MobGeneric
 {
@@ -35,6 +36,7 @@ public class ImperialKnightLongSword : MobGeneric
 
     public enemyWeapon weapon;
     public enemyWeapon weapon2;
+    public TextMeshProUGUI healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -515,6 +517,13 @@ public class ImperialKnightLongSword : MobGeneric
             Death();
             return;
         }
+
+        LeanTween.cancel(healthText.gameObject);
+        LTSeq sequence = LeanTween.sequence();
+        sequence.append(LeanTween.scale(healthText.gameObject, Vector3.one * 0.2f + Vector3.one * amount / 80f, 0.1f).setEaseInOutBounce());
+        sequence.append(LeanTween.scale(healthText.gameObject, Vector3.one * 0.2f, 0.25f).setEaseInOutBounce());
+        healthText.color = Color.Lerp(Color.white, Color.red, 1f - Health/MaxHealth);
+        healthText.text = Health.ToString();
     }
     protected override void Death()
     {
