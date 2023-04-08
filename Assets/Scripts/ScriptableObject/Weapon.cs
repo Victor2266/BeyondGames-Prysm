@@ -35,6 +35,7 @@ public class Weapon : Equipment
     public GameObject dmgTextObj; 
     public bool oneSidedSwing;
     public bool swingOtherSide;
+    public bool usesPhysicalCollider;
 
     public ElementType ElementalType = ElementType.None;
 

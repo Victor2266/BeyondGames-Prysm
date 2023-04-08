@@ -150,6 +150,7 @@ public partial class WeaponController : damageController
 
             capsuleColider.offset = equippedWeapon.CapsuleColliderOffset;
             capsuleColider.size = equippedWeapon.CapsuleColliderSize;
+            capsuleColider.isTrigger = !equippedWeapon.usesPhysicalCollider;
             sprtrend.sprite = equippedWeapon.icon;
             trueMD = equippedWeapon.movementDelay;
 

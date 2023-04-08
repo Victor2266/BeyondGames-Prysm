@@ -22,6 +22,7 @@ MonoBehaviour:
     looks suspiciously like a clothing rack."
   equipSlot: 0
   color: {r: 0.3207547, g: 0.18010415, b: 0, a: 1}
+  AttackName: 
   ReachLength: 1.7
   DMG_Scaling: 1.5
   MaxDamage: 25
@@ -50,6 +51,7 @@ MonoBehaviour:
     type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
+  usesPhysicalCollider: 0
   ElementalType: 9
   leftClickStrategy: 0
   rightClickStrategy: 0
