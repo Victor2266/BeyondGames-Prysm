@@ -427,7 +427,7 @@ public class Level1Manager : LevelManager// inherets winlevel function
     private void TreeFall()
     {
         TreeBlockingPath.bodyType = RigidbodyType2D.Dynamic;
-        TreeBlockingPath.mass = 10f;
+        TreeBlockingPath.mass = 5f;
         TreeBlockingPath.gameObject.tag = "box";
         Destroy(TreeHealthBar);
     }

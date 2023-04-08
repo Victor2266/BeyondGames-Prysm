@@ -271,7 +271,8 @@ public partial class WeaponController : damageController
 
             if (DMG > 0)
             {
-                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position), transform.rotation);
+                Vector3 worldSpaceOffset2 = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
+                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position + worldSpaceOffset2), transform.rotation);
             }
             DMG = 0;//resets dmg value for double hits in quick succession 
         }
@@ -351,7 +352,8 @@ public partial class WeaponController : damageController
         lastHit = collision.gameObject;
         if (DMG > 0)
         {
-            collision.gameObject.SendMessage("SetCollision", collision.ClosestPoint(transform.position));
+            Vector3 worldSpaceOffset2 = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
+            collision.gameObject.SendMessage("SetCollision", collision.ClosestPoint(transform.position + worldSpaceOffset2));
             HasWeakness MG = collision.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
             float calcDMGSize = equippedWeapon.DMGTextSize;
