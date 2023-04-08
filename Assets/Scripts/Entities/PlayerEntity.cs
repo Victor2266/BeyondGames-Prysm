@@ -96,6 +96,7 @@ public class PlayerEntity : MonoBehaviour
     public GameObject TextPopUp;
     public GameObject TextPopUp2;
 
+    public HealthShaker healthShaker;
     public RectTransform healthRect;//health slider rect transform
     public RectTransform manaRect;//mana slider rect transform
     public RectTransform ActiveManaRect;//mana slider rect transform

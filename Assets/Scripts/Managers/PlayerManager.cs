@@ -159,6 +159,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        playerEntity.healthShaker.TakeDamageShake();
         playerEntity.redFlash.SetActive(true);
         playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
         playerEntity.setHealth(playerEntity.currentHealth - amount);
