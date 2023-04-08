@@ -257,61 +257,61 @@ public partial class WeaponController : damageController
 
         lastZAngle = zAngle;
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+    new public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == lastHit )//will not hit the same obj as the capsule
+        if(collision.gameObject == lastHit || collision.isTrigger)//will not hit the same obj as the capsule
         {
             return;
         }
 
         //if weapon directly contacts obj then the capsule will not hit it again
-        if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
+        if (collision.tag == "box" || collision.tag == "enemyProj")
         {
             lastHit = collision.gameObject;
 
             if (DMG > 0)
             {
-                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position), transform.rotation);
             }
             DMG = 0;//resets dmg value for double hits in quick succession 
         }
-        if (collision.gameObject.tag == "enemy")
+        if (collision.tag == "enemy")
         {
             AttackEntity(1f, collision);
         }
-        if (collision.gameObject.tag == "boss")
+        if (collision.tag == "boss")
         {
             AttackEntity(0.5f, collision);
         }
-        if (collision.gameObject.tag == "CritBox")
+        if (collision.tag == "CritBox")
         {
             AttackEntity(2f, collision);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.tag == "Player")
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
         }
 
     }
-    public void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         //Debug.Log("exiting " + collision.collider.tag);
-        if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")
+        if (collision.tag == "box" || collision.tag == "enemyProj")
         {
             lastHit = null;//reset so you can hit twice after swinging for a bit
             currPos = transform.position;
         }
-        if (collision.collider.tag == "enemy")
+        if (collision.tag == "enemy")
         {
             lastHit = null;//reset so you can hit twice after swinging for a bit
             currPos = transform.position;
         }
-        if (collision.collider.tag == "boss")
+        if (collision.tag == "boss")
         {
             lastHit = null;//reset so you can hit twice after swinging for a bit
             currPos = transform.position;
         }
-        if (collision.collider.tag == "CritBox")
+        if (collision.tag == "CritBox")
         {
             lastHit = null;//reset so you can hit twice after swinging for a bit
             currPos = transform.position;
@@ -327,6 +327,10 @@ public partial class WeaponController : damageController
                 Instantiate(equippedWeapon.popSpawn, collision.point, transform.rotation);
             }
             DMG = 0;//resets dmg value for double hits in quick succession 
+            if(collision.collider.tag == "enemyProj")
+            {
+                collision.collider.GetComponent<EnemyProjectileController>().Burst();
+            }
         }
         if (collision.collider.tag == "enemy")
         {
@@ -342,13 +346,13 @@ public partial class WeaponController : damageController
         }
     }
 
-    private void AttackEntity(float multiplier, Collision2D collision)
+    private void AttackEntity(float multiplier, Collider2D collision)
     {
         lastHit = collision.gameObject;
         if (DMG > 0)
         {
-            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
-            HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
+            collision.gameObject.SendMessage("SetCollision", collision.ClosestPoint(transform.position));
+            HasWeakness MG = collision.GetComponent<HasWeakness>();
             float calcDMG = (int)(DMG * multiplier);
             float calcDMGSize = equippedWeapon.DMGTextSize;
 
@@ -376,11 +380,11 @@ public partial class WeaponController : damageController
             ShowDMGText((int)calcDMG, calcDMGSize);
             if (WeaponEnabled)
             {
-                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position), transform.rotation);
             }
             if (WeaponEnabled2)
             {
-                Instantiate(pop2, collision.GetContact(0).point, transform.rotation);
+                Instantiate(pop2, collision.ClosestPoint(transform.position), transform.rotation);
             }
         }
         totalDistance = 0f;//resets dmg calc for next hit

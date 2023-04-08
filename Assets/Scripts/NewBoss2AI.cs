@@ -19,6 +19,7 @@ public class NewBoss2AI : MobGeneric
 
     [SerializeField]
     private int laserCounter, skeletonCounter, dragCounter;
+
     private bool isSwinging, activeLaser, waitingForLaser, isDragging;
 
     public GameObject eyeLeft, eyeRight;
@@ -81,7 +82,7 @@ public class NewBoss2AI : MobGeneric
                     eyeRightPointer.turn_speed = 2f;
 
 
-                    if (laserCounter >= 8)
+                    if (laserCounter >= 8 && !isDragging)
                     {
                         StartCoroutine(activateLaser(10f));
                         laserCounter = 0;
@@ -91,7 +92,7 @@ public class NewBoss2AI : MobGeneric
                         skeletonSpawner.Spawn();
                         skeletonCounter = 0;
                     }
-                    else if(dragCounter >= 3 && !isSwinging)
+                    else if(dragCounter >= 3 && !isSwinging && !isDragging)
                     {
                         isDragging = true;
                         dragCounter = 0;

@@ -44,7 +44,7 @@ public class EnemyProjectileController : MonoBehaviour
             //collision.gameObject.GetComponent<MobGeneric>().SendMessage("TakeDamage", DMG);
             //Burst();
         //}
-        if (Bouncy == false && (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground"))
+        if (Bouncy == false && (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Handheld_Weapon"))
         {
             Burst();
         }
@@ -60,9 +60,13 @@ public class EnemyProjectileController : MonoBehaviour
             player.SendMessage("TakeDamage", DMG);
             Burst();
         }
+        if (Bouncy == false && (collision.gameObject.tag == "Handheld_Weapon"))
+        {
+            Burst();
+        }
     }
 
-    private void Burst()
+    public void Burst()
     {
         //this.gameObject.SetActive(false);
         GameObject gameObject = Instantiate(pop, transform.position, transform.rotation);

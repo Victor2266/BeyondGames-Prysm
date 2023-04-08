@@ -431,7 +431,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void DashForwards(float power)
     {
-        enemyWeap.DMG = 20;
+        enemyWeap.DMG = 25;
         thrusting = true;
         rb2d.velocity = Vector3.zero;
         if (!LookingLeft)
@@ -470,7 +470,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void UpswingAttack()
     {
-        enemyWeap.DMG = 10f;
+        enemyWeap.DMG = 15f;
         rb2d.velocity = Vector3.zero;
         anim.SetTrigger("Upswing");
     }
