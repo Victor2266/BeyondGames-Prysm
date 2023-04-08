@@ -145,7 +145,7 @@ public class PlayerEntity : MonoBehaviour
         ManaCost = player.ManaCost;
         isDead = false;
         isDying = false;
-        charges = player.charges;
+        charges = 1;
         timeStamp = 0f;
         SlideCooldown = 0f;//don't want to spawn with cooldowns
         coolDownPeriod = 0f;

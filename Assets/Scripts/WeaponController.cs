@@ -318,6 +318,66 @@ public partial class WeaponController : damageController
             currPos = transform.position;
         }
     }
+    new public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == lastHit)//will not hit the same obj as the capsule
+        {
+            return;
+        }
+
+        //if weapon directly contacts obj then the capsule will not hit it again
+        if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
+        {
+            lastHit = collision.gameObject;
+
+            if (DMG > 0)
+            {
+                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
+            }
+            DMG = 0;//resets dmg value for double hits in quick succession 
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            AttackEntity(1f, collision);
+        }
+        if (collision.gameObject.tag == "boss")
+        {
+            AttackEntity(0.5f, collision);
+        }
+        if (collision.gameObject.tag == "CritBox")
+        {
+            AttackEntity(2f, collision);
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
+        }
+
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        //Debug.Log("exiting " + collision.collider.tag);
+        if (collision.gameObject.tag == "box" || collision.gameObject.tag == "enemyProj")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.gameObject.tag == "boss")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+        if (collision.gameObject.tag == "CritBox")
+        {
+            lastHit = null;//reset so you can hit twice after swinging for a bit
+            currPos = transform.position;
+        }
+    }
     public void DoubleCheckingCollision(RaycastHit2D collision)
     {
         if (collision.collider.tag == "box" || collision.collider.tag == "enemyProj")//if capsule alone hits obj then the weapon can't hit it with the colider again unless weapon is outside the colider first
@@ -346,7 +406,51 @@ public partial class WeaponController : damageController
             AttackEntity(2f, collision);
         }
     }
+    private void AttackEntity(float multiplier, Collision2D collision)
+    {
+        lastHit = collision.gameObject;
+        if (DMG > 0)
+        {
+            Vector3 worldSpaceOffset2 = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
+            collision.gameObject.SendMessage("SetCollision", collision.GetContact(0).point);
+            HasWeakness MG = collision.collider.GetComponent<HasWeakness>();
+            float calcDMG = (int)(DMG * multiplier);
+            float calcDMGSize = equippedWeapon.DMGTextSize;
 
+
+            if (MG == null)
+            {
+                collision.gameObject.SendMessage("TakeDamage", (int)calcDMG);
+            }
+            else
+            {
+                if (MG.WeaknessTo == activeElement || MG.WeaknessTo == Equipment.ElementType.All)
+                {
+                    calcDMG = calcDMG * MG.WeaknessMultiplier;
+                    calcDMGSize = calcDMGSize * MG.WeaknessMultiplier;
+                }
+                else if (MG.ImmunityTo == activeElement || MG.ImmunityTo == Equipment.ElementType.All)
+                {
+                    calcDMG = calcDMG * MG.ImmunityMultiplier;
+                    calcDMGSize = calcDMGSize * MG.ImmunityMultiplier;
+                }
+
+                MG.TakeDamage(calcDMG);
+            }
+
+            ShowDMGText((int)calcDMG, calcDMGSize);
+            if (WeaponEnabled)
+            {
+                Instantiate(equippedWeapon.popSpawn, collision.GetContact(0).point, transform.rotation);
+            }
+            if (WeaponEnabled2)
+            {
+                Instantiate(pop2, collision.GetContact(0).point, transform.rotation);
+            }
+        }
+        totalDistance = 0f;//resets dmg calc for next hit
+        DMG = 0;//resets dmg value for double hits in quick succession 
+    }
     private void AttackEntity(float multiplier, Collider2D collision)
     {
         lastHit = collision.gameObject;
@@ -382,11 +486,11 @@ public partial class WeaponController : damageController
             ShowDMGText((int)calcDMG, calcDMGSize);
             if (WeaponEnabled)
             {
-                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position), transform.rotation);
+                Instantiate(equippedWeapon.popSpawn, collision.ClosestPoint(transform.position + worldSpaceOffset2), transform.rotation);
             }
             if (WeaponEnabled2)
             {
-                Instantiate(pop2, collision.ClosestPoint(transform.position), transform.rotation);
+                Instantiate(pop2, collision.ClosestPoint(transform.position + worldSpaceOffset2), transform.rotation);
             }
         }
         totalDistance = 0f;//resets dmg calc for next hit

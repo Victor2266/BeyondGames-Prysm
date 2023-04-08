@@ -46,7 +46,7 @@ public class WeaponUI : MonoBehaviour
     public GameObject OrbObject;
     public bool DoneScaling;
     public float cooldowntime;
-
+    [SerializeField]
     private bool unequipAll = false;
     [SerializeField]
     private int xAdjustment;
