@@ -291,6 +291,7 @@ public partial class WeaponController : damageController
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
         }
+
     }
     public void OnCollisionExit2D(Collision2D collision)
     {

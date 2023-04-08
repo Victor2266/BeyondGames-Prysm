@@ -45,7 +45,7 @@ public partial class WeaponController
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / equippedWeapon.activeTimeLimit) * StaminaBar.maxValue;
 
-            if (distance > capsuleColider.size.x * 2f)//capsule checking
+            if (distance > capsuleColider.size.x * 1.75f)//capsule checking
             {
                 worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
                 hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
@@ -266,7 +266,7 @@ public partial class WeaponController
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / equippedDoubleStateWeapon.activeTimeLimit2) * StaminaBar.maxValue;
 
-            if (distance > capsuleColider.size.x * 2f)//capsule checking
+            if (distance > capsuleColider.size.x * 1.75f)//capsule checking
             {
                 worldSpaceOffset = new Vector2(-Mathf.Sin(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y, Mathf.Cos(zAngle * Mathf.Deg2Rad) * capsuleColider.offset.y);//this is the y offset, no xoffset yet
                 hits = Physics2D.CapsuleCastAll((Vector2)currPos + worldSpaceOffset, capsuleColider.size, CapsuleDirection2D.Vertical, transform.localEulerAngles.z, lastPosition - currPos, distance);//used to check if passing through hitboxes
