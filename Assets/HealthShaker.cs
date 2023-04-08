@@ -12,5 +12,4 @@ public class HealthShaker : MonoBehaviour
         sequence.append(LeanTween.moveX(gameObject, 10, 0.05f).setEaseInOutBounce());
         sequence.append(LeanTween.moveX(gameObject, 16, 0.12f).setEaseInOutBounce());
     }
-
 }
