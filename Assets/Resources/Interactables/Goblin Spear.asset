@@ -22,6 +22,7 @@ MonoBehaviour:
     Capable of projecting a medium range attack.
   equipSlot: 0
   color: {r: 0.1490072, g: 1, b: 0, a: 0.74509805}
+  AttackName: 
   ReachLength: 1.5
   DMG_Scaling: 10
   MaxDamage: 35
@@ -50,6 +51,7 @@ MonoBehaviour:
     type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
+  usesPhysicalCollider: 1
   ElementalType: 9
   leftClickStrategy: 0
   rightClickStrategy: 0
