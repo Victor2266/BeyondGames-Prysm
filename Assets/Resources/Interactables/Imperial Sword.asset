@@ -54,6 +54,7 @@ MonoBehaviour:
     type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
+  usesPhysicalCollider: 1
   ElementalType: 8
   leftClickStrategy: 0
   rightClickStrategy: 0
