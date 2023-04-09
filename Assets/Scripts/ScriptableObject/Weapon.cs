@@ -36,6 +36,10 @@ public class Weapon : Equipment
     public bool oneSidedSwing;
     public bool swingOtherSide;
     public bool usesPhysicalCollider;
+    //Physical colliders are NOT good for pole type weapons with full length colliders(-Bo staff), they are not good for colliders that are close to the player body(-Cheap Sword).
+    //Physical colliders will hold back enemies with the press of a button which helps create distance. (+Scythe weapons)(+Longsword)
+    //The knock back from the pop effect will be virtually removed by the collider holding the enemy against the ground during an overhead swing (-Slaughter sword)
+        //so don't use a physical collider for weapons with big knockback pops.
 
     public ElementType ElementalType = ElementType.None;
 
