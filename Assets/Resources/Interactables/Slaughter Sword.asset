@@ -21,6 +21,7 @@ MonoBehaviour:
   desc: 'Big sword. Heavy sword. '
   equipSlot: 0
   color: {r: 0.16905482, g: 0.2735849, b: 0.19579506, a: 1}
+  AttackName: 
   ReachLength: 2
   DMG_Scaling: 7
   MaxDamage: 75
@@ -49,6 +50,7 @@ MonoBehaviour:
     type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
+  usesPhysicalCollider: 0
   ElementalType: 9
   leftClickStrategy: 0
   rightClickStrategy: 0
