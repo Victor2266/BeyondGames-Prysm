@@ -173,7 +173,7 @@ public class ImperialKnightLongSword : MobGeneric
                     Speed = 0.5f;
                 }
             }
-            else
+            else//puppet mode
             {
                 if (distToPlayer > longestRange)
                 {
@@ -431,7 +431,7 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void DashForwards(float power)
     {
-        enemyWeap.DMG = 25;
+        enemyWeap.DMG = 20;
         thrusting = true;
         rb2d.velocity = Vector3.zero;
         if (!LookingLeft)
