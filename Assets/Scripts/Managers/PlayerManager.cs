@@ -163,7 +163,7 @@ public class PlayerManager : MonoBehaviour
         playerEntity.redFlash.SetActive(true);
         playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
         playerEntity.setHealth(playerEntity.currentHealth - amount);
-        if (playerEntity.currentHealth <= 0f && !playerEntity.isDead)
+        if (playerEntity.currentHealth <= 0f && !playerEntity.isDead && !playerEntity.isDying)
         {
             StartCoroutine(DeathDelay(3f));
         }
