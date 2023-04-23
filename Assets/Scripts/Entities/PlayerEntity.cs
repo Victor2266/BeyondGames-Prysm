@@ -126,6 +126,9 @@ public class PlayerEntity : MonoBehaviour
     public AudioSource audioSource;
     public GameObject RegenManaIndicator;
 
+    public Slider DashSlider;
+    public Image DashCenter;
+
     public void PlayerEntityUpdate(PlayerSaveData player)
     {
         MaxMana = player.MaxMana;
