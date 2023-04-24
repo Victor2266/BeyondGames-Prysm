@@ -35,6 +35,9 @@ public class MainMenuScript : MonoBehaviour
     public Slider BGM_Slider;
     public Slider UI_Slider;
     public Slider CONTROL_Slider;
+
+    public HandUISelector LeftHand, RightHand;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +112,10 @@ public class MainMenuScript : MonoBehaviour
             MultiplayerMenu.SetActive(false);
             depth = -1;
 
+            LeanTween.value(LeftHand.gameObject, 0f, 1f, 0.5f).setOnUpdate((float val) => { LeftHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
+            LeanTween.value(RightHand.gameObject, 0f, 1f, 0.5f).setOnUpdate((float val) => { RightHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
+            LeftHand.setHighlighted(GameObject.FindGameObjectWithTag("DefaultOption"));
+            RightHand.setHighlighted(GameObject.FindGameObjectWithTag("DefaultOption"));
         }
 
         //check for controller press
@@ -122,8 +129,20 @@ public class MainMenuScript : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
 
+        if (playerInput.actions["Navigate"].WasPressedThisFrame())
+        {
+            LeftHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
+            RightHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
+        }
+
         float num = Mathf.SmoothDamp(MainCamera.GetComponent<Camera>().orthographicSize, cameraTargetSize, ref velocity.y, 1f);
         MainCamera.GetComponent<Camera>().orthographicSize = num;
+    }
+
+    public void MoveHands(GameObject obj)
+    {
+        LeftHand.setHighlighted(obj);
+        RightHand.setHighlighted(obj);
     }
     public void Multiplayer()
     {
@@ -144,6 +163,7 @@ public class MainMenuScript : MonoBehaviour
         depth = 1;
 
         cameraTargetSize = 4.2f;
+
     }
     public void Options()
     {
@@ -154,6 +174,12 @@ public class MainMenuScript : MonoBehaviour
         //and the back button within the options menu deactivates the options menu
         MainMenu.SetActive(false);
         depth = 1;
+
+
+        LeftHand.gameObject.GetComponent<AlphaColourFadeInForEndScreen>().enabled = false;
+        RightHand.gameObject.GetComponent<AlphaColourFadeInForEndScreen>().enabled = false;
+        LeanTween.value(LeftHand.gameObject, 1f, 0f, 0.5f).setOnUpdate((float val) => { LeftHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
+        LeanTween.value(RightHand.gameObject, 1f, 0f, 0.5f).setOnUpdate((float val) => { RightHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
     }
     public void SupportLink()
     {

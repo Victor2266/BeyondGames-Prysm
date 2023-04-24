@@ -39,6 +39,7 @@ TagManager:
   - Ground
   - DefaultOption
   - playerProj
+  - Canvas
   layers:
   - Default
   - TransparentFX
