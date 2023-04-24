@@ -15,6 +15,7 @@ public class Boss2Crit : MonoBehaviour
     {
         boss.GetComponent<Rigidbody2D>().gravityScale *= -1f;
         bossHealth.health -= amount;
+
     }
 
     public GameObject boss;

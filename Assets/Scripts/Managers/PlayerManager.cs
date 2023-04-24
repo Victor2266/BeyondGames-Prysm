@@ -161,7 +161,16 @@ public class PlayerManager : MonoBehaviour
     {
         playerEntity.healthShaker.TakeDamageShake();
         playerEntity.redFlash.SetActive(true);
-        playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
+
+        if(playerEntity.rb2d.velocity.x >= 0f)
+        {
+            playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
+        }
+        else
+        {
+            playerEntity.spawnedEffect = Instantiate(playerEntity.bloodPuff, transform.position, transform.rotation);
+            playerEntity.spawnedEffect.transform.localEulerAngles = new Vector3(playerEntity.spawnedEffect.transform.localEulerAngles.x, playerEntity.spawnedEffect.transform.localEulerAngles.y, 180f);
+        }
         playerEntity.setHealth(playerEntity.currentHealth - amount);
         if (playerEntity.currentHealth <= 0f && !playerEntity.isDead && !playerEntity.isDying)
         {

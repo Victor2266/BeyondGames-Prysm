@@ -498,7 +498,13 @@ public class ImperialKnightLongSword : MobGeneric
     public override void TakeDamage(float amount)
     {
         if (!thrusting)
+        {
             Health -= amount;
+
+            LTSeq sequence = LeanTween.sequence();
+            sequence.append(LeanTween.color(gameObject, Color.red, 0.1f).setEaseInOutSine());
+            sequence.append(LeanTween.color(gameObject, Color.white, 0.1f).setEaseInOutSine());
+        }
         else
         {
             ShowText(0.5f, "<color=red>BLOCKED", 2f);
