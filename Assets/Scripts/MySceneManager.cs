@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using UnityEngine.InputSystem;
 public class MySceneManager : MonoBehaviour
 {
     public GameObject transition;
@@ -187,6 +188,8 @@ public class MySceneManager : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             PlayerPrefs.SetFloat("UISize", 1280 + 636/2f);
+            playerEntity.gameObject.GetComponent<PlayerInput>().actions["Jump"].ApplyBindingOverride("<Gamepad>/leftStick/up", path: "<Gamepad>/leftShoulder");
         }
+
     }
 }
