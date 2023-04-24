@@ -112,8 +112,16 @@ public class MainMenuScript : MonoBehaviour
             MultiplayerMenu.SetActive(false);
             depth = -1;
 
-            LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<Image>().color.a, 1f, 0.5f).setOnUpdate((float val) => { LeftHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
-            LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<Image>().color.a, 1f, 0.5f).setOnUpdate((float val) => { RightHand.gameObject.GetComponent<Image>().color = new Color(0.1960784f, 0.1960784f, 0.1960784f, val); }).setEaseInOutSine();
+            LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<Image>().color.a, 1f, 0.5f).setOnUpdate((float val) => 
+            {
+                Color getColor = LeftHand.gameObject.GetComponent<Image>().color;
+                LeftHand.gameObject.GetComponent<Image>().color = new Color(getColor.r, getColor.g, getColor.b, val); 
+            }).setEaseInOutSine();
+            LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<Image>().color.a, 1f, 0.5f).setOnUpdate((float val) => 
+            {
+                Color getColor = RightHand.gameObject.GetComponent<Image>().color;
+                RightHand.gameObject.GetComponent<Image>().color = new Color(getColor.r, getColor.g, getColor.b, val); 
+            }).setEaseInOutSine();
             LeftHand.setHighlighted(GameObject.FindGameObjectWithTag("DefaultOption"));
             RightHand.setHighlighted(GameObject.FindGameObjectWithTag("DefaultOption"));
         }
