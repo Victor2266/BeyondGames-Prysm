@@ -26,7 +26,7 @@ public class HandUISelector : MonoBehaviour
     public void setHighlighted(GameObject obj)
     {
         pointerScript.lookAtThis = obj.transform;
-        LeanTween.value(gameObject, oscilator.startPos.y, obj.transform.position.y + Yoffset, 0.1f).setOnUpdate((float val) => { oscilator.startPos.y = val; }).setEaseInOutBounce();
+        LeanTween.value(gameObject, oscilator.startPos.y, obj.transform.position.y + Yoffset, 0.1f).setOnUpdate((float val) => { oscilator.startPos.y = val; }).setEaseInOutSine();
 
     }
 }
