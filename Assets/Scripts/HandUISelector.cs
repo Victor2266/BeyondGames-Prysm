@@ -17,12 +17,6 @@ public class HandUISelector : MonoBehaviour
         oscilator = GetComponent<OscillateUpDown>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void setHighlighted(GameObject obj)
     {
         pointerScript.lookAtThis = obj.transform;
