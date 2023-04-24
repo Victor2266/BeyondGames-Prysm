@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerEntity.SlideCooldown <= Time.time)
             {
-                playerEntity.SlideCooldown = Time.time + 0.5f;
+                playerEntity.SlideCooldown = Time.time + 0.5f;//THE SLIDE COOLDOWN IS 0.5f by default
 
                 GameObject dash = Instantiate(playerEntity.speedTrail, transform);
                 dash.transform.position = transform.position;
@@ -163,12 +163,12 @@ public class PlayerController : MonoBehaviour
 
                 LeanTween.cancel(playerEntity.DashSlider.gameObject);
                 LTSeq sequence = LeanTween.sequence();
-                sequence.append(LeanTween.value(playerEntity.DashSlider.gameObject, 0f, 1f, 0.2f).setOnUpdate((float val) => { playerEntity.DashSlider.value = val; }).setEaseInOutSine());
-                sequence.append(LeanTween.value(playerEntity.DashSlider.gameObject, 1f, 0f, 0.3f).setOnUpdate((float val) => { playerEntity.DashSlider.value = val; }).setEaseInOutSine());
+                sequence.append(LeanTween.value(playerEntity.DashSlider.gameObject, 0f, 1f, 0.15f).setOnUpdate((float val) => { playerEntity.DashSlider.value = val; }).setEaseInOutSine());
+                sequence.append(LeanTween.value(playerEntity.DashSlider.gameObject, 1f, 0f, 0.35f).setOnUpdate((float val) => { playerEntity.DashSlider.value = val; }).setEaseInOutSine());
 
                 LTSeq sequence2 = LeanTween.sequence();
-                sequence2.append(LeanTween.value(playerEntity.DashSlider.gameObject, 0f, 1f, 0.2f).setOnUpdate((float val) => { playerEntity.DashCenter.color = new Color(1f,1f,1f, val); }).setEaseInOutSine());
-                sequence2.append(LeanTween.value(playerEntity.DashSlider.gameObject, 1f, 0f, 0.3f).setOnUpdate((float val) => { playerEntity.DashCenter.color = new Color(1f, 1f, 1f, val); }).setEaseInOutSine());
+                sequence2.append(LeanTween.value(playerEntity.DashSlider.gameObject, 0f, 1f, 0.15f).setOnUpdate((float val) => { playerEntity.DashCenter.color = new Color(1f,1f,1f, val); }).setEaseInOutSine());
+                sequence2.append(LeanTween.value(playerEntity.DashSlider.gameObject, 1f, 0f, 0.35f).setOnUpdate((float val) => { playerEntity.DashCenter.color = new Color(1f, 1f, 1f, val); }).setEaseInOutSine());
 
                 if (input.x > 0f)
                 {
