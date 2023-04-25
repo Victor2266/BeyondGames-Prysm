@@ -431,7 +431,6 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void DashForwards(float power)
     {
-        enemyWeap.DMG = 20;
         thrusting = true;
         rb2d.velocity = Vector3.zero;
         if (!LookingLeft)
@@ -441,7 +440,6 @@ public class ImperialKnightLongSword : MobGeneric
     }
     private void JumpUpwards(float power)
     {
-        enemyWeap.DMG = 20;
         thrusting = true;
         rb2d.velocity = Vector3.zero;
         rb2d.velocity = (new Vector2(0f, power));

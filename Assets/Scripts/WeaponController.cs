@@ -616,6 +616,11 @@ public partial class WeaponController : damageController
             clickBehavior += doubleStateRightClicking;
             drainsMana = true;
         }
+        else if (RCS == Equipment.rightClickStrat.DoubleStateCost)
+        {
+            clickBehavior += doubleStateRightClicking;
+            drainsMana = false;
+        }
     }
 
     private void changeMouseVisibility()

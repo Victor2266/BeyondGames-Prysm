@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
   m_Name: Imperial Cutlass
   m_EditorClassIdentifier: 
   name: Imperial Cutlass
@@ -24,10 +24,10 @@ MonoBehaviour:
     momentum from previous swings to cut down opponents.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
-  AttackName: <b>W</b>
+  AttackName: 
   ReachLength: 1.7
   DMG_Scaling: 4
-  MaxDamage: 30
+  MaxDamage: 35
   MinDamage: 1
   DMGTextSize: 2.5
   activeTimeLimit: 1.5
@@ -42,7 +42,7 @@ MonoBehaviour:
     type: 3}
   projectileOffset: 0.1
   thrustResetTime: 0.1
-  thrustDashDist: 12
+  thrustDashDist: 5
   thrustShortReach: 0.5
   projAsChild: 1
   trail: {fileID: 2300350798725474172, guid: 87b90aefc577a1245be2ddf63ccbe8c4, type: 3}
@@ -54,6 +54,18 @@ MonoBehaviour:
   oneSidedSwing: 1
   swingOtherSide: 1
   usesPhysicalCollider: 1
-  ElementalType: 8
+  ElementalType: 9
   leftClickStrategy: 0
-  rightClickStrategy: 0
+  rightClickStrategy: 2
+  SpecialAttackName: '<b>HACK N''
+
+    SLASH</b>'
+  DMG_Scaling2: 4
+  MaxDamage2: 60
+  MinDamage2: 1
+  activeTimeLimit2: 4.5
+  cooldownTime2: 3
+  movementDelay2: 0.1
+  popSpawn2: {fileID: 154529244681351670, guid: bfbdfaffe4353f04581b0f0b32be0a6b,
+    type: 3}
+  ElementalType2: 8

@@ -14,14 +14,17 @@ public class popDeletion : MonoBehaviour
     [SerializeField]
     float ShakeFadeOut = 0f;
 
+    Animator anim;
+
     // Use this for initialization
     private void Start()
     {
         CameraShaker.Instance.ShakeOnce(ShakeMagnitude, ShakeRoughness, ShakeFadeIn, ShakeFadeOut);
+        anim = gameObject.GetComponent<Animator>();
     }
     void Update()
     {
-        if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popped"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("popped") && anim != null)
         {
             GetComponent<SpriteRenderer>().enabled = false;
             StartCoroutine(WaitThenDestroy());

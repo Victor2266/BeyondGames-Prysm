@@ -117003,6 +117003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3b615929496ac42a90eecca584b8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   ticks: 0
   tickLimit: 1
   grows: 1
@@ -117011,6 +117012,8 @@ MonoBehaviour:
   timeOfBullet: 0
   diesRightAfter: 0
   affectZ: 0
+  FadeInText: 0
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &319756669827221336
 MonoBehaviour:
   m_ObjectHideFlags: 0

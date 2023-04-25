@@ -7,6 +7,7 @@ public class detachFromParent : MonoBehaviour
     public Transform oldParent;
     public ParticleSystem part;
     bool dead = false;
+    public bool dontEmitLastParticle;//one the old parent dies it emits one extra particle so the ribbons don't connect wrongly
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class detachFromParent : MonoBehaviour
         else if (!dead)
         {
             dead = true;
-            part.Emit(1);
+            if (!dontEmitLastParticle)
+                part.Emit(1);
             part.enableEmission = false;
         }
     }
