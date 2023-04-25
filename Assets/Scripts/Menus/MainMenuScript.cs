@@ -141,6 +141,7 @@ public class MainMenuScript : MonoBehaviour
 
         if (playerInput.actions["Navigate"].WasPressedThisFrame())
         {
+            MoveHandsClose();
             LeftHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
             RightHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
         }

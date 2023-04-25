@@ -13798,7 +13798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d66fc2b4ccbb6f44b9dd3192eb1754f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yoffset: -336
+  Yoffset: 0
 --- !u!114 &284698706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52356,7 +52356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d66fc2b4ccbb6f44b9dd3192eb1754f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yoffset: -336
+  Yoffset: 0
 --- !u!114 &888479250
 MonoBehaviour:
   m_ObjectHideFlags: 0
