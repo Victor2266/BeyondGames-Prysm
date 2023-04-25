@@ -78,7 +78,6 @@ public class MainMenuScript : MonoBehaviour
         mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 1) == 1 ? true : false;
         weapVisibilityToggle.isOn = PlayerPrefs.GetInt("weapIndicator", 0) == 1 ? true : false;
 
-        MoveHandsClose();
     }
 
     private void SetStartingSliders()

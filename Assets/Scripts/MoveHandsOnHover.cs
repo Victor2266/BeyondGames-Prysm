@@ -16,7 +16,6 @@ public class MoveHandsOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        mainMenuScript.MoveHandsClose();
         mainMenuScript.MoveHands(gameObject);
     }
 
