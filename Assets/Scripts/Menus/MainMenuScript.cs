@@ -142,8 +142,11 @@ public class MainMenuScript : MonoBehaviour
         if (playerInput.actions["Navigate"].WasPerformedThisFrame())
         {
             MoveHandsClose();
-            LeftHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
-            RightHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
+            if(EventSystem.current.currentSelectedGameObject != null)
+            {
+                LeftHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
+                RightHand.setHighlighted(EventSystem.current.currentSelectedGameObject);
+            }
         }
 
         float num = Mathf.SmoothDamp(MainCamera.GetComponent<Camera>().orthographicSize, cameraTargetSize, ref velocity.y, 1f);
