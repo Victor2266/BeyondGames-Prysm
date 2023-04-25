@@ -78,6 +78,8 @@ public class AlphaColourFadeInForEndScreen : MonoBehaviour
             }
             else if (UseImage)
             {
+
+                image = GetComponent<Image>();
                 if (image.color.a < 1)
                 {
                     image.color = new Vector4(image.color.r, image.color.g, image.color.b, 1 * ((ticks - startValue) / (tickLimit)));

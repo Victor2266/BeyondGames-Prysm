@@ -8,7 +8,6 @@ public class MoveHandsOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private GameObject mainMenu;
     private MainMenuScript mainMenuScript;
 
-    public AudioSource audioSource;
     void Start()
     {
         mainMenu = GameObject.FindGameObjectWithTag("Canvas");
@@ -19,7 +18,6 @@ public class MoveHandsOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         mainMenuScript.MoveHandsClose();
         mainMenuScript.MoveHands(gameObject);
-        audioSource.Play();
     }
 
     public void OnPointerExit(PointerEventData eventData)
