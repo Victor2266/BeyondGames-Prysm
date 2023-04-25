@@ -163,13 +163,13 @@ public class MainMenuScript : MonoBehaviour
         LeanTween.cancel(LeftHand.gameObject);
         LeanTween.cancel(RightHand.gameObject);
 
-        LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<RectTransform>().localPosition.x, -900, 2f).setOnUpdate((float val) => 
+        LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<RectTransform>().localPosition.x, -850, 2f).setOnUpdate((float val) => 
         {
             RectTransform LeftRect = LeftHand.gameObject.GetComponent<RectTransform>();
             LeftRect.localPosition = new Vector3(val, LeftRect.localPosition.y, LeftRect.localPosition.z); 
         }).setEaseInOutSine();
 
-        LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<RectTransform>().localPosition.x, 900, 2f).setOnUpdate((float val) => 
+        LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<RectTransform>().localPosition.x, 850, 2f).setOnUpdate((float val) => 
         {
             RectTransform RightRect = RightHand.gameObject.GetComponent<RectTransform>();
             RightRect.localPosition = new Vector3(val, RightRect.localPosition.y, RightRect.localPosition.z); 
