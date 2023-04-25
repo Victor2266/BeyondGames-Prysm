@@ -100,7 +100,7 @@ MonoBehaviour:
   radius: 1.5
   interactionTransform: {fileID: 4312696270535262913}
   player: {fileID: 0}
-  item: {fileID: 11400000, guid: 6bbf51d2b08c22e46b0dffa31d13dbc7, type: 2}
+  item: {fileID: 11400000, guid: c15c62a73e0921247b2a990da6c7d954, type: 2}
   tooltipPrefab: {fileID: 2838675628503439118, guid: 3657f985e4d5e2e47bb050f9376e806a,
     type: 3}
   pickUpText: {fileID: 5225875635266693844, guid: a33cf2b0a88250246b537c0b52d6a55e,

@@ -60,10 +60,10 @@ MonoBehaviour:
   SpecialAttackName: '<b>HACK N''
 
     SLASH</b>'
-  DMG_Scaling2: 4
+  DMG_Scaling2: 4.5
   MaxDamage2: 60
-  MinDamage2: 1
-  activeTimeLimit2: 4.5
+  MinDamage2: 30
+  activeTimeLimit2: 2
   cooldownTime2: 3
   movementDelay2: 0.1
   popSpawn2: {fileID: 154529244681351670, guid: bfbdfaffe4353f04581b0f0b32be0a6b,

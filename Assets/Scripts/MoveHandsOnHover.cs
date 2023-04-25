@@ -16,11 +16,12 @@ public class MoveHandsOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        mainMenuScript.MoveHandsClose();
         mainMenuScript.MoveHands(gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //Debug.Log("2");
+        mainMenuScript.MoveHandsAway();
     }
 }

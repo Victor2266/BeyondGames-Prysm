@@ -77,6 +77,8 @@ public class MainMenuScript : MonoBehaviour
         cameraLockToggle.isOn = PlayerPrefs.GetInt("CameraLock", 0) == 1 ? true : false;
         mouseVisibilityToggle.isOn = PlayerPrefs.GetInt("mouseVisibility", 1) == 1 ? true : false;
         weapVisibilityToggle.isOn = PlayerPrefs.GetInt("weapIndicator", 0) == 1 ? true : false;
+
+        MoveHandsClose();
     }
 
     private void SetStartingSliders()
@@ -151,6 +153,40 @@ public class MainMenuScript : MonoBehaviour
     {
         LeftHand.setHighlighted(obj);
         RightHand.setHighlighted(obj);
+    }
+    public void MoveHandsAway()
+    {
+        LeanTween.cancel(LeftHand.gameObject);
+        LeanTween.cancel(RightHand.gameObject);
+
+        LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<RectTransform>().localPosition.x, -900, 2f).setOnUpdate((float val) => 
+        {
+            RectTransform LeftRect = LeftHand.gameObject.GetComponent<RectTransform>();
+            LeftRect.localPosition = new Vector3(val, LeftRect.localPosition.y, LeftRect.localPosition.z); 
+        }).setEaseInOutSine();
+
+        LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<RectTransform>().localPosition.x, 900, 2f).setOnUpdate((float val) => 
+        {
+            RectTransform RightRect = RightHand.gameObject.GetComponent<RectTransform>();
+            RightRect.localPosition = new Vector3(val, RightRect.localPosition.y, RightRect.localPosition.z); 
+        }).setEaseInOutSine();
+    }
+    public void MoveHandsClose()
+    {
+        LeanTween.cancel(LeftHand.gameObject);
+        LeanTween.cancel(RightHand.gameObject);
+
+        LeanTween.value(LeftHand.gameObject, LeftHand.gameObject.GetComponent<RectTransform>().localPosition.x, -400, 1f).setOnUpdate((float val) =>
+        {
+            RectTransform LeftRect = LeftHand.gameObject.GetComponent<RectTransform>();
+            LeftRect.localPosition = new Vector3(val, LeftRect.localPosition.y, LeftRect.localPosition.z);
+        }).setEaseInOutSine();
+
+        LeanTween.value(RightHand.gameObject, RightHand.gameObject.GetComponent<RectTransform>().localPosition.x, 400, 1f).setOnUpdate((float val) =>
+        {
+            RectTransform RightRect = RightHand.gameObject.GetComponent<RectTransform>();
+            RightRect.localPosition = new Vector3(val, RightRect.localPosition.y, RightRect.localPosition.z);
+        }).setEaseInOutSine();
     }
     public void Multiplayer()
     {
