@@ -182,7 +182,7 @@ public class MySceneManager : MonoBehaviour
         SaveSystem.deleteInventoryAndEquipment();
 
         //PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("levelReached", 1);
+        PlayerPrefs.SetInt("levelReached", 4);
         PlayerPrefs.SetFloat("BGM_Volume", 1f);
 
         if (Application.platform == RuntimePlatform.Android)
