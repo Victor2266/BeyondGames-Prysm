@@ -6,7 +6,6 @@ using UnityEngine;
 public class Dummy : MobGeneric
 {
     public float totalDamage;
-    public BloodSplatterer BSplat;
 
     public TMPro.TextMeshProUGUI totalDMGText;
     public TMPro.TextMeshProUGUI lastHittext;
