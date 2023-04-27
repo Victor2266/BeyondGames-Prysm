@@ -13,7 +13,7 @@ public class BloodSplatterer : MonoBehaviour
         ZAngle = Mathf.Atan2(bloodDir.y, bloodDir.x) * Mathf.Rad2Deg + bloodOffset;
         _lookRot = Quaternion.AngleAxis(ZAngle, Vector3.forward);
         bloodRot = _lookRot;
-
+        Debug.Log("setCollision");
     }
     private Vector3 bloodDir;
     private Quaternion bloodRot;

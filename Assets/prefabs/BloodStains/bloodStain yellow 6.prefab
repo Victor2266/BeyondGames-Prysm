@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6048186884888380531}
   - component: {fileID: 4717697633690091250}
   m_Layer: 0
-  m_Name: bloodStain yellow
+  m_Name: bloodStain yellow 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f99a137720cfbf04283b32f32ff5ac93, type: 3}
-  m_Color: {r: 1, g: 1, b: 0, a: 0.84705883}
+  m_Sprite: {fileID: 21300000, guid: d4e016d9ba3942049900453ef666eee0, type: 3}
+  m_Color: {r: 1, g: 0.54365414, b: 0, a: 0.84705883}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
