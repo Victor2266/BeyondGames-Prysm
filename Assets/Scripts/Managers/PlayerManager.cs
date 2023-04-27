@@ -341,4 +341,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void Suicide()
+    {
+        TakeDamage(playerEntity.currentHealth);
+    }
 }

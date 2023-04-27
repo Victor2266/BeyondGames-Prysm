@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Reset"))//suicide
         {
-            playerManager.TakeDamage(playerEntity.currentHealth);
+            playerManager.Suicide();
         }
         if (Input.GetKeyDown(KeyCode.G))//godmode
         {

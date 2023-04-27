@@ -27,4 +27,12 @@ public class BloodManager : MonoBehaviour
 
     public int MaxStains;
     public int currentStains = 0;
+
+    public void clearStains()
+    {
+        foreach(GameObject stain in stains)
+        {
+            Destroy(stain);
+        }
+    }
 }
