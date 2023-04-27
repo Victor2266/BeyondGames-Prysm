@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scene/Level Select.unity
     guid: e7cc70912e916814299c81c051821f1f
   - enabled: 1
+    path: Assets/Scene/DummyLevel.unity
+    guid: e391f690b9aeb854e9ce0a75f67758e7
+  - enabled: 1
     path: Assets/Scene/Level 1.unity
     guid: b627b5fc03fd5b14195a6c51af6f8cc2
   - enabled: 1
