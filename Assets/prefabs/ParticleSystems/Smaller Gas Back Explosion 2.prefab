@@ -4833,6 +4833,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 0.5
   shrinks: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -4946,7 +4947,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1845
   m_ForceMagnitude: 40
   m_ForceVariation: 0
   m_DistanceScale: 1

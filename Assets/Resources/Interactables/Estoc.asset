@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
+  m_Name: Estoc
+  m_EditorClassIdentifier: 
+  name: Estoc
+  icon: {fileID: 21300000, guid: ea5f3dbfc58034845bfeb2089b0c9d7b, type: 3}
+  iconRotation: -90
+  iconSize: 1.5
+  isDefaultItem: 0
+  WeaponType: 1
+  desc: A simple and thin sword well suited for thrusting.
+  equipSlot: 0
+  color: {r: 1, g: 0.446602, b: 0, a: 0.54509807}
+  AttackName: 
+  ReachLength: 1.5
+  DMG_Scaling: 5
+  MaxDamage: 50
+  MinDamage: 1
+  DMGTextSize: 2
+  activeTimeLimit: 0.65
+  cooldownTime: 0.5
+  XYSize: 1
+  angle_offset: 180
+  CapsuleColliderOffset: {x: 0, y: 0.12}
+  CapsuleColliderSize: {x: 0.2, y: 1.3}
+  SpriteOffset: {x: 0, y: 0}
+  handReachMultiplier: 0.4
+  projectileAttack: {fileID: 1310705855610197, guid: a2c33aa168a0e9944ae1290da01b9d09,
+    type: 3}
+  projectileOffset: 0.1
+  thrustResetTime: 0.1
+  thrustDashDist: 0
+  thrustShortReach: 0.4
+  projAsChild: 1
+  trail: {fileID: 1491279371004310850, guid: 0d93af16bb261f24dbd278dc13073571, type: 3}
+  soundPitch: 1
+  movementDelay: 0
+  popSpawn: {fileID: 154529244681351670, guid: 59b6d86b9daa94a4bb1361c00fbd48ca, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
+    type: 3}
+  oneSidedSwing: 0
+  swingOtherSide: 0
+  usesPhysicalCollider: 0
+  ElementalType: 9
+  leftClickStrategy: 0
+  rightClickStrategy: 0
