@@ -37,7 +37,7 @@ MonoBehaviour:
   handReachMultiplier: 0.35
   projectileAttack: {fileID: 1310705855610197, guid: de8049aa88a9cff499a56273808151ac,
     type: 3}
-  projectileOffset: 0.2
+  projectileOffset: -0.45
   thrustResetTime: 0.1
   thrustDashDist: 16
   thrustShortReach: 1

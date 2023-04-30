@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
+  m_Name: Flying Dutchman
+  m_EditorClassIdentifier: 
+  name: Flying Dutchman
+  icon: {fileID: 21300000, guid: b7b8505e0df41a3468f93a176ea9752e, type: 3}
+  iconRotation: 0
+  iconSize: 1
+  isDefaultItem: 0
+  WeaponType: 1
+  desc: 'The sword of a ghost, cutdown unearthly creatures with this ethereal blade. '
+  equipSlot: 0
+  color: {r: 0, g: 0.86100006, b: 1, a: 0.7490196}
+  AttackName: 
+  ReachLength: 5.5
+  DMG_Scaling: 1.5
+  MaxDamage: 25
+  MinDamage: 1
+  DMGTextSize: 2.5
+  activeTimeLimit: 1.5
+  cooldownTime: 1.5
+  XYSize: 0.8
+  angle_offset: -90
+  CapsuleColliderOffset: {x: -0.05, y: 0.25}
+  CapsuleColliderSize: {x: 0.3, y: 1.2}
+  SpriteOffset: {x: -0.1, y: 0}
+  handReachMultiplier: 0.2
+  projectileAttack: {fileID: 7200572032721712426, guid: 625e2c2c44480204ca8107ef89a43c72,
+    type: 3}
+  projectileOffset: 0.1
+  thrustResetTime: 0.1
+  thrustDashDist: 5
+  thrustShortReach: 0.5
+  projAsChild: 1
+  trail: {fileID: 2300350798725474172, guid: 5d5edcdf65b47544c9e9f30512cd881c, type: 3}
+  soundPitch: 0.9
+  movementDelay: 0.05
+  popSpawn: {fileID: 154529244681351670, guid: a11fd55618e221b4d9d670530a3e358a, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: 835e1a6ea1f56554b83152e451deb237,
+    type: 3}
+  oneSidedSwing: 1
+  swingOtherSide: 1
+  usesPhysicalCollider: 1
+  ElementalType: 9
+  leftClickStrategy: 0
+  rightClickStrategy: 1
+  SpecialAttackName: '<b>GHOST
+
+    CUTTER</b>'
+  DMG_Scaling2: 4
+  MaxDamage2: 50
+  MinDamage2: 25
+  activeTimeLimit2: 3
+  cooldownTime2: 3
+  movementDelay2: 0.2
+  popSpawn2: {fileID: 154529244681351670, guid: a3eae2b32fe64dc4282a75dcab084b17,
+    type: 3}
+  ElementalType2: 8
