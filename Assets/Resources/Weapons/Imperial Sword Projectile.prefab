@@ -49,6 +49,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 1
   shrinks: 1
+  TMPFades: 0
   trail: 1
   startSize: 1
   widthOfBullet: 0.3
@@ -291,6 +292,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 0.6
   shrinks: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0
@@ -5312,6 +5314,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 1.3
   shrinks: 1
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0.8
@@ -5332,6 +5335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldParent: {fileID: 4651215122391889}
   part: {fileID: 4387628689335062434}
+  dontEmitLastParticle: 0
 --- !u!1 &576726108707719674
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,6 +10118,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 2
   shrinks: 1
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0.8
@@ -10134,6 +10139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldParent: {fileID: 4651215122391889}
   part: {fileID: 7408218818114316985}
+  dontEmitLastParticle: 0
 --- !u!1 &2632170199201635656
 GameObject:
   m_ObjectHideFlags: 0
@@ -19669,6 +19675,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 1.3
   shrinks: 1
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0.8

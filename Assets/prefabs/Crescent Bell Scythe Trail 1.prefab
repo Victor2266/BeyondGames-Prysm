@@ -254,8 +254,7 @@ MonoBehaviour:
   Primed: 1
   Bouncy: 0
   pop: {fileID: 6708209246093052786, guid: 8ff9ff1db0b06ee44a6ecb45c2343e63, type: 3}
-  InitialPop: {fileID: 6708209246093052786, guid: a28695d413786e64ea9f8ebf4fc755c1,
-    type: 3}
+  InitialPop: {fileID: 0}
   DMGTextSize: 4
   attackVelo: 38
   ManaCost: 10

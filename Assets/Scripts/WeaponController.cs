@@ -110,6 +110,11 @@ public partial class WeaponController : damageController
             ReachLength = 1.5f;// delete if unused later
             Destroy(Trail);
             Destroy(Trail2);
+            if(playerEntity.bullet != null && equippedWeapon != null && equippedWeapon.projAsChild)
+            {
+                Destroy(playerEntity.bullet);
+            }
+            equippedWeapon = null;
         }
         else // is weapon
         {

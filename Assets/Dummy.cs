@@ -22,7 +22,7 @@ public class Dummy : MobGeneric
     public override void TakeDamage(float amount)
     {
         totalDamage += amount;
-        Debug.Log(totalDamage);
+        //Debug.Log(totalDamage);
 
         BSplat.Spray((int)amount / 3);
         UpdateHealthText(amount);

@@ -392,7 +392,7 @@ public class WeaponUI : MonoBehaviour
         else if (playerScript.weapon < 1)
         {
             toggleWeapSpecial = false;
-            Debug.Log("WEAPON TOGGLE OFF");
+            //Debug.Log("WEAPON TOGGLE OFF");
         }
         playerManager.SetWeap();
     }
