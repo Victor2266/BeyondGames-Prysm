@@ -11,6 +11,7 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI headerField;
     public TextMeshProUGUI contentField;
 
+    public GameObject statsObj;
     public TextMeshProUGUI statNamesField;
     public TextMeshProUGUI statField;//reach length, damage scale, max damg, swingtime, reset time, special cooldown
     public LayoutElement layoutElement;
@@ -25,6 +26,8 @@ public class Tooltip : MonoBehaviour
     }
     public void SetText(string header, string content, float[] stats, string statNames)
     {
+        statsObj.SetActive(true);
+
         contentField.text = content;
         headerField.text = header;
 
@@ -48,10 +51,12 @@ public class Tooltip : MonoBehaviour
     }
     public void SetText(string header, string content)
     {
+        statsObj.SetActive(false);
+
         contentField.text = content;
         headerField.text = header;
 
-        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : false;
+        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : true;
 
 
         statField.text = "";

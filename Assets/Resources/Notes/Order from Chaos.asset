@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f34030f2fdb9848bd47e2557f9159b, type: 3}
+  m_Name: Order from Chaos
+  m_EditorClassIdentifier: 
+  name: Order from Chaos
+  icon: {fileID: 21300050, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
+  iconRotation: 0
+  iconSize: 1
+  isDefaultItem: 0
+  WeaponType: 0
+  desc: '<b>-The Discipline of Restoring Harmony-</b>
+
+    The act of creating chaos
+    and disorder requires little effort, while the task of restoring order and harmony
+    demands significant time and energy. In other words, the path of disorder is
+    the path of least resistance, while the road to order requires discipline and
+    diligence.'
+  DropItem: {fileID: 2767458697972962497, guid: dee8ed36247c6ee4bbd2f9c63cb62664,
+    type: 3}
