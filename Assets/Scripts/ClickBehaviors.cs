@@ -100,7 +100,7 @@ public partial class WeaponController
         }
     }
 
-
+    private bool continuousDashing;
     private void defaultRightClicking()//shoots a projectile rapid-fire style
     {
         if (timeStamp <= Time.time)

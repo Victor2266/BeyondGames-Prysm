@@ -8,6 +8,8 @@ public class detachFromParent : MonoBehaviour
     public ParticleSystem part;
     bool dead = false;
     public bool dontEmitLastParticle;//one the old parent dies it emits one extra particle so the ribbons don't connect wrongly
+    public bool copyParentRot;
+    public Vector3 rotationalOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,10 @@ public class detachFromParent : MonoBehaviour
         if (oldParent != null)
         {
             transform.position = oldParent.position;
+            if (copyParentRot)
+            {
+                transform.eulerAngles = oldParent.eulerAngles + rotationalOffset;
+            }
         }
         else if (!dead)
         {

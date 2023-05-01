@@ -56,7 +56,7 @@ public class Tooltip : MonoBehaviour
         contentField.text = content;
         headerField.text = header;
 
-        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : true;
+        layoutElement.enabled = (headerField.preferredWidth > layoutElement.preferredWidth || contentField.preferredWidth > layoutElement.preferredWidth) ? true : false;
 
 
         statField.text = "";

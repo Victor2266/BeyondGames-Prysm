@@ -617,6 +617,7 @@ public partial class WeaponController : damageController
         if(RCS == Equipment.rightClickStrat.Default)
         {
             clickBehavior += defaultRightClicking;
+            continuousDashing = false;
         }
         else if (RCS == Equipment.rightClickStrat.DoubleStateDrains)
         {
@@ -627,6 +628,11 @@ public partial class WeaponController : damageController
         {
             clickBehavior += doubleStateRightClicking;
             drainsMana = false;
+        }
+        else if (RCS == Equipment.rightClickStrat.Dashing)
+        {
+            clickBehavior += defaultRightClicking;
+            continuousDashing = true;
         }
     }
 
