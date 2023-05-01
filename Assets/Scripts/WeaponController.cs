@@ -455,6 +455,7 @@ public partial class WeaponController : damageController
             }
         }
         totalDistance = 0f;//resets dmg calc for next hit
+        lastTotalDist = 0;
         DMG = 0;//resets dmg value for double hits in quick succession 
     }
     private void AttackEntity(float multiplier, Collider2D collision)
@@ -500,6 +501,7 @@ public partial class WeaponController : damageController
             }
         }
         totalDistance = 0f;//resets dmg calc for next hit
+        lastTotalDist = 0;
         DMG = 0;//resets dmg value for double hits in quick succession 
     }
     private void AttackEntity(float multiplier, RaycastHit2D collision)

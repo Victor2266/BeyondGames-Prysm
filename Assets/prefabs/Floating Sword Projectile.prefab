@@ -19674,7 +19674,7 @@ MonoBehaviour:
   InitialPop: {fileID: 0}
   DMGTextSize: 4
   attackVelo: 0
-  ManaCost: 10
+  ManaCost: 7
   coolDownPeriod: 3
   rapid_fire: 0
   power_control: 0

@@ -43,9 +43,9 @@ public partial class WeaponController
             else
                 DamageCounter.color = Color.Lerp(Color.yellow, Color.red, (float)DMG / 100f);
 
-            if (equippedDoubleStateWeapon.speedUpWithDamage)
+            if (equippedWeapon.speedUpWithDamage)
             {
-                trueMD = equippedDoubleStateWeapon.movementDelay * (1f - (float)DMG / equippedDoubleStateWeapon.MaxDamage) + equippedDoubleStateWeapon.minimumMovementDelay;
+                trueMD = equippedWeapon.movementDelay * (1f - (float)DMG / equippedWeapon.MaxDamage) + equippedWeapon.minimumMovementDelay;
             }
 
             StaminaBar.value = StaminaBar.maxValue - ((Time.time - startTime) / equippedWeapon.activeTimeLimit) * StaminaBar.maxValue;
@@ -246,7 +246,6 @@ public partial class WeaponController
             
             if (drainsMana)
             {
-                Debug.Log(playerEntity.ManaCost * (totalDistance - lastTotalDist));
                 if (playerEntity.ManaCost * (totalDistance - lastTotalDist) >= 1f)
                 {
                     if (playerEntity.currentMana - (playerEntity.ManaCost * (totalDistance - lastTotalDist)) >= 0)
