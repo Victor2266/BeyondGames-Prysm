@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3940ce4615ac23e448549628e8db5999, type: 3}
   m_Name: Magma Hopper
   m_EditorClassIdentifier: 
-  name: Magma Hopper
+  name: <color=orange>Magma Hopper</color>
   icon: {fileID: 21300006, guid: 48f27a8e505194b74c5429684b892b52, type: 3}
   iconRotation: 0
   iconSize: 0.6

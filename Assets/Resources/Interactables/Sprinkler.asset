@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3940ce4615ac23e448549628e8db5999, type: 3}
   m_Name: Sprinkler
   m_EditorClassIdentifier: 
-  name: Sprinkler
+  name: <color=#2183D9><b>Sprinkler</b></color>
   icon: {fileID: 21300254, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
   iconRotation: 0
   iconSize: 0.7
@@ -21,7 +21,6 @@ MonoBehaviour:
   desc: 
   equipSlot: 6
   color: {r: 0.15, g: 0.3, b: 1, a: 1}
-  ElementalType: 4
   SpellPrefab: {fileID: 1346022673198726, guid: cbfd5b1cc7115154daedb81657db37de,
     type: 3}
   ChargedSpellPrefab: {fileID: 1346022673198726, guid: 497046da0d2d364428b7e405e7a3de2c,

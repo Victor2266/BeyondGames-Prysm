@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
   m_Name: Flying Dutchman
   m_EditorClassIdentifier: 
-  name: Flying Dutchman
+  name: <color=#00DCFF>Flying Dutchman</color>
   icon: {fileID: 21300000, guid: b7b8505e0df41a3468f93a176ea9752e, type: 3}
   iconRotation: 0
   iconSize: 1
@@ -45,6 +45,8 @@ MonoBehaviour:
   trail: {fileID: 2300350798725474172, guid: 5d5edcdf65b47544c9e9f30512cd881c, type: 3}
   soundPitch: 0.9
   movementDelay: 0.05
+  speedUpWithDamage: 0
+  minimumMovementDelay: 0
   popSpawn: {fileID: 154529244681351670, guid: a11fd55618e221b4d9d670530a3e358a, type: 3}
   dmgTextObj: {fileID: 5225875635266693844, guid: 835e1a6ea1f56554b83152e451deb237,
     type: 3}
@@ -63,6 +65,8 @@ MonoBehaviour:
   activeTimeLimit2: 3
   cooldownTime2: 3
   movementDelay2: 0.2
+  speedUpWithDamage2: 0
+  minimumMovementDelay2: 0
   popSpawn2: {fileID: 154529244681351670, guid: a3eae2b32fe64dc4282a75dcab084b17,
     type: 3}
   ElementalType2: 8

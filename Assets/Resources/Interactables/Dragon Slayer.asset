@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
   m_Name: Dragon Slayer
   m_EditorClassIdentifier: 
-  name: Dragon Slayer
+  name: <color=#8a0101>Dragon Slayer</color>
   icon: {fileID: 21300000, guid: c1563dbd032d56a4ea5f4f595adf877a, type: 3}
   iconRotation: 90
   iconSize: 0.6
@@ -24,21 +24,21 @@ MonoBehaviour:
     momentum from previous swings to cut down opponents.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
-  AttackName: 
+  AttackName: <color=black>B</color>
   ReachLength: 2.5
-  DMG_Scaling: 8
-  MaxDamage: 70
+  DMG_Scaling: 11.4
+  MaxDamage: 100
   MinDamage: 1
-  DMGTextSize: 2.5
+  DMGTextSize: 5
   activeTimeLimit: 4.5
-  cooldownTime: 1.5
+  cooldownTime: 4
   XYSize: 0.8
   angle_offset: 0
   CapsuleColliderOffset: {x: 0, y: 0.6}
   CapsuleColliderSize: {x: 0.8, y: 5}
   SpriteOffset: {x: 0, y: 0}
   handReachMultiplier: 0.23
-  projectileAttack: {fileID: 1310705855610197, guid: bfbe84977ab5cc642ba876cd30f2e585,
+  projectileAttack: {fileID: 1310705855610197, guid: 10134a8d4cc86b4489abd106ce5cc552,
     type: 3}
   projectileOffset: 0.1
   thrustResetTime: 0.1
@@ -51,23 +51,23 @@ MonoBehaviour:
   speedUpWithDamage: 1
   minimumMovementDelay: 0.35
   popSpawn: {fileID: 154529244681351670, guid: 3513dde66e4c7ea45bf44925bde73045, type: 3}
-  dmgTextObj: {fileID: 5225875635266693844, guid: 835e1a6ea1f56554b83152e451deb237,
+  dmgTextObj: {fileID: 5225875635266693844, guid: 0f2d9429124f414418108a589c5212ef,
     type: 3}
   oneSidedSwing: 0
   swingOtherSide: 0
   usesPhysicalCollider: 0
-  ElementalType: 9
+  ElementalType: 7
   leftClickStrategy: 0
-  rightClickStrategy: 2
-  SpecialAttackName: <b>SMASH</b>
+  rightClickStrategy: 1
+  SpecialAttackName: <color=red>GUTS</color>
   DMG_Scaling2: 15
   MaxDamage2: 300
   MinDamage2: 30
   activeTimeLimit2: 6
-  cooldownTime2: 3
+  cooldownTime2: 6
   movementDelay2: 0.3
   speedUpWithDamage2: 1
   minimumMovementDelay2: 0.3
   popSpawn2: {fileID: 154529244681351670, guid: d022f8d0c626e2b41a1de756d60c53ae,
     type: 3}
-  ElementalType2: 7
+  ElementalType2: 0
