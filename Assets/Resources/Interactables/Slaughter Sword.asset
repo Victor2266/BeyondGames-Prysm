@@ -24,11 +24,11 @@ MonoBehaviour:
   AttackName: 
   ReachLength: 2
   DMG_Scaling: 7
-  MaxDamage: 75
+  MaxDamage: 65
   MinDamage: 5
   DMGTextSize: 2
   activeTimeLimit: 1
-  cooldownTime: 1.8
+  cooldownTime: 2
   XYSize: 0.9
   angle_offset: 0
   CapsuleColliderOffset: {x: 0, y: 0.35}
