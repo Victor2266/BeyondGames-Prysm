@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
+  m_Name: Dragon Slayer
+  m_EditorClassIdentifier: 
+  name: Dragon Slayer
+  icon: {fileID: 21300000, guid: c1563dbd032d56a4ea5f4f595adf877a, type: 3}
+  iconRotation: 90
+  iconSize: 0.6
+  isDefaultItem: 0
+  WeaponType: 1
+  desc: Unearthed from the grave at the top of the hill, this thick machete cutlass
+    lends itself well to hacking and slashing. With its antique construction style,
+    this sword is not just a weapon but also a testament to a bygone era. Carry the
+    momentum from previous swings to cut down opponents.
+  equipSlot: 0
+  color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
+  AttackName: 
+  ReachLength: 2.5
+  DMG_Scaling: 8
+  MaxDamage: 70
+  MinDamage: 1
+  DMGTextSize: 2.5
+  activeTimeLimit: 4.5
+  cooldownTime: 1.5
+  XYSize: 0.8
+  angle_offset: 0
+  CapsuleColliderOffset: {x: 0, y: 0.6}
+  CapsuleColliderSize: {x: 0.8, y: 5}
+  SpriteOffset: {x: 0, y: 0}
+  handReachMultiplier: 0.23
+  projectileAttack: {fileID: 1310705855610197, guid: bfbe84977ab5cc642ba876cd30f2e585,
+    type: 3}
+  projectileOffset: 0.1
+  thrustResetTime: 0.1
+  thrustDashDist: 5
+  thrustShortReach: 0.5
+  projAsChild: 1
+  trail: {fileID: 2300350798725474172, guid: be05043a24141a840bd0c6bbc46bf0f2, type: 3}
+  soundPitch: 0.9
+  movementDelay: 0.35
+  speedUpWithDamage: 1
+  minimumMovementDelay: 0.35
+  popSpawn: {fileID: 154529244681351670, guid: 3513dde66e4c7ea45bf44925bde73045, type: 3}
+  dmgTextObj: {fileID: 5225875635266693844, guid: 835e1a6ea1f56554b83152e451deb237,
+    type: 3}
+  oneSidedSwing: 0
+  swingOtherSide: 0
+  usesPhysicalCollider: 0
+  ElementalType: 9
+  leftClickStrategy: 0
+  rightClickStrategy: 2
+  SpecialAttackName: <b>SMASH</b>
+  DMG_Scaling2: 15
+  MaxDamage2: 300
+  MinDamage2: 30
+  activeTimeLimit2: 6
+  cooldownTime2: 3
+  movementDelay2: 0.3
+  speedUpWithDamage2: 1
+  minimumMovementDelay2: 0.3
+  popSpawn2: {fileID: 154529244681351670, guid: d022f8d0c626e2b41a1de756d60c53ae,
+    type: 3}
+  ElementalType2: 7

@@ -31,6 +31,8 @@ public class Weapon : Equipment
     public GameObject trail;
     public float soundPitch;
     public float movementDelay;//movement delay 2 is used for alternate right click abilities,
+    public bool speedUpWithDamage;
+    public float minimumMovementDelay;//for speed up weapons
     public GameObject popSpawn;
     public GameObject dmgTextObj; 
     public bool oneSidedSwing;
