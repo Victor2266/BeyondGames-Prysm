@@ -47,6 +47,8 @@ public class Weapon : Equipment
 
     public leftClickStrat leftClickStrategy = leftClickStrat.Default;
     public rightClickStrat rightClickStrategy = rightClickStrat.Default;
+    public float continuousDashAccelMagnitude;
+    public float continuousDashAccelTime;
 
     public override void Use()
     {

@@ -39,12 +39,14 @@ MonoBehaviour:
     type: 3}
   projectileOffset: -0.45
   thrustResetTime: 0.1
-  thrustDashDist: 16
+  thrustDashDist: 8
   thrustShortReach: 1
   projAsChild: 1
   trail: {fileID: 2300350798725474172, guid: 3ddebb913abb34f4da9aeee74ca9b33c, type: 3}
   soundPitch: 0.8
   movementDelay: 0.15
+  speedUpWithDamage: 0
+  minimumMovementDelay: 0
   popSpawn: {fileID: 154529244681351670, guid: d364f6936ed677640859bd365f93bfd1, type: 3}
   dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
     type: 3}
@@ -53,4 +55,6 @@ MonoBehaviour:
   usesPhysicalCollider: 0
   ElementalType: 9
   leftClickStrategy: 0
-  rightClickStrategy: 0
+  rightClickStrategy: 3
+  continuousDashAccelMagnitude: 3
+  continuousDashAccelTime: 4

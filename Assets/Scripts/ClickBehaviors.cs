@@ -101,6 +101,7 @@ public partial class WeaponController
     }
 
     private bool continuousDashing;
+    private float currentDashAccel;
     private void defaultRightClicking()//shoots a projectile rapid-fire style
     {
         if (timeStamp <= Time.time)
@@ -124,6 +125,11 @@ public partial class WeaponController
                 playerEntity.charges = 0;
                 ReachLength = equippedWeapon.thrustShortReach;
                 Dash();
+                if (continuousDashing)
+                {
+                    LeanTween.value(playerEntity.bullet, 0f, equippedWeapon.continuousDashAccelMagnitude, equippedWeapon.continuousDashAccelTime).setOnUpdate((float val) => { currentDashAccel = 1f + val; }).setEaseOutExpo();
+                }
+
                 if (playerEntity.weapon < 8)
                 {
                     playerEntity.bullet.GetComponent<projectileController>().Primed = false;
@@ -186,6 +192,10 @@ public partial class WeaponController
                 }
                 sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             }
+        }
+        if (continuousDashing && playerEntity.bullet != null)
+        {
+            Dash();
         }
     }
 
