@@ -4839,6 +4839,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 1.75
   shrinks: 0
+  TMPFades: 0
   trail: 0
   startSize: 1
   widthOfBullet: 0.2
