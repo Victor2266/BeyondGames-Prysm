@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3940ce4615ac23e448549628e8db5999, type: 3}
   m_Name: Sprinkler
   m_EditorClassIdentifier: 
-  name: <color=#2183D9><b>Sprinkler</b></color>
+  name: <color=#2183D9>Sprinkler</color>
   icon: {fileID: 21300254, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
   iconRotation: 0
   iconSize: 0.7
