@@ -9,6 +9,7 @@ public class InventorySlot : MonoBehaviour
 
 	public Image icon;          // Reference to the Icon image
 	public TextMeshProUGUI textField;
+	public TextMeshProUGUI textAmountField;
 	//public Button removeButton; // Reference to the remove button
 
 	public Item item;  // Current item in the slot
@@ -45,8 +46,8 @@ public class InventorySlot : MonoBehaviour
         TooltipManager.Hide();
     }
 
-    // Clear the slot
-    public void ClearSlot()
+		// Clear the slot
+		public void ClearSlot()
 	{
 		item = null;
 

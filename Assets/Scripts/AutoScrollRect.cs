@@ -63,19 +63,38 @@ public class AutoScrollRect : MonoBehaviour
 
 
         // Math stuff
-        Vector3 selectedDifference = viewportRectTransform.localPosition - m_SelectedRectTransform.localPosition - displacementVal;
+        Vector3 selectedDifference;
+        if (!buttonIsChild)
+        {
+            selectedDifference = viewportRectTransform.localPosition - m_SelectedRectTransform.localPosition - displacementVal;
+        }
+        else
+        {
+            selectedDifference = viewportRectTransform.anchoredPosition - m_SelectedRectTransform.anchoredPosition - (Vector2)displacementVal;
+        }
+
         float contentHeightDifference = (contentRectTransform.rect.height - viewportRectTransform.rect.height);
 
         float selectedPosition = (contentRectTransform.rect.height - selectedDifference.y);
         float currentScrollRectPosition = scrollRect.normalizedPosition.y * contentHeightDifference;
-        float above = currentScrollRectPosition - (m_SelectedRectTransform.rect.height / 2) + viewportRectTransform.rect.height;
-        float below = currentScrollRectPosition + (m_SelectedRectTransform.rect.height / 2);
+        float above;
+        float below;
+        if (!buttonIsChild)
+        {
+            above = currentScrollRectPosition - (m_SelectedRectTransform.rect.height / 2) + viewportRectTransform.rect.height;
+            below = currentScrollRectPosition + (m_SelectedRectTransform.rect.height / 2);
+        }
+        else
+        {
+            above = currentScrollRectPosition - (m_SelectedRectTransform.rect.height * 0.85f) + viewportRectTransform.rect.height;
+            below = currentScrollRectPosition + (m_SelectedRectTransform.rect.height / 2);
+        }
 
         //Debug.Log(m_SelectedRectTransform);
         //Debug.Log("above position" + above);
         //Debug.Log("selectedPosition" + selectedPosition);
         //Debug.Log("below position" + below);
-        //Debug.Log(selectedDifference);
+        //Debug.Log("selected Difference" + selectedDifference);
 
         // Check if selected option is out of bounds.
         if (selectedPosition > above)

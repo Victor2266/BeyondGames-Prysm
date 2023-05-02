@@ -55,6 +55,28 @@ public class Inventory : MonoBehaviour
 				Debug.Log("Not enough room.");
 				return false;
 			}
+
+			if(item is ConsumableItem)
+            {
+				int duplicates = 0;
+				foreach (Item currentItem in items)
+				{
+					if (currentItem.name == item.name)//check for duplicates in inventory
+					{
+						duplicates++;
+					}
+				}
+
+				if (duplicates < ((ConsumableItem)item).maxStacks)
+                {
+					items.Add(item);    // Add item to list
+
+					// Trigger callback
+					if (onItemChangedCallback != null)
+						onItemChangedCallback.Invoke();
+				}
+			}
+
 			foreach(Item currentItem in items)
             {
 				if (currentItem.name == item.name)//check for duplicates in inventory

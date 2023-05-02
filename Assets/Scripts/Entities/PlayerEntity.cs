@@ -204,7 +204,7 @@ public class PlayerEntity : MonoBehaviour
         HealthUIText.text = currentHealth.ToString() + "/" + MaxHealth.ToString();
         //playerEntity.HealthUIText.rectTransform.position = new Vector3(playerEntity.healthRect.sizeDelta.x + 2, playerEntity.HealthUIText.rectTransform.position.y, playerEntity.HealthUIText.rectTransform.position.z);
         
-        if(currentHealth <= health.value)
+        if(currentHealth < health.value)
             ActiveDMGImage.color = new Color(1f, 0f, 0f, 1f);
         else
             ActiveDMGImage.color = new Color(0f, 1f, 0.1647f, 1f);

@@ -14,6 +14,10 @@ public class newPointerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(lookAtThis == null)
+        {
+            return;
+        }
         dir = lookAtThis.position - transform.position;
         ZAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + offset;
         _lookRot = Quaternion.AngleAxis(ZAngle, Vector3.forward);
@@ -24,8 +28,7 @@ public class newPointerScript : MonoBehaviour
         }
         else
         {
-            transform.rotation =
-         Quaternion.Slerp(transform.rotation, _lookRot, Time.deltaTime * turn_speed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRot, Time.deltaTime * turn_speed);
         }
     }
 
