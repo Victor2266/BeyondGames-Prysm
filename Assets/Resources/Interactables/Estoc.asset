@@ -20,7 +20,7 @@ MonoBehaviour:
   WeaponType: 1
   desc: A simple and thin sword well suited for thrusting.
   equipSlot: 0
-  color: {r: 1, g: 0.446602, b: 0, a: 0.54509807}
+  color: {r: 1, g: 0.446602, b: 0, a: 0.8784314}
   AttackName: 
   ReachLength: 1.5
   DMG_Scaling: 5
@@ -45,6 +45,8 @@ MonoBehaviour:
   trail: {fileID: 1491279371004310850, guid: 0d93af16bb261f24dbd278dc13073571, type: 3}
   soundPitch: 1
   movementDelay: 0
+  speedUpWithDamage: 0
+  minimumMovementDelay: 0
   popSpawn: {fileID: 154529244681351670, guid: 59b6d86b9daa94a4bb1361c00fbd48ca, type: 3}
   dmgTextObj: {fileID: 5225875635266693844, guid: 263cc7f5adf81b44ba96942320ba1d28,
     type: 3}
@@ -54,3 +56,5 @@ MonoBehaviour:
   ElementalType: 9
   leftClickStrategy: 0
   rightClickStrategy: 0
+  continuousDashAccelMagnitude: 0
+  continuousDashAccelTime: 0

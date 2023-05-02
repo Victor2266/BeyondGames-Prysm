@@ -23,7 +23,7 @@ MonoBehaviour:
     was created when a king commissioned all the local blacksmiths to make a blade
     that could slay a dragon.
   equipSlot: 0
-  color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
+  color: {r: 0.5411765, g: 0.003921569, b: 0.003921569, a: 1}
   AttackName: <color=black>B</color>
   ReachLength: 2.5
   DMG_Scaling: 11.4
