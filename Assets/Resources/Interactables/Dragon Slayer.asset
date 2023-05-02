@@ -18,10 +18,10 @@ MonoBehaviour:
   iconSize: 0.6
   isDefaultItem: 0
   WeaponType: 1
-  desc: Unearthed from the grave at the top of the hill, this thick machete cutlass
-    lends itself well to hacking and slashing. With its antique construction style,
-    this sword is not just a weapon but also a testament to a bygone era. Carry the
-    momentum from previous swings to cut down opponents.
+  desc: Massive, thick, heavy and far too rough. It was much too big to be a sword.
+    Indeed, it was like a heap of raw iron. Forged by the blacksmith Godo, Dragonslayer
+    was created when a king commissioned all the local blacksmiths to make a blade
+    that could slay a dragon.
   equipSlot: 0
   color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.7490196}
   AttackName: <color=black>B</color>
@@ -59,6 +59,8 @@ MonoBehaviour:
   ElementalType: 7
   leftClickStrategy: 0
   rightClickStrategy: 1
+  continuousDashAccelMagnitude: 0
+  continuousDashAccelTime: 0
   SpecialAttackName: <color=red>GUTS</color>
   DMG_Scaling2: 15
   MaxDamage2: 300

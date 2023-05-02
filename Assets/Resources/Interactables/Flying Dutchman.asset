@@ -18,7 +18,8 @@ MonoBehaviour:
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
-  desc: 'The sword of a ghost, cutdown unearthly creatures with this ethereal blade. '
+  desc: 'A sword suited for a ghost, cutdown unearthly creatures with this ethereal
+    blade. '
   equipSlot: 0
   color: {r: 0, g: 0.86100006, b: 1, a: 0.7490196}
   AttackName: 
@@ -56,6 +57,8 @@ MonoBehaviour:
   ElementalType: 9
   leftClickStrategy: 0
   rightClickStrategy: 1
+  continuousDashAccelMagnitude: 0
+  continuousDashAccelTime: 0
   SpecialAttackName: '<b>GHOST
 
     CUTTER</b>'
