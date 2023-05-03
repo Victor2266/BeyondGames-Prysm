@@ -127,7 +127,7 @@ public partial class WeaponController
                 Dash();
                 if (continuousDashing)
                 {
-                    LeanTween.value(playerEntity.bullet, 0f, equippedWeapon.continuousDashAccelMagnitude, equippedWeapon.continuousDashAccelTime).setOnUpdate((float val) => { currentDashAccel = 1f + val; }).setEaseOutExpo();
+                    LeanTween.value(playerEntity.bullet, 0f, equippedWeapon.continuousDashAccelMagnitude, equippedWeapon.continuousDashAccelTime).setOnUpdate((float val) => { currentDashAccel = 1f + val; Dash(); }).setEaseOutExpo();
                 }
 
                 if (playerEntity.weapon < 8)
@@ -192,10 +192,6 @@ public partial class WeaponController
                 }
                 sprtrend.color = new Vector4(1f, 1f, 1f, 0.5f);
             }
-        }
-        if (continuousDashing && playerEntity.bullet != null)
-        {
-            Dash();
         }
     }
 
