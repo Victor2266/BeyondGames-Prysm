@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f581cedde25549f4794d0e4a9b20937e, type: 3}
   m_Name: "Thunder God\u2019s Meteorite Sword"
   m_EditorClassIdentifier: 
-  name: "Thunder God\u2019s Meteorite Sword"
+  name: "<color=#00FFFF>Thunder God\u2019s Meteorite Sword</color>"
   icon: {fileID: 21300000, guid: d8a82bfd024d1884383705d5f9465a90, type: 3}
   iconRotation: -90
   iconSize: 1
   isDefaultItem: 0
   WeaponType: 1
-  desc: A simple and thin sword well suited for thrusting.
+  desc: "The sword was forged from a meteor, and isn\u2019t something that belongs
+    to this world."
   equipSlot: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   AttackName: <color=yellow>Y</color>

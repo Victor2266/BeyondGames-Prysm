@@ -9990,7 +9990,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 1.6
   simulationSpeed: 8
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -14829,7 +14829,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 1.6
   simulationSpeed: 8
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
