@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 3363941505223404162}
   textField: {fileID: 2013276870593692199}
+  textAmountField: {fileID: 0}
   item: {fileID: 0}
   tooltipTrigger: {fileID: 3931256145592538766}
 --- !u!1 &3363941505223404164

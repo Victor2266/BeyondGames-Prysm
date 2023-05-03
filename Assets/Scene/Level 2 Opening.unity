@@ -111388,8 +111388,12 @@ MonoBehaviour:
   HealthBarScalingLength: 0
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
+  TextPopUp2: {fileID: 0}
+  healthShaker: {fileID: 0}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
+  ActiveManaRect: {fileID: 0}
+  ActiveDMGRect: {fileID: 0}
   customLocalPlayerCheck: 1
   lookingLeft: 0
   WeaponUI: {fileID: 0}
@@ -111405,6 +111409,9 @@ MonoBehaviour:
   leftBosoter: {fileID: 0}
   rightBooster: {fileID: 0}
   audioSource: {fileID: 0}
+  RegenManaIndicator: {fileID: 0}
+  DashSlider: {fileID: 0}
+  DashCenter: {fileID: 0}
 --- !u!114 &1793949808
 MonoBehaviour:
   m_ObjectHideFlags: 0
