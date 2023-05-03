@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sprinkler
   m_EditorClassIdentifier: 
   name: <color=#2183D9>Sprinkler</color>
-  icon: {fileID: 21300254, guid: 47d14f231a9377947bd224fc6a49b345, type: 3}
+  icon: {fileID: 4870101854799541128, guid: 8cf3e46b574260c40a3562938eb41c0c, type: 3}
   iconRotation: 0
   iconSize: 0.7
   isDefaultItem: 0
