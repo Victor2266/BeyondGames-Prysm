@@ -48,7 +48,7 @@ public class GunSlideMinigame : MonoBehaviour
 
     public void ShootBullet()
     {
-        Instantiate(bulletPrefab, new Vector3(-1.348f, -17.199f, 0f), transform.rotation);
+        Instantiate(bulletPrefab, new Vector3(-1.348f, -17.199f + 0.005f, 0f), transform.rotation);
     }
     void OnMouseDown()
     {
