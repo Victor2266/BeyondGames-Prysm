@@ -7,19 +7,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(MeshCollider))]
 public class GunMagMinigame : MonoBehaviour
 {
-    public bool mouseHovering;
     public PlayerInput playerInput;
 
     private Vector3 screenPoint;
     private Vector3 offset;
     private Vector3 velocity;
     private Vector2 joystickPos;
-    private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -40,7 +37,7 @@ public class GunMagMinigame : MonoBehaviour
 
             if (3.137996f < transform.localPosition.x)
             {
-                LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 1f).setEaseOutExpo().setOnComplete(IncrementIndex);
+                LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 0.65f).setEaseOutExpo().setOnComplete(IncrementIndex);
                 IncrementIndex();
             }
         }
