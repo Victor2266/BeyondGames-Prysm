@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 346799389}
   - component: {fileID: 346799390}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Indicator Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7689,6 +7689,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &850530451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850530452}
+  m_Layer: 0
+  m_Name: Gun Barrel Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &850530452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850530451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.956, y: -17.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1229234269}
+  m_Father: {fileID: 1503985280}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860099394
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,6 +12925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1229234269}
   - component: {fileID: 1229234270}
+  - component: {fileID: 1229234271}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -12909,11 +12941,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229234268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -17.17, z: 0}
+  m_LocalPosition: {x: -1.056, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1503985280}
-  m_RootOrder: 3
+  m_Father: {fileID: 850530452}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1229234270
 SpriteRenderer:
@@ -12966,6 +12998,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1229234271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229234268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7604e2fce4b0d540895d2d8c8792068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunSlide: {fileID: 99862333}
+  barrelPivot: {fileID: 850530451}
 --- !u!1 &1326819468
 GameObject:
   m_ObjectHideFlags: 0
@@ -13294,7 +13340,7 @@ Transform:
   - {fileID: 99862334}
   - {fileID: 346799389}
   - {fileID: 835858144}
-  - {fileID: 1229234269}
+  - {fileID: 850530452}
   - {fileID: 393717611}
   m_Father: {fileID: 0}
   m_RootOrder: 7
