@@ -305,7 +305,7 @@ MonoBehaviour:
   UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
-  tickLimit: 4
+  tickLimit: 0.4
 --- !u!114 &57910969
 MonoBehaviour:
   m_ObjectHideFlags: 0

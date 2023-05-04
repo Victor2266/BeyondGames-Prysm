@@ -15,6 +15,9 @@ public class DialogManager : MonoBehaviour
 
     public Animator animator;
     public int maxSentences;
+
+    public bool SkipToIndex;
+    public int lastIndex;
     private void Awake()
     {
         instance = this;
@@ -81,6 +84,11 @@ public class DialogManager : MonoBehaviour
     }
     public void SkipDialog()
     {
+        if (SkipToIndex)
+        {
+            index = lastIndex;
+            return;
+        }
         for (int i = index; i < maxSentences; i++)
         {
             DisplayNextSentence();

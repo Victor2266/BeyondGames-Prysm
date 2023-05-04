@@ -78,7 +78,7 @@ public class Level3OpeningScene : DialogTrigger
             LeanTween.value(0f, 1f, 0.2f).setOnUpdate((float val) => { indicatorImage.color = Color.Lerp(Color.white, Color.green, val); }).setEaseOutExpo();
             DialogManager.instance.index++;
         }
-        else if (DialogManager.instance.index == 14)
+        else if (DialogManager.instance.index == 15)
         {
             //end
             FadeToBlack.SetActive(true);
@@ -88,4 +88,5 @@ public class Level3OpeningScene : DialogTrigger
 
         }
     }
+
 }

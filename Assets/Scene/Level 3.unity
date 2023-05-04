@@ -16599,7 +16599,7 @@ ParticleSystem:
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
     m_Sprite: {fileID: 0}
-    m_SpriteRenderer: {fileID: 0}
+    m_SpriteRenderer: {fileID: 531531902}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
