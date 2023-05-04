@@ -142,9 +142,11 @@ public class OpeningScene : DialogTrigger
         }
         if (DialogManager.instance.index == 28)
         {
+            FadeToBlack.GetComponent<AlphaColourFadeInForEndScreen>().tickLimit = 0.4f;
             FadeToBlack.SetActive(true);
             DialogManager.instance.EndDialog();
             StartCoroutine(MySceneManager.instance.SelectLevel("Level 1"));
+            DialogManager.instance.index++;
         }
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, targetPosition, ref velocity, smoothTime);
     }

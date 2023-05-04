@@ -354,6 +354,8 @@ MonoBehaviour:
   dialogText: {fileID: 732470828}
   animator: {fileID: 367570660}
   maxSentences: 0
+  SkipToIndex: 0
+  lastIndex: 0
   index: 0
 --- !u!4 &39013087
 Transform:
@@ -11429,6 +11431,7 @@ MonoBehaviour:
   UseRawImage: 1
   UseSpriteRend: 0
   UseImage: 0
+  UseVideo: 0
   ResetAlphaToZeroOnAwake: 1
   ticks: 0
   tickLimit: 4
@@ -27542,6 +27545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3b615929496ac42a90eecca584b8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   ticks: 0
   tickLimit: 5
   grows: 1
@@ -27550,6 +27554,8 @@ MonoBehaviour:
   timeOfBullet: 0
   diesRightAfter: 0
   affectZ: 1
+  FadeInText: 0
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1261250198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33921,8 +33927,12 @@ MonoBehaviour:
   HealthBarScalingLength: 0
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
+  TextPopUp2: {fileID: 0}
+  healthShaker: {fileID: 0}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
+  ActiveManaRect: {fileID: 0}
+  ActiveDMGRect: {fileID: 0}
   customLocalPlayerCheck: 1
   lookingLeft: 0
   WeaponUI: {fileID: 0}
@@ -33938,6 +33948,9 @@ MonoBehaviour:
   leftBosoter: {fileID: 0}
   rightBooster: {fileID: 0}
   audioSource: {fileID: 0}
+  RegenManaIndicator: {fileID: 0}
+  DashSlider: {fileID: 0}
+  DashCenter: {fileID: 0}
 --- !u!114 &1793949808
 MonoBehaviour:
   m_ObjectHideFlags: 0
