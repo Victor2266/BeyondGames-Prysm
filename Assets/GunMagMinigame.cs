@@ -37,7 +37,7 @@ public class GunMagMinigame : MonoBehaviour
 
             if (3.137996f < transform.localPosition.x)
             {
-                LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 0.65f).setEaseOutExpo().setOnComplete(IncrementIndex);
+                LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 0.45f).setEaseOutExpo().setOnComplete(IncrementIndex);
                 IncrementIndex();
             }
         }
