@@ -69,5 +69,6 @@ public class Level3OpeningScene : DialogTrigger
             DialogManager.instance.index++;
         }
 
+
     }
 }

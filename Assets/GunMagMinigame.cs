@@ -40,13 +40,12 @@ public class GunMagMinigame : MonoBehaviour
 
             if (3.137996f < transform.localPosition.x)
             {
-                DialogManager.instance.index++;
+                LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 1f).setEaseOutExpo().setOnComplete(IncrementIndex);
+                IncrementIndex();
             }
         }
-        else if (DialogManager.instance.index == 9)
+        else if (DialogManager.instance.index == 9)//wait until mag just outside of mag well position
         {
-            LeanTween.moveLocal(gameObject, new Vector3(4.288f, -22.68f, 0f), 1f).setEaseOutExpo();
-            DialogManager.instance.index++;
         }
         else if (DialogManager.instance.index == 10)
         {
@@ -54,7 +53,7 @@ public class GunMagMinigame : MonoBehaviour
                 joystickPos = playerInput.actions["Navigate"].ReadValue<Vector2>();
 
             if (-25.27896f < transform.localPosition.y && transform.localPosition.y < -13.75938f)
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + joystickPos.y * 0.05f, 0f);
+                transform.localPosition = new Vector3(4.288f, transform.localPosition.y + joystickPos.y * 0.05f, 0f);
             else
             {
                 transform.localPosition = new Vector3(transform.localPosition.x, -25.27896f, 0f);
@@ -67,7 +66,11 @@ public class GunMagMinigame : MonoBehaviour
                 DialogManager.instance.index++;
             }
         }
+    }
 
+    private void IncrementIndex()
+    {
+        DialogManager.instance.index++;
     }
 
     void OnMouseDown()
@@ -80,7 +83,7 @@ public class GunMagMinigame : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (DialogManager.instance.index == 8 || DialogManager.instance.index == 10)
+        if (DialogManager.instance.index == 8)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
@@ -88,11 +91,14 @@ public class GunMagMinigame : MonoBehaviour
 
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, curPosition, ref velocity, 0.2f);
         }
+        else if(DialogManager.instance.index == 10)
+        {
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, new Vector3(transform.localPosition.x, curPosition.y, 0f), ref velocity, 0.2f);
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
 }
