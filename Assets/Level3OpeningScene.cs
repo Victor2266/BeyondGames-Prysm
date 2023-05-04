@@ -54,7 +54,11 @@ public class Level3OpeningScene : DialogTrigger
         }
         else if (DialogManager.instance.index == 6)//dadun,ele 4
         {
-            LeanTween.moveY(mainCamera, -19.5f, 1f).setEaseOutExpo();
+            if (notTriggeredYet)
+            {
+                LeanTween.moveY(mainCamera, -19.5f, 1f).setEaseOutExpo();
+                notTriggeredYet = false;
+            }
             if (DialogManager.instance.animator.GetBool("IsOpen") == false)
             {
                 DialogManager.instance.index = 7;
