@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
 	private PlayerInput playerInput;
 
 
-	bool hasInteracted = false; // Have we already interacted with the object?
+	protected bool hasInteracted = false; // Have we already interacted with the object?
 
     private void OnEnable()
     {

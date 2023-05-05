@@ -25,6 +25,9 @@ public class DialogManager : MonoBehaviour
 
     public Queue<string> sentences;
     public int index;
+
+    public delegate void OnEndDialog();
+    public OnEndDialog onEndDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,7 @@ public class DialogManager : MonoBehaviour
     public void EndDialog()
     {
         animator.SetBool("IsOpen", false);
+        onEndDialog.Invoke();
     }
     public void SkipDialog()
     {
