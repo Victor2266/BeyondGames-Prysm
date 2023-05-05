@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
 
 	public GameObject pauseMenu;
 
-	public enum WeaponTypes { All, Weapons, Spells };
+	public enum WeaponTypes { All, Weapons, Spells, Other };
 	public WeaponTypes CurrentTab;
 
 	private Color GreyedColor = new Color(1f, 1f, 1f, 0.5f);
@@ -168,6 +168,15 @@ public class InventoryUI : MonoBehaviour
 					Destroy(slots[i].gameObject);
 				}
 			}
+			else if (CurrentTab == WeaponTypes.Other)
+			{
+				if (inventory.items[i].WeaponType != WeaponTypes.Other)
+				{
+					// Otherwise clear the slot
+					slots[i].ClearSlot();
+					Destroy(slots[i].gameObject);
+				}
+			}
 		}
 	}
 
@@ -180,15 +189,25 @@ public class InventoryUI : MonoBehaviour
 				Tabs[0].color = GreyedColor;
 				Tabs[2].color = GreyedColor;
 				Tabs[1].color = SelectedColor;
+				Tabs[3].color = GreyedColor;
 				break;
 			case 2:
 				CurrentTab = WeaponTypes.Spells;
 				Tabs[0].color = GreyedColor;
 				Tabs[1].color = GreyedColor;
 				Tabs[2].color = SelectedColor;
+				Tabs[3].color = GreyedColor;
+				break;
+			case 3:
+				CurrentTab = WeaponTypes.Other;
+				Tabs[0].color = GreyedColor;
+				Tabs[1].color = GreyedColor;
+				Tabs[2].color = GreyedColor;
+				Tabs[3].color = SelectedColor;
 				break;
 			default:
 				CurrentTab = WeaponTypes.All;
+				Tabs[3].color = GreyedColor;
 				Tabs[1].color = GreyedColor;
 				Tabs[2].color = GreyedColor;
 				Tabs[0].color = SelectedColor;
