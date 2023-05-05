@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class ShopDialogStarter : Interactable
+public class InGameDialogStarter : Interactable
 {
     public GameObject tooltipPrefab;
     private GameObject tooltip;
@@ -63,7 +63,6 @@ public class ShopDialogStarter : Interactable
             if (hasInteracted)
             {
                 DialogManager.instance.EndDialog();
-                ResetDialog();
             }
         }
         base.Update();
