@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BerryShopStarter : InGameDialogStarter
 {
@@ -10,6 +11,8 @@ public class BerryShopStarter : InGameDialogStarter
         if (distance <= radius)
         {
             shopCanvas.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            //set dialog box tag to untagged
             DialogManager.instance.isDisplayingDialog = true;
         }
         else
@@ -22,6 +25,8 @@ public class BerryShopStarter : InGameDialogStarter
     public void closeButton()
     {
         DialogManager.instance.isDisplayingDialog = true;
+
+        //set dialog box tag to DefaultOption2
         shopCanvas.SetActive(false);
         base.ResetDialog();
     }

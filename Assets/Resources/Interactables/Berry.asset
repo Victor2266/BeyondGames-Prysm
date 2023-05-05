@@ -17,7 +17,7 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 1.1
   isDefaultItem: 0
-  WeaponType: 0
+  WeaponType: 3
   desc: Consume to recover 25 health.
   healAmount: 25
   maxStacks: 5

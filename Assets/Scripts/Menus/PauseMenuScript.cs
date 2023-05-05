@@ -30,6 +30,7 @@ public class PauseMenuScript : MonoBehaviour
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
             //Debug.Log("Pausing Game");
+            EventSystem.current.SetSelectedGameObject(null);
 
             if (isPaused)
             {
@@ -41,22 +42,6 @@ public class PauseMenuScript : MonoBehaviour
             }
 
             TooltipManager.Hide();
-        }
-
-        if (isPaused)
-        {
-            //check for controller press
-            if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
-            {
-                EventSystem.current.SetSelectedGameObject(null);
-                GameObject defaultMenuOption = GameObject.FindGameObjectWithTag("DefaultOption");
-                if (defaultMenuOption != null)
-                    EventSystem.current.SetSelectedGameObject(defaultMenuOption);
-            }
-            else if (playerInput.actions["Point"].WasPerformedThisFrame())
-            {
-                EventSystem.current.SetSelectedGameObject(null);
-            }
         }
     }
     public void Resume()

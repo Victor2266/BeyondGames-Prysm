@@ -8,6 +8,8 @@ public class FocusControllerPress : MonoBehaviour
 {
     public GameObject player;
     public PlayerInput playerInput;
+    public bool alwaysEnable = true;
+    public string notPausedTag = "DefaultOption";
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +21,36 @@ public class FocusControllerPress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //check for controller press
-        if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
+        if(alwaysEnable || PauseMenuScript.isPaused)
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            GameObject defaultMenuOption = GameObject.FindGameObjectWithTag("DefaultOption");
-            if (defaultMenuOption != null)
-                EventSystem.current.SetSelectedGameObject(defaultMenuOption);
+            //check for controller press
+            if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                GameObject defaultMenuOption = GameObject.FindGameObjectWithTag("DefaultOption");
+                if (defaultMenuOption != null)
+                    EventSystem.current.SetSelectedGameObject(defaultMenuOption);
+            }
+            else if (playerInput.actions["Point"].WasPerformedThisFrame())
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
-        else if (playerInput.actions["Point"].WasPerformedThisFrame())
+        else
         {
-            EventSystem.current.SetSelectedGameObject(null);
+            //check for controller press
+            if (playerInput.actions["Navigate"].WasPressedThisFrame() && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.active))
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                GameObject defaultMenuOption = GameObject.FindGameObjectWithTag(notPausedTag);
+                if (defaultMenuOption != null)
+                    EventSystem.current.SetSelectedGameObject(defaultMenuOption);
+            }
+            else if (playerInput.actions["Point"].WasPerformedThisFrame())
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
+
     }
 }

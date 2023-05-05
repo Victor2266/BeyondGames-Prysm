@@ -40,6 +40,7 @@ TagManager:
   - DefaultOption
   - playerProj
   - Canvas
+  - DefaultOption2
   layers:
   - Default
   - TransparentFX

@@ -53,6 +53,8 @@ public class InventoryUI : MonoBehaviour
 		// Check to see if we should open/close the inventory
 		if (playerInput.actions["Inventory"].WasPressedThisFrame())
 		{
+			EventSystem.current.SetSelectedGameObject(null);
+
 			if (PauseMenuScript.isPaused)
 			{
 				if (inventoryUI.activeSelf == true)
