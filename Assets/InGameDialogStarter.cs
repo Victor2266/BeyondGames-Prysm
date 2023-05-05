@@ -11,6 +11,7 @@ public class InGameDialogStarter : Interactable
 
     public string name;
 
+    protected float distance;
     private void Start()
     {
         tooltip = Instantiate(tooltipPrefab);
@@ -49,7 +50,7 @@ public class InGameDialogStarter : Interactable
         tooltip.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -3f);
 
         // If we are close enough
-        float distance = Vector2.Distance(player.position, interactionTransform.position);
+        distance = Vector2.Distance(player.position, interactionTransform.position);
         if (distance <= radius)
         {
             // display the tooltip with the item name
@@ -68,7 +69,7 @@ public class InGameDialogStarter : Interactable
         base.Update();
     }
 
-    public void ResetDialog()//the close button also usees this function
+    public virtual void ResetDialog()//the close button also usees this function
     {
         hasInteracted = false;
     }

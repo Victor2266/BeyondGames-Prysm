@@ -84,7 +84,8 @@ public class DialogManager : MonoBehaviour
     public void EndDialog()
     {
         animator.SetBool("IsOpen", false);
-        onEndDialog.Invoke();
+        if(onEndDialog != null)
+            onEndDialog.Invoke();
     }
     public void SkipDialog()
     {

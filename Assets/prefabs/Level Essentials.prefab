@@ -38514,8 +38514,6 @@ MonoBehaviour:
   m_templateScrollRect: {fileID: 6647549374872101663}
   m_templateViewportTransform: {fileID: 5168091095362966630}
   m_ContentRectTransform: {fileID: 5168091095239964244}
-  aboveLine: {fileID: 0}
-  belowLine: {fileID: 0}
   buttonIsChild: 1
 --- !u!1 &5168091095107010786
 GameObject:
@@ -39002,8 +39000,6 @@ MonoBehaviour:
   m_templateScrollRect: {fileID: 5168091095114252384}
   m_templateViewportTransform: {fileID: 5168091095911741998}
   m_ContentRectTransform: {fileID: 5168091094528984966}
-  aboveLine: {fileID: 0}
-  belowLine: {fileID: 0}
   buttonIsChild: 1
 --- !u!1 &5168091095122950291
 GameObject:
@@ -40673,8 +40669,6 @@ MonoBehaviour:
   m_templateScrollRect: {fileID: 5168091095252170471}
   m_templateViewportTransform: {fileID: 5168091096092259594}
   m_ContentRectTransform: {fileID: 5168091095946500259}
-  aboveLine: {fileID: 0}
-  belowLine: {fileID: 0}
   buttonIsChild: 0
 --- !u!1 &5168091095288170353
 GameObject:
@@ -41144,6 +41138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5168091095331827980}
   - component: {fileID: 5168091095331827979}
+  - component: {fileID: 2534807921518042989}
   m_Layer: 5
   m_Name: Inventory (must start open)
   m_TagString: Untagged
@@ -41184,6 +41179,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5168091095331827981}
   m_CullTransparentMesh: 0
+--- !u!114 &2534807921518042989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168091095331827981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.16862746}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5168091095345625371
 GameObject:
   m_ObjectHideFlags: 0
@@ -57621,8 +57645,6 @@ MonoBehaviour:
   m_templateScrollRect: {fileID: 5168091096128807732}
   m_templateViewportTransform: {fileID: 5168091094789543721}
   m_ContentRectTransform: {fileID: 5168091094899253198}
-  aboveLine: {fileID: 0}
-  belowLine: {fileID: 0}
   buttonIsChild: 1
 --- !u!1 &5168091096136340238
 GameObject:
@@ -96351,6 +96373,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527919735601009 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091094623811796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898098486829194 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -96375,12 +96403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527919735601009 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091094623811796}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091094625692326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96391,7 +96413,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Stick [Gamepad]
+      value: Left Stick [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -96569,7 +96591,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Shoulder [Gamepad]
+      value: Left Bumper [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -96734,7 +96756,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Select [Gamepad]
+      value: Select [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -96900,7 +96922,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Shoulder [Gamepad]
+      value: Right Bumper [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -97437,6 +97459,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!114 &2437898097885896594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095063054284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6752426836452415571 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -97455,18 +97489,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095063054284}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898097885896594 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095063054284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095152677535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97672,24 +97694,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527920280460602 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095152677535}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6752426836408864000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095152677535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2437898097941957313 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -97702,6 +97706,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6752426836408864000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095152677535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &4096527920280460602 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095152677535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095172227739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97712,7 +97734,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Start [Gamepad]
+      value: Start [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -97862,18 +97884,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &6752426836342471940 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!224 &4096527920321768766 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095172227739}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2437898097927961285 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -97886,12 +97902,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527920321768766 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!114 &6752426836342471940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095172227739}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095182093994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98052,9 +98074,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &6752426836370157877 stripped
+--- !u!114 &2437898097904400116 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095182093994}
   m_PrefabAsset: {fileID: 0}
@@ -98070,9 +98092,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095182093994}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898097904400116 stripped
+--- !u!114 &6752426836370157877 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095182093994}
   m_PrefabAsset: {fileID: 0}
@@ -98287,12 +98309,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527920108238040 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095248370557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898097702101795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -98317,6 +98333,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4096527920108238040 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095248370557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095294723409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98327,7 +98349,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button North [Gamepad]
+      value: Y [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -99084,18 +99106,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898098120149368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!224 &4096527920530087555 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095364292902}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6752426836687589049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -99108,12 +99124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527920530087555 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!114 &2437898098120149368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095364292902}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091095488682825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99124,7 +99146,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Left Trigger [Gamepad]
+      value: Left Trigger [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -99491,9 +99513,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5168091095524721756}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2437898097978596354 stripped
+--- !u!114 &6752426836560714691 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095524721756}
   m_PrefabAsset: {fileID: 0}
@@ -99503,9 +99525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6752426836560714691 stripped
+--- !u!114 &2437898097978596354 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091095524721756}
   m_PrefabAsset: {fileID: 0}
@@ -99525,7 +99547,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button West [Gamepad]
+      value: X [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -99891,12 +99913,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527920441928241 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095595165076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426836499069451 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -99921,6 +99937,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4096527920441928241 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095595165076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095615398665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100356,24 +100378,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527918488370898 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095738757495}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6752426837932404456 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095738757495}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2437898097219545385 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -100386,6 +100390,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6752426837932404456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095738757495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &4096527918488370898 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095738757495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095747292813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100396,7 +100418,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button South [Gamepad]
+      value: A [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -100769,6 +100791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4096527918584734354 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091095834340663}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898097248023913 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -100781,12 +100809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527918584734354 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091095834340663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091095879576010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101692,15 +101714,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527918754364677 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091096008684192}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6752426838203346239 stripped
+--- !u!114 &2437898097489472254 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096008684192}
   m_PrefabAsset: {fileID: 0}
@@ -101710,9 +101726,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2437898097489472254 stripped
+--- !u!224 &4096527918754364677 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091096008684192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6752426838203346239 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+  m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096008684192}
   m_PrefabAsset: {fileID: 0}
@@ -101922,6 +101944,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &4096527918726221669 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091096026415296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426838206439263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -101946,12 +101974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527918726221669 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091096026415296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168091096129373786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101962,7 +101984,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad/Y [Gamepad]
+      value: D-Pad Y [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -102133,7 +102155,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: D-Pad/X [Gamepad]
+      value: D-Pad X [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -102905,18 +102927,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!114 &2437898096753809437 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!224 &4096527919079985126 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096346886211}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6752426837315805148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -102929,12 +102945,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4096527919079985126 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+--- !u!114 &2437898096753809437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
     type: 3}
   m_PrefabInstance: {fileID: 5168091096346886211}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5168091096376917684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102945,7 +102967,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Trigger [Gamepad]
+      value: Right Trigger [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -103301,12 +103323,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
---- !u!224 &4096527919109621277 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5168091096392780216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2437898096699036134 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7380722625036752990, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -103319,6 +103335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4096527919109621277 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5168091096392780216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6752426837311329831 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -103341,7 +103363,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Button East [Gamepad]
+      value: B [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -104005,7 +104027,7 @@ PrefabInstance:
     - target: {fileID: 3044524863742218226, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
       propertyPath: m_Text
-      value: Right Stick [Gamepad]
+      value: Right Stick [Xbox Controller]
       objectReference: {fileID: 0}
     - target: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
         type: 3}
@@ -104556,6 +104578,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1296261d91c4a4fa004261dd73c07a, type: 3}
+--- !u!224 &1407679716777588094 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7847628139188124379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8567446419780314436 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877384316008816543, guid: 9f1296261d91c4a4fa004261dd73c07a,
@@ -104568,12 +104596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1407679716777588094 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9178746194013589413, guid: 9f1296261d91c4a4fa004261dd73c07a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7847628139188124379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8634648204619792203
 PrefabInstance:
   m_ObjectHideFlags: 0

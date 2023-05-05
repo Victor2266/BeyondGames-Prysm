@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BerryShopStarter : InGameDialogStarter
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ResetDialog()//the close button also usees this function
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (distance <= radius)
+        {
+            Debug.Log("opensop");
+        }
+        base.ResetDialog();
     }
 }
