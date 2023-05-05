@@ -71,8 +71,16 @@ public class PauseMenuScript : MonoBehaviour
         controllerControlsUI.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
-        if(player.GetComponent<PlayerEntity>().weapon > 0)
+        if (DialogManager.instance != null)
+        {
+            if (!DialogManager.instance.isDisplayingDialog)
+                Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+        if (player.GetComponent<PlayerEntity>().weapon > 0)
         {
             mousePointer.SetActive(true);
         }

@@ -18,6 +18,9 @@ public class DialogManager : MonoBehaviour
 
     public bool SkipToIndex;
     public int lastIndex;
+
+    public bool isDisplayingDialog;
+
     private void Awake()
     {
         instance = this;
@@ -37,6 +40,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog (Dialog dialog)
     {
+        isDisplayingDialog = true;
         index = 0;
         animator.SetBool("IsOpen", true);
         nameText.text = dialog.name;
@@ -83,6 +87,7 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
+        isDisplayingDialog = false;
         animator.SetBool("IsOpen", false);
         if(onEndDialog != null)
             onEndDialog.Invoke();

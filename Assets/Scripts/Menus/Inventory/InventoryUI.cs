@@ -99,7 +99,15 @@ public class InventoryUI : MonoBehaviour
     {
 		playerInput.SwitchCurrentActionMap("Player");
 		Cursor.lockState = CursorLockMode.Confined;
-		Cursor.visible = false;
+		if (DialogManager.instance != null)
+		{
+			if (!DialogManager.instance.isDisplayingDialog)
+				Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.visible = false;
+		}
 		if (player.GetComponent<PlayerEntity>().weapon > 0)
 		{
 			player.mousePointer.SetActive(true);

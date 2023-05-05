@@ -42,6 +42,7 @@ public class InGameDialogStarter : Interactable
     void StartDialog()
     {
         Debug.Log("Talking To: " + name);
+        Cursor.visible = true;
         GetComponent<DialogTrigger>().TriggerDialog();
     }
 
@@ -71,6 +72,7 @@ public class InGameDialogStarter : Interactable
 
     public virtual void ResetDialog()//the close button also usees this function
     {
+        Cursor.visible = false;
         hasInteracted = false;
     }
 }
