@@ -21,6 +21,7 @@ public class BerryShopStarter : InGameDialogStarter
         }
         else
         {
+            TooltipManager.Hide();
             closeButton();
         }
 

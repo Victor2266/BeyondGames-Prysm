@@ -17,7 +17,8 @@ public class TweenToTransparent : MonoBehaviour
     void OnEnable()
     {
         image.color = new Vector4(image.color.r, image.color.g, image.color.b, startingAlpha);
-        LeanTween.value(image.color.a, 0f, tweenTime).setOnUpdate((float val) => { image.color = new Color(image.color.r, image.color.g, image.color.b, val); }).setEaseOutExpo().setOnComplete(Disable);
+        LeanTween.cancel(gameObject);
+        LeanTween.value(image.color.a, 0f, tweenTime).setOnUpdate((float val) => { image.color = new Color(image.color.r, image.color.g, image.color.b, val); }).setEaseInExpo().setOnComplete(Disable);
     }
 
     public void Disable()
