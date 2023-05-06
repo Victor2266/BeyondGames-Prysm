@@ -22,6 +22,7 @@ public class ShopInventoryUI : MonoBehaviour
 	PlayerEntity player;
 	public PlayerInput playerInput;
 
+	public SelectedItemSlot selectedItemSlot;
 
 	public enum WeaponTypes { All, Weapons, Spells, Other };
 	public String CurrentTab;
@@ -116,6 +117,7 @@ public class ShopInventoryUI : MonoBehaviour
 			while (slots.Length < shop_inventory.items.Count)
 			{
 				var newSlot = Instantiate(emptyShopSlot, itemsParent);//new slot for adding item to UI
+				newSlot.GetComponent<ShopSlot>().setShopUI(this);
 				slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 			}
 			for (int i = 0; i < slots.Length; i++)
@@ -177,5 +179,11 @@ public class ShopInventoryUI : MonoBehaviour
 		UpdateUI();
 
 
+	}
+
+    public void SelectItem(Item item)
+    {
+
+		Debug.Log("Select for shop: " + item.name);
 	}
 }
