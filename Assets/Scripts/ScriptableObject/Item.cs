@@ -10,7 +10,8 @@ public class Item : ScriptableObject
 	public Sprite icon = null;              // Item icon
 	public float iconRotation = 90f;
 	public float iconSize = 1f;
-	public bool isDefaultItem = false;
+	public bool isDefaultItem = false; // This means taht the player starts with the item so the inventory doesn't need to do anything to add it in the addItem() method
+	public int cost;// this is for purchases in a store, not all items will be sold
 
 	public InventoryUI.WeaponTypes WeaponType = InventoryUI.WeaponTypes.Weapons;
     [TextArea(3,10)]

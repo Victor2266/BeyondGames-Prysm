@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using TMPro;
 
 /* This object updates the inventory UI. */
 
@@ -19,8 +20,7 @@ public class ShopInventoryUI : MonoBehaviour
 
 	InventorySlot[] slots;  // List of all the slots
 	public Image[] Tabs = new Image[2];
-	PlayerEntity player;
-	public PlayerInput playerInput;
+	public PlayerEntity player;
 
 	public SelectedItemSlot selectedItemSlot;
 
@@ -30,8 +30,14 @@ public class ShopInventoryUI : MonoBehaviour
 	private Color GreyedColor = new Color(1f, 1f, 1f, 0.5f);
 	private Color SelectedColor = new Color(1f, 1f, 1f, 1f);
 
+	public TextMeshProUGUI SoulsText;
+	public TextMeshProUGUI priceText;
+	public TextMeshProUGUI descText;
+
 	private void OnEnable()
 	{
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
+
 		if (Inventory.instance != null)
 		{
 			player_inventory = Inventory.instance;
@@ -39,6 +45,8 @@ public class ShopInventoryUI : MonoBehaviour
 		}
 		shop_inventory = GetComponent<ShopInventory>();
 		selectedItemSlot.ClearSlot();
+		SoulsText.text = "Souls:" + player.Souls.ToString();
+		priceText.text = "Price: " + "0";
 		UpdateUI();
 	}
 	void Start()
@@ -51,7 +59,6 @@ public class ShopInventoryUI : MonoBehaviour
 		shop_inventory = GetComponent<ShopInventory>();
 
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
-		playerInput = player.GetComponent<PlayerInput>();
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
@@ -139,11 +146,14 @@ public class ShopInventoryUI : MonoBehaviour
     {
 		Debug.Log("Select for shop: " + item.name);
 		selectedItemSlot.AddItem(item);
+		priceText.text = "Price: " + item.cost.ToString();
+		descText.text = item.desc;
 	}
 
 	public void Purchase()
     {
 		bool wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
-
+		player.Souls -= selectedItemSlot.item.cost;
+		SoulsText.text = "Souls:" + player.Souls.ToString();
 	}
 }
