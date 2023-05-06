@@ -14,11 +14,16 @@ public class FadeToTransparent : MonoBehaviour
     public bool UseImage;
     public bool ResetAlphaToZeroOnAwake;
 
+    public bool ResetAlphaToValueOnAwake;
+    public float startingAlpha;
+
     public float ticks;
     public float tickLimit;
     private float timeend;
     private float endValue;
     private float startValue;
+
+    public bool disableWhenDone;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -39,6 +44,21 @@ public class FadeToTransparent : MonoBehaviour
             else if (UseImage)
             {
                 image.color = new Vector4(image.color.r, image.color.g, image.color.b, 0f);
+            }
+        }
+        else if (ResetAlphaToValueOnAwake)
+        {
+            if (UseRawImage)
+            {
+                rawImage.color = new Vector4(rawImage.color.r, rawImage.color.g, rawImage.color.b, startingAlpha);
+            }
+            else if (UseSpriteRend)
+            {
+                sprtRend.color = new Vector4(sprtRend.color.r, sprtRend.color.g, sprtRend.color.b, startingAlpha);
+            }
+            else if (UseImage)
+            {
+                image.color = new Vector4(image.color.r, image.color.g, image.color.b, startingAlpha);
             }
         }
 
@@ -79,7 +99,14 @@ public class FadeToTransparent : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            if (disableWhenDone)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
 
     }

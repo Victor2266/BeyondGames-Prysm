@@ -17,7 +17,11 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 1.1
   isDefaultItem: 0
+  cost: 1
   WeaponType: 3
-  desc: Consume to recover 25 health.
+  desc: 'Consume to <color=green>recover 25 health.</color>
+
+    <color=grey>Max
+    QTY: 5</color>'
   healAmount: 25
   maxStacks: 5

@@ -34,6 +34,8 @@ public class ShopInventoryUI : MonoBehaviour
 	public TextMeshProUGUI priceText;
 	public TextMeshProUGUI descText;
 
+	public TextMeshProUGUI errorMSG;
+
 	private void OnEnable()
 	{
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
@@ -80,7 +82,7 @@ public class ShopInventoryUI : MonoBehaviour
 			{
 				var newSlot = Instantiate(emptyShopSlot, itemsParent);//new slot for adding item to UI
 				newSlot.GetComponent<ShopSlot>().setShopUI(this);
-				slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+				slots = itemsParent.GetComponentsInChildren<ShopSlot>();
 			}
 			for (int i = 0; i < slots.Length; i++)
 			{
@@ -95,6 +97,16 @@ public class ShopInventoryUI : MonoBehaviour
 					slots[i].ClearSlot();
 					Destroy(slots[i].gameObject);
 				}
+
+				if(!(slots[i].item is ConsumableItem))//so its a weapon a spell or a note
+                {
+                    if (Inventory.instance.items.Contains(slots[i].item))
+                    {
+						// Otherwise clear the slot
+						slots[i].ClearSlot();
+						Destroy(slots[i].gameObject);
+					}
+                }
 			}
 		}
         else
@@ -168,11 +180,14 @@ public class ShopInventoryUI : MonoBehaviour
 			if(player.Souls - selectedItemSlot.item.cost >= 0)
 			{
 				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.name + "Not enough souls");
+				errorMSG.text = "YOU DON'T HAVE ENOUGH SOULS";
+				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
 			if(Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks)
             {
-
 				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.name + "You have too many");
+				errorMSG.text = "YOU HAVE TOO MANY";
+				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
 		}
 	}
