@@ -20,7 +20,7 @@ public class ShopInventoryUI : MonoBehaviour
 
 	InventorySlot[] slots;  // List of all the slots
 	public Image[] Tabs = new Image[2];
-	public PlayerEntity player;
+	PlayerEntity player;
 
 	public SelectedItemSlot selectedItemSlot;
 
@@ -47,6 +47,7 @@ public class ShopInventoryUI : MonoBehaviour
 		selectedItemSlot.ClearSlot();
 		SoulsText.text = "Souls:" + player.Souls.ToString();
 		priceText.text = "Price: " + "0";
+		descText.text = "";
 		UpdateUI();
 	}
 	void Start()
@@ -152,8 +153,27 @@ public class ShopInventoryUI : MonoBehaviour
 
 	public void Purchase()
     {
-		bool wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
-		player.Souls -= selectedItemSlot.item.cost;
-		SoulsText.text = "Souls:" + player.Souls.ToString();
+		bool wasPickedUp;
+
+		if(player.Souls - selectedItemSlot.item.cost >= 0 && Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks)
+        {
+			player.setSouls(player.Souls - selectedItemSlot.item.cost);
+			SoulsText.text = "Souls:" + player.Souls.ToString();
+
+			wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
+		}
+        else
+        {
+			//DISPLAY NOT ABLE TO PURCHASE ERROR
+			if(player.Souls - selectedItemSlot.item.cost >= 0)
+			{
+				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.name + "Not enough souls");
+			}
+			if(Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks)
+            {
+
+				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.name + "You have too many");
+			}
+		}
 	}
 }

@@ -116,4 +116,17 @@ public class Inventory : MonoBehaviour
 			onItemChangedCallback.Invoke();
 	}
 
+	public int CountDuplicates(Item item)
+    {
+		int duplicates = 0;
+		foreach (Item currentItem in items)
+		{
+			if (currentItem.name == item.name)//check for duplicates in inventory
+			{
+				duplicates++;
+			}
+		}
+		return duplicates;
+	}
+
 }

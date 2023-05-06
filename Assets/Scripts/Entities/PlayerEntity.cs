@@ -168,6 +168,12 @@ public class PlayerEntity : MonoBehaviour
         //CheckpointPos = new Vector3(player.CheckpointPos[0], player.CheckpointPos[1], player.CheckpointPos[2]);
     }
 
+    public void setSouls(int newVal)
+    {
+        Souls = newVal;
+        LivesUI.text = "Souls: " + Souls.ToString();
+    }
+
     public void setHealth(float val)
     {
         currentHealth = val;
