@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
 	public Transform interactionTransform;  // The transform from where we interact in case you want to offset it
 
 	public Transform player;       // Reference to the player transform
-	private PlayerInput playerInput;
+	protected PlayerInput playerInput;
 
 
 	protected bool hasInteracted = false; // Have we already interacted with the object?
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
 	{
 		// If we are currently being focused
 		// and we haven't already interacted with the object
-		if (!hasInteracted)
+		if (!hasInteracted && !PauseMenuScript.isPaused)
 		{
 			// If we are close enough
 			float distance = Vector2.Distance(player.position, interactionTransform.position);

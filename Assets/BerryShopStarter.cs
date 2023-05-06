@@ -8,7 +8,11 @@ public class BerryShopStarter : InGameDialogStarter
     public GameObject shopCanvas;
     public override void ResetDialog()//the close button also usees this function
     {
-        if (distance <= radius)
+        if (playerInput.actions["Pause"].WasPressedThisFrame() || playerInput.actions["Inventory"].WasPressedThisFrame())
+        {
+            closeButton();
+        }
+        else if (distance <= radius)
         {
             shopCanvas.SetActive(true);
             EventSystem.current.SetSelectedGameObject(null);
@@ -24,7 +28,7 @@ public class BerryShopStarter : InGameDialogStarter
 
     public void closeButton()
     {
-        DialogManager.instance.isDisplayingDialog = true;
+        DialogManager.instance.isDisplayingDialog = false;
 
         //set dialog box tag to DefaultOption2
         shopCanvas.SetActive(false);

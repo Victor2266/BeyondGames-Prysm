@@ -12,6 +12,7 @@ public class DialogManager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
+    private GameObject DialogBox;
 
     public Animator animator;
     public int maxSentences;
@@ -34,6 +35,7 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DialogBox = dialogText.transform.parent.gameObject;
         sentences = new Queue<string>();
         index = 0;
     }
@@ -41,6 +43,7 @@ public class DialogManager : MonoBehaviour
     public void StartDialog (Dialog dialog)
     {
         isDisplayingDialog = true;
+        DialogBox.SetActive(true);
         index = 0;
         animator.SetBool("IsOpen", true);
         nameText.text = dialog.name;
@@ -87,6 +90,7 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
+        DialogBox.SetActive(false);
         isDisplayingDialog = false;
         animator.SetBool("IsOpen", false);
         if(onEndDialog != null)

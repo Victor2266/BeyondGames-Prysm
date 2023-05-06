@@ -67,7 +67,14 @@ public class InGameDialogStarter : Interactable
                 DialogManager.instance.EndDialog();
             }
         }
-        base.Update();
+        if (playerInput.actions["Pause"].WasPressedThisFrame() || playerInput.actions["Inventory"].WasPressedThisFrame())
+        {
+            if (hasInteracted)
+            {
+                DialogManager.instance.EndDialog();
+            }
+        }
+            base.Update();
     }
 
     public virtual void ResetDialog()//the close button also usees this function
