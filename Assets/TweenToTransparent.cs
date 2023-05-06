@@ -14,10 +14,10 @@ public class TweenToTransparent : MonoBehaviour
     public float tweenTime;
 
     // Start is called before the first frame update
-    void onEnable()
+    void OnEnable()
     {
         image.color = new Vector4(image.color.r, image.color.g, image.color.b, startingAlpha);
-        LeanTween.value(startingAlpha, 0f, tweenTime).setOnUpdate((float val) => { image.color = new Color(image.color.r, image.color.g, image.color.b, val); }).setEaseOutExpo().setOnComplete(Disable);
+        LeanTween.value(image.color.a, 0f, tweenTime).setOnUpdate((float val) => { image.color = new Color(image.color.r, image.color.g, image.color.b, val); }).setEaseOutExpo().setOnComplete(Disable);
     }
 
     public void Disable()
