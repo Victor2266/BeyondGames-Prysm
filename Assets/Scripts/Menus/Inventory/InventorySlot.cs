@@ -47,7 +47,7 @@ public class InventorySlot : MonoBehaviour
     }
 
 		// Clear the slot
-		public void ClearSlot()
+	public void ClearSlot()
 	{
 		item = null;
 
