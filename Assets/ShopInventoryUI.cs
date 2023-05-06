@@ -179,7 +179,7 @@ public class ShopInventoryUI : MonoBehaviour
 
 			wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
 
-			confirmMSG.text = "Added " + selectedItemSlot.item.name + " to Inventory";
+			confirmMSG.text = "Added " + selectedItemSlot.item.name + " to Inventory (" + Inventory.instance.CountDuplicates(selectedItemSlot.item) + ")";
 			confirmMSG.transform.parent.gameObject.SetActive(true);
 		}
         else

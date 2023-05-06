@@ -10973,7 +10973,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d5c56295b6d047a40977e6987300126b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -11070,7 +11070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 720435237}
   startingAlpha: 0.75
-  tweenTime: 1
+  tweenTime: 0.5
 --- !u!114 &720435237
 MonoBehaviour:
   m_ObjectHideFlags: 0
