@@ -16,7 +16,7 @@ public class InventorySlot : MonoBehaviour
 	[SerializeField] private TooltipTrigger tooltipTrigger;
 
 	// Add item to the slot
-	public void AddItem(Item newItem)
+	public virtual void AddItem(Item newItem)
 	{
 		item = newItem;
 		textField.text = item.name;

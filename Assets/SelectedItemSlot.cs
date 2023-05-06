@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectedItemSlot : InventorySlot
 {
-	private new void AddItem(Item newItem)
+	public GameObject outline;
+	public override void AddItem(Item newItem)
 	{
 		item = newItem;
 
@@ -18,6 +19,7 @@ public class SelectedItemSlot : InventorySlot
 			icon.rectTransform.localScale = new Vector3(item.iconSize, item.iconSize, 1f);
 			icon.SetNativeSize();
 		}
+		outline.SetActive(true);
 	}
 
 	public void ClearSlot()
@@ -26,6 +28,8 @@ public class SelectedItemSlot : InventorySlot
 
 		icon.sprite = null;
 		icon.enabled = false;
+
+		outline.SetActive(false);
 		//removeButton.interactable = false;
 	}
 }

@@ -48238,7 +48238,7 @@ MonoBehaviour:
   - {fileID: 84682324}
   - {fileID: 1819764592}
   playerInput: {fileID: 0}
-  selectedItemSlot: {fileID: 0}
+  selectedItemSlot: {fileID: 387995903}
   CurrentTab: Shop
 --- !u!114 &1776029960
 MonoBehaviour:

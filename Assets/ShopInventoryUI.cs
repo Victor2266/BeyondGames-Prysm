@@ -38,6 +38,7 @@ public class ShopInventoryUI : MonoBehaviour
 			player_inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
 		}
 		shop_inventory = GetComponent<ShopInventory>();
+		selectedItemSlot.ClearSlot();
 		UpdateUI();
 	}
 	void Start()
@@ -53,53 +54,6 @@ public class ShopInventoryUI : MonoBehaviour
 		playerInput = player.GetComponent<PlayerInput>();
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-	}
-
-	void Update()
-	{
-
-	}
-	public void CloseInventory()
-	{
-		Resume();
-		inventoryUI.SetActive(false);
-	}
-	private void Pause()
-	{
-		playerInput.actions.FindActionMap("UI").Enable();
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
-		player.mousePointer.SetActive(false);
-		player.GetComponent<PlayerController>().enabled = false;
-		Time.timeScale = 0f;
-		PauseMenuScript.isPaused = true;
-
-	}
-
-	private void Resume()
-	{
-		playerInput.SwitchCurrentActionMap("Player");
-		Cursor.lockState = CursorLockMode.Confined;
-		if (DialogManager.instance != null)
-		{
-			if (!DialogManager.instance.isDisplayingDialog)
-				Cursor.visible = false;
-		}
-		else
-		{
-			Cursor.visible = false;
-		}
-		if (player.GetComponent<PlayerEntity>().weapon > 0)
-		{
-			player.mousePointer.SetActive(true);
-		}
-		else
-		{
-			player.mousePointer.SetActive(false);
-		}
-		player.GetComponent<PlayerController>().enabled = true;
-		Time.timeScale = 1f;
-		PauseMenuScript.isPaused = false;
 	}
 
 	// Update the inventory UI by:
@@ -185,5 +139,11 @@ public class ShopInventoryUI : MonoBehaviour
     {
 		Debug.Log("Select for shop: " + item.name);
 		selectedItemSlot.AddItem(item);
+	}
+
+	public void Purchase()
+    {
+		bool wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
+
 	}
 }
