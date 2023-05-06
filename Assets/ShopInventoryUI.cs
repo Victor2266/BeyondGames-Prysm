@@ -183,7 +183,7 @@ public class ShopInventoryUI : MonoBehaviour
 
     public void SelectItem(Item item)
     {
-
 		Debug.Log("Select for shop: " + item.name);
+		selectedItemSlot.AddItem(item);
 	}
 }
