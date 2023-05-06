@@ -1447,7 +1447,7 @@ MonoBehaviour:
   dialog:
     name: <color=yellow>Yellna</color>
     sentences:
-    - YO! <size=18>YO!</size> <size=20>YO!</size>
+    - YO! YO! YO!
     - GET SOME BERRIES!
     - DELICIOUS, FRESH AND JUICY!
 --- !u!1 &72746603
@@ -36613,7 +36613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: <color=blue>Fish</color>
+    name: <color=#00CDFF>Emi</color>
     sentences:
     - Delicious grilled fish! Come and try one!
     - Freshly caught fish! Get them now while they last!
