@@ -909,7 +909,6 @@ Transform:
   m_LocalScale: {x: 0.10000001, y: 0.1, z: 1}
   m_Children:
   - {fileID: 821369264}
-  - {fileID: 622031757}
   m_Father: {fileID: 1178309733}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -922,7 +921,7 @@ Animation:
   m_GameObject: {fileID: 47850276}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 33c8703c3413d3242a8416d72ddea049, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -938,7 +937,7 @@ Animator:
   m_GameObject: {fileID: 47850276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42433700916e0ef4eabadde8e08c34c8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 11f37c05bd3b54d4e9bde5a18696d349, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -986,7 +985,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c2ad268ee994db4bac900660e6b7479, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c9ada67e7f2900469e3571e8894e2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1015,8 +1014,8 @@ MonoBehaviour:
   - {fileID: 594414110}
   - {fileID: 1986705055}
   m_Bounds:
-    m_Center: {x: 0.32724142, y: -0.11578417, z: 0}
-    m_Extent: {x: 4.9032106, y: 7.824957, z: 0}
+    m_Center: {x: 0.099187374, y: -0.009426594, z: 0}
+    m_Extent: {x: 4.665762, y: 7.9478827, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &47850282
@@ -1032,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Solvers:
-  - {fileID: 622031758}
+  - {fileID: 0}
   m_Weight: 1
   m_SolverEditorData:
   - color: {r: 0, g: 1, b: 0, a: 1}
@@ -1448,7 +1447,7 @@ MonoBehaviour:
   dialog:
     name: <color=yellow>Yellna</color>
     sentences:
-    - YO!
+    - YO! <size=18>YO!</size> <size=20>YO!</size>
     - GET SOME BERRIES!
     - DELICIOUS, FRESH AND JUICY!
 --- !u!1 &72746603
@@ -10832,14 +10831,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594414109}
-  m_LocalRotation: {x: 0, y: 0, z: 0.1367195, w: 0.9906098}
-  m_LocalPosition: {x: 5.264574, y: -0.00000019972343, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09776864, w: 0.99520916}
+  m_LocalPosition: {x: 6.8814135, y: -0.0000011500265, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1986705055}
   m_Father: {fileID: 821369264}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.478}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 24.747002}
 --- !u!1 &599649315
 GameObject:
   m_ObjectHideFlags: 0
@@ -11133,71 +11132,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621638081}
   m_CullTransparentMesh: 0
---- !u!1 &622031756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 622031757}
-  - component: {fileID: 622031758}
-  m_Layer: 0
-  m_Name: New CCDSolver2D (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &622031757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622031756}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.4475642, y: 2.78549, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 47850277}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &622031758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622031756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef93bb9fe9d240e418a7fb8b476f3d34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ConstrainRotation: 1
-  m_SolveFromDefaultPose: 1
-  m_Weight: 1
-  m_Chain:
-    m_EffectorTransform: {fileID: 1986705055}
-    m_TargetTransform: {fileID: 622031757}
-    m_TransformCount: 3
-    m_Transforms:
-    - {fileID: 821369264}
-    - {fileID: 594414110}
-    - {fileID: 1986705055}
-    m_DefaultLocalRotations:
-    - {x: 0, y: 0, z: 0.6653272, w: 0.74655193}
-    - {x: 0, y: 0, z: 0.1367195, w: 0.9906098}
-    - {x: -0, y: -0, z: -0.76114786, w: 0.64857846}
-    m_StoredLocalRotations:
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-  m_Iterations: 10
-  m_Tolerance: 0.01
-  m_Velocity: 0.5
 --- !u!1 &623852418
 GameObject:
   m_ObjectHideFlags: 0
@@ -13619,14 +13553,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821369263}
-  m_LocalRotation: {x: 0, y: 0, z: 0.6653272, w: 0.74655193}
-  m_LocalPosition: {x: -0.19516143, y: -7.7709684, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.19516143, y: -7.770968, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 594414110}
   m_Father: {fileID: 47850277}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 83.415}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &829519479
 GameObject:
   m_ObjectHideFlags: 0
@@ -36681,9 +36615,9 @@ MonoBehaviour:
   dialog:
     name: <color=blue>Fish</color>
     sentences:
-    - YO!
-    - GET SOME FISH!
-    - DELICIOUS, FRESH AND JUICY!
+    - Delicious grilled fish! Come and try one!
+    - Freshly caught fish! Get them now while they last!
+    - Mouthwatering seafood! Perfect for the festival!
 --- !u!114 &1178309735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37424,7 +37358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 67539236}
+      - m_Target: {fileID: 1178309735}
         m_MethodName: closeButton
         m_Mode: 1
         m_Arguments:
@@ -74477,13 +74411,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986705054}
-  m_LocalRotation: {x: -0, y: -0, z: -0.07959855, w: 0.99682707}
-  m_LocalPosition: {x: 5.3949804, y: 0.00000037919878, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.14396343, w: 0.989583}
+  m_LocalPosition: {x: 4.344567, y: -0.0000002536889, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594414110}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.1310005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -78.77901}
 --- !u!1 &2000558165
 GameObject:
   m_ObjectHideFlags: 0
