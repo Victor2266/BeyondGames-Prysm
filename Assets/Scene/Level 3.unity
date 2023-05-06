@@ -28217,20 +28217,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1010221691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a76976d675fac74fae49dda198ff6ae, type: 3}
+  m_Script: {fileID: 11500000, guid: bffcf3fbab29b1642ba34447da2104e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  UseRawImage: 0
-  UseSpriteRend: 0
-  UseImage: 1
-  ResetAlphaToZeroOnAwake: 0
-  ResetAlphaToValueOnAwake: 1
+  image: {fileID: 1010221694}
   startingAlpha: 0.75
-  ticks: 0
-  tickLimit: 1
-  disableWhenDone: 1
-  alpha: 0
+  tweenTime: 1
 --- !u!114 &1010221694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48865,7 +48857,7 @@ MonoBehaviour:
   SoulsText: {fileID: 27568622}
   priceText: {fileID: 126141234}
   descText: {fileID: 1446393442}
-  errorMSG: {fileID: 0}
+  errorMSG: {fileID: 300058554}
 --- !u!114 &1776029960
 MonoBehaviour:
   m_ObjectHideFlags: 0
