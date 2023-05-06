@@ -16,12 +16,11 @@ public class BerryShopStarter : InGameDialogStarter
         {
             shopCanvas.SetActive(true);
             EventSystem.current.SetSelectedGameObject(null);
-            //set dialog box tag to untagged
             DialogManager.instance.isDisplayingDialog = true;
+            Cursor.visible = true;
         }
-        else
+        else if(hasInteracted)
         {
-            TooltipManager.Hide();
             closeButton();
         }
 
@@ -29,10 +28,12 @@ public class BerryShopStarter : InGameDialogStarter
 
     public void closeButton()
     {
+        TooltipManager.Hide();
         DialogManager.instance.isDisplayingDialog = false;
 
-        //set dialog box tag to DefaultOption2
-        shopCanvas.SetActive(false);
         base.ResetDialog();
+
+        shopCanvas.SetActive(false);
+
     }
 }
