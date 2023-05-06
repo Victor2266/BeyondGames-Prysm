@@ -35,6 +35,7 @@ public class ShopInventoryUI : MonoBehaviour
 	public TextMeshProUGUI descText;
 
 	public TextMeshProUGUI errorMSG;
+	public TextMeshProUGUI confirmMSG;
 
 	private void OnEnable()
 	{
@@ -100,7 +101,7 @@ public class ShopInventoryUI : MonoBehaviour
 
 				if(!(slots[i].item is ConsumableItem))//so its a weapon a spell or a note
                 {
-                    if (Inventory.instance.items.Contains(slots[i].item))
+                    if (Inventory.instance.items.Contains(slots[i].item))//check if contains works
                     {
 						// Otherwise clear the slot
 						slots[i].ClearSlot();
@@ -177,6 +178,9 @@ public class ShopInventoryUI : MonoBehaviour
 			SoulsText.text = "Souls:" + player.Souls.ToString();
 
 			wasPickedUp = Inventory.instance.Add(selectedItemSlot.item);    // Add to inventory
+
+			confirmMSG.text = "Added " + selectedItemSlot.item.name + " to Inventory";
+			confirmMSG.transform.parent.gameObject.SetActive(true);
 		}
         else
         {
@@ -196,5 +200,6 @@ public class ShopInventoryUI : MonoBehaviour
 				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
 		}
+		UpdateUI();
 	}
 }
