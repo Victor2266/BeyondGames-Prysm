@@ -11,7 +11,8 @@ public class ShopInventoryUI : MonoBehaviour
 
 	public Transform itemsParent;   // The parent object of all the items
 	public GameObject inventoryUI;  // The entire UI
-	public GameObject emptySlot;
+	public GameObject emptyInventorySlot;
+	public GameObject emptyShopSlot;
 
 	ShopInventory shop_inventory;    // Our current inventory
 	Inventory player_inventory;    // Our current inventory
@@ -36,6 +37,7 @@ public class ShopInventoryUI : MonoBehaviour
 			player_inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
 		}
 		shop_inventory = GetComponent<ShopInventory>();
+		UpdateUI();
 	}
 	void Start()
 	{
@@ -113,7 +115,7 @@ public class ShopInventoryUI : MonoBehaviour
         {
 			while (slots.Length < shop_inventory.items.Count)
 			{
-				var newSlot = Instantiate(emptySlot, itemsParent);//new slot for adding item to UI
+				var newSlot = Instantiate(emptyShopSlot, itemsParent);//new slot for adding item to UI
 				slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 			}
 			for (int i = 0; i < slots.Length; i++)
@@ -135,7 +137,7 @@ public class ShopInventoryUI : MonoBehaviour
         {
 			while (slots.Length < player_inventory.items.Count)
 			{
-				var newSlot = Instantiate(emptySlot, itemsParent);//new slot for adding item to UI
+				var newSlot = Instantiate(emptyInventorySlot, itemsParent);//new slot for adding item to UI
 				slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 			}
 			for (int i = 0; i < slots.Length; i++)

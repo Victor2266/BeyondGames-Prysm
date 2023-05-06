@@ -64,7 +64,7 @@ public class InventorySlot : MonoBehaviour
     }
 
 	// Called when the item is pressed
-	public void UseItem()
+	public virtual void UseItem()
 	{
 		if (item != null)
 		{
