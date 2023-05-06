@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Marlin Carcass
   icon: {fileID: 21300000, guid: 234451010ff58084083d02a0460b34b0, type: 3}
-  iconRotation: 0
-  iconSize: 1.1
+  iconRotation: 110
+  iconSize: 0.65
   isDefaultItem: 0
   cost: 5
   WeaponType: 3
