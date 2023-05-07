@@ -6,7 +6,7 @@ public class DialogTrigger : MonoBehaviour
 {
     public Dialog dialog;
 
-    public void TriggerDialog()
+    public virtual void TriggerDialog()
     {
         DialogManager.instance.StartDialog(dialog);
         DialogManager.instance.maxSentences = dialog.sentences.Length;

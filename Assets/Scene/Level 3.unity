@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 67539233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd25554bc81241e40af47213b5c70f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c5eb20e5746c71428da2d896cc32552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
@@ -1784,6 +1784,7 @@ MonoBehaviour:
     - YO! YO! YO!
     - GET SOME BERRIES!
     - DELICIOUS, FRESH AND JUICY!
+  characterSprite: {fileID: 21300000, guid: 3c2ad268ee994db4bac900660e6b7479, type: 3}
 --- !u!1 &71959508
 GameObject:
   m_ObjectHideFlags: 0
@@ -38018,6 +38019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1786248184}
   dialogText: {fileID: 621638083}
+  characterProfile: {fileID: 1513408625}
   animator: {fileID: 1464878880}
   maxSentences: 0
   SkipToIndex: 0
@@ -38867,7 +38869,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1178309731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd25554bc81241e40af47213b5c70f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c5eb20e5746c71428da2d896cc32552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
@@ -38876,6 +38878,7 @@ MonoBehaviour:
     - Delicious grilled fish! Come and try one!
     - Freshly caught fish! Get them now while they last!
     - Mouthwatering seafood! Perfect for the festival!
+  characterSprite: {fileID: 21300000, guid: 0c9ada67e7f2900469e3571e8894e2e1, type: 3}
 --- !u!114 &1178309735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48481,7 +48484,7 @@ RectTransform:
   - {fileID: 621638082}
   - {fileID: 878241819}
   m_Father: {fileID: 1697294755}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -49580,6 +49583,100 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1513408621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513408622}
+  - component: {fileID: 1513408624}
+  - component: {fileID: 1513408625}
+  - component: {fileID: 1513408623}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1513408622
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513408621}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1697294755}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1280, y: -200}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1513408623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513408621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db53f3476b7c3b45a53535c0a2b2278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseRawImage: 0
+  UseSpriteRend: 0
+  UseImage: 1
+  UseVideo: 0
+  ResetAlphaToZeroOnAwake: 1
+  ticks: 0
+  tickLimit: 0.5
+--- !u!222 &1513408624
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513408621}
+  m_CullTransparentMesh: 0
+--- !u!114 &1513408625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513408621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2eb11451ff19f2e419360076b110b5a5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!4 &1514357110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5799062917239750833, guid: 7613129d72abfd3498b0e32dd0c74b3c,
@@ -60730,6 +60827,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1513408622}
   - {fileID: 1464878877}
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -77799,15 +77897,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848468678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd25554bc81241e40af47213b5c70f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c5eb20e5746c71428da2d896cc32552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: <color=yellow>Yellna</color>
+    name: <color=yellow>April</color>
     sentences:
-    - YO! YO! YO!
-    - GET SOME BERRIES!
-    - DELICIOUS, FRESH AND JUICY!
+    - tes
+    - test
+    - testt
+  characterSprite: {fileID: 21300000, guid: 2eb11451ff19f2e419360076b110b5a5, type: 3}
 --- !u!114 &1848468681
 MonoBehaviour:
   m_ObjectHideFlags: 0

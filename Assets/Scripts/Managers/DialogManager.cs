@@ -12,6 +12,7 @@ public class DialogManager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
+    public Image characterProfile;
     private GameObject DialogBox;
 
     public Animator animator;
@@ -42,6 +43,10 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog (Dialog dialog)
     {
+        if(characterProfile != null)
+        {
+            characterProfile.gameObject.SetActive(false);
+        }
         isDisplayingDialog = true;
         DialogBox.SetActive(true);
         index = 0;
@@ -55,6 +60,15 @@ public class DialogManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+    }
+    public void StartDialog(Dialog dialog, Sprite img)
+    {
+        StartDialog(dialog);
+        if (characterProfile != null)
+        {
+            characterProfile.gameObject.SetActive(true);
+            characterProfile.sprite = img;
+        }
     }
 
     public void DisplayNextSentence()
@@ -90,6 +104,10 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
+        if (characterProfile != null)
+        {
+            characterProfile.gameObject.SetActive(false);
+        }
         DialogBox.SetActive(false);
         isDisplayingDialog = false;
         animator.SetBool("IsOpen", false);

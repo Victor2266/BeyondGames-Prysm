@@ -182,15 +182,20 @@ MonoBehaviour:
   m_text: 'Thank you for playing my game!
 
 
-    <size=18>If you get bored, or its
-    too difficult, but you want to see the game content press <color=green>[G]</color>
-    for extra health.
+    <size=18>Whether it''s through quick
+    reaction times or clever planning, you can beat all the enemies without playing
+    the levels out of order or using the training room''s weapons.
 
 
-    There are only 2 levels "completed" right now.
+    But if you
+    get bored, or its too difficult, and you want to see the game''s content then
+    press <color=green>[G]</color> for extra health.
 
-    <align=right>-
-    Awasete'
+
+    There are only 2 levels
+    "completed" right now.
+
+    <align=right>- Awasete'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f99eabe4fff1414f8434faf39082200, type: 2}
   m_sharedMaterial: {fileID: 4731573993876998085, guid: 3f99eabe4fff1414f8434faf39082200,
@@ -11293,8 +11298,11 @@ MonoBehaviour:
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
   TextPopUp2: {fileID: 0}
+  healthShaker: {fileID: 0}
   healthRect: {fileID: 0}
   manaRect: {fileID: 0}
+  ActiveManaRect: {fileID: 0}
+  ActiveDMGRect: {fileID: 0}
   customLocalPlayerCheck: 1
   lookingLeft: 0
   WeaponUI: {fileID: 0}
@@ -11311,6 +11319,8 @@ MonoBehaviour:
   rightBooster: {fileID: 0}
   audioSource: {fileID: 0}
   RegenManaIndicator: {fileID: 0}
+  DashSlider: {fileID: 0}
+  DashCenter: {fileID: 0}
 --- !u!114 &1077803529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11797,6 +11807,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerInput: {fileID: 0}
+  alwaysEnable: 1
+  notPausedTag: DefaultOption
 --- !u!1 &1356809145
 GameObject:
   m_ObjectHideFlags: 0
