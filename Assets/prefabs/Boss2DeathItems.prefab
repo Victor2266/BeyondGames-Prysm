@@ -10438,12 +10438,12 @@ PrefabInstance:
     - target: {fileID: 2767458697972962425, guid: 71831ead47b3f6b4693af9ba40f3b420,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2767458697972962425, guid: 71831ead47b3f6b4693af9ba40f3b420,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2767458697972962425, guid: 71831ead47b3f6b4693af9ba40f3b420,
         type: 3}
@@ -10489,6 +10489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Note 1 Drop 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767458697972962497, guid: 71831ead47b3f6b4693af9ba40f3b420,
+        type: 3}
+      propertyPath: m_TagString
+      value: GameClearItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71831ead47b3f6b4693af9ba40f3b420, type: 3}

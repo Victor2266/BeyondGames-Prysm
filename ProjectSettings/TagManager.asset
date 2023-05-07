@@ -41,6 +41,7 @@ TagManager:
   - playerProj
   - Canvas
   - DefaultOption2
+  - GameClearItem
   layers:
   - Default
   - TransparentFX

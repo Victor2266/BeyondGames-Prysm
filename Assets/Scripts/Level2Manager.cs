@@ -16,7 +16,7 @@ public class Level2Manager : LevelManager// inherets winlevel function
     [SerializeField]
     float ShakeFadeOut = 8f;
 
-    public GameObject bossSoul;
+    public GameObject bossSoul, bossLoreItem;
     public GameObject deathInstructions;
     public GameObject KnightMusic, UndeadMusic, ShinigamiMusic;
     public GameObject ImperialKnight;
@@ -162,13 +162,14 @@ public class Level2Manager : LevelManager// inherets winlevel function
             {
                 ShinigamiMusic.SetActive(false);
                 bossSoul = GameObject.FindGameObjectWithTag("NoExplosion");
+                bossLoreItem = GameObject.FindGameObjectWithTag("GameClearItem");
                 StartCoroutine(ShinigamiDelaySentence(4f, "<color=red>I don't believe it . . .", 1f));
             }
         }
 
         else if (index == 30)
         {
-            if (bossSoul == null)
+            if (bossSoul == null && bossLoreItem == null)
             {
                 deathInstructions.SetActive(false);
                 CreditTextGameObject.SetActive(true);
