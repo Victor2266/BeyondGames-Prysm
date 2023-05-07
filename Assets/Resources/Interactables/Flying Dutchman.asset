@@ -17,9 +17,12 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 1
   isDefaultItem: 0
+  cost: 2
   WeaponType: 1
   desc: 'A sword suited for a ghost, cutdown unearthly creatures with this ethereal
     blade. '
+  hideDesc: 1
+  hidden_desc: When picked up this sword is other wordly light.
   equipSlot: 0
   color: {r: 0, g: 0.86100006, b: 1, a: 0.7490196}
   AttackName: 

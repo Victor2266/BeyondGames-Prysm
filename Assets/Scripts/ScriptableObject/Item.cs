@@ -16,7 +16,9 @@ public class Item : ScriptableObject
 	public InventoryUI.WeaponTypes WeaponType = InventoryUI.WeaponTypes.Weapons;
     [TextArea(3,10)]
     public string desc;
-
+	public bool hideDesc;
+	[TextArea(3, 10)]
+	public string hidden_desc;
 	// Called when the item is pressed in the inventory
 	public virtual void Use()
 	{

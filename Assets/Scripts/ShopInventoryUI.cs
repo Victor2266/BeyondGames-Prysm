@@ -179,7 +179,15 @@ public class ShopInventoryUI : MonoBehaviour
 		Debug.Log("Select for shop: " + item.name);
 		selectedItemSlot.AddItem(item);
 		priceText.text = "Price: " + item.cost.ToString();
-		descText.text = item.desc;
+
+		if (item.hideDesc)
+		{
+			descText.text = item.hidden_desc;
+		}
+		else
+		{
+			descText.text = item.desc;
+		}
 	}
 
 	public void Purchase()
@@ -189,7 +197,7 @@ public class ShopInventoryUI : MonoBehaviour
         {
 			return;
         }
-		Debug.Log(player.Souls - selectedItemSlot.item.cost >= 0);
+
 		if (player.Souls - selectedItemSlot.item.cost >= 0 && ( (selectedItemSlot.item is ConsumableItem) ? (Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks) : true))
 		{
 			player.setSouls(player.Souls - selectedItemSlot.item.cost);
@@ -218,7 +226,11 @@ public class ShopInventoryUI : MonoBehaviour
 				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
 		}
-		
+
+		if (!(selectedItemSlot.item is ConsumableItem))
+		{
+			selectedItemSlot.ClearSlot();
+		}
 
 		UpdateUI();
 	}

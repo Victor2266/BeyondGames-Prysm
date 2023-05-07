@@ -26,7 +26,14 @@ public class ShopSlot : MonoBehaviour
 		//removeButton.interactable = true;
 
 		tooltipTrigger.header = newItem.name;
-		tooltipTrigger.content = newItem.desc;
+        if (newItem.hideDesc)
+        {
+			tooltipTrigger.content = newItem.hidden_desc;
+        }
+        else
+        {
+			tooltipTrigger.content = newItem.desc;
+		}
 		tooltipTrigger.type = newItem.WeaponType;
 
 		if (newItem.WeaponType == InventoryUI.WeaponTypes.Weapons)

@@ -26,5 +26,7 @@ MonoBehaviour:
     demands significant time and energy. In other words, the path of disorder is
     the path of least resistance, while the road to order requires discipline and
     diligence.'
+  hideDesc: 1
+  hidden_desc: A handwritten book of some kind.
   DropItem: {fileID: 2767458697972962497, guid: dee8ed36247c6ee4bbd2f9c63cb62664,
     type: 3}

@@ -17,8 +17,11 @@ MonoBehaviour:
   iconRotation: -90
   iconSize: 1.5
   isDefaultItem: 0
+  cost: 2
   WeaponType: 1
   desc: A simple and thin sword well suited for thrusting.
+  hideDesc: 1
+  hidden_desc: A long sword in relatively good condition.
   equipSlot: 0
   color: {r: 1, g: 0.446602, b: 0, a: 0.8784314}
   AttackName: 

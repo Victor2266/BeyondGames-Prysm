@@ -77901,11 +77901,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: <color=yellow>April</color>
+    name: <color=#68FF00>April</color>
     sentences:
-    - tes
-    - test
-    - testt
+    - Hey you!
+    - You look new here.
+    - Welcome to Akiya, the port city.
+    - I'm the owner of this travelling repair boat. If you need anything repaired
+      come to see me.
+    - I also have some goods that I've collected over my travels, if you're interested.
   characterSprite: {fileID: 21300000, guid: 2eb11451ff19f2e419360076b110b5a5, type: 3}
 --- !u!114 &1848468681
 MonoBehaviour:
