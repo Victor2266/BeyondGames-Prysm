@@ -118,6 +118,21 @@ public class EquipmentManager : MonoBehaviour
     {
         return currentEquipment;
     }
+    public bool Contains(Item item)
+    {
+        foreach (Equipment eq in currentEquipment)
+        {
+            if(eq != null)
+            {
+
+                if (eq.name == item.name)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public void setCurrentEquipment(Equipment[] loadedEquipment)
     {
         currentEquipment = loadedEquipment;

@@ -129,4 +129,15 @@ public class Inventory : MonoBehaviour
 		return duplicates;
 	}
 
+	public bool CheckForContains(Item item)
+    {
+		foreach (Item currentItem in items)
+		{
+			if (currentItem.name == item.name)//check for duplicates in inventory
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

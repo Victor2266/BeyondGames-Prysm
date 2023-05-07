@@ -18,7 +18,9 @@ public class ShopInventoryUI : MonoBehaviour
 	ShopInventory shop_inventory;    // Our current inventory
 	Inventory player_inventory;    // Our current inventory
 
-	InventorySlot[] slots;  // List of all the slots
+	ShopSlot[] shop_slots;  // List of all the slots
+	InventorySlot[] inventory_slots;  // List of all the slots
+
 	public Image[] Tabs = new Image[2];
 	PlayerEntity player;
 
@@ -51,6 +53,9 @@ public class ShopInventoryUI : MonoBehaviour
 		SoulsText.text = "Souls:" + player.Souls.ToString();
 		priceText.text = "Price: " + "0";
 		descText.text = "";
+
+		shop_slots = itemsParent.GetComponentsInChildren<ShopSlot>(); //keep track of shop slots and inventory slots separately
+		inventory_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 		UpdateUI();
 	}
 	void Start()
@@ -64,7 +69,6 @@ public class ShopInventoryUI : MonoBehaviour
 
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
 		// Populate our slots array
-		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 
 	// Update the inventory UI by:
@@ -76,59 +80,72 @@ public class ShopInventoryUI : MonoBehaviour
 		// Loop through all the slots
 		if (itemsParent == null)
 			return;
-		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-		if(CurrentTab == "Shop")
+
+		shop_slots = itemsParent.GetComponentsInChildren<ShopSlot>();
+		inventory_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
+		if (CurrentTab == "Shop")
         {
-			while (slots.Length < shop_inventory.items.Count)
+			foreach(InventorySlot IS in inventory_slots)
+            {
+				Destroy(IS.gameObject);
+            }
+
+			while (shop_slots.Length < shop_inventory.items.Count)
 			{
 				var newSlot = Instantiate(emptyShopSlot, itemsParent);//new slot for adding item to UI
 				newSlot.GetComponent<ShopSlot>().setShopUI(this);
-				slots = itemsParent.GetComponentsInChildren<ShopSlot>();
+				shop_slots = itemsParent.GetComponentsInChildren<ShopSlot>();
 			}
-			for (int i = 0; i < slots.Length; i++)
+			for (int i = 0; i < shop_slots.Length; i++)
 			{
 
 				if (i < shop_inventory.items.Count)  // If there is an item to add
 				{
-					slots[i].AddItem(shop_inventory.items[i]);   // Add it
+					shop_slots[i].AddItem(shop_inventory.items[i]);   // Add it
+
+					if (!(shop_slots[i].item is ConsumableItem))//so its a weapon a spell or a note
+					{
+						if (Inventory.instance.CheckForContains(shop_inventory.items[i]) || EquipmentManager.instance.Contains(shop_inventory.items[i]))//check if contains works
+						{
+							// Otherwise clear the slot
+							shop_slots[i].ClearSlot();
+							Destroy(shop_slots[i].gameObject);
+						}
+					}
 				}
 				else
 				{
 					// Otherwise clear the slot
-					slots[i].ClearSlot();
-					Destroy(slots[i].gameObject);
+					shop_slots[i].ClearSlot();
+					Destroy(shop_slots[i].gameObject);
 				}
-
-				if(!(slots[i].item is ConsumableItem))//so its a weapon a spell or a note
-                {
-                    if (Inventory.instance.items.Contains(slots[i].item))//check if contains works
-                    {
-						// Otherwise clear the slot
-						slots[i].ClearSlot();
-						Destroy(slots[i].gameObject);
-					}
-                }
 			}
 		}
         else
         {
-			while (slots.Length < player_inventory.items.Count)
+			foreach (ShopSlot SS in shop_slots)
+			{
+				Destroy(SS.gameObject);
+			}
+
+			while (inventory_slots.Length < player_inventory.items.Count)
 			{
 				var newSlot = Instantiate(emptyInventorySlot, itemsParent);//new slot for adding item to UI
-				slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+				inventory_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 			}
-			for (int i = 0; i < slots.Length; i++)
+			for (int i = 0; i < inventory_slots.Length; i++)
 			{
 
 				if (i < player_inventory.items.Count)  // If there is an item to add
 				{
-					slots[i].AddItem(player_inventory.items[i]);   // Add it
+					inventory_slots[i].AddItem(player_inventory.items[i]);   // Add it
 				}
 				else
 				{
 					// Otherwise clear the slot
-					slots[i].ClearSlot();
-					Destroy(slots[i].gameObject);
+					inventory_slots[i].ClearSlot();
+					Destroy(inventory_slots[i].gameObject);
 				}
 			}
 		}
@@ -150,9 +167,10 @@ public class ShopInventoryUI : MonoBehaviour
 				Tabs[1].color = SelectedColor;
 				break;
 		}
+
+
 		Debug.Log("Shop tab: " + CurrentTab);
 		UpdateUI();
-
 
 	}
 
@@ -171,8 +189,8 @@ public class ShopInventoryUI : MonoBehaviour
         {
 			return;
         }
-
-		if (player.Souls - selectedItemSlot.item.cost >= 0 && (selectedItemSlot.item is ConsumableItem) ? Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks : true)
+		Debug.Log(player.Souls - selectedItemSlot.item.cost >= 0);
+		if (player.Souls - selectedItemSlot.item.cost >= 0 && ( (selectedItemSlot.item is ConsumableItem) ? (Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks) : true))
 		{
 			player.setSouls(player.Souls - selectedItemSlot.item.cost);
 			SoulsText.text = "Souls:" + player.Souls.ToString();
@@ -192,7 +210,7 @@ public class ShopInventoryUI : MonoBehaviour
 				errorMSG.text = "YOU DON'T HAVE ENOUGH SOULS";
 				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
-			if (Inventory.instance.CountDuplicates(selectedItemSlot.item) >= ((ConsumableItem)selectedItemSlot.item).maxStacks)
+			if ((selectedItemSlot.item is ConsumableItem) ? Inventory.instance.CountDuplicates(selectedItemSlot.item) >= ((ConsumableItem)selectedItemSlot.item).maxStacks : false)
 			{
 				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.item.name + " You have too many");
 				errorMSG.color = Color.green;
@@ -204,4 +222,5 @@ public class ShopInventoryUI : MonoBehaviour
 
 		UpdateUI();
 	}
+
 }
