@@ -71,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealAmount: 50
   ManaAmount: 25
+  soulValue: 4
   TextPopUp: {fileID: 5225875635266693844, guid: d05240b56ab7ca34a8611758c471a071,
     type: 3}
 --- !u!114 &8208425811717423317
@@ -90,6 +91,7 @@ MonoBehaviour:
   lightObject: {fileID: 0}
   tickLimit: 48
   shrinks: 1
+  TMPFades: 0
   trail: 0
   startSize: 0.7
   widthOfBullet: 0

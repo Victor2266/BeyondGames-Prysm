@@ -6,6 +6,7 @@ public class SoulData : MonoBehaviour
 {
     public int HealAmount;
     public int ManaAmount;
+    public int soulValue = 1;
 
     private GameObject player;
     public GameObject TextPopUp;
@@ -40,7 +41,7 @@ public class SoulData : MonoBehaviour
             activatedAlready = true;
             player.GetComponent<PlayerManager>().Upgrade(0, HealAmount);
             player.GetComponent<PlayerManager>().Upgrade(1, ManaAmount);
-            player.GetComponent<PlayerEntity>().Souls++;
+            player.GetComponent<PlayerEntity>().Souls+= soulValue;
             player.GetComponent<PlayerEntity>().UpdateHealth();
             Destroy(gameObject);
         }
