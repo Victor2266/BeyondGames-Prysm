@@ -19,7 +19,8 @@ MonoBehaviour:
   isDefaultItem: 0
   cost: 2
   WeaponType: 1
-  desc: A simple and thin sword well suited for thrusting.
+  desc: A simple and thin sword well suited for thrusting. It's in relatively good
+    condition.
   hideDesc: 1
   hidden_desc: A long sword in relatively good condition.
   equipSlot: 0

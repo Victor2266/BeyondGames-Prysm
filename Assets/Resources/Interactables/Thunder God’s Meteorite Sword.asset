@@ -19,8 +19,9 @@ MonoBehaviour:
   isDefaultItem: 0
   cost: 3
   WeaponType: 1
-  desc: "The sword was forged from a meteor, and isn\u2019t something that belongs
-    to this world."
+  desc: The sword was forged from a meteor, and doesn't seem like it belongs to this
+    world. You can feel an energy emanating from this sword. It would make your hair
+    stand on end, if you had any.
   hideDesc: 1
   hidden_desc: You can feel an energy emanating from this sword. It would make your
     hair stand on end, if you had any.
