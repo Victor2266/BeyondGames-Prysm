@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class WinButton : MonoBehaviour
 {
-    public TrainingRoomManager manager;
+    public float topYpos;
+    public float botYpos;
+    public LevelManager manager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             LeanTween.cancel(gameObject);
 
-            LeanTween.moveY(gameObject, -2.25f, 1f).setEaseInOutExpo().setOnComplete(manager.WinLevel);
+            LeanTween.moveY(gameObject, botYpos, 1f).setEaseInOutExpo().setOnComplete(manager.WinLevel);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -19,7 +22,7 @@ public class WinButton : MonoBehaviour
         if (collision.tag == "Player")
         {
             LeanTween.cancel(gameObject);
-            LeanTween.moveY(gameObject, -1.75f, 1f).setEaseInOutExpo();
+            LeanTween.moveY(gameObject, topYpos, 1f).setEaseInOutExpo();
         }
     }
 }

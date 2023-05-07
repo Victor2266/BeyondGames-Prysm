@@ -17,6 +17,7 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 1
   isDefaultItem: 0
+  cost: 1
   WeaponType: 3
   desc: '<b>-The Discipline of Restoring Harmony-</b>
 

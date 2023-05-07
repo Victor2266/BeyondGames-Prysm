@@ -22376,6 +22376,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478571733221639205, guid: 183cad2a4a224974491568da4081552a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7651416228035993454, guid: 183cad2a4a224974491568da4081552a,
         type: 3}
       propertyPath: Prompts.Array.data[0]
@@ -22680,6 +22710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41fce7af21721448e2fc35e3ef67c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topYpos: -1.75
+  botYpos: -2.25
   manager: {fileID: 855033836}
 --- !u!82 &1169473112
 AudioSource:

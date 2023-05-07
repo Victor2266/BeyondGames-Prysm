@@ -172,8 +172,8 @@ public class ShopInventoryUI : MonoBehaviour
 			return;
         }
 
-		if(player.Souls - selectedItemSlot.item.cost >= 0 && Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks)
-        {
+		if (player.Souls - selectedItemSlot.item.cost >= 0 && (selectedItemSlot.item is ConsumableItem) ? Inventory.instance.CountDuplicates(selectedItemSlot.item) < ((ConsumableItem)selectedItemSlot.item).maxStacks : true)
+		{
 			player.setSouls(player.Souls - selectedItemSlot.item.cost);
 			SoulsText.text = "Souls:" + player.Souls.ToString();
 
@@ -182,24 +182,26 @@ public class ShopInventoryUI : MonoBehaviour
 			confirmMSG.text = "Added " + selectedItemSlot.item.name + " to Inventory (" + Inventory.instance.CountDuplicates(selectedItemSlot.item) + ")";
 			confirmMSG.transform.parent.gameObject.SetActive(true);
 		}
-        else
-        {
+		else
+		{
 			//DISPLAY NOT ABLE TO PURCHASE ERROR
-			if(player.Souls - selectedItemSlot.item.cost < 0)
+			if (player.Souls - selectedItemSlot.item.cost < 0)
 			{
 				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.item.name + ": Not enough souls");
 				errorMSG.color = Color.red;
 				errorMSG.text = "YOU DON'T HAVE ENOUGH SOULS";
 				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
-			if(Inventory.instance.CountDuplicates(selectedItemSlot.item) >= ((ConsumableItem)selectedItemSlot.item).maxStacks)
-            {
+			if (Inventory.instance.CountDuplicates(selectedItemSlot.item) >= ((ConsumableItem)selectedItemSlot.item).maxStacks)
+			{
 				Debug.Log("COULD NOT PURCHASE: " + selectedItemSlot.item.name + " You have too many");
 				errorMSG.color = Color.green;
 				errorMSG.text = "YOU ALREADY HAVE " + ((ConsumableItem)selectedItemSlot.item).maxStacks + " " + selectedItemSlot.item.name.ToUpper() + "(s)";
 				errorMSG.transform.parent.gameObject.SetActive(true);
 			}
 		}
+		
+
 		UpdateUI();
 	}
 }
