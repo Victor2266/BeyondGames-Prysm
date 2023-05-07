@@ -17,7 +17,7 @@ MonoBehaviour:
   iconRotation: -90
   iconSize: 1
   isDefaultItem: 0
-  cost: 3
+  cost: 5
   WeaponType: 1
   desc: The sword was forged from a meteor, and doesn't seem like it belongs to this
     world. You can feel an energy emanating from this sword. It would make your hair

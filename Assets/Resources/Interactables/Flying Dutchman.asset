@@ -17,7 +17,7 @@ MonoBehaviour:
   iconRotation: 0
   iconSize: 1
   isDefaultItem: 0
-  cost: 2
+  cost: 4
   WeaponType: 1
   desc: A sword suited for a ghost, cutdown unearthly creatures with this ethereal
     blade. When picked up, this sword is strangely light.
