@@ -13,11 +13,11 @@ public class ConsumableItem : Item
         PlayerEntity playerEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>();
         if(playerEntity.currentHealth + healAmount <= playerEntity.MaxHealth)
         {
-            playerEntity.setHealth(playerEntity.currentHealth + healAmount);
+            playerEntity.healHealth(playerEntity.currentHealth + healAmount);
         }
         else
         {
-            playerEntity.setHealth(playerEntity.MaxHealth);
+            playerEntity.healHealth(playerEntity.MaxHealth);
         }
         RemoveFromInventory();
 

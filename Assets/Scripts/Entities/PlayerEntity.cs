@@ -180,6 +180,12 @@ public class PlayerEntity : MonoBehaviour
 
         UpdateHealth();
     }
+    public void healHealth(float val)
+    {
+        currentHealth = val;
+        GameObject burpClone = Instantiate(burp, Skull.transform);
+        UpdateHealth();
+    }
     public void setMana(int val)
     {
         currentMana = val;
