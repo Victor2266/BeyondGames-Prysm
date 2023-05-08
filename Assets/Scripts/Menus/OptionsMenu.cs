@@ -44,7 +44,7 @@ public class OptionsMenu : MonoBehaviour
         int currentResolutionIndex = 0;
 
         //Debug.Log(Screen.currentResolution);
-        for (int i = resolutions.Length - 1; i >= 0; i--)
+        for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].ToString();
             options.Add(option);
@@ -55,7 +55,8 @@ public class OptionsMenu : MonoBehaviour
                 currentResolutionIndex = resolutions.Length - 1 - i;
             }
         }
-        //options.Reverse();
+
+        options.Reverse();
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
