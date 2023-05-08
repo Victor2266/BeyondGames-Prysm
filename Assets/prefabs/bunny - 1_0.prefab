@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8270485886848469732}
   - component: {fileID: 8270485886848469727}
   - component: {fileID: 8270485886848469726}
+  - component: {fileID: 7989430682561699057}
   m_Layer: 0
   m_Name: bunny - 1_0
   m_TagString: enemy
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -135,13 +138,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8677f309b36145479680f87b124f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaknessTo: 0
+  WeaknessMultiplier: 1
+  ImmunityTo: 0
+  ImmunityMultiplier: 1
   Health: 0
+  MaxHealth: 0
   Speed: 0
   Height: 0
+  Width: 0
+  rayLenX: 0
   isDead: 0
   DeathItem: {fileID: 1882747856576304, guid: 66badcea3414e1a247646299ff93b94c, type: 3}
   anim: {fileID: 0}
+  audioSource: {fileID: 0}
   rb2d: {fileID: 0}
+  healthBar: {fileID: 0}
+  BSplat: {fileID: 7989430682561699057}
+  size: 0
+  moveHorizontal: 0
+  TextObject: {fileID: 0}
+  textYOffset: 0
+  SpeakingArea: {fileID: 0}
+  squeak: {fileID: 0}
 --- !u!58 &8270485886848469726
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +177,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &7989430682561699057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270485886848469733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b511ef066212428710bc17b7bf5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSpray: {fileID: 3730447902578487952, guid: fb3069f70c39c1b4f8ca60c7324f281f,
+    type: 3}
+  bloodOffset: 0

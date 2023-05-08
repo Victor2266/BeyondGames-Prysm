@@ -49,6 +49,7 @@ public class Bunny : MobGeneric
         Health -= amount;
         anim.SetTrigger("hurt");
 
+        BSplat.Spray((int)amount / 3);
         if (Health <= 0f && !isDead)
         {
             Death();
