@@ -48,8 +48,9 @@ public class MobGeneric : HasWeakness
     }
 
 
-    public virtual void SetCollision()
+    public virtual void SetCollision(Vector2 pos)
     {
+        BSplat.SetCollision(pos);
         //this is for hte lbood spray position
     }
     protected virtual void Death()

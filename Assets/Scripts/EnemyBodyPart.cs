@@ -15,8 +15,8 @@ public class EnemyBodyPart : HasWeakness
         sequence.append(LeanTween.color(gameObject, Color.red, 0.1f).setEaseInOutSine());
         sequence.append(LeanTween.color(gameObject, Color.white, 0.1f).setEaseInOutSine());
     }
-    public void SetCollision()
+    public void SetCollision(Vector2 pos)
     {
-
+        parentAI.SetCollision(pos);
     }
 }
