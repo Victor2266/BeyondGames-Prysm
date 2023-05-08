@@ -183,19 +183,19 @@ MonoBehaviour:
 
 
     <size=18>Whether it''s through quick
-    reaction times or clever planning, you can beat all the enemies without playing
-    the levels out of order or using the training room''s weapons.
+    reaction times or clever planning, you can beat all the enemies without using
+    the training room''s weapons.
 
 
-    But if you
-    get bored, or its too difficult, and you want to see the game''s content then
-    press <color=green>[G]</color> for extra health.
+    If you get bored, or its too difficult, and
+    you want to see the game''s content then press <color=green>[G]</color> for extra
+    health.
 
 
-    There are only 2 levels
-    "completed" right now.
+    There are only 2 levels "completed" right now.
 
-    <align=right>- Awasete'
+    <align=right>-
+    Awasete'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f99eabe4fff1414f8434faf39082200, type: 2}
   m_sharedMaterial: {fileID: 4731573993876998085, guid: 3f99eabe4fff1414f8434faf39082200,
@@ -290,18 +290,18 @@ MonoBehaviour:
 
     <size=18>Whether it''s through
     quick reaction times or clever planning, you can beat all the enemies without
-    playing the levels out of order or using the training room''s weapons.
+    using the training room''s weapons.
 
 
-    But
-    if you get bored, or its too difficult, and you want to see the game''s content
-    then press <color=green>[G]</color> for extra health.
+    If you get bored, or its too difficult,
+    and you want to see the game''s content then press <color=green>[G]</color> for
+    extra health.
 
 
-    There are only 2
-    levels "completed" right now.
+    There are only 2 levels "completed" right now.
 
-    <align=right>- Awasete'
+    <align=right>-
+    Awasete'
   nonReactive: 1
   delay: 0.01
   disableWrapping: 0

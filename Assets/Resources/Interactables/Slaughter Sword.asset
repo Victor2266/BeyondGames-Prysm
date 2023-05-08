@@ -17,14 +17,17 @@ MonoBehaviour:
   iconRotation: 90
   iconSize: 0.95
   isDefaultItem: 0
+  cost: 0
   WeaponType: 1
   desc: 'Big sword. Heavy sword. '
+  hideDesc: 0
+  hidden_desc: 
   equipSlot: 0
   color: {r: 0.16905482, g: 0.2735849, b: 0.19579506, a: 1}
   AttackName: 
   ReachLength: 2
   DMG_Scaling: 7
-  MaxDamage: 65
+  MaxDamage: 75
   MinDamage: 5
   DMGTextSize: 2
   activeTimeLimit: 1
