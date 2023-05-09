@@ -19616,6 +19616,8 @@ MonoBehaviour:
   oldParent: {fileID: 4703261516142872099}
   part: {fileID: 6860615526967134529}
   dontEmitLastParticle: 0
+  copyParentRot: 0
+  rotationalOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &7200572032721712426
 GameObject:
   m_ObjectHideFlags: 0
@@ -19674,7 +19676,7 @@ MonoBehaviour:
   InitialPop: {fileID: 0}
   DMGTextSize: 4
   attackVelo: 0
-  ManaCost: 7
+  ManaCost: 4
   coolDownPeriod: 3
   rapid_fire: 0
   power_control: 0
