@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e194fad2654064c9115fd9eaaaf449, type: 3}
   m_Name: Flying Dutchman
   m_EditorClassIdentifier: 
-  name: <color=#00DCFF>Flying Dutchman</color>
+  name: <color=#BDCDFF>Flying Dutchman</color>
   icon: {fileID: 21300000, guid: b7b8505e0df41a3468f93a176ea9752e, type: 3}
   iconRotation: 0
   iconSize: 1
@@ -24,8 +24,8 @@ MonoBehaviour:
   hideDesc: 1
   hidden_desc: When picked up, this sword is strangely light.
   equipSlot: 0
-  color: {r: 0, g: 0.86100006, b: 1, a: 0.7490196}
-  AttackName: 
+  color: {r: 0.50980395, g: 0.5019608, b: 1, a: 0.9098039}
+  AttackName: <color=black>B</color>
   ReachLength: 5.5
   DMG_Scaling: 1.5
   MaxDamage: 25
@@ -57,7 +57,7 @@ MonoBehaviour:
   oneSidedSwing: 1
   swingOtherSide: 1
   usesPhysicalCollider: 1
-  ElementalType: 9
+  ElementalType: 7
   leftClickStrategy: 0
   rightClickStrategy: 1
   continuousDashAccelMagnitude: 0
