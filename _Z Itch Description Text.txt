@@ -12,7 +12,7 @@ Whether you prefer to unleash devastating blows with your trusty blade or devast
 So strap on your armor and sharpen your blade - your journey begins now!
 </b></pre>
 
-<pre>Beyond is an intense and challenging action-driven sidescroller set in an ethereal world filled with magical beasts and powerful warriors. You'll journey through a series of beautifully crafted levels, facing off against other soul collectors and battling a variety of formidable foes. With unique combat mechanics that allow you to finely control a wide range of weapons and magic spells, you'll need quick reflexes and strategic thinking to emerge victorious. As you progress through the game, you'll gather powerful equipment that will help you on your quest, and uncover an overarching narrative that ties everything together. Get ready to embark on a journey through a dreamlike world filled with danger and adventure at every turn.</pre>
+<pre>Beyond is a challenging singleplayer sword fighting game. Set in an ethereal world filled with magical beasts and powerful warriors. You'll journey through a series of beautifully crafted levels, facing off against other soul collectors and battling a variety of formidable foes. With unique combat mechanics that allow you to finely control a wide range of weapons and magic spells, you'll need quick reflexes and strategic thinking to emerge victorious. As you progress through the game, you'll gather powerful equipment that will help you on your quest, and uncover an overarching narrative that ties everything together. Get ready to embark on a journey through a dreamlike world filled with danger and adventure at every turn.</pre>
 
 <pre>
 Programming and Art: Me
