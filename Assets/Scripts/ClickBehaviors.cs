@@ -17,6 +17,7 @@ public partial class WeaponController
             totalDistance = equippedWeapon.MinDamage / equippedWeapon.DMG_Scaling;
             lastHit = null;
             activeElement = equippedWeapon.ElementalType;
+            //Time.timeScale = 0.5f;
             arrowColor.color = new Color(0f, 0f, 0f, 0f);
         }
         if (PlayerController.holdingLeft && timeStamp <= Time.time && WeaponEnabled)//while holding left click
@@ -97,6 +98,8 @@ public partial class WeaponController
             whiteArrow.SetActive(true);
             activeElement = equippedWeapon.ElementalType;
             trueMD = equippedWeapon.movementDelay;
+
+            //Time.timeScale = 1f;
         }
     }
 
